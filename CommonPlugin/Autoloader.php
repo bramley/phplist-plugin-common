@@ -23,7 +23,11 @@ include dirname(__FILE__) . '/ClassLoader.php';
 function CommonPlugin_Autoloader_main()
 {
 	$loader = new CommonPlugin_ClassLoader();
-	$loader->addBasePath(PLUGIN_ROOTDIR);
+
+    foreach (explode(';',PLUGIN_ROOTDIRS) as $dir) {
+        $loader->addBasePath($dir);
+    }
+
     $iterator = new DirectoryIterator(PLUGIN_ROOTDIR . '/CommonPlugin/ext');
     
     foreach ($iterator as $file) {
