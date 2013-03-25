@@ -22,7 +22,7 @@
 	'Show' => 'Show',
 	'no_results' => 'No results to display',
 //	Widget.php
-	'download to Excel' => 'download',
+	'export' => 'export to Excel',
 	'help' => 'help',
 	'about' => 'about',
 //	General
