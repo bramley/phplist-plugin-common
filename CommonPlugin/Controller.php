@@ -85,10 +85,17 @@ abstract class CommonPlugin_Controller
 		exit;
 	}
 
-	protected function actionDownload()
+	protected function actionExport()
 	{
 		$exporter = new CommonPlugin_ExportCSV();
 		$exporter->export($this);
+		exit;
+	}
+
+	protected function actionImage()
+	{
+        $loader = new CommonPlugin_ImageLoader();
+        $loader->load($_GET['image']);
 		exit;
 	}
 
