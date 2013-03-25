@@ -44,10 +44,10 @@ function help(loc, width, height, X, Y) {
 		helpwin.close();
 		helpwin = '';
 		helploc = loc;
-		setTimeout("openhelp()",500)
+		setTimeout("openPluginHelpDialog()",500)
 	} else {
 		helploc = loc;
-		openhelp();
+		openPluginHelpDialog();
 	}
 }
 
@@ -60,6 +60,32 @@ function openhelp() {
 	if (window.focus) 
 		{helpwin.focus()}
 }
+
+function openPluginHelpDialog(url) {
+  $("#dialog").dialog({
+    minHeight: 400,
+    maxHeight: 800,
+    height: 650,
+    width: 500,
+    maxWidth: 650,
+    modal: true,
+    show: 'blind',
+    hide: 'explode',
+    scrollbars: 1
+  });
+  $("#dialog").load(url);
+  $(".ui-widget-overlay").click(function() {
+    $("#dialog").dialog('close');
+  });
+}
+$(document).ready(function() {
+
+    $(".pluginhelpdialog").unbind('click');
+    $(".pluginhelpdialog").click(function() {
+        openPluginHelpDialog(this.href);
+        return false;
+    });
+});
 </script>
 <style type="text/css">
 div.toolbar {
