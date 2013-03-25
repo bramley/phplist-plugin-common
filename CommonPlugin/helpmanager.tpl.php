@@ -43,8 +43,6 @@ td {
 <h3><?php echo $this->i18n->get('plugin_title') . ': ' . $topic ?></h3>
 <?php if (isset($file)) include $file; ?>
 <?php if (isset($help)) echo $help; ?>
-<HR WIDTH="75%">
-<A HREF="Javascript:close()"><?php echo $this->i18n->get('closewindow'); ?></A>
 </BODY>
 </HTML>
 
