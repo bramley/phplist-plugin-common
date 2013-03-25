@@ -24,7 +24,7 @@ class CommonPlugin_Listing
 
 	public $noResultsMessage = 'no_results';
 	public $pager;
-	public $sort = true;
+	public $sort = false;
 
 	public function __construct(CommonPlugin_BaseController $controller, CommonPlugin_IPopulator $populator)
 	{

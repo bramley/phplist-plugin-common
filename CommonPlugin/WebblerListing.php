@@ -9,7 +9,7 @@
  * @author    Duncan Cameron
  * @copyright 2011-2012 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
- * @version   SVN: $Id: WebblerListing.php 1234 2013-03-17 15:42:12Z Duncan $
+ * @version   SVN: $Id: WebblerListing.php 679 2012-03-16 17:06:53Z Duncan $
  * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
 
@@ -74,34 +74,11 @@ class CommonPlugin_WebblerListing extends WebblerListing
 	/*
 	 *	Override parent method to fix php error messages on usort()
 	 */
-	public function display($add_index = 0)
+ 	public function display($add_index = 0)
 	{
 		// Turn-off error reporting within core phplist
 		$level = error_reporting(0);
-		$html = "";
-		if (!sizeof($this->elements))
-			return "";
-
-		$html .= $this->listingStart();
-		$html .= $this->listingHeader();
-
-		if ($this->sort && isset($_GET['sortby'])) {
-			usort($this->elements, array($this, 'cmp'));
-		}
-
-		foreach ($this->elements as $element) {
-		  $html .= $this->listingElement($element);
-		}
-		$html .= $this->listingEnd();
-
-		$shader = new WebblerShader($this->title);
-		$shader->addContent($html);
-		$shader->display = $this->initialstate;
-		$html = $shader->shaderStart();
-		$html .= $shader->header();
-		$html .= $shader->dividerRow();
-		$html .= $shader->contentDiv();
-		$html .= $shader->footer();
+        $html = parent::display($add_index);
 		error_reporting($level);
 		return $html;
 	}
