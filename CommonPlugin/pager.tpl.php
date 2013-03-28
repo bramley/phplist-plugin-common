@@ -39,20 +39,20 @@
  * and for the default to be left aligned
  *
  */
-.listinghdelement {
-  text-align : left;
+td.listinghdname, td.listinghdelement {
+  text-align : left !important;
 }
-.listingelement, .listingelementleft, .listingelementcenter, .listingelementright {
+td.listingname, td.listingelement, td.listingelementleft, td.listingelementcenter, td.listingelementright {
   padding: 2px;
 }
-.listingelement, .listingelementleft {
-  text-align: left;
+td.listingname, td.listingelement, td.listingelementleft {
+  text-align: left !important;
 }
-.listingelementcenter {
-  text-align: center;
+td.listingelementcenter {
+  text-align: center !important;
 }
-.listingelementright {
-  text-align: right;
+td.listingelementright {
+  text-align: right !important;
 }
 /*
  * Copy of buttonpublish styles from phplist.css
@@ -72,19 +72,25 @@ a.button:link, a.button:visited {
 a.button:hover {
 	color : #666633;
 }
+.content table {
+    table-layout: auto;
+}
+div.pager {
+    border: 0px;
+    padding-bottom: 0px;
+}
+div.inline {
+    float: left;
+}
 </style>
-<hr />
-<div style='padding-bottom: 10px;'>
-	<table border='0' width='100%'>
-		<tr>
-			<td width='33%'><?php echo $range ?></td>
-			<td width='34%' style='text-align: center'><?php echo $show ?></td>
+<div class='pager'>
+    <div class='inline' style='width: 33%'><?php echo $range ?></div>
+	<div class='inline' style='width: 34%; text-align: center'><?php echo $show ?></div>
 <?php if (isset($prev)): ?>
-			<td width='23%' style='text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></td>
-			<td width='10%' style='text-align: center'><?php echo $prev; ?> | <?php echo $next; ?></td>
+    <div class='inline' style='width: 23%; text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
+    <div class='inline' style='width: 10%; text-align: center'><?php echo $prev; ?> | <?php echo $next; ?></div>
 <?php else: ?>
-			<td width='33%' style='text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></td>
+	<div class='inline' style='width: 33%; text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
 <?php endif; ?>
-		</tr>
-	</table>
 </div>
+
