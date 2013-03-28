@@ -41,6 +41,16 @@ class CommonPlugin_GoogleChartException extends CommonPlugin_Exception
 class CommonPlugin_GoogleChart
 {
 	const SESSION_KEY = 'ImageCache';
+	const CHART_URL = 'http://chart.googleapis.com/chart?';
+
+	/*
+	 *	Private methods
+	 */
+	private function buildQuery(array $params)
+	{
+		return http_build_query($params + array('chid' => md5(uniqid(rand(), true))), '', '&');
+	}
+
 	/*
 	 *	Public methods
 	 */
@@ -51,11 +61,7 @@ class CommonPlugin_GoogleChart
 
 	public function url(CommonPlugin_IChartable $charter)
 	{
-		$url = 'http://chart.googleapis.com/chart?'
-			. http_build_query(
-				$charter->chartParameters() + array('chid' => md5(uniqid(rand(), true))), '', '&'
-			);
-		return $url;
+		return self::CHART_URL . $this->buildQuery($charter->chartParameters());
 	}
 
 	public function createChart(CommonPlugin_IChartable $charter)
@@ -68,16 +74,14 @@ class CommonPlugin_GoogleChart
 		$imageCache = isset($_SESSION[self::SESSION_KEY]) ? $_SESSION[self::SESSION_KEY] : array();
 
 		if (!isset($imageCache[$id])) {
-			$url = 'http://chart.googleapis.com/chart?';
+			$url = self::CHART_URL;
 			try {
 				$context = stream_context_create(
 					array(
 						'http' => array(
 							'method' => 'POST',
 							'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-							'content' => http_build_query(
-								$params + array('chid' => md5(uniqid(rand(), true))), '', '&'
-							)
+							'content' => $this->buildQuery($params)
 						)
 					)
 				);
