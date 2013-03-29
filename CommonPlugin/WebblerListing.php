@@ -30,6 +30,12 @@ class CommonPlugin_WebblerListing extends WebblerListing
 	/*
 	 *	Override parent methods to convert value and url to html entities
 	 */
+	public function addElement($element, $url = '', $colsize = '')
+	{
+		parent::addElement($element, htmlspecialchars($url), $colsize);
+        parent::setClass($element, 'row1');
+	}
+
 	public function addColumn($name, $column_name, $value, $url = '', $align = '')
 	{
 		parent::addColumn($name, $column_name, htmlspecialchars($value, ENT_QUOTES), htmlspecialchars($url), $align);
