@@ -37,18 +37,18 @@ class CommonPlugin_Listing
 	{
 		$total = $this->populator->total();
 		list($start, $limit) = $this->pager->range($total);
-		$result = $this->pager->display();
+		$pager = $this->pager->display();
 
  		if ($total > 0) {
 			$w = new CommonPlugin_WebblerListing();
+            $w->usePanel($pager);
 
 			if ($this->sort)
 				$w->addSort();
 			$this->populator->populate($w, $start, $limit);
-			// strip trailing <br> elements from WebblerListing display
-			$result .= preg_replace('|(?:<br\s*/?>\s*)+$|', '', $w->display());
+            $result = $w->display();
 		} else {
-			$result .= CHtml::tag('p', array(), $this->controller->i18n->get($this->noResultsMessage));
+			$result = CHtml::tag('p', array(), $this->controller->i18n->get($this->noResultsMessage));
 		}
 		return $result;
 	}
