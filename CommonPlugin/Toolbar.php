@@ -59,16 +59,16 @@ class CommonPlugin_Toolbar
 	public function addHelpButton($topic)
 	{
 		foreach (array(
-			array('caption' => 'help', 'topic' => $topic, 'windowSize' => '500, 500', 'icon' => 'info.png'),
-			array('caption' => 'about', 'topic' => 'about', 'windowSize' => '350, 410', 'icon' => 'gnu_licence.png'),
-			array('caption' => 'phpinfo', 'topic' => 'phpinfo', 'windowSize' => '650, 800', 'icon' => 'page_white_php.png'),
-			array('caption' => 'config.php', 'topic' => 'config.php', 'windowSize' => '650, 800', 'icon' => 'config.png')
+			array('caption' => 'help', 'topic' => $topic, 'icon' => 'info.png', 'class' => 'pluginhelpdialog'),
+			array('caption' => 'about', 'topic' => 'about', 'icon' => 'gnu_licence.png', 'class' => 'pluginhelpdialog'),
+			array('caption' => 'phpinfo', 'topic' => 'phpinfo', 'icon' => 'page_white_php.png', 'class' => 'pluginhelpdialogwide'),
+			array('caption' => 'config.php', 'topic' => 'config.php', 'icon' => 'phplist.ico', 'class' => 'pluginhelpdialogwide')
 		) as $param) {
 			$button = new CommonPlugin_Toolbar_Button;
 			$button->url = CommonPlugin_PageURL::create(null, array('action' => 'help', 'topic' => $param['topic']));
 			$button->icon = $param['icon'];
 			$button->caption = $this->controller->i18n->get($param['caption']);
-			$button->attributes = array('class' => 'pluginhelpdialog', 'target' => '_blank');
+			$button->attributes = array('class' => $param['class'], 'target' => '_blank');
 			$this->buttons[] = $button;
 		}
 	}

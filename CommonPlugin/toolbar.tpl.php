@@ -27,46 +27,12 @@
 	Replace javascript help functions to allow window size to be specified
 -->
 <script language="javascript" type="text/javascript">
-var helpwin = null;
-var helploc = null;
-var helpX = 100;
-var helpY = 100;
-var helpWidth = 350;
-var helpHeight = 350;
-
-function help(loc, width, height, X, Y) {
-	helpWidth = width || helpWidth;
-	helpHeight = height || helpHeight;
-	helpX = X || helpX;
-	helpY = Y || helpY;
-
-	if (helpwin && !helpwin.closed) {
-		helpwin.close();
-		helpwin = '';
-		helploc = loc;
-		setTimeout("openPluginHelpDialog()",500)
-	} else {
-		helploc = loc;
-		openPluginHelpDialog();
-	}
-}
-
-function openhelp() {
-	helpwin=window.open(
-		helploc,
-		"help",
-		'screenX=' + helpX + ',screenY=' + helpY + ',width=' + helpWidth + ',height=' + helpHeight + ',scrollbars=1,location=0'
-	);
-	if (window.focus) 
-		{helpwin.focus()}
-}
-
-function openPluginHelpDialog(url) {
+function openPluginHelpDialog(url, width, height) {
   $("#dialog").dialog({
     minHeight: 400,
     maxHeight: 800,
-    height: 650,
-    width: 500,
+    height: height,
+    width: width,
     maxWidth: 650,
     modal: true,
     show: 'blind',
@@ -78,11 +44,16 @@ function openPluginHelpDialog(url) {
     $("#dialog").dialog('close');
   });
 }
-$(document).ready(function() {
 
+$(document).ready(function() {
     $(".pluginhelpdialog").unbind('click');
     $(".pluginhelpdialog").click(function() {
-        openPluginHelpDialog(this.href);
+        openPluginHelpDialog(this.href, 500, 650);
+        return false;
+    });
+    $(".pluginhelpdialogwide").unbind('click');
+    $(".pluginhelpdialogwide").click(function() {
+        openPluginHelpDialog(this.href, 650, 800);
         return false;
     });
 });
