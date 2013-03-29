@@ -20,7 +20,6 @@
 <HTML>
 <HEAD>
 <TITLE>help</TITLE>
-<link rel="stylesheet" type="text/css" href="styles/styles_help.css">
 </HEAD>
 <BODY>
 <style type="text/css">
