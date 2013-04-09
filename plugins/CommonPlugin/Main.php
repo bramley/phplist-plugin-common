@@ -19,6 +19,8 @@
  */
 class CommonPlugin_Main
 {
+    const REQUIRED_VERSION = '5.2.0';
+
 	public static function run(CommonPlugin_ControllerFactoryBase $cf = null)
 	{
 		$level = error_reporting(E_ALL | E_STRICT);
@@ -27,8 +29,8 @@ class CommonPlugin_Main
 		try {
 			$version = phpversion();
 
-			if (version_compare($version, '5.1.0') < 0) 
-				throw new Exception("php version $version found, plugin requires version 5.1 or later");
+			if (version_compare($version, self::REQUIRED_VERSION) < 0) 
+				throw new Exception(sprintf("php version $version found, plugin requires version %s or later", self::REQUIRED_VERSION));
 
 			if (!$cf)
 				$cf = new CommonPlugin_ControllerFactory();
