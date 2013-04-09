@@ -26,12 +26,8 @@ class CommonPlugin_Toolbar_Button
 	
 	public function display()
 	{
-        $imageUrl = CommonPlugin_PageURL::create(null, array('action' => 'image', 'image' => $this->icon));
-
-		return CHtml::tag(
-			'a', array('href' => $this->url) + $this->attributes, 
-			CHtml::tag('img', array('src'=> $imageUrl, 'alt' => $this->caption, 'title' => $this->caption))
-		);	
+        $this->attributes['href'] = $this->url;
+		return CHtml::tag('a', $this->attributes, new CommonPlugin_ImageTag($this->icon, $this->caption));
 	}
 }
 
@@ -50,7 +46,7 @@ class CommonPlugin_Toolbar
 	public function addExportButton(array $query = array())
 	{
 		$button = new CommonPlugin_Toolbar_Button;
-		$button->url = CommonPlugin_PageURL::create(null, $query + array('action' => 'export'));
+		$button->url = new CommonPlugin_PageURL(null, $query + array('action' => 'export'));
 		$button->icon = 'excel.png';
 		$button->caption = $this->controller->i18n->get('export');
 		$this->buttons[] = $button;
@@ -65,7 +61,7 @@ class CommonPlugin_Toolbar
 			array('caption' => 'config.php', 'topic' => 'config.php', 'icon' => 'phplist.ico', 'class' => 'pluginhelpdialogwide')
 		) as $param) {
 			$button = new CommonPlugin_Toolbar_Button;
-			$button->url = CommonPlugin_PageURL::create(null, array('action' => 'help', 'topic' => $param['topic']));
+			$button->url = new CommonPlugin_PageURL(null, array('action' => 'help', 'topic' => $param['topic']));
 			$button->icon = $param['icon'];
 			$button->caption = $this->controller->i18n->get($param['caption']);
 			$button->attributes = array('class' => $param['class'], 'target' => '_blank');

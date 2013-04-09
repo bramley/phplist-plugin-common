@@ -157,7 +157,7 @@ class CommonPlugin_Pager
      */
 	private function pageLink($text, array $params)
 	{
-		return CommonPlugin_PageLink::create(null, htmlspecialchars($text), array_merge($_GET, $params));
+		return new CommonPlugin_PageLink(null, htmlspecialchars($text), array_merge($_GET, $params));
 	}
 
     /**
@@ -199,12 +199,12 @@ class CommonPlugin_Pager
 		$prevArrow = '&#x25c0;';
 		$nextArrow = '&#x25b6;';
 		$this->linkPrev = $prev 
-			? CommonPlugin_PageLink::create(null, $prevArrow,
+			? new CommonPlugin_PageLink(null, $prevArrow,
 				array_merge($_GET, array($param => $prev, $this->start => 0))
 			)
 			: $prevArrow;
 		$this->linkNext = $next
-			? CommonPlugin_PageLink::create(null, $nextArrow,
+			? new CommonPlugin_PageLink(null, $nextArrow,
 				array_merge($_GET, array($param => $next, $this->start => 0))
 			) 
 			: $nextArrow;

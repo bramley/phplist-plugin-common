@@ -20,14 +20,14 @@
 class CommonPlugin_PageLink
 {
 	/*
-	 *	Private methods
-	 */
-	private function __construct()
-	{
-	}
-	/*
 	 *	Public methods
 	 */
+	public function __construct($page, $text, array $params)
+	{
+        $this->page = $page;
+        $this->text = $text;
+        $this->params = $params;
+	}
 
     /**
      * Generate a link for the given page and query parameters
@@ -37,12 +37,12 @@ class CommonPlugin_PageLink
      * @return string html <a> element
      * @access private
      */
-	public static function create($page, $text, array $params)
+	public function __toString()
 	{
 		return sprintf(
 			"<a href='%s'>%s</a>",
-			htmlspecialchars(CommonPlugin_PageURL::create($page, $params)),
-			$text
+			htmlspecialchars(new CommonPlugin_PageURL($this->page, $this->params)),
+			$this->text
 		);
 	}
 }
