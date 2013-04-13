@@ -79,7 +79,7 @@ div.pager {
     border: 0px;
     padding-bottom: 0px;
 }
-div.inline {
+.pager div.inline {
     float: left;
 }
 </style>
