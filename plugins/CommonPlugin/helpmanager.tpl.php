@@ -22,22 +22,6 @@
 <TITLE>help</TITLE>
 </HEAD>
 <BODY>
-<style type="text/css">
-body, p, td {
-    font-family: sans-serif;
-    font-size: 10px;
-}
-table{
-    margin: 5px;
-    border-collapse: collapse;
-}
-td {
-    vertical-align: top;
-    padding: 5px 5px 5px 5px;
-    border-style: dotted;
-    border-width: 1px; 
-}
-</style>
 <!-- content -->
 <h3><?php echo $this->i18n->get('plugin_title') . ': ' . $topic ?></h3>
 <?php if (isset($file)) include $file; ?>
