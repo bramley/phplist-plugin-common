@@ -62,9 +62,6 @@ $(document).ready(function() {
 div.toolbar {
 	float: right;
 }
-div.clear {
-	clear: both;
-}
 div.toolbar img {
 	margin-right: 5px;
 	border: 0px;
