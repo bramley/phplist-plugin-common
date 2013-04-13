@@ -33,6 +33,19 @@
  *		blacklisted: show only blacklisted users
  */
 ?>
+<style type="text/css">
+div.inline {
+    display: inline;
+    white-space: nowrap
+}
+.inline label{
+    display: inline;
+}
+input[type="text"], select {
+    width: auto !important;
+    display: inline !important;
+}
+</style>
 <form method='post'>
 	<fieldset>
 		<?php if ($showSearch): ?>
@@ -48,7 +61,7 @@
 				CHtml::listData($model->lists, 'id', 'name'),
 				array('prompt' => 'All')
 			); ?>
-			<div>
+			<div class='inline'>
 			<?php echo CHtml::checkBox(
 				'SearchForm[unconfirmed]',
 				$model->unconfirmed,
@@ -64,17 +77,18 @@
 			</div>
 		</div>
 		<?php endif; ?>
-		<div>
+		<div class='clear'></div>
+        <div>
 		<?php echo CHtml::checkBoxList(
 			'SearchForm[selectedAttrs]',
 			$model->selectedAttrs,
  			CHtml::listData($model->attributes, 'id', 'name'),
             array(
                 'separator' => ' ', 'uncheckValue' => 0,
-                'template' => '<div style="display: inline; white-space: nowrap">{input} {label}</div>'
+                'template' => '<div class="inline">{input} {label}</div>'
             )
 		); ?>
-		<input type='submit' name='SearchForm[submit]' value='<?php echo $this->i18n->get('Show'); ?>' />
+            <input type='submit' name='SearchForm[submit]' value='<?php echo $this->i18n->get('Show'); ?>' />
 		</div>
 	</fieldset>
 </form>
