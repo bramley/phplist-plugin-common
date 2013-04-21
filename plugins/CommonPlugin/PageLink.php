@@ -9,7 +9,6 @@
  * @author    Duncan Cameron
  * @copyright 2011-2012 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
- * @version   SVN: $Id: PageLink.php 758 2012-04-24 15:46:37Z Duncan $
  * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
 
@@ -19,15 +18,15 @@
  */
 class CommonPlugin_PageLink
 {
-	/*
-	 *	Public methods
-	 */
-	public function __construct($page, $text, array $params)
-	{
+    /*
+     *    Public methods
+     */
+    public function __construct($page, $text, array $params)
+    {
         $this->page = $page;
         $this->text = $text;
         $this->params = $params;
-	}
+    }
 
     /**
      * Generate a link for the given page and query parameters
@@ -37,13 +36,13 @@ class CommonPlugin_PageLink
      * @return string html <a> element
      * @access private
      */
-	public function __toString()
-	{
-		return sprintf(
-			"<a href='%s'>%s</a>",
-			htmlspecialchars(new CommonPlugin_PageURL($this->page, $this->params)),
-			$this->text
-		);
-	}
+    public function __toString()
+    {
+        return sprintf(
+            "<a href='%s'>%s</a>",
+            htmlspecialchars(new CommonPlugin_PageURL($this->page, $this->params)),
+            $this->text
+        );
+    }
 }
 ?>

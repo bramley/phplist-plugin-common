@@ -9,8 +9,6 @@
  * @author    Duncan Cameron
  * @copyright 2011-2012 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
- * @version   SVN: $Id: pager.tpl.php 778 2012-06-08 15:05:30Z Duncan $
- * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
 
 
@@ -58,19 +56,19 @@ td.listingelementright {
  * Copy of buttonpublish styles from phplist.css
  */
 a.button:link, a.button:visited {
-	font-family: verdana, sans-serif;
-	font-size : 11px;
-	color : #999966;
-	background-color : #ffffff;
-	font-weight: bold;
-	text-align : middle;
-	text-decoration : none;
-	border: 1px #999966 solid;
-	padding: 2px;
-	margin: 2px;
+    font-family: verdana, sans-serif;
+    font-size : 11px;
+    color : #999966;
+    background-color : #ffffff;
+    font-weight: bold;
+    text-align : middle;
+    text-decoration : none;
+    border: 1px #999966 solid;
+    padding: 2px;
+    margin: 2px;
 }
 a.button:hover {
-	color : #666633;
+    color : #666633;
 }
 .content table {
     table-layout: auto;
@@ -85,12 +83,12 @@ div.pager {
 </style>
 <div class='pager'>
     <div class='inline' style='width: 33%'><?php echo $range ?></div>
-	<div class='inline' style='width: 34%; text-align: center'><?php echo $show ?></div>
+    <div class='inline' style='width: 34%; text-align: center'><?php echo $show ?></div>
 <?php if (isset($prev)): ?>
     <div class='inline' style='width: 23%; text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
     <div class='inline' style='width: 10%; text-align: center'><?php echo $prev; ?> | <?php echo $next; ?></div>
 <?php else: ?>
-	<div class='inline' style='width: 33%; text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
+    <div class='inline' style='width: 33%; text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
 <?php endif; ?>
 </div>
 

@@ -9,8 +9,6 @@
  * @author    Duncan Cameron
  * @copyright 2011-2013 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
- * @version   SVN: $Id: ExportCSV.php 717 2012-03-30 19:33:23Z Duncan $
- * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
 
 /**
@@ -19,13 +17,13 @@
  */
 class CommonPlugin_ImageLoader
 {
-	public function __construct()
-	{
-	}
+    public function __construct()
+    {
+    }
 
-	public function load($image) 
-	{
-		ob_end_clean();
+    public function load($image) 
+    {
+        ob_end_clean();
         $filepath = PLUGIN_ROOTDIR . '/CommonPlugin/images/' . basename($image);
 
         if (!file_exists($filepath)) {
@@ -58,5 +56,5 @@ class CommonPlugin_ImageLoader
         header("Last-Modified: $mtime");
         header('Pragma:');
         readfile($filepath);
-	}
+    }
 }
