@@ -25,8 +25,9 @@ function CommonPlugin_Autoloader_main()
     foreach (explode(';',PLUGIN_ROOTDIRS) as $dir) {
         $loader->addBasePath($dir);
     }
+    $loader->addBasePath(PLUGIN_ROOTDIR);
 
-    $iterator = new DirectoryIterator(PLUGIN_ROOTDIR . '/CommonPlugin/ext');
+    $iterator = new DirectoryIterator(dirname(__FILE__) . '/ext');
     
     foreach ($iterator as $file) {
         if ($file->isDir()) {

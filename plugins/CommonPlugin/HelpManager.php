@@ -53,11 +53,11 @@ class CommonPlugin_HelpManager
 
         if (is_file($f = $this->pluginDir . self::LICENCE_FILE)
             ||
-            is_file($f = PLUGIN_ROOTDIR . '/' . self::COMMON_PLUGIN . '/' . self::LICENCE_FILE)) {
+            is_file($f = dirname(__FILE__) . '/' . self::LICENCE_FILE)) {
             $params['pluginLicence'] = file_get_contents($f);
         }
 
-        if (is_file($f = PLUGIN_ROOTDIR . '/' . self::COMMON_PLUGIN . '/' . self::VERSION_FILE)) {
+        if (is_file($f = dirname(__FILE__) . '/' . self::VERSION_FILE)) {
             $version = file_get_contents($f);
             $plugins[] = array('name' => self::COMMON_PLUGIN, 'version' => $version);
         }

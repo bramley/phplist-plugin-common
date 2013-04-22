@@ -44,7 +44,7 @@
         $this->coreI18N = $I18N;
         $this->iconv = function_exists('iconv');
         $this->lan = $this->loadLanguageFile($this->languageDir($this->pluginDir()));
-        $this->lan += $this->loadLanguageFile($this->languageDir(PLUGIN_ROOTDIR . '/CommonPlugin/'));
+        $this->lan += $this->loadLanguageFile($this->languageDir(dirname(__FILE__) . '/'));
     }
 
     private function pluginDir()

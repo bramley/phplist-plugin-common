@@ -12,7 +12,7 @@
  */
 
 /**
- * This class manages the export in CSV format
+ * This class serves the plugin images
  * 
  */
 class CommonPlugin_ImageLoader
@@ -24,7 +24,7 @@ class CommonPlugin_ImageLoader
     public function load($image) 
     {
         ob_end_clean();
-        $filepath = PLUGIN_ROOTDIR . '/CommonPlugin/images/' . basename($image);
+        $filepath = dirname(__FILE__) . '/images/' . basename($image);
 
         if (!file_exists($filepath)) {
             header('HTTP/1.0 404 Not Found');
