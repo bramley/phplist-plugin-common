@@ -1,0 +1,9 @@
+version 2013-04-22
+      Change to required version of php
+      Encapsulate how an image file is served
+      Use toString() method
+      file to hold current version
+      Change tabs to spaces
+      Removed SVN version lines
+      Remove dependency on PLUGIN_ROOTDIR
+      Fix to resolve GitHub issue #1 on phplist-statisticsplugin
