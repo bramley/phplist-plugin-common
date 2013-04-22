@@ -20,7 +20,7 @@ include dirname(__FILE__) . '/ClassLoader.php';
 
 function CommonPlugin_Autoloader_main()
 {
-	$loader = new CommonPlugin_ClassLoader();
+    $loader = new CommonPlugin_ClassLoader();
 
     foreach (explode(';',PLUGIN_ROOTDIRS) as $dir) {
         $loader->addBasePath($dir);
@@ -34,6 +34,6 @@ function CommonPlugin_Autoloader_main()
             $loader->addBasePath($file->getPathname());
         }
     }
-	$loader->register();
+    $loader->register();
 }
 CommonPlugin_Autoloader_main();

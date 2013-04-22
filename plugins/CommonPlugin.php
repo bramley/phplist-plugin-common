@@ -18,7 +18,6 @@
  * @author    Duncan Cameron
  * @copyright 2011-2013 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
- * @version   SVN: $Id: MessageStatisticsPlugin.php 1232 2013-03-16 10:17:11Z Duncan $
  * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
 
@@ -32,7 +31,7 @@
 
 class CommonPlugin extends phplistPlugin
 {
-	const VERSION_FILE = 'version.txt';
+    const VERSION_FILE = 'version.txt';
 
     /*
      *  Inherited variables
@@ -51,8 +50,8 @@ class CommonPlugin extends phplistPlugin
     public function __construct()
     {
         $this->coderoot = dirname(__FILE__) . '/CommonPlugin/';
-		$this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
-			? file_get_contents($f)
+        $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
+            ? file_get_contents($f)
             : '';
         parent::__construct();
     }
