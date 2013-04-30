@@ -39,9 +39,9 @@ class CommonPlugin_WebblerListing extends WebblerListing
         parent::addColumn($name, $column_name, htmlspecialchars($value, ENT_QUOTES), htmlspecialchars($url), $align);
     }
 
-    public function addRow($name, $row_name, $value, $url = '', $align = '')
+    public function addRow($name, $row_name, $value, $url = '', $align = '', $class = '')
     {
-        parent::addRow($name, $row_name, nl2br(htmlspecialchars($value, ENT_QUOTES)), htmlspecialchars($url), $align);
+        parent::addRow($name, $row_name, nl2br(htmlspecialchars($value, ENT_QUOTES)), htmlspecialchars($url), $align, $class);
     }
 
     /*
@@ -57,65 +57,8 @@ class CommonPlugin_WebblerListing extends WebblerListing
         parent::addColumn($name, $column_name, $value, htmlspecialchars($url), $align);
     }
 
-    public function addRowHtml($name, $row_name, $value, $url = '', $align = '')
+    public function addRowHtml($name, $row_name, $value, $url = '', $align = '', $class = '')
     {
-        parent::addRow($name, $row_name, $value, htmlspecialchars($url), $align);
-    }
-    /*
-     *    Override parent method to provide case-insensitive sorting
-     */
-    public function cmp($a, $b)
-    {
-        $sortcol = urldecode($_GET['sortby']);
-
-        if (!is_array($a) || !is_array($b)) return 0;
-        $val1 = strtolower(strip_tags($a['columns'][$sortcol]['value']));
-        $val2 = strtolower(strip_tags($b['columns'][$sortcol]['value']));
-
-        if ($val1 == $val2) return 0;
-        return $val1 < $val2 ? -1 : 1;
-    }
-    /*
-     *    Override parent method to fix php error messages on usort()
-     */
-     public function display($add_index = 0)
-    {
-        // Turn-off error reporting within core phplist
-        $level = error_reporting(0);
-        $html = parent::display($add_index);
-        error_reporting($level);
-        return $html;
-    }
-
-    /*
-     *    Override parent methods to allow all columns to be sorted
-     */
-    public function listingHeader() 
-    {
-        $tophelp = '';
-        if (!sizeof($this->columns)) {
-            $tophelp = $this->help;
-        }
-        $html = '<tr valign="top">';
-        $html .= sprintf(
-            '<td><a name="%s"></a><div class="listinghdname">%s%s</div></td>',
-            str_replace(" ","_",htmlspecialchars(strtolower($this->title))),
-            $tophelp,$this->title
-        );
-        
-        foreach ($this->columns as $column => $columnname) {
-            if ($this->sortby[$columnname] && $this->sort) {
-                $display = CommonPlugin_PageLink::create(
-                    null, $columnname, 
-                    array_merge($_GET, array('sortby' => $columnname))
-                );
-            } else {
-                $display = $columnname;
-            }
-            $html .= sprintf('<td><div class="listinghdelement">%s</div></td>',$display);
-        }
-
-        $html .= '</tr>';
-        return $html;
+        parent::addRow($name, $row_name, $value, htmlspecialchars($url), $align, $class = '');
     }
 }
