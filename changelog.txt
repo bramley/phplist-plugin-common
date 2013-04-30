@@ -1,3 +1,6 @@
+version 2013-04-30
+      Internal changes for compatibility with phplist 2.11.8
+
 version 2013-04-22
       Change to required version of php
       Encapsulate how an image file is served
