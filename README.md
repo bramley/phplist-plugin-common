@@ -8,6 +8,8 @@ When installing or upgrading a plugin ensure that the latest CommonPlugin is ins
 
 ### Dependencies ###
 
+This plugin is for phplist 2.11.8 and later.
+
 Requires php version 5.2 or later.
 
 ### Set the plugin directory ###
