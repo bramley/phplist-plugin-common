@@ -111,7 +111,12 @@ class CommonPlugin_GoogleChart
     public function sendChart($id)
     {
         ob_end_clean();
+        $expires = gmdate("D, d M Y H:i:s", time() + 604800) . " GMT";
         header('Content-type: image/png');
+        header('Content-Length: ' . strlen($_SESSION[self::SESSION_KEY][$id]));
+        header("Expires: $expires");
+        header('Cache-Control: max-age=604800');
+        header('Pragma:');
         echo $_SESSION[self::SESSION_KEY][$id];
     }
 }
