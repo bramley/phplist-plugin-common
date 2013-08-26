@@ -99,9 +99,7 @@ abstract class CommonPlugin_Controller
 
     protected function normalise(&$post)
     {
-        if (get_magic_quotes_gpc()) {
-            array_walk_recursive($post,    array($this, 'stripSlashes'));
-        };
+        array_walk_recursive($post,    array($this, 'stripSlashes'));
     }
 
     protected function logEvent($message)
