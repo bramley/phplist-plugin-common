@@ -22,15 +22,17 @@ function CommonPlugin_Autoloader_main()
 {
     $loader = new CommonPlugin_ClassLoader();
 
-    foreach (explode(';',PLUGIN_ROOTDIRS) as $dir) {
-        $loader->addBasePath($dir);
+    if (PLUGIN_ROOTDIRS != '') {
+        foreach (explode(';',PLUGIN_ROOTDIRS) as $dir) {
+            $loader->addBasePath($dir);
+        }
     }
     $loader->addBasePath(PLUGIN_ROOTDIR);
 
     $iterator = new DirectoryIterator(dirname(__FILE__) . '/ext');
     
     foreach ($iterator as $file) {
-        if ($file->isDir()) {
+        if ($file->isDir() && !$file->isDot()) {
             $loader->addBasePath($file->getPathname());
         }
     }
