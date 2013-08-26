@@ -17,6 +17,8 @@
  */
 class CommonPlugin_ImageLoader
 {
+    const DEFAULT_EXPIRE = 604800;
+
     public function __construct()
     {
     }
@@ -50,9 +52,12 @@ class CommonPlugin_ImageLoader
             'bmp' => 'bmp'
         );
         $type = isset($cTypes[$ext]) ? $cTypes[$ext] : 'jpeg';
+        $expire = self::DEFAULT_EXPIRE;
+        $expires = gmdate("D, d M Y H:i:s", time() + $expire) . " GMT";
         header("Content-type: image/$type");
-        // header mime type
         header('Content-Length: ' . filesize($filepath));
+        header("Expires: $expires");
+        header("Cache-Control: max-age=$expire");
         header("Last-Modified: $mtime");
         header('Pragma:');
         readfile($filepath);
