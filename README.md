@@ -31,6 +31,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2013-08-26  Accumulated changes
     2013-04-30  Internal changes to work with phplist 2.11.8
     2013-04-22  Fix for GitHub issue, internal changes
     2013-03-29  Initial version for phplist 2.11.x releases
