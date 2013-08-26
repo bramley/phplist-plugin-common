@@ -1,3 +1,8 @@
+version 2013-08-26
+      Clarify the required version of phplist
+      Added http headers to allow browser to cache images
+      Minor fixes
+
 version 2013-04-30
       Internal changes for compatibility with phplist 2.11.8
 
