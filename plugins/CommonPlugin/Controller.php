@@ -10,41 +10,6 @@
  * @copyright 2011-2012 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
-
-/**
- * This is the base class for Controller.
- * It provides the common functionality shared by controllers that need to render views. 
- * 
- */
-abstract class CommonPlugin_BaseController
-{
-    /*
-     *    Public methods
-     */
-
-    public function __construct()
-    {
-    }
-
-    public function render($_template, array $_params = array())
-    {
-        /*
-         * Capture the rendering of the template
-         */
-        extract($_params);
-        ob_start();
-        try {
-            include $_template;
-        } catch (Exception $e) {
-            ob_end_clean();
-            throw $e;
-        }
-        return ob_get_clean();
-    }
-}
-/**
- * This class manages the running of a controller using the action parameter
- */
 abstract class CommonPlugin_Controller
     extends CommonPlugin_BaseController
 {
