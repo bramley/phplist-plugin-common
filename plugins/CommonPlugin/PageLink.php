@@ -21,6 +21,14 @@ class CommonPlugin_PageLink
     /*
      *    Public methods
      */
+    /**
+     * Constructor
+     * @param string $page the page name
+     * @param string $text text for link - this is not automatically html encoded
+     * @param array $params additional parameters for the URL
+     * @param array $attrs additional attributes for the A element
+     * @access public
+     */
     public function __construct($page, $text, array $params, array $attrs = array())
     {
         $this->page = $page;
@@ -31,11 +39,8 @@ class CommonPlugin_PageLink
 
     /**
      * Generate a link for the given page and query parameters
-     * @param string $page the page name
-     * @param string $text text for link - this is not automatically html encoded
-     * @param array $params additional parameters for the URL
      * @return string html <a> element
-     * @access private
+     * @access public
      */
     public function __toString()
     {
