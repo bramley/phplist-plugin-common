@@ -74,7 +74,7 @@ class CommonPlugin_DB {
          */
         $resource = $this->_query($sql);
 
-        return Sql_Fetch_Array($resource);
+        return Sql_Fetch_Assoc($resource);
     }
 
     public function queryOne($sql, $field) {
@@ -93,7 +93,7 @@ class CommonPlugin_DB {
 
         $result = array();
 
-        while ($row = Sql_Fetch_Array($resource)) {
+        while ($row = Sql_Fetch_Assoc($resource)) {
             $result[] = $row[$field];
         }
         return $result;
