@@ -28,13 +28,10 @@ class CommonPlugin_DB {
         /*
          * 
          */
-        // Turn-off error reporting within core phplist
-        $level = error_reporting(0);
         $time_start = microtime(true);
         $resource = Sql_Query($sql);
         $elapsed = (microtime(true) - $time_start) * 1000;
         $this->logger->log("elapsed time $elapsed ms\n$sql", KLogger::DEBUG);
-        error_reporting($level);
 
         if (!$resource) {
             throw new Exception('Invalid query: ' . mysql_error() . ' ' . $sql);
