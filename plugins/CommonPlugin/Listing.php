@@ -24,7 +24,7 @@ class CommonPlugin_Listing
     public $pager;
     public $sort = false;
 
-    public function __construct(CommonPlugin_BaseController $controller, CommonPlugin_IPopulator $populator)
+    public function __construct(CommonPlugin_Controller $controller, CommonPlugin_IPopulator $populator)
     {
         $this->controller = $controller;
         $this->populator = $populator;

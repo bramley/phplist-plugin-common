@@ -46,5 +46,6 @@ class CommonPlugin_PageLink
             $v = htmlspecialchars($v);
             $string .= " $k=\"$v\"";
         }
+		return sprintf('<a%s>%s</a>', $string, $this->text);
     }
 }
