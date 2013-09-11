@@ -99,7 +99,7 @@ abstract class CommonPlugin_Controller
 
     protected function normalise(&$post)
     {
-        array_walk_recursive($post,    array($this, 'stripSlashes'));
+        array_walk_recursive($post, array($this, 'stripSlashes'));
     }
 
     protected function logEvent($message)
