@@ -19,18 +19,11 @@
 abstract class CommonPlugin_BaseController
 {
     /*
-     *    Public attributes
-     */
-    public $i18n;
-    public $logger;
-    /*
      *    Public methods
      */
 
     public function __construct()
     {
-        $this->i18n = CommonPlugin_I18N::instance();
-        $this->logger = CommonPlugin_Logger::instance();
     }
 
     public function render($_template, array $_params = array())
@@ -55,6 +48,12 @@ abstract class CommonPlugin_BaseController
 abstract class CommonPlugin_Controller
     extends CommonPlugin_BaseController
 {
+    /*
+     *    Public attributes
+     */
+    public $i18n;
+    public $logger;
+
     /*
      *    Private methods
      */
@@ -117,6 +116,8 @@ abstract class CommonPlugin_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->i18n = CommonPlugin_I18N::instance();
+        $this->logger = CommonPlugin_Logger::instance();
     }
 
     public function run($action = null)
