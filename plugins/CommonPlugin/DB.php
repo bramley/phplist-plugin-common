@@ -85,18 +85,12 @@ class CommonPlugin_DB {
         return $row ? $row[$field] : false;
     }
 
-    public function queryColumn($sql, $field) {
+    public function queryColumn($sql, $field, $index = null) {
         /*
          * 
          */
-        $resource = $this->_query($sql);
-
-        $result = array();
-
-        while ($row = Sql_Fetch_Assoc($resource)) {
-            $result[] = $row[$field];
-        }
-        return $result;
+        $iterator = $this->queryAll($sql);
+        return array_column($iterator, $field, $index);
     }
 
 }
