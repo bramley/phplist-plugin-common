@@ -43,6 +43,9 @@ input[type="text"], select {
     width: auto !important;
     display: inline !important;
 }
+fieldset {
+    border: 1px solid !important;
+}
 </style>
 <form method='post'>
     <fieldset>
