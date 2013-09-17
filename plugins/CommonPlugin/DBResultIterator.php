@@ -56,7 +56,7 @@ class CommonPlugin_DBResultIterator implements Iterator, Countable
      */
     public function current()
     {
-        return sql_fetch_array($this->result);
+        return sql_fetch_assoc($this->result);
     }
         
     /**
