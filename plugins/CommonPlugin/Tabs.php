@@ -21,4 +21,10 @@ class CommonPlugin_Tabs extends WebblerTabs
     {
         parent::addTab(htmlspecialchars($caption), htmlspecialchars($url), $name);
     }
+
+    public function __construct()
+    {
+        $this->setListClass('sendcampaign');
+        $this->setId('sendtabs');
+    }
 }
