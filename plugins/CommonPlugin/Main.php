@@ -38,7 +38,7 @@ class CommonPlugin_Main
             $action = isset($_GET['action']) ? $_GET['action'] : null;
             $controller->run($action);
         } catch (Exception $e) {
-            print '<p>' . $e->getMessage() . '</p>';
+            print '<p>' . htmlspecialchars($e->getMessage()) . '</p>';
         }
         restore_error_handler();
         error_reporting($level);
