@@ -54,5 +54,6 @@ class CommonPlugin extends phplistPlugin
             ? file_get_contents($f)
             : '';
         parent::__construct();
+        include_once $this->coderoot . 'functions.php';
     }
 }
