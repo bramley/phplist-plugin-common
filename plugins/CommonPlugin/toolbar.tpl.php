@@ -13,18 +13,18 @@
 
 /**
  * Template for the toolbar
- */
-
-/**
  *
  * Available fields
  * - $buttons: array of buttons to be displayed
  */
-?>
-<!--
-    Replace javascript help functions to allow window size to be specified
--->
-<script language="javascript" type="text/javascript">
+
+/**
+ *   Replace javascript help functions to allow window size to be specified
+ */
+global $pagefooter;
+
+$pagefooter[basename(__FILE__)] = <<<END
+<script type='text/javascript'>
 function openPluginHelpDialog(url, width, height) {
   $("#dialog").dialog({
     minHeight: 400,
@@ -56,6 +56,8 @@ $(document).ready(function() {
     });
 });
 </script>
+END
+?>
 <style type="text/css">
 div.toolbar {
     float: right;
