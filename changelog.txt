@@ -1,3 +1,8 @@
+version 2013-10-03
+      Display tabs instead of accordion control
+      Make js compatible with USE_MINIFIED_ASSETS
+      Internal changes
+
 version 2013-08-26
       Clarify the required version of phplist
       Added http headers to allow browser to cache images
