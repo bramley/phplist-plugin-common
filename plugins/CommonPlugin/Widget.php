@@ -17,8 +17,6 @@
  */ 
 class CommonPlugin_Widget
 {
-    const HELP_TEMPLATE = '/widget_help.tpl.php';
-    const DOWNLOAD_TEMPLATE = '/widget_download.tpl.php';
     const ATTRIBUTEFORM_TEMPLATE = '/widget_attributeform.tpl.php';
     /*
      *    Private methods
@@ -36,7 +34,11 @@ class CommonPlugin_Widget
             'showSearch' => $search,
             'showSelect' => $select
         );
-        return $controller->render(dirname(__FILE__) . self::ATTRIBUTEFORM_TEMPLATE, $params);
+        $title = $search ? $controller->i18n->get('Find subscribers') : $controller->i18n->get('Select attributes');
+        $panel = new UIPanel($title,
+            $controller->render(dirname(__FILE__) . self::ATTRIBUTEFORM_TEMPLATE, $params)
+        );
+        return $panel->display();
     }
 
 }
