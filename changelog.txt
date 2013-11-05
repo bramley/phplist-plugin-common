@@ -1,3 +1,7 @@
+version 2013-11-05
+      Display exception trace instead of message
+      Display attribute form in a UIPanel
+
 version 2013-10-03
       Display tabs instead of accordion control
       Make js compatible with USE_MINIFIED_ASSETS
