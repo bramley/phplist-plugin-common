@@ -39,6 +39,7 @@ class CommonPlugin_Main
             $controller->run($action);
         } catch (Exception $e) {
             print '<p>' . nl2br(htmlspecialchars($e->getTraceAsString ())) . '</p>';
+            print '<p>' . nl2br(htmlspecialchars($e->getMessage())) . '</p>';
         }
         restore_error_handler();
         error_reporting($level);
