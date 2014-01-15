@@ -44,6 +44,11 @@ class CommonPlugin_GoogleChart
     /*
      *    Private methods
      */
+    private function isPng($image)
+    {
+        return (bin2hex($image[0]) == '89' && $image[1] == 'P' && $image[2] == 'N' && $image[3] == 'G');
+    }
+
     private function buildQuery(array $params)
     {
         return http_build_query($params + array('chid' => md5(uniqid(rand(), true))), '', '&');
@@ -97,9 +102,14 @@ class CommonPlugin_GoogleChart
                 throw new CommonPlugin_GoogleChartException();
             }
 
-            if ($image === false) {
+            if ($image === false || strlen($image) == 0) {
                 if (isset($http_response_header))
                     $this->logger->logDebug(print_r($http_response_header, true));
+                throw new CommonPlugin_GoogleChartException();
+            }
+
+            if (!$this->isPng($image)) {
+                $this->logger->logDebug($image);
                 throw new CommonPlugin_GoogleChartException();
             }
             $imageCache[$id] = $image;
