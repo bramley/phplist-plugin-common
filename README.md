@@ -31,6 +31,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2014-01-25  Added class to support google charts
     2013-11-05  Display attribute form in a UIPanel
     2013-10-03  Accumulated changes
     2013-08-26  Accumulated changes

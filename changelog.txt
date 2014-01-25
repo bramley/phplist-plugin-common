@@ -1,3 +1,7 @@
+version 2014-01-25
+      Display message in addition to trace
+      Class to create Google charts https://code.google.com/p/php-class-for-google-chart-tools/
+
 version 2013-11-05
       Display exception trace instead of message
       Display attribute form in a UIPanel
