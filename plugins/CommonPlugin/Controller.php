@@ -54,13 +54,6 @@ abstract class CommonPlugin_Controller
         exit;
     }
 
-    protected function actionImage()
-    {
-        $loader = new CommonPlugin_ImageLoader();
-        $loader->load($_GET['image']);
-        exit;
-    }
-
     protected function normalise(&$post)
     {
         array_walk_recursive($post, array($this, 'stripSlashes'));

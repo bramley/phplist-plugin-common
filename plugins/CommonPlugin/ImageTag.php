@@ -30,7 +30,7 @@ class CommonPlugin_ImageTag
 
     public function __toString()
     {
-        $imageUrl = new CommonPlugin_PageURL(null, array('action' => 'image', 'image' => $this->image));
+        $imageUrl = new CommonPlugin_PageURL('image', array('pi' => 'CommonPlugin', 'image' => $this->image));
         return CHtml::tag('img', array('src'=> $imageUrl, 'alt' => $this->alt, 'title' => $this->title));
     }
 }
