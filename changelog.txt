@@ -1,3 +1,6 @@
+version 2014-02-03
+      Improve presentation by always displaying the listing
+
 version 2014-01-27
       New page to serve plugin images
 
