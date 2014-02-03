@@ -241,7 +241,7 @@ class CommonPlugin_Pager
                     'Showing %d to %d of %d', 
                     $this->startCurrent + 1, min($this->startCurrent + $this->pageSize, $this->total), $this->total
                 )
-                : '',
+                : '&nbsp;',
             'first' => $this->navigation('<<', 0, $this->startCurrent > 0),
             'back' => $this->navigation('<', $this->startCurrent - $this->pageSize, $this->startCurrent > 0),
             'forward' => $this->navigation('>', $this->startCurrent + $this->pageSize, $this->startCurrent  < $this->startFinal),
