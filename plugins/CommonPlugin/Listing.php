@@ -35,19 +35,18 @@ class CommonPlugin_Listing
     {
         $total = $this->populator->total();
         list($start, $limit) = $this->pager->range($total);
-        $pager = $this->pager->display();
 
-         if ($total > 0) {
-            $w = new CommonPlugin_WebblerListing();
-            $w->usePanel($pager);
+        $w = new CommonPlugin_WebblerListing();
+        $w->usePanel($this->pager->display());
 
-            if ($this->sort)
-                $w->addSort();
-            $this->populator->populate($w, $start, $limit);
-            $result = $w->display();
-        } else {
-            $result = CHtml::tag('p', array(), $this->controller->i18n->get($this->noResultsMessage));
+        if ($this->sort) {
+            $w->addSort();
         }
-        return $result;
+
+        if ($total == 0) {
+            $w->addElement($this->controller->i18n->get($this->noResultsMessage));
+        }
+        $this->populator->populate($w, $start, $limit);
+        return $w->display();
     }
 }
