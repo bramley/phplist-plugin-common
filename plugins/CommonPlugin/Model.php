@@ -32,7 +32,9 @@ abstract class CommonPlugin_Model
     protected function __construct($configItem = null)
     {
         if ($configItem) {
-            $this->config = new CommonPlugin_Config($configItem);
+            $admin = $_SESSION['logindetails']['adminname'];
+            $item = "$configItem|$admin";
+            $this->config = new CommonPlugin_Config($item);
             $properties = $this->config->get('properties');
 
             if (!is_null($properties)) {
