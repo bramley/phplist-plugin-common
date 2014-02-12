@@ -49,9 +49,11 @@ input[type="text"], select {
         <?php if ($showSearch): ?>
         <div style='padding-bottom: 10px;'>
         <?php echo $this->i18n->get('Search for'); ?>:&nbsp;
-            <input size="20" type="text" value='<?php echo $model->searchTerm; ?>' name="SearchForm[searchTerm]" id="SearchForm_searchTerm" />
+            <input size="20" type="text" value="<?php echo htmlspecialchars($model->searchTerm); ?>" 
+                name="SearchForm[searchTerm]" id="SearchForm_searchTerm" />
             <?php echo CHtml::dropDownList(
-            'SearchForm[searchBy]', $model->searchBy, CHtml::listData($model->attributes, 'id', 'name')
+            'SearchForm[searchBy]', $model->searchTerm == '' ? 'email' : $model->searchBy,
+            array('email' => 'email') + CHtml::listData($model->attributes, 'id', 'name')
             ); ?>&nbsp;
             <?php echo $this->i18n->get('List'); ?>:&nbsp;
             <?php echo CHtml::dropDownList(
