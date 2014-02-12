@@ -76,7 +76,7 @@ class CommonPlugin_DAO_Message extends CommonPlugin_DAO
         $sql =
             "UPDATE {$this->tables['message']}
             SET status = 'submitted', sendstart = now() 
-            WHERE id = $id";
+            WHERE id = $id AND status IN ('sent', 'suspended')";
         $count = $this->dbCommand->queryAffectedRows($sql);
 
         return $count;
