@@ -1,3 +1,6 @@
+version 2014-02-12
+      Hold config settings for each admin separately
+
 version 2014-02-03
       Improve presentation by always displaying the listing
 
