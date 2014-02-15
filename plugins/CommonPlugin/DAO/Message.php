@@ -50,21 +50,38 @@ class CommonPlugin_DAO_Message extends CommonPlugin_DAO
          $count = $this->dbCommand->queryAffectedRows($sql);
 
         if ($count > 0) {
-            $sql = "
-                DELETE FROM {$this->tables['usermessage']}
+            $sql =
+                "DELETE FROM {$this->tables['usermessage']}
                 WHERE messageid = $id";
             $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql = "
-                DELETE FROM {$this->tables['listmessage']}
+            $sql =
+                "DELETE FROM {$this->tables['listmessage']}
                 WHERE messageid = $id";
             $count = $this->dbCommand->queryAffectedRows($sql);
-            /* linktrack
-            linktrack_userclick
-            messagedata
-            message_attachment
-            user_message_bounce
-            user_message_forward
-            */
+            $sql =
+                "DELETE FROM {$this->tables['linktrack_ml']}
+                WHERE messageid = $id";
+            $count = $this->dbCommand->queryAffectedRows($sql);
+            $sql =
+                "DELETE FROM {$this->tables['linktrack_uml_click']}
+                WHERE messageid = $id";
+            $count = $this->dbCommand->queryAffectedRows($sql);
+            $sql =
+                "DELETE FROM {$this->tables['messagedata']}
+                WHERE id = $id";
+            $count = $this->dbCommand->queryAffectedRows($sql);
+            $sql =
+                "DELETE FROM {$this->tables['message_attachment']}
+                WHERE messageid = $id";
+            $count = $this->dbCommand->queryAffectedRows($sql);
+            $sql =
+                "DELETE FROM {$this->tables['user_message_bounce']}
+                WHERE message = $id";
+            $count = $this->dbCommand->queryAffectedRows($sql);
+            $sql =
+                "DELETE FROM {$this->tables['user_message_forward']}
+                WHERE message = $id";
+            $count = $this->dbCommand->queryAffectedRows($sql);
             return true;
         } else {
             return false;
