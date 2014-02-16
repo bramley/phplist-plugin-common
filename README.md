@@ -31,6 +31,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2014-02-16  Internal change
     2014-02-12  Hold config settings for each admin separately
     2014-02-03  Improve presentation by always displaying the listing
     2014-01-27  Added page to serve plugin images

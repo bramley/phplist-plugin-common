@@ -1,3 +1,6 @@
+version 2014-02-16
+      Delete from related tables when deleting a message
+
 version 2014-02-12
       Hold config settings for each admin separately
 
