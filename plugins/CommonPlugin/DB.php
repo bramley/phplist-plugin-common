@@ -90,7 +90,7 @@ class CommonPlugin_DB {
          * 
          */
         $iterator = $this->queryAll($sql);
-        return array_column($iterator, $field, $index);
+        return array_column(iterator_to_array($iterator), $field, $index);
     }
 
 }
