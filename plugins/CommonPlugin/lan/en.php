@@ -34,8 +34,14 @@ $lan = array(
     'closewindow' => 'close this window',
 //  widget_attributeform.tpl.php
     'Search for' => 'Search for',
-    'unconfirmed_caption' => 'Show only unconfirmed',
-    'blacklisted_caption' => 'Show only blacklisted',
+    'Confirmed' => 'Confirmed',
+    'Blacklisted' => 'Blacklisted',
+    'All subscribers' => 'All subscribers',
+    'confirmed only' => 'confirmed only',
+    'unconfirmed only' => 'unconfirmed only',
+    'blacklisted only' => 'blacklisted only',
+    'not blacklisted only' => 'not blacklisted only',
+
 //  GoogleChart.php
     'http_proxy_options_error' => 'Unable to set http proxy options',
     'chart_error' => 'Unable to create chart'

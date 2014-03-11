@@ -1,3 +1,7 @@
+version 2014-03-11
+      Include styling for help text
+      Replace check-box by drop-down list on attribute form
+
 version 2014-02-16
       Delete from related tables when deleting a message
 

@@ -62,18 +62,17 @@ input[type="text"], select {
                 array('prompt' => 'All')
             ); ?>
             <div class='inline'>
-            <?php echo CHtml::checkBox(
-                'SearchForm[unconfirmed]',
-                $model->unconfirmed,
-                array('uncheckValue' => 0)
+            <?php echo $this->i18n->get('Confirmed'); ?>:&nbsp;
+            <?php echo CHtml::dropDownList(
+                'SearchForm[confirmed]', $model->confirmed,
+                $this->i18n->get(array(1 => 'All subscribers', 2 => 'confirmed only', 3 => 'unconfirmed only'))
             ); ?>
-            <?php echo CHtml::label($this->i18n->get('unconfirmed_caption'), 'SearchForm_unconfirmed'); ?>
-            <?php echo CHtml::checkBox(
-                'SearchForm[blacklisted]',
-                $model->blacklisted,
-                array('uncheckValue' => 0)
+
+            <?php echo $this->i18n->get('Blacklisted'); ?>:&nbsp;
+            <?php echo CHtml::dropDownList(
+                'SearchForm[blacklisted]', $model->blacklisted,
+                $this->i18n->get(array(1 => 'All subscribers', 2 => 'blacklisted only', 3 => 'not blacklisted only'))
             ); ?>
-            <?php echo CHtml::label($this->i18n->get('blacklisted_caption'), 'SearchForm_blacklisted'); ?>
             </div>
         </div>
         <?php endif; ?>

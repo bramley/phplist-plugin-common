@@ -19,6 +19,12 @@ The benefit of this is that plugins will not be affected when you upgrade phplis
 ### Install through phplist ###
 The recommended way to install is through the Plugins page (menu Config > Plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
 
+There is a bug that can cause a plugin to be incompletely installed on some configurations (<https://mantis.phplist.com/view.php?id=16865>). 
+Check that these files are in the plugin directory. If not then you will need to install manually.
+
+* the file CommonPlugin.php
+* the directory CommonPlugin
+
 ### Install manually ###
 Download the plugin zip file from <https://github.com/bramley/phplist-plugin-common/archive/master.zip>
 
@@ -31,6 +37,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2014-03-11  Replace check-box by drop-down list on attribute form
     2014-02-16  Internal change
     2014-02-12  Hold config settings for each admin separately
     2014-02-03  Improve presentation by always displaying the listing
