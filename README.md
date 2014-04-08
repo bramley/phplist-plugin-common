@@ -37,6 +37,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2014-04-08  Internal changes
     2014-03-11  Replace check-box by drop-down list on attribute form
     2014-02-16  Internal change
     2014-02-12  Hold config settings for each admin separately

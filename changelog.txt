@@ -1,3 +1,7 @@
+version 2014-04-08
+      New method for finding user
+      Use absolute path for plugin directory
+
 version 2014-03-11
       Include styling for help text
       Replace check-box by drop-down list on attribute form

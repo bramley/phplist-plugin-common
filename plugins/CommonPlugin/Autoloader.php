@@ -20,6 +20,8 @@ include dirname(__FILE__) . '/ClassLoader.php';
 
 function CommonPlugin_Autoloader_main()
 {
+    global $systemroot;
+
     $loader = new CommonPlugin_ClassLoader();
 
     if (PLUGIN_ROOTDIRS != '') {
@@ -27,7 +29,13 @@ function CommonPlugin_Autoloader_main()
             $loader->addBasePath($dir);
         }
     }
-    $loader->addBasePath(PLUGIN_ROOTDIR);
+
+    if (CommonPlugin_Autoloader_isAbsolutePath(PLUGIN_ROOTDIR)) {
+        $pluginDir = PLUGIN_ROOTDIR;
+    } else {
+        $pluginDir = $systemroot . '/' . PLUGIN_ROOTDIR;
+    }
+    $loader->addBasePath($pluginDir);
 
     $iterator = new DirectoryIterator(dirname(__FILE__) . '/ext');
     
@@ -38,4 +46,10 @@ function CommonPlugin_Autoloader_main()
     }
     $loader->register();
 }
+
+function CommonPlugin_Autoloader_isAbsolutePath($path)
+{
+    return preg_match('@^(?:/|\\\\|\w:\\\\|\w:/)@', $path);
+}
+
 CommonPlugin_Autoloader_main();
