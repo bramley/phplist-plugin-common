@@ -36,6 +36,16 @@ class CommonPlugin_DAO_User extends CommonPlugin_DAO
         return $this->dbCommand->queryRow($sql);
     }
 
+    public function userByUniqid($uid)
+    {
+        $uid = sql_escape($uid);
+        $sql =
+            "SELECT * FROM {$this->tables['user']}
+            WHERE uniqid = '$uid'";
+
+        return $this->dbCommand->queryRow($sql);
+    }
+
     public function unconfirmUser($email)
     {
         $email = sql_escape($email);
