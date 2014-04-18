@@ -55,9 +55,7 @@ class CommonPlugin_Toolbar
     {
         foreach (array(
             array('caption' => 'help', 'topic' => $topic, 'icon' => 'info.png', 'class' => 'pluginhelpdialog'),
-            array('caption' => 'about', 'topic' => 'about', 'icon' => 'gnu_licence.png', 'class' => 'pluginhelpdialog'),
-            array('caption' => 'phpinfo', 'topic' => 'phpinfo', 'icon' => 'page_white_php.png', 'class' => 'pluginhelpdialogwide'),
-            array('caption' => 'config.php', 'topic' => 'config.php', 'icon' => 'phplist.ico', 'class' => 'pluginhelpdialogwide')
+            array('caption' => 'about', 'topic' => 'about', 'icon' => 'gnu_licence.png', 'class' => 'pluginhelpdialog')
         ) as $param) {
             $button = new CommonPlugin_Toolbar_Button;
             $button->url = new CommonPlugin_PageURL(null, array('action' => 'help', 'topic' => $param['topic']));

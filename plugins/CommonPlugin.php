@@ -39,8 +39,14 @@ class CommonPlugin extends phplistPlugin
     public $name = 'Common Plugin';
     public $enabled = true;
     public $authors = 'Duncan Cameron';
-    public $topMenuLinks = array();
-    public $pageTitles = array();
+    public $topMenuLinks = array(
+        'phpinfo' => array('category' => 'config'),
+        'config_file' => array('category' => 'config'),
+    );
+    public $pageTitles = array(
+        'phpinfo' => 'Show phpinfo',
+        'config_file' => 'Show config.php',
+    );
 
     public function adminmenu()
     {
