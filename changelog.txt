@@ -1,3 +1,7 @@
+version 2014-04-18
+      Add phpinfo and config file as separate pages, remove from toolbar
+      Add id and uniqid as search fields
+
 version 2014-04-08
       New method for finding user
       Use absolute path for plugin directory

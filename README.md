@@ -10,7 +10,7 @@ When installing or upgrading a plugin ensure that the latest CommonPlugin is ins
 
 This plugin is for phplist 3.0.0 and later.
 
-Requires php version 5.2 or later.
+Requires php version 5.3 or later.
 
 ### Set the plugin directory ###
 You can use a directory outside of the web root by changing the definition of `PLUGIN_ROOTDIR` in config.php.
@@ -19,11 +19,13 @@ The benefit of this is that plugins will not be affected when you upgrade phplis
 ### Install through phplist ###
 The recommended way to install is through the Plugins page (menu Config > Plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
 
-There is a bug that can cause a plugin to be incompletely installed on some configurations (<https://mantis.phplist.com/view.php?id=16865>). 
-Check that these files are in the plugin directory. If not then you will need to install manually.
+In phplist releases 3.0.5 and earlier there is a bug that can cause a plugin to be incompletely installed on some configurations (<https://mantis.phplist.com/view.php?id=16865>). 
+Check that these files are in the plugin directory. If not then you will need to install manually. The bug has been fixed in release 3.0.6.
 
 * the file CommonPlugin.php
 * the directory CommonPlugin
+
+Then click the small orange icon to enable the plugin.
 
 ### Install manually ###
 Download the plugin zip file from <https://github.com/bramley/phplist-plugin-common/archive/master.zip>
@@ -37,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2014-04-18  Add phpinfo and config file as separate pages
     2014-04-08  Internal changes
     2014-03-11  Replace check-box by drop-down list on attribute form
     2014-02-16  Internal change
