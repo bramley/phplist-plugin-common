@@ -53,7 +53,7 @@ input[type="text"], select {
                 name="SearchForm[searchTerm]" id="SearchForm_searchTerm" />
             <?php echo CHtml::dropDownList(
             'SearchForm[searchBy]', $model->searchTerm == '' ? 'email' : $model->searchBy,
-            array('email' => 'email', 'id' => 'id', 'uniqid' => 'uniquid') + CHtml::listData($model->attributes, 'id', 'name')
+            array('email' => 'email', 'id' => 'id', 'uniqid' => 'unique id') + CHtml::listData($model->attributes, 'id', 'name')
             ); ?>&nbsp;
             <?php echo $this->i18n->get('List'); ?>:&nbsp;
             <?php echo CHtml::dropDownList(
