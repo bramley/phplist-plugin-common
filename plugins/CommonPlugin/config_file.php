@@ -21,12 +21,9 @@ function CommonPlugin_showConfig()
         ||
         is_file($f = '../config/config.php')
     ) {
-        $r = 'Config file: ' . realpath($f);
+        $r = 'Config file: ' . realpath($f) . "<br>\n";
         $regex = '/((?:user|password)\s*=\s*)(["\'])(.+?)\2/';
-        $r .= 
-            '<pre style="font-size: 1em; line-height: 105%;">'
-            . htmlspecialchars(preg_replace($regex, '$1$2* removed *$2', file_get_contents($f)))
-            . '</pre>';
+        $r .= highlight_string(preg_replace($regex, '$1$2* removed *$2', file_get_contents($f)), true);
     } else {
         $r = 'Cannot find config file';
     }
