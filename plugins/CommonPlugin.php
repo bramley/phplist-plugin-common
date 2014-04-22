@@ -44,8 +44,8 @@ class CommonPlugin extends phplistPlugin
         'config_file' => array('category' => 'config'),
     );
     public $pageTitles = array(
-        'phpinfo' => 'Show phpinfo',
-        'config_file' => 'Show config.php',
+        'phpinfo' => 'View phpinfo',
+        'config_file' => 'View config.php',
     );
 
     public function adminmenu()
