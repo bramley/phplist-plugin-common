@@ -42,10 +42,12 @@ class CommonPlugin extends phplistPlugin
     public $topMenuLinks = array(
         'phpinfo' => array('category' => 'config'),
         'config_file' => array('category' => 'config'),
+        'session' => array('category' => 'config'),
     );
     public $pageTitles = array(
         'phpinfo' => 'View phpinfo',
         'config_file' => 'View config.php',
+        'session' => 'View session',
     );
 
     public function adminmenu()
