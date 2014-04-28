@@ -23,7 +23,14 @@ function CommonPlugin_showConfig()
     ) {
         $r = 'Config file: ' . realpath($f) . "<br>\n";
         $regex = '/((?:user|password)\s*=\s*)(["\'])(.+?)\2/';
-        $r .= highlight_string(preg_replace($regex, '$1$2* removed *$2', file_get_contents($f)), true);
+        $r .= str_replace(
+            '<br /></span>',
+            "<br /></span>\n",
+            highlight_string(
+                preg_replace($regex, '$1$2* removed *$2', file_get_contents($f)),
+                true
+            )
+        );
     } else {
         $r = 'Cannot find config file';
     }
