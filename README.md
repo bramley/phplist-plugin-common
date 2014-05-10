@@ -39,7 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
-    2014-04-22  Syntax hightligt config file
+    2014-04-22  Syntax hightlight config file
     2014-04-18  Add phpinfo and config file as separate pages
     2014-04-08  Internal changes
     2014-03-11  Replace check-box by drop-down list on attribute form
