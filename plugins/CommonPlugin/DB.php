@@ -29,7 +29,11 @@ class CommonPlugin_DB {
          * 
          */
         $time_start = microtime(true);
-        $resource = Sql_Query($sql);
+        try {
+            $resource = Sql_Query($sql);
+        } catch (Exception $e) {
+            throw new Exception("Problem with sql query\n" . $sql);
+        }
         $elapsed = (microtime(true) - $time_start) * 1000;
         $this->logger->log("elapsed time $elapsed ms\n$sql", KLogger::DEBUG);
 
