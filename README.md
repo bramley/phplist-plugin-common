@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2014-05-18  Accumulated internal changes
     2014-04-22  Syntax hightlight config file
     2014-04-18  Add phpinfo and config file as separate pages
     2014-04-08  Internal changes

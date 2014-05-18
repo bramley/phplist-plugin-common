@@ -1,3 +1,7 @@
+version 2014-05-18
+      Internal changes
+      New page to display the php session
+
 version 2014-04-22
       syntax hightlight config file
 

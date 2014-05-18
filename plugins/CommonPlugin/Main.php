@@ -38,8 +38,8 @@ class CommonPlugin_Main
             $action = isset($_GET['action']) ? $_GET['action'] : null;
             $controller->run($action);
         } catch (Exception $e) {
-            print '<p>' . nl2br(htmlspecialchars($e->getTraceAsString ())) . '</p>';
             print '<p>' . nl2br(htmlspecialchars($e->getMessage())) . '</p>';
+            print '<p>' . nl2br(htmlspecialchars($e->getTraceAsString ())) . '</p>';
         }
         restore_error_handler();
         error_reporting($level);
