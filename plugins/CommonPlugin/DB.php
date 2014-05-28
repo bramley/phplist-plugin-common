@@ -52,7 +52,7 @@ class CommonPlugin_DB {
          * 
          */
         $resource = $this->_query($sql);
-        return mysql_insert_id();
+        return Sql_Insert_Id();
     }
 
     public function queryAffectedRows($sql) {
