@@ -1,3 +1,7 @@
+version 2014-07-06
+      Updated licence year
+      Keep label and control together
+
 version 2014-05-28
       Use core phplist function instead of mysql function
 

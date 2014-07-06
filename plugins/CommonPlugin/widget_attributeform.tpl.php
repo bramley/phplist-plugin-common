@@ -36,7 +36,7 @@ div.inline {
     display: inline;
     white-space: nowrap
 }
-.inline label{
+.inline label, label.inline{
     display: inline;
 }
 input[type="text"], select {
@@ -48,31 +48,41 @@ input[type="text"], select {
     <fieldset>
         <?php if ($showSearch): ?>
         <div style='padding-bottom: 10px;'>
-        <?php echo $this->i18n->get('Search for'); ?>:&nbsp;
-            <input size="32" type="text" value="<?php echo htmlspecialchars($model->searchTerm); ?>" 
+            <label class="inline">
+        <?php echo $this->i18n->get('Search for'); ?>:
+            <input size="24" type="text" value="<?php echo htmlspecialchars($model->searchTerm); ?>" 
                 name="SearchForm[searchTerm]" id="SearchForm_searchTerm" />
+            </label>
+            <div class='inline'>
             <?php echo CHtml::dropDownList(
             'SearchForm[searchBy]', $model->searchTerm == '' ? 'email' : $model->searchBy,
             array('email' => 'email', 'id' => 'id', 'uniqid' => 'unique id') + CHtml::listData($model->attributes, 'id', 'name')
             ); ?>&nbsp;
-            <?php echo $this->i18n->get('List'); ?>:&nbsp;
+            </div>
+            <label class="inline">
+            <?php echo $this->i18n->get('List'); ?>:
             <?php echo CHtml::dropDownList(
                 'SearchForm[listID]', $model->listID,
                 CHtml::listData($model->lists, 'id', 'name'),
                 array('prompt' => 'All')
             ); ?>
+            </label>
+
             <div class='inline'>
-            <?php echo $this->i18n->get('Confirmed'); ?>:&nbsp;
+                <label>
+            <?php echo $this->i18n->get('Confirmed'); ?>:
             <?php echo CHtml::dropDownList(
                 'SearchForm[confirmed]', $model->confirmed,
                 $this->i18n->get(array(1 => 'All subscribers', 2 => 'confirmed only', 3 => 'unconfirmed only'))
             ); ?>
-
-            <?php echo $this->i18n->get('Blacklisted'); ?>:&nbsp;
+                </label>
+                <label>
+            <?php echo $this->i18n->get('Blacklisted'); ?>:
             <?php echo CHtml::dropDownList(
                 'SearchForm[blacklisted]', $model->blacklisted,
                 $this->i18n->get(array(1 => 'All subscribers', 2 => 'blacklisted only', 3 => 'not blacklisted only'))
             ); ?>
+                </label>
             </div>
         </div>
         <?php endif; ?>
