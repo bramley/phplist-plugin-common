@@ -27,6 +27,13 @@ function CommonPlugin_ServeImage($image)
     }
     $mtime = date('r', filemtime($filepath));
 
+    $expiry = new DateTime();
+    $expiry->add(new DateInterval('PT' . $defaultExpire . 'S'));
+    header('Expires: ' . $expiry->format(DateTime::RFC1123));
+    header("Cache-Control: max-age=$defaultExpire");
+    header("Last-Modified: $mtime");
+    header('Pragma:');
+
     if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
         $dt = new DateTime($_SERVER['HTTP_IF_MODIFIED_SINCE']);
         $since = $dt->getTimestamp();
@@ -36,6 +43,7 @@ function CommonPlugin_ServeImage($image)
             return;
         }
     }
+
     $ext = pathinfo($filepath, PATHINFO_EXTENSION);
     $cTypes = array(
         'png' => 'png',
@@ -45,13 +53,8 @@ function CommonPlugin_ServeImage($image)
         'bmp' => 'bmp'
     );
     $type = isset($cTypes[$ext]) ? $cTypes[$ext] : 'jpeg';
-    $expires = gmdate("D, d M Y H:i:s", time() + $defaultExpire) . " GMT";
     header("Content-type: image/$type");
     header('Content-Length: ' . filesize($filepath));
-    header("Expires: $expires");
-    header("Cache-Control: max-age=$defaultExpire");
-    header("Last-Modified: $mtime");
-    header('Pragma:');
     readfile($filepath);
 }
 

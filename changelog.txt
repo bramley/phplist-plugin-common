@@ -1,3 +1,7 @@
+version 2014-09-04
+      Test for xsl extension being installed
+      Send additional headers with 304
+
 version 2014-07-06
       Updated licence year
       Keep label and control together
