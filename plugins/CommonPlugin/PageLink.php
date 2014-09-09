@@ -7,7 +7,7 @@
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2013 Duncan Cameron
+ * @copyright 2011-2014 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
@@ -19,21 +19,25 @@
 class CommonPlugin_PageLink
 {
     /*
+     * Private variables
+     */
+    private $url;
+    private $text;
+    private $attrs;
+    /*
      *    Public methods
      */
     /**
      * Constructor
-     * @param string $page the page name
+     * @param string $url the page url
      * @param string $text text for link - this is not automatically html encoded
-     * @param array $params additional parameters for the URL
      * @param array $attrs additional attributes for the A element
      * @access public
      */
-    public function __construct($page, $text, array $params, array $attrs = array())
+    public function __construct($url, $text, array $attrs = array())
     {
-        $this->page = $page;
+        $this->url = $url;
         $this->text = $text;
-        $this->params = $params;
         $this->attrs = $attrs;
     }
 
@@ -45,11 +49,10 @@ class CommonPlugin_PageLink
     public function __toString()
     {
         $string = '';
-        $this->attrs['href'] = new CommonPlugin_PageURL($this->page, $this->params);
+        $this->attrs['href'] = $this->url;
 
         foreach ($this->attrs as $k => $v) {
-            $v = htmlspecialchars($v);
-            $string .= " $k=\"$v\"";
+            $string .= sprintf(' %s="%s"', $k, htmlspecialchars($v));
         }
 		return sprintf('<a%s>%s</a>', $string, $this->text);
     }

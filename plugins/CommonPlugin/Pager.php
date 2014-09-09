@@ -7,7 +7,7 @@
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2012 Duncan Cameron
+ * @copyright 2011-2014 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
@@ -156,7 +156,7 @@ class CommonPlugin_Pager
      */
     private function pageLink($text, array $params)
     {
-        return new CommonPlugin_PageLink(null, htmlspecialchars($text), array_merge($_GET, $params));
+        return new CommonPlugin_PageLink(new CommonPlugin_PageURL(null,  array_merge($_GET, $params)), htmlspecialchars($text));
     }
 
     /**
@@ -197,15 +197,17 @@ class CommonPlugin_Pager
     {
         $prevArrow = '&#x25c0;';
         $nextArrow = '&#x25b6;';
-        $this->linkPrev = $prev 
-            ? new CommonPlugin_PageLink(null, $prevArrow,
-                array_merge($_GET, array($param => $prev, $this->start => 0))
+        $this->linkPrev = $prev
+            ? new CommonPlugin_PageLink(
+                new CommonPlugin_PageURL(null, array_merge($_GET, array($param => $prev, $this->start => 0))),
+                $prevArrow
             )
             : $prevArrow;
         $this->linkNext = $next
-            ? new CommonPlugin_PageLink(null, $nextArrow,
-                array_merge($_GET, array($param => $next, $this->start => 0))
-            ) 
+            ? new CommonPlugin_PageLink(
+                new CommonPlugin_PageURL(null, array_merge($_GET, array($param => $next, $this->start => 0))),
+                $nextArrow
+            )
             : $nextArrow;
     }
     /**

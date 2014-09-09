@@ -1,3 +1,6 @@
+version 2014-09-09
+      Refactoring
+
 version 2014-09-04
       Test for xsl extension being installed
       Send additional headers with 304
