@@ -25,20 +25,18 @@ function CommonPlugin_ServeImage($image)
         header('HTTP/1.0 404 Not Found');
         return;
     }
-    $mtime = date('r', filemtime($filepath));
-
+    $mtime = new DateTime('@' . filemtime($filepath));
     $expiry = new DateTime();
     $expiry->add(new DateInterval('PT' . $defaultExpire . 'S'));
     header('Expires: ' . $expiry->format(DateTime::RFC1123));
     header("Cache-Control: max-age=$defaultExpire");
-    header("Last-Modified: $mtime");
+    header('Last-Modified: ' . $mtime->format(DateTime::RFC1123));
     header('Pragma:');
 
     if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
-        $dt = new DateTime($_SERVER['HTTP_IF_MODIFIED_SINCE']);
-        $since = $dt->getTimestamp();
-        
-        if ($mtime < $since) {
+        $since = new DateTime($_SERVER['HTTP_IF_MODIFIED_SINCE']);
+
+        if ($mtime <= $since) {
             header('HTTP/1.1 304 Not Modified');
             return;
         }
