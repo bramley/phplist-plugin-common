@@ -45,7 +45,7 @@ class CommonPlugin_Toolbar
     public function addExportButton(array $query = array())
     {
         $button = new CommonPlugin_Toolbar_Button;
-        $button->url = new CommonPlugin_PageURL(null, $query + array('action' => 'export'));
+        $button->url = new CommonPlugin_PageURL(null, $query + array('action' => 'exportCSV'));
         $button->icon = 'excel.png';
         $button->caption = $this->controller->i18n->get('export');
         $this->buttons[] = $button;

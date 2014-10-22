@@ -47,7 +47,7 @@ abstract class CommonPlugin_Controller
         exit;
     }
 
-    protected function actionExport()
+    protected function actionExportCSV()
     {
         $exporter = new CommonPlugin_ExportCSV();
         $exporter->export($this);

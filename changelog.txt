@@ -1,3 +1,8 @@
+version 2014-10-22
+      Fix error in testing for modified image file
+      New and replaced images
+      Change export method name to avoid clash with core phplist
+
 version 2014-09-09
       Refactoring
 
