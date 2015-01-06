@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2015-01-06  Minor change
     2014-10-22  Minor changes
     2014-09-09  Internal changes
     2014-09-04  Minor changes

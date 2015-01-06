@@ -43,6 +43,7 @@ class CommonPlugin_DAO_Attribute extends CommonPlugin_DAO
         /*
          *    need to unescape attribute name
          */
+        $limit = $this->maxAttrs > 0 ? "LIMIT $this->maxAttrs" : '';
         $sql = 
             "SELECT id, 
             LEFT(REPLACE(
@@ -52,7 +53,7 @@ class CommonPlugin_DAO_Attribute extends CommonPlugin_DAO
             type, tablename 
             FROM {$this->tables['attribute']} 
             ORDER BY listorder
-            LIMIT 0, $this->maxAttrs";
+            $limit";
 
         return $this->dbCommand->queryAll($sql);
     }
