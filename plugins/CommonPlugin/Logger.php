@@ -16,21 +16,33 @@
  * It over-rides the log() method to include the calling class/method/line number
  * 
  */ 
-class CommonPlugin_Logger extends KLogger
+use Psr\Log\LogLevel;
+
+class CommonPlugin_Logger extends Katzgrau\KLogger\Logger
 {
     private static $instance;
     private $threshold;
     private $classes;
+    private $logLevels = array(
+        LogLevel::EMERGENCY => 0,
+        LogLevel::ALERT     => 1,
+        LogLevel::CRITICAL  => 2,
+        LogLevel::ERROR     => 3,
+        LogLevel::WARNING   => 4,
+        LogLevel::NOTICE    => 5,
+        LogLevel::INFO      => 6,
+        LogLevel::DEBUG     => 7,
+    );
+
     /*
      *    Public methods
      */
 
     /**
-     * Replaces the instance() method in KLogger by keeping its own singleton
      * Creates a configured instance using entries from config.php
      *
      * @param string  $logDirectory File path to the logging directory
-     * @param integer $severity     One of the pre-defined severity constants
+     * @param string $severity     One of the pre-defined PSR severity constants
      * @return CommonPlugin_Logger
      */
     static public function instance($logDirectory = false, $severity = false)
@@ -53,19 +65,20 @@ class CommonPlugin_Logger extends KLogger
 
         if ($severity) {
             $threshold = $severity;
-        } elseif (isset($log_options['level']) && defined("KLogger::{$log_options['level']}")) {
-            $threshold = constant("KLogger::{$log_options['level']}");
+        } elseif (isset($log_options['level']) && defined($log_options['level'])) {
+            $threshold = constant($log_options['level']);
         } else {
-            $threshold = KLogger::OFF;
+            $threshold = LogLevel::EMERGENCY;
         }
 
         if (isset($_GET['pi'])) {
             $pi = preg_replace('/\W/', '', $_GET['pi']);
             $dir .= '/' . $pi;
         }
-        self::setDateFormat('D d M Y H:i:s');
-        self::$instance = new self($dir, $threshold);
-        return self::$instance;
+        $logger = new self($dir, $threshold);
+        $logger->setDateFormat('D d M Y H:i:s');
+        self::$instance = $logger;
+        return $logger;
     }
 
     public function __construct($dir, $threshold)
@@ -77,10 +90,11 @@ class CommonPlugin_Logger extends KLogger
         parent::__construct($dir, $threshold);
     }
 
-    public function log($message, $level)
+    public function log($level, $message, array $context = array())
     {
-        if ($this->threshold == KLogger::OFF || $level > $this->threshold)
+        if ($this->logLevels[$this->threshold] < $this->logLevels[$level]) {
             return;
+        }
 
         $trace = debug_backtrace(false);
 
@@ -95,8 +109,6 @@ class CommonPlugin_Logger extends KLogger
         $message = 
             "{$trace[$i]['class']}::{$trace[$i]['function']}, line {$trace[$i - 1]['line']} "
             . $message;
-        parent::log($message, $level);
-     }
-
-
+        parent::log($level, $message, $context);
+    }
 }
