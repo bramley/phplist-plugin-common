@@ -18,7 +18,7 @@
  */
 class CommonPlugin_Main
 {
-    const REQUIRED_VERSION = '5.2.0';
+    const REQUIRED_VERSION = '5.3.0';
 
     public static function run(CommonPlugin_ControllerFactoryBase $cf = null)
     {
