@@ -32,7 +32,7 @@ class CommonPlugin_DB {
         $time_start = microtime(true);
         $resource = Sql_Query($sql);
         $elapsed = (microtime(true) - $time_start) * 1000;
-        $this->logger->log("elapsed time $elapsed ms\n$sql", KLogger::DEBUG);
+        $this->logger->debug("elapsed time $elapsed ms\n$sql");
         error_reporting($level);
 
         if (!$resource) {

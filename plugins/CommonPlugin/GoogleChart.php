@@ -95,21 +95,21 @@ class CommonPlugin_GoogleChart
                 }
                 $image = file_get_contents($url, false, $context);
             } catch (ErrorException $e) {
-                $this->logger->logWarn($e->getMessage());
+                $this->logger->warning($e->getMessage());
 
                 if (isset($http_response_header))
-                    $this->logger->logDebug(print_r($http_response_header, true));
+                    $this->logger->debug(print_r($http_response_header, true));
                 throw new CommonPlugin_GoogleChartException();
             }
 
             if ($image === false || strlen($image) == 0) {
                 if (isset($http_response_header))
-                    $this->logger->logDebug(print_r($http_response_header, true));
+                    $this->logger->debug(print_r($http_response_header, true));
                 throw new CommonPlugin_GoogleChartException();
             }
 
             if (!$this->isPng($image)) {
-                $this->logger->logDebug($image);
+                $this->logger->debug($image);
                 throw new CommonPlugin_GoogleChartException();
             }
             $imageCache[$id] = $image;
