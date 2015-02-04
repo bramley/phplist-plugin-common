@@ -1,3 +1,9 @@
+version 2015-02-04
+      Update licence year
+      Use new release of KLogger
+      Use of namespaces requires php 5.3
+      Use null logger when threshold is not provided
+
 version 2015-01-06
       Allow all attributes to be returned
 

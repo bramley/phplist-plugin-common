@@ -2,6 +2,12 @@
 
 ## Description ##
 This plugin provides support classes required by my other plugins.
+It also provides three pages which are added to the Config menu
+
+* display the output of the phpinfo() function
+* display the config.php file (user id and passwords are removed)
+* display the contents of the php session
+
 When installing or upgrading a plugin ensure that the latest CommonPlugin is installed as well.
 
 ## Installation ##
@@ -13,11 +19,12 @@ This plugin is for phplist 3.0.0 and later.
 Requires php version 5.3 or later.
 
 ### Set the plugin directory ###
-You can use a directory outside of the web root by changing the definition of `PLUGIN_ROOTDIR` in config.php.
-The benefit of this is that plugins will not be affected when you upgrade phplist.
+The default plugin directory is `plugins` within the phplist `admin` directory but you can use a directory outside
+of the web root by changing the definition of `PLUGIN_ROOTDIR` in config.php.
+The benefit of this is that installed plugins will not be affected when you upgrade phplist.
 
 ### Install through phplist ###
-The recommended way to install is through the Plugins page (menu Config > Plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
+The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
 
 In phplist releases 3.0.5 and earlier there is a bug that can cause a plugin to be incompletely installed on some configurations (<https://mantis.phplist.com/view.php?id=16865>). 
 Check that these files are in the plugin directory. If not then you will need to install manually. The bug has been fixed in release 3.0.6.
@@ -39,6 +46,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2015-01-27  Use latest KLogger package
     2015-01-06  Minor change
     2014-10-22  Minor changes
     2014-09-09  Internal changes
