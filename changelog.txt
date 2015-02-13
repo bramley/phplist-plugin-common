@@ -1,3 +1,6 @@
+version 2015-02-13
+      Use composer to install packages
+
 version 2015-02-04
       Update licence year
       Use new release of KLogger

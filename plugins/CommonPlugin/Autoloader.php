@@ -16,44 +16,17 @@
  * Convenience function to create and register the class loader
  * 
  */
-include dirname(__FILE__) . '/SplClassLoader.php';
 
 function CommonPlugin_Autoloader_main()
 {
     global $systemroot;
 
-    if (PLUGIN_ROOTDIRS != '') {
-        foreach (explode(';',PLUGIN_ROOTDIRS) as $dir) {
-            $loader = new SplClassLoader(null, $dir);
-            $loader->register();
-        }
-    }
+    $loader = require dirname(__FILE__) . '/vendor/autoload.php';
 
-    if (CommonPlugin_Autoloader_isAbsolutePath(PLUGIN_ROOTDIR)) {
-        $pluginDir = PLUGIN_ROOTDIR;
-    } else {
-        $pluginDir = $systemroot . '/' . PLUGIN_ROOTDIR;
-    }
-    $loader = new SplClassLoader(null, $pluginDir);
-    $loader->register();
-
-    $iterator = new DirectoryIterator(dirname(__FILE__) . '/ext');
-    
-    foreach ($iterator as $file) {
-        if ($file->isDir() && !$file->isDot()) {
-            $loader = new SplClassLoader(null, $file->getPathname());
-            $loader->register();
-        }
-    }
-
-    $iterator = new DirectoryIterator(dirname(__FILE__) . '/vendor');
-    
-    foreach ($iterator as $file) {
-        if ($file->isDir() && !$file->isDot()) {
-            $loader = new SplClassLoader($file->getFilename(), dirname(__FILE__) . '/vendor');
-            $loader->register();
-        }
-    }
+    $paths = (PLUGIN_ROOTDIRS == '') ? array() : explode(';',PLUGIN_ROOTDIRS);
+    $paths[] = (CommonPlugin_Autoloader_isAbsolutePath(PLUGIN_ROOTDIR))
+        ? PLUGIN_ROOTDIR : $systemroot . '/' . PLUGIN_ROOTDIR;
+    $loader->add('', $paths);
 }
 
 function CommonPlugin_Autoloader_isAbsolutePath($path)
