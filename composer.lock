@@ -4,8 +4,56 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a74e22712d99b62b39abf60236a322a2",
+    "hash": "489665e9276787099dfd2f4457d3ec4d",
     "packages": [
+        {
+            "name": "fguillot/picofeed",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fguillot/picoFeed.git",
+                "reference": "eeb4656f9f662ba63802f22f0a77dae5c22c8532"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/eeb4656f9f662ba63802f22f0a77dae5c22c8532",
+                "reference": "eeb4656f9f662ba63802f22f0a77dae5c22c8532",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-iconv": "*",
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
+                "ext-xml": "*",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-curl": "PicoFeed will use cURL if present"
+            },
+            "bin": [
+                "picofeed"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PicoFeed": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Unlicense"
+            ],
+            "authors": [
+                {
+                    "name": "Frédéric Guillot",
+                    "homepage": "http://fredericguillot.com"
+                }
+            ],
+            "description": "Modern library to write or read feeds (RSS/Atom)",
+            "homepage": "http://fguillot.github.io/picoFeed",
+            "time": "2015-03-19 23:46:14"
+        },
         {
             "name": "katzgrau/klogger",
             "version": "1.0.0",
@@ -157,7 +205,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "fguillot/picofeed": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

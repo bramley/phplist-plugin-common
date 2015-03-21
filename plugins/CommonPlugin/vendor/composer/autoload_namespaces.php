@@ -7,5 +7,6 @@ $baseDir = dirname(dirname(dirname($vendorDir)));
 
 return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'PicoFeed' => array($vendorDir . '/fguillot/picofeed/lib'),
     '' => array($baseDir . '/plugins/CommonPlugin/ext/chart', $baseDir . '/plugins/CommonPlugin/ext/mikehaertl', $baseDir . '/plugins/CommonPlugin/ext/yii'),
 );

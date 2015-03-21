@@ -1,3 +1,6 @@
+version 2015-03-22
+      Installed Picofeed using Composer
+
 version 2015-02-13
       Use composer to install packages
 

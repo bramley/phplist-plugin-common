@@ -46,6 +46,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2015-03-22  Add Picofeed package
     2015-02-13  Use composer to install packages
     2015-01-27  Use latest KLogger package
     2015-01-06  Minor change

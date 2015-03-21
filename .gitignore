@@ -136,3 +136,5 @@ plugins/CommonPlugin/vendor/psr/log/*
 !plugins/CommonPlugin/vendor/psr/log/Psr
 plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/
 
+plugins/CommonPlugin/vendor/fguillot/picofeed/*
+!plugins/CommonPlugin/vendor/fguillot/picofeed/lib

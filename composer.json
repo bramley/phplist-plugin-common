@@ -5,6 +5,7 @@
     "require": {
         "psr/log": "1.0.*",
         "katzgrau/klogger": "1.0.*",
+        "fguillot/picofeed": "dev-master",
         "pelago/emogrifier": "*"
     },
     "autoload": {
