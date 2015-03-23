@@ -18,6 +18,9 @@ This plugin is for phplist 3.0.0 and later.
 
 Requires php version 5.3 or later.
 
+The version of this plugin dated 2015-03-23 has an incompatible change. 
+Other plugins that depend on CommonPlugin should be upgraded to their latest version.
+
 ### Set the plugin directory ###
 The default plugin directory is `plugins` within the phplist `admin` directory but you can use a directory outside
 of the web root by changing the definition of `PLUGIN_ROOTDIR` in config.php.
@@ -46,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2015-03-23  Change to autoload approach
     2015-03-22  Add Picofeed package
     2015-02-13  Use composer to install packages
     2015-01-27  Use latest KLogger package

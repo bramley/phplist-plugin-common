@@ -53,7 +53,6 @@ END
 }
 
 $level = error_reporting(E_ALL | E_STRICT);
-include $plugins['CommonPlugin']->coderoot . 'Autoloader.php';
 
 set_error_handler('CommonPlugin_Exception::errorHandler', E_ALL | E_STRICT);
 ob_start();

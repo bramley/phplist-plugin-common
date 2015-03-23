@@ -50,6 +50,12 @@ class CommonPlugin extends phplistPlugin
         'session' => 'View session',
     );
 
+    public function sendFormats()
+    {
+        require_once $this->coderoot . 'Autoloader.php';
+        return null;
+    }
+
     public function adminmenu()
     {
         return array();
