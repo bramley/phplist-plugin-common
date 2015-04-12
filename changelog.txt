@@ -1,3 +1,6 @@
+version 2015-04-23
+      Add license files for vendor packages
+
 version 2015-03-23
       Simplify code in other plugins by creating the autoloader in this plugin
 

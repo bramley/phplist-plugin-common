@@ -127,14 +127,18 @@ pip-log.txt
 ## Composer ##
 composer.phar
 plugins/CommonPlugin/vendor/katzgrau/klogger/*
+!plugins/CommonPlugin/vendor/katzgrau/klogger/README.markdown
 !plugins/CommonPlugin/vendor/katzgrau/klogger/src/
 
 plugins/CommonPlugin/vendor/pelago/emogrifier/*
+!plugins/CommonPlugin/vendor/pelago/emogrifier/LICENSE
 !plugins/CommonPlugin/vendor/pelago/emogrifier/Classes/
 
 plugins/CommonPlugin/vendor/psr/log/*
+!plugins/CommonPlugin/vendor/psr/log/LICENSE
 !plugins/CommonPlugin/vendor/psr/log/Psr
 plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/
 
 plugins/CommonPlugin/vendor/fguillot/picofeed/*
-!plugins/CommonPlugin/vendor/fguillot/picofeed/lib
+!plugins/CommonPlugin/vendor/fguillot/picofeed/UNLICENSE
+!plugins/CommonPlugin/vendor/fguillot/picofeed/lib/
