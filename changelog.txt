@@ -1,3 +1,9 @@
+version 2015-05-28
+Duncan Cameron (42):
+      Remove redundant files leftover from phplist 2.10
+      Allow object to be created from within a plugin
+      Tidy-up translations
+
 version 2015-04-23
       Add license files for vendor packages
 

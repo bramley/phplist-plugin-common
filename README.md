@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    2015-03-28  Internal changes for translation
     2015-03-23  Change to autoload approach
     2015-03-22  Add Picofeed package
     2015-02-13  Use composer to install packages

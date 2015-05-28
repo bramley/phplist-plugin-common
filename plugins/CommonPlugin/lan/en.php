@@ -24,14 +24,11 @@ $lan = array(
     'export' => 'export to Excel',
     'help' => 'help',
     'about' => 'about',
-    'phpinfo' => 'phpinfo',
-    'config.php' => 'config.php',
 //  Widget.php
     'Find subscribers' => 'Find subscribers',
     'Select attributes' => 'Select attributes',
 //  General
     'top' => 'top',
-    'closewindow' => 'close this window',
 //  widget_attributeform.tpl.php
     'Search for' => 'Search for',
     'Confirmed' => 'Confirmed',
@@ -41,8 +38,4 @@ $lan = array(
     'unconfirmed only' => 'unconfirmed only',
     'blacklisted only' => 'blacklisted only',
     'not blacklisted only' => 'not blacklisted only',
-
-//  GoogleChart.php
-    'http_proxy_options_error' => 'Unable to set http proxy options',
-    'chart_error' => 'Unable to create chart'
 );
