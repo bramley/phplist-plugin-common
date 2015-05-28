@@ -36,14 +36,16 @@
     /*
      *    Private methods
      */
-    private function __construct()
+    public function __construct(phplistPlugin $pi = null)
     {
         global $I18N, $strCharSet;
 
         $this->charSet = strtoupper($strCharSet);
         $this->coreI18N = $I18N;
         $this->iconv = function_exists('iconv');
-        $this->lan = $this->loadLanguageFile($this->languageDir($this->pluginDir()));
+
+        $pluginDir = $pi ? $pi->coderoot : $this->pluginDir();
+        $this->lan = $this->loadLanguageFile($this->languageDir($pluginDir));
         $this->lan += $this->loadLanguageFile($this->languageDir(dirname(__FILE__) . '/'));
     }
 
