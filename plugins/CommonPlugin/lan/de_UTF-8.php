@@ -19,22 +19,26 @@
  */
  
 $lan = array(
-//    Pager.php
+//  Pager.php
     'Showing %d to %d of %d' => 'Zeige %d bis %d von %d',
-    'Show' => 'Show',
-    'no_results' => 'Nichts anzuzeigen.',
-//    Widget.php
-    'download to Excel' => 'Download',
-    'help' => 'hilfe',
-    'about' => 'über',
-//    General
-    'top' => 'hoch',
-    'closewindow' => 'Fenster schliessen',
-//    widget_attributeform.tpl.php
+    'Show' => 'Anzeigen',
+    'no_results' => 'Keine Ergebnisse anzuzeigen',
+//  Toolbar.php
+    'export' => 'nach Excel exportieren',
+    'help' => 'Hilfe',
+    'about' => 'Über',
+//  Widget.php
+    'Find subscribers' => 'Suche Abonnenten',
+    'Select attributes' => 'Attribute auswählen',
+//  General
+    'top' => 'nach oben',
+//  widget_attributeform.tpl.php
     'Search for' => 'Suche nach',
-    'unconfirmed_caption' => 'Nur unbestätigte Abonnenten',
-    'blacklisted_caption' => 'Nur Abonnenten auf Blacklist',
-//    GoogleChart.php
-    'http_proxy_options_error' => 'Fehler bei der Verbindung zum Proxyserver, bitte überprüfen Sie Ihre Einstellungen',
-    'chart_error' => 'Fehler bei der Anzeige der Grafikübersicht.'
+    'Confirmed' => 'Bestätigt',
+    'Blacklisted' => 'Gesperrt (Blacklist)',
+    'All subscribers' => 'Alle Abonnenten',
+    'confirmed only' => 'nur bestätigte Abonnenten',
+    'unconfirmed only' => 'nur unbestätigte Abonnenten',
+    'blacklisted only' => 'nur gesperrte Abonnenten (Blacklist)',
+    'not blacklisted only' => 'nur nicht-gesperrte Abonnenten',
 );
