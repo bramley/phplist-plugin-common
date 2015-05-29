@@ -34,6 +34,8 @@ $lan = array(
     'top' => 'nach oben',
 //  widget_attributeform.tpl.php
     'Search for' => 'Suche nach',
+	'List' => 'Liste',
+	'All' => 'Alle',
     'Confirmed' => 'Bestätigt',
     'Blacklisted' => 'Gesperrt (Blacklist)',
     'All subscribers' => 'Alle Abonnenten',

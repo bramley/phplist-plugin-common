@@ -64,7 +64,7 @@ input[type="text"], select {
             <?php echo CHtml::dropDownList(
                 'SearchForm[listID]', $model->listID,
                 CHtml::listData($model->lists, 'id', 'name'),
-                array('prompt' => 'All')
+				array('prompt' => $this->i18n->get('All'))
             ); ?>
             </label>
 
