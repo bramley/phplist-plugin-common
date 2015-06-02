@@ -52,24 +52,8 @@ td.listingelementcenter {
 td.listingelementright {
   text-align: right !important;
 }
-/*
- * Copy of buttonpublish styles from phplist.css
- */
-a.button:link, a.button:visited {
-    font-family: verdana, sans-serif;
-    font-size : 11px;
-    color : #999966;
-    background-color : #ffffff;
-    font-weight: bold;
-    text-align : middle;
-    text-decoration : none;
-    border: 1px #999966 solid;
-    padding: 2px;
-    margin: 2px;
-}
-a.button:hover {
-    color : #666633;
-}
+
+
 .content table {
     table-layout: auto;
 }
