@@ -16,6 +16,10 @@
  * 
 */
 $lan = array(
+//  CommonPlugin.php
+    'view_phpinfo' => 'View phpinfo',
+    'view_config.php' => 'View config.php',
+    'view_session' => 'View session',
 //  Pager.php
     'Showing %d to %d of %d' => 'Showing %d to %d of %d',
     'Show' => 'Show',
