@@ -1,3 +1,7 @@
+version 2015-07-21
+      Parallel directory for namespaced classes
+      psr-4 autoloader
+
 version 2015-05-29
 MarcelvC (2):
       updated German language file de_UTF-8.php; now in line with en.php

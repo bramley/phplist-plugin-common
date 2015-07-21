@@ -27,6 +27,7 @@ function CommonPlugin_Autoloader_main()
     $paths[] = (CommonPlugin_Autoloader_isAbsolutePath(PLUGIN_ROOTDIR))
         ? PLUGIN_ROOTDIR : $systemroot . '/' . PLUGIN_ROOTDIR;
     $loader->add('', $paths);
+    $loader->addPsr4('phpList\\plugin\\', $paths);
 }
 
 function CommonPlugin_Autoloader_isAbsolutePath($path)

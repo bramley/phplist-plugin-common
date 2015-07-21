@@ -49,6 +49,8 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.0.0       Added namespaced classes
+                new version numbering
     2015-03-29  Improved German translation
     2015-03-28  Internal changes for translation
     2015-03-23  Change to autoload approach
