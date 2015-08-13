@@ -55,6 +55,9 @@ class PageURL
             $p['pi'] = $_GET['pi'];
         }
 
+        if (isset($_SESSION['csrf_token'])) {
+            $p['tk'] = $_SESSION['csrf_token'];
+        }
         return './?' . http_build_query($p + $this->params, '', '&') . ($this->fragment ? "#$this->fragment" : '');
     }
 }

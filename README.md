@@ -49,32 +49,33 @@ This should contain
 ## Version history ##
 
     version     Description
-    3.0.0       Added namespaced classes
-                new version numbering
-    2015-03-29  Improved German translation
-    2015-03-28  Internal changes for translation
-    2015-03-23  Change to autoload approach
-    2015-03-22  Add Picofeed package
-    2015-02-13  Use composer to install packages
-    2015-01-27  Use latest KLogger package
-    2015-01-06  Minor change
-    2014-10-22  Minor changes
-    2014-09-09  Internal changes
-    2014-09-04  Minor changes
-    2014-07-06  Minor changes
-    2014-05-18  Accumulated internal changes
-    2014-04-22  Syntax hightlight config file
-    2014-04-18  Add phpinfo and config file as separate pages
-    2014-04-08  Internal changes
-    2014-03-11  Replace check-box by drop-down list on attribute form
-    2014-02-16  Internal change
-    2014-02-12  Hold config settings for each admin separately
-    2014-02-03  Improve presentation by always displaying the listing
-    2014-01-27  Added page to serve plugin images
-    2014-01-25  Added class to support google charts
-    2013-11-05  Display attribute form in a UIPanel
-    2013-10-03  Accumulated changes
-    2013-08-26  Accumulated changes
-    2013-04-30  Internal changes to work with phplist 2.11.8
-    2013-04-22  Fix for GitHub issue, internal changes
-    2013-03-29  Initial version for phplist 2.11.x releases
+    3.0.1+20150813  Include tk parameter on page urls
+    3.0.0           Added namespaced classes
+                    new version numbering
+    2015-03-29      Improved German translation
+    2015-03-28      Internal changes for translation
+    2015-03-23      Change to autoload approach
+    2015-03-22      Add Picofeed package
+    2015-02-13      Use composer to install packages
+    2015-01-27      Use latest KLogger package
+    2015-01-06      Minor change
+    2014-10-22      Minor changes
+    2014-09-09      Internal changes
+    2014-09-04      Minor changes
+    2014-07-06      Minor changes
+    2014-05-18      Accumulated internal changes
+    2014-04-22      Syntax hightlight config file
+    2014-04-18      Add phpinfo and config file as separate pages
+    2014-04-08      Internal changes
+    2014-03-11      Replace check-box by drop-down list on attribute form
+    2014-02-16      Internal change
+    2014-02-12      Hold config settings for each admin separately
+    2014-02-03      Improve presentation by always displaying the listing
+    2014-01-27      Added page to serve plugin images
+    2014-01-25      Added class to support google charts
+    2013-11-05      Display attribute form in a UIPanel
+    2013-10-03      Accumulated changes
+    2013-08-26      Accumulated changes
+    2013-04-30      Internal changes to work with phplist 2.11.8
+    2013-04-22      Fix for GitHub issue, internal changes
+    2013-03-29      Initial version for phplist 2.11.x releases
