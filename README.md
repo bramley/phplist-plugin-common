@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.0.2+20150819  Make image page a public page
     3.0.1+20150813  Include tk parameter on page urls
     3.0.0           Added namespaced classes
                     new version numbering

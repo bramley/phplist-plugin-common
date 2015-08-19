@@ -1,3 +1,6 @@
+version 3.0.2+20150819
+      Make image page a public page
+
 version 3.0.1+20150813
       Include token parameter in url
 
