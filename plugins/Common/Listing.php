@@ -37,10 +37,9 @@ class Listing
     public function display()
     {
         $total = $this->populator->total();
-        list($start, $limit) = $this->pager->range($total);
 
         $w = new WebblerListing();
-        $w->usePanel($this->pager->display());
+        $w->usePanel($this->pager->display($total));
 
         if ($this->sort) {
             $w->addSort();
@@ -49,6 +48,7 @@ class Listing
         if ($total == 0) {
             $w->addElement($this->controller->i18n->get($this->noResultsMessage));
         }
+        list($start, $limit) = $this->pager->range();
         $this->populator->populate($w, $start, $limit);
         return $w->display();
     }

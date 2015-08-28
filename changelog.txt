@@ -1,3 +1,6 @@
+version 3.0.3+20150828
+      Refactoring pager and listing classes
+
 version 3.0.2+20150819
       Make image page a public page
 

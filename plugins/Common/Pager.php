@@ -100,7 +100,7 @@ class Pager
      * @return void
      * @access private
      */
-    private function setPageSize()
+    private function calculatePageSize()
     {
         if (isset($_GET[$this->show]) && strtolower($_GET[$this->show]) == 'all') {
             $this->pageSizeStr = 'All';
@@ -120,7 +120,7 @@ class Pager
      * @return void
      * @access private
      */
-    private function setCurrentItem()
+    private function calculateStartItem()
     {
         if ($this->pageSize == 0) {
             $this->startCurrent = $this->startFinal = 0;
@@ -214,25 +214,27 @@ class Pager
             : $nextArrow;
     }
     /**
-     * Calculates the current item and the maximum number of items to be displayed
+     * Returns the current item and the maximum number of items to be displayed
      * @return list (current index, number of items)
      * @access public
      */
-    public function range($total)
+    public function range()
     {
-        $this->total = $total;
-        $this->setPageSize();
-        $this->setCurrentItem();
         return array($this->startCurrent, $this->pageSize);
     }
 
     /**
      * Generates the HTML for the pager using the pager template
+     * @param integer $total The total number of items
      * @return string raw HTML
      * @access public
      */
-    public function display()
+    public function display($total)
     {
+        $this->total = $total;
+        $this->calculatePageSize();
+        $this->calculateStartItem();
+
         $items = array();
 
         foreach ($this->itemsPerPage as $i) {
