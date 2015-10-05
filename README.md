@@ -34,6 +34,7 @@ Check that these files are in the plugin directory. If not then you will need to
 
 * the file CommonPlugin.php
 * the directory CommonPlugin
+* the directory Common
 
 Then click the small orange icon to enable the plugin.
 
