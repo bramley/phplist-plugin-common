@@ -1,3 +1,6 @@
+version 3.0.4+20151007
+      Remove need for the plugins directory to be called plugins
+
 version 3.0.3+20150828
       Refactoring pager and listing classes
 

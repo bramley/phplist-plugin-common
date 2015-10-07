@@ -7,10 +7,5 @@
         "katzgrau/klogger": "1.0.*",
         "fguillot/picofeed": "dev-master",
         "pelago/emogrifier": "*"
-    },
-    "autoload": {
-        "psr-0": {
-            "": ["plugins/CommonPlugin/ext/chart", "plugins/CommonPlugin/ext/mikehaertl", "plugins/CommonPlugin/ext/yii"]
-        }
     }
 }
