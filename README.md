@@ -46,6 +46,7 @@ This should contain
 
 * the file CommonPlugin.php
 * the directory CommonPlugin
+* the directory Common
 
 ## Version history ##
 
