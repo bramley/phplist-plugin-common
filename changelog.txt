@@ -1,3 +1,7 @@
+version 3.1.0+20151012
+      Use classpath for autoloading
+      Use new csrf token name introduced in phplist 3.2.1
+
 version 3.0.4+20151007
       Remove need for the plugins directory to be called plugins
 

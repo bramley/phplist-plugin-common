@@ -22,7 +22,7 @@
 
 function CommonPlugin_Autoloader_main()
 {
-    global $systemroot;
+    global $systemroot, $plugins;
 
     $loader = require dirname(__FILE__) . '/vendor/autoload.php';
 
@@ -39,6 +39,14 @@ function CommonPlugin_Autoloader_main()
         }
     }
     $loader->add('', $paths);
+
+    foreach ($plugins as $pi) {
+        if (file_exists($f = $pi->coderoot . 'class_map.php')) {
+            $base = $pi->coderoot;
+            $piClassMap = include $f;
+            $loader->addClassMap($piClassMap);
+        }
+    }
 }
 
 function CommonPlugin_Autoloader_isAbsolutePath($path)
