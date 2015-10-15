@@ -1,3 +1,7 @@
+version 3.1.1+20151015
+      Avoid throwing exception when creating I18N
+      GitHub #5, ensure that the correct version is used
+
 version 3.1.0+20151012
       Use classpath for autoloading
       Use new csrf token name introduced in phplist 3.2.1

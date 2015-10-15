@@ -25,7 +25,7 @@
      */
     private $coreI18N;
     private $iconv;
-    private $lan;
+    private $lan = array();
 
     private static $instance;
     /*
@@ -36,19 +36,6 @@
     /*
      *    Private methods
      */
-    public function __construct(phplistPlugin $pi = null)
-    {
-        global $I18N, $strCharSet;
-
-        $this->charSet = strtoupper($strCharSet);
-        $this->coreI18N = $I18N;
-        $this->iconv = function_exists('iconv');
-
-        $pluginDir = $pi ? $pi->coderoot : $this->pluginDir();
-        $this->lan = $this->loadLanguageFile($this->languageDir($pluginDir));
-        $this->lan += $this->loadLanguageFile($this->languageDir(dirname(__FILE__) . '/'));
-    }
-
     private function pluginDir()
     {
         global $plugins;
@@ -60,7 +47,7 @@
                 return $plugins[$pi]->coderoot;
             }
         }
-        throw new Exception('CommonPlugin_I18N must be created within a plugin');
+        return null;
     }
 
     private function languageDir($pluginDir)
@@ -90,6 +77,22 @@
     /*
      *    Public methods
      */
+    public function __construct(phplistPlugin $pi = null)
+    {
+        global $I18N, $strCharSet;
+
+        $this->charSet = strtoupper($strCharSet);
+        $this->coreI18N = $I18N;
+        $this->iconv = function_exists('iconv');
+
+        $pluginDir = $pi ? $pi->coderoot : $this->pluginDir();
+
+        if ($pluginDir) {
+            $this->lan = $this->loadLanguageFile($this->languageDir($pluginDir));
+        }
+        $this->lan += $this->loadLanguageFile($this->languageDir(dirname(__FILE__) . '/'));
+    }
+
     public static function instance() {
         if (!isset(self::$instance)) {
             $c = __CLASS__;

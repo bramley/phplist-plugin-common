@@ -54,10 +54,10 @@ class CommonPlugin extends phplistPlugin
     public function __construct()
     {
         $this->coderoot = dirname(__FILE__) . '/CommonPlugin/';
+        parent::__construct();
         $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
             ? file_get_contents($f)
             : '';
-        parent::__construct();
         include_once $this->coderoot . 'functions.php';
     }
 

@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.1.1+20151015  Minor internal changes
     3.1.0+20151012  csrf token compatibility change for phplist 3.2.1
     3.0.4+20151007  Remove need for plugins directory to be called plugins
     3.0.3+20150828  Refactoring pager and listing classes
