@@ -42,7 +42,7 @@ function CommonPlugin_Autoloader_main()
 
     foreach ($plugins as $pi) {
         if (file_exists($f = $pi->coderoot . 'class_map.php')) {
-            $base = $pi->coderoot;
+            $base = dirname($pi->coderoot);
             $piClassMap = include $f;
             $loader->addClassMap($piClassMap);
         }
