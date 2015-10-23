@@ -2,8 +2,6 @@
 
 namespace phpList\plugin\Common;
 
-use Exception;
-
 /**
  * CommonPlugin for phplist
  * 
@@ -42,7 +40,7 @@ class Main
             $controller = $cf->createController($_GET['pi'], $_GET);
             $action = isset($_GET['action']) ? $_GET['action'] : null;
             $controller->run($action);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             print '<p>' . nl2br(htmlspecialchars($e->getMessage())) . '</p>';
             print '<p>' . nl2br(htmlspecialchars($e->getTraceAsString ())) . '</p>';
         }
