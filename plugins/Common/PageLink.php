@@ -57,6 +57,6 @@ class PageLink
         foreach ($this->attrs as $k => $v) {
             $string .= sprintf(' %s="%s"', $k, htmlspecialchars($v));
         }
-		return sprintf('<a%s>%s</a>', $string, $this->text);
+        return sprintf('<a%s>%s</a>', $string, $this->text);
     }
 }

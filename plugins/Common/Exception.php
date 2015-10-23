@@ -1,7 +1,7 @@
 <?php
 
 namespace phpList\plugin\Common;
- 
+
 /**
  * CommonPlugin for phplist
  * 
@@ -17,7 +17,7 @@ namespace phpList\plugin\Common;
 /**
  * This is a base exception from which all other exceptions inherit
  * 
- */ 
+ */
 abstract class Exception extends \Exception
 {
     protected $i18n;
@@ -36,12 +36,12 @@ abstract class Exception extends \Exception
         parent::__construct($t, $code);
     }
 
-    public static function errorHandler($errno, $errstr, $errfile, $errline ) {
-
-        if (!($errno & error_reporting()))
+    public static function errorHandler($errno, $errstr, $errfile, $errline)
+    {
+        if (!($errno & error_reporting())) {
             return true;
+        }
 
-           throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
-
+        throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
     }
 }

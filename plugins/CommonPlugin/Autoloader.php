@@ -26,7 +26,7 @@ function CommonPlugin_Autoloader_main()
 
     $loader = require dirname(__FILE__) . '/vendor/autoload.php';
 
-    $paths = (PLUGIN_ROOTDIRS == '') ? array() : explode(';',PLUGIN_ROOTDIRS);
+    $paths = (PLUGIN_ROOTDIRS == '') ? array() : explode(';', PLUGIN_ROOTDIRS);
     $paths[] = (CommonPlugin_Autoloader_isAbsolutePath(PLUGIN_ROOTDIR))
         ? PLUGIN_ROOTDIR : $systemroot . '/' . PLUGIN_ROOTDIR;
 

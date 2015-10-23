@@ -90,21 +90,24 @@ class CommonPlugin_GoogleChart
                 );
 
                 if (isset($http_proxy_options)) {
-                    if (!stream_context_set_option($context, array('http' => $http_proxy_options)))
+                    if (!stream_context_set_option($context, array('http' => $http_proxy_options))) {
                         throw new CommonPlugin_ProxySettingsException();
+                    }
                 }
                 $image = file_get_contents($url, false, $context);
             } catch (ErrorException $e) {
                 $this->logger->warning($e->getMessage());
 
-                if (isset($http_response_header))
+                if (isset($http_response_header)) {
                     $this->logger->debug(print_r($http_response_header, true));
+                }
                 throw new CommonPlugin_GoogleChartException();
             }
 
             if ($image === false || strlen($image) == 0) {
-                if (isset($http_response_header))
+                if (isset($http_response_header)) {
                     $this->logger->debug(print_r($http_response_header, true));
+                }
                 throw new CommonPlugin_GoogleChartException();
             }
 

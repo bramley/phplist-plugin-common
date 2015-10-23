@@ -31,11 +31,13 @@ class Main
         try {
             $version = phpversion();
 
-            if (version_compare($version, self::REQUIRED_VERSION) < 0) 
+            if (version_compare($version, self::REQUIRED_VERSION) < 0) {
                 throw new Exception(sprintf("php version $version found, plugin requires version %s or later", self::REQUIRED_VERSION));
+            }
 
-            if (!$cf)
+            if (!$cf) {
                 $cf = new ControllerFactory();
+            }
 
             $controller = $cf->createController($_GET['pi'], $_GET);
             $action = isset($_GET['action']) ? $_GET['action'] : null;

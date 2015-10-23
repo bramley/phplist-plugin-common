@@ -24,7 +24,7 @@ class Lists extends Common\DAO
 {
     public function listById($listID)
     {
-        $sql = 
+        $sql =
             "SELECT REPLACE(l.name, '&amp;', '&') as name, l.description
             FROM {$this->tables['list']} l
             WHERE id = $listID";
@@ -35,7 +35,7 @@ class Lists extends Common\DAO
     public function listsForOwner($loginid)
     {
         $owner = $loginid ? 'WHERE l.owner = ' . $loginid : '';
-        $sql = 
+        $sql =
             "SELECT l.id, REPLACE(l.name, '&amp;', '&') as name, l.description
             FROM {$this->tables['list']} l
             $owner
@@ -46,7 +46,7 @@ class Lists extends Common\DAO
 
     public function listsForMessage($msgid)
     {
-        $sql = 
+        $sql =
             "SELECT REPLACE(l.name, '&amp;', '&') AS name
             FROM {$this->tables['listmessage']} lm
             JOIN {$this->tables['list']} l ON lm.listid = l.id
@@ -54,5 +54,4 @@ class Lists extends Common\DAO
 
         return $this->dbCommand->queryColumn($sql, 'name');
     }
-
 }

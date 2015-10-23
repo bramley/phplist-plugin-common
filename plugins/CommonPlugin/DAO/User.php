@@ -49,12 +49,11 @@ class CommonPlugin_DAO_User extends CommonPlugin_DAO
     public function unconfirmUser($email)
     {
         $email = sql_escape($email);
-        $sql = 
+        $sql =
             "UPDATE {$this->tables['user']} u
             SET confirmed = 0
             WHERE email = '$email'";
 
         return $this->dbCommand->queryAffectedRows($sql);
     }
-
 }

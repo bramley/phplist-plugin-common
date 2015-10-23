@@ -19,7 +19,7 @@ class CommonPlugin_DAO_List extends CommonPlugin_DAO
 {
     public function listById($listID)
     {
-        $sql = 
+        $sql =
             "SELECT REPLACE(l.name, '&amp;', '&') as name, l.description
             FROM {$this->tables['list']} l
             WHERE id = $listID";
@@ -30,7 +30,7 @@ class CommonPlugin_DAO_List extends CommonPlugin_DAO
     public function listsForOwner($loginid)
     {
         $owner = $loginid ? 'WHERE l.owner = ' . $loginid : '';
-        $sql = 
+        $sql =
             "SELECT l.id, REPLACE(l.name, '&amp;', '&') as name, l.description
             FROM {$this->tables['list']} l
             $owner
@@ -41,7 +41,7 @@ class CommonPlugin_DAO_List extends CommonPlugin_DAO
 
     public function listsForMessage($msgid)
     {
-        $sql = 
+        $sql =
             "SELECT REPLACE(l.name, '&amp;', '&') AS name
             FROM {$this->tables['listmessage']} lm
             JOIN {$this->tables['list']} l ON lm.listid = l.id
@@ -49,5 +49,4 @@ class CommonPlugin_DAO_List extends CommonPlugin_DAO
 
         return $this->dbCommand->queryColumn($sql, 'name');
     }
-
 }

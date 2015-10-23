@@ -24,7 +24,7 @@ class Message extends Common\DAO
 {
     public function messageById($msgid)
     {
-        $sql = 
+        $sql =
             "SELECT *
             FROM {$this->tables['message']} m
             WHERE m.id = $msgid";
@@ -42,7 +42,7 @@ class Message extends Common\DAO
                 'draft', htmlformatted, sendformat, template, owner
             FROM {$this->tables['message']}
             WHERE id=$id";
-         $id = $this->dbCommand->queryInsertId($sql);
+        $id = $this->dbCommand->queryInsertId($sql);
 
         return $id;
     }
@@ -52,7 +52,7 @@ class Message extends Common\DAO
         $sql = "
             DELETE FROM {$this->tables['message']}
             WHERE id=$id";
-         $count = $this->dbCommand->queryAffectedRows($sql);
+        $count = $this->dbCommand->queryAffectedRows($sql);
 
         if ($count > 0) {
             $sql =
@@ -109,7 +109,7 @@ class Message extends Common\DAO
         $sql = "
            DELETE FROM {$this->tables['message']}
            WHERE status = 'draft' AND (subject = '' OR subject = '(no subject)')";
-         $count = $this->dbCommand->queryAffectedRows($sql);
+        $count = $this->dbCommand->queryAffectedRows($sql);
         return $count;
     }
 }

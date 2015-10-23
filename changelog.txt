@@ -1,3 +1,10 @@
+version 3.2.0+20151023
+      Changes for coding standards
+      Correct illegal class name, fixes #4
+      Correct use of global Exception class
+      Change to base directory used by class maps
+      Added class map
+
 version 3.1.1+20151015
       Avoid throwing exception when creating I18N
       GitHub #5, ensure that the correct version is used

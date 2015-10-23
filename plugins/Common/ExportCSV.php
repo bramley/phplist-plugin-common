@@ -24,7 +24,7 @@ class ExportCSV
     {
     }
 
-    public function export (IExportable $exporter) 
+    public function export(IExportable $exporter)
     {
         $fileName = $exporter->exportFileName();
     

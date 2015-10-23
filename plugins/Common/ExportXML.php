@@ -26,7 +26,7 @@ class ExportXML
     {
     }
 
-    public function export (IExportable $exporter) 
+    public function export(IExportable $exporter)
     {
         $fileName = $exporter->exportFileName();
     
@@ -56,6 +56,6 @@ class ExportXML
         }
         $oXMLout->endElement();
         $oXMLout->endDocument();
-        print $oXMLout->outputMemory();        
+        print $oXMLout->outputMemory();
     }
 }

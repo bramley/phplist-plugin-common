@@ -17,12 +17,11 @@
  */
 class CommonPlugin_ExportXML
 {
-
     public function __construct()
     {
     }
 
-    public function export (CommonPlugin_IExportable $exporter) 
+    public function export(CommonPlugin_IExportable $exporter)
     {
         $fileName = $exporter->exportFileName();
     
@@ -52,6 +51,6 @@ class CommonPlugin_ExportXML
         }
         $oXMLout->endElement();
         $oXMLout->endDocument();
-        print $oXMLout->outputMemory();        
+        print $oXMLout->outputMemory();
     }
 }

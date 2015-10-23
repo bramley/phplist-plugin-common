@@ -18,7 +18,7 @@ namespace phpList\plugin\Common;
  * This class combines the Pager and WebblerListing objects
  * 
  */
-class Listing 
+class Listing
 {
     private $controller;
     private $populator;
