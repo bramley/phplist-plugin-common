@@ -27,7 +27,7 @@ class CommonPlugin_Pager
      * The number of instances of this class that have been created
      * @var integer
      */
-    static private $instances = 0;
+    private static $instances = 0;
     
     /**
      * URL query field names
@@ -141,11 +141,11 @@ class CommonPlugin_Pager
      * @access private
      */
    private function navigation($text, $start, $active)
-    {
-        return $active
+   {
+       return $active
             ? $this->pageLink($text, array($this->start => $start))
             : htmlspecialchars($text);
-    }
+   }
 
     /**
      * Generate a link for the current page incorporating the $_GET parameters
@@ -235,14 +235,14 @@ class CommonPlugin_Pager
         $items = array();
 
         foreach ($this->itemsPerPage as $i) {
-            $items[] = $this->pageSizeStr == $i 
-            ? "<b>$i</b>" 
+            $items[] = $this->pageSizeStr == $i
+            ? "<b>$i</b>"
             : $this->pageLink($i, array($this->start => $this->startCurrent, $this->show => $i));
         }
         $vars = array(
             'range' => $this->total > 0
                 ? $this->controller->i18n->get(
-                    'Showing %d to %d of %d', 
+                    'Showing %d to %d of %d',
                     $this->startCurrent + 1, min($this->startCurrent + $this->pageSize, $this->total), $this->total
                 )
                 : '&nbsp;',

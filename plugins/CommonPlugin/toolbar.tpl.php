@@ -69,7 +69,7 @@ div.toolbar img {
 }
 </style>
 <div class='toolbar'>
-<?php foreach($buttons as $button) : 
+<?php foreach ($buttons as $button) :
     echo $button->display();
 endforeach; ?>
 </div>

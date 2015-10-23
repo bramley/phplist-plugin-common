@@ -28,7 +28,7 @@ class CommonPlugin_Config
         $this->dao = new CommonPlugin_DAO_Config(new CommonPlugin_DB());
         $this->config = unserialize($this->dao->getItem($id));
 
-        if ($this->config === FALSE) {
+        if ($this->config === false) {
             $this->config = $default;
         }
     }

@@ -19,7 +19,8 @@ class CommonPlugin_DAO_Attribute extends CommonPlugin_DAO
     private $attrNameLength;
     private $maxAttrs;
 
-    public function __construct($dbCommand, $attrNameLength = 20, $maxAttrs = 15) {
+    public function __construct($dbCommand, $attrNameLength = 20, $maxAttrs = 15)
+    {
         $this->attrNameLength = $attrNameLength;
         $this->maxAttrs = $maxAttrs;
         parent::__construct($dbCommand);
@@ -44,7 +45,7 @@ class CommonPlugin_DAO_Attribute extends CommonPlugin_DAO
          *    need to unescape attribute name
          */
         $limit = $this->maxAttrs > 0 ? "LIMIT $this->maxAttrs" : '';
-        $sql = 
+        $sql =
             "SELECT id, 
             LEFT(REPLACE(
                 REPLACE(name, '\\\\\\'', '\\''),
@@ -62,7 +63,7 @@ class CommonPlugin_DAO_Attribute extends CommonPlugin_DAO
      */
     public function getAttribute($attr)
     {
-        $sql = 
+        $sql =
             "SELECT id,
             LEFT(REPLACE(
                 REPLACE(name, '\\\\\\'', '\\''),

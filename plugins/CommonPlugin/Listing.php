@@ -15,7 +15,7 @@
  * This class combines the Pager and WebblerListing objects
  * 
  */
-class CommonPlugin_Listing 
+class CommonPlugin_Listing
 {
     private $controller;
     private $populator;

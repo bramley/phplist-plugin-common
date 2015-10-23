@@ -22,5 +22,7 @@ foreach ($plugins as $p): ?>
 endforeach;
 ?>
 <h3>Licence</h3>
-<?php if(isset($pluginLicence)) echo $pluginLicence; ?>
+<?php if (isset($pluginLicence)) {
+    echo $pluginLicence;
+} ?>
 

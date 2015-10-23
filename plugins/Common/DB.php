@@ -18,7 +18,8 @@ namespace phpList\plugin\Common;
  * This class provides an interface to the phplist database subroutines
  * 
  */
-class DB {
+class DB
+{
     /*
      *    Private attributes
      */
@@ -27,7 +28,8 @@ class DB {
     /*
      *    Private methods
      */
-    private function _query($sql) {
+    private function _query($sql)
+    {
         /*
          * 
          */
@@ -46,11 +48,13 @@ class DB {
     /*
      *    Public methods
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->logger = Logger::instance();
     }
 
-    public function queryInsertId($sql) {
+    public function queryInsertId($sql)
+    {
         /*
          * 
          */
@@ -58,7 +62,8 @@ class DB {
         return Sql_Insert_Id();
     }
 
-    public function queryAffectedRows($sql) {
+    public function queryAffectedRows($sql)
+    {
         /*
          * 
          */
@@ -66,14 +71,16 @@ class DB {
         return Sql_Affected_Rows();
     }
 
-    public function queryAll($sql) {
+    public function queryAll($sql)
+    {
         /*
          * 
          */
         return new DBResultIterator($this->_query($sql));
     }
 
-    public function queryRow($sql) {
+    public function queryRow($sql)
+    {
         /*
          * 
          */
@@ -82,7 +89,8 @@ class DB {
         return Sql_Fetch_Assoc($resource);
     }
 
-    public function queryOne($sql, $field) {
+    public function queryOne($sql, $field)
+    {
         /*
          * 
          */
@@ -90,12 +98,12 @@ class DB {
         return $row ? $row[$field] : false;
     }
 
-    public function queryColumn($sql, $field, $index = null) {
+    public function queryColumn($sql, $field, $index = null)
+    {
         /*
          * 
          */
         $iterator = $this->queryAll($sql);
         return array_column(iterator_to_array($iterator), $field, $index);
     }
-
 }

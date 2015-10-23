@@ -59,7 +59,7 @@ class CommonPlugin_HelpManager
             $params['pluginLicence'] = file_get_contents($f);
         }
         return $this->controller->render(__DIR__ . self::ABOUT_TEMPLATE, $params);
-   }
+    }
 
     public function __construct($controller)
     {

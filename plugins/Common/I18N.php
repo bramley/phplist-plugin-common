@@ -20,8 +20,8 @@ namespace phpList\plugin\Common;
  * If a language file does not exist then the class falls-back to English.
  * The language files are in the lan subdirectory of a plugin's main directory.
  * 
- */ 
- class I18N 
+ */
+class I18N
 {
     /*
      *    Private attributes
@@ -93,7 +93,8 @@ namespace phpList\plugin\Common;
     /*
      *    Public methods
      */
-    public static function instance() {
+    public static function instance()
+    {
         if (!isset(self::$instance)) {
             $c = __CLASS__;
             self::$instance = new $c;
@@ -125,11 +126,13 @@ namespace phpList\plugin\Common;
 
     public function getUtf8($key)
     {
-        if ($this->charSet == 'UTF-8')
+        if ($this->charSet == 'UTF-8') {
             return $this->get($key);
+        }
 
-        if (is_array($key))
+        if (is_array($key)) {
             return array_map(array($this, 'getUtf8'), $key);
+        }
 
         $t = $this->get($key);
         return $this->iconv

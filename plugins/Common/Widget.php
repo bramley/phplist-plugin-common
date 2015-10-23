@@ -19,7 +19,7 @@ use UIPanel;
 /**
  * This class provides customised links and html.
  * 
- */ 
+ */
 class Widget
 {
     const ATTRIBUTEFORM_TEMPLATE = '/widget_attributeform.tpl.php';
@@ -32,7 +32,7 @@ class Widget
     /*
      *    Public methods
      */
-    static public function attributeForm(BaseController $controller, $model, $search = true, $select = true)
+    public static function attributeForm(BaseController $controller, $model, $search = true, $select = true)
     {
         $params = array(
             'model' => $model,
@@ -45,5 +45,4 @@ class Widget
         );
         return $panel->display();
     }
-
 }

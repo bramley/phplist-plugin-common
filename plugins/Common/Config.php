@@ -31,7 +31,7 @@ class Config
         $this->dao = new DAO\Config(new DB());
         $this->config = unserialize($this->dao->getItem($id));
 
-        if ($this->config === FALSE) {
+        if ($this->config === false) {
             $this->config = $default;
         }
     }

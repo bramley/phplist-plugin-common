@@ -24,7 +24,8 @@ class Attribute extends Common\DAO
     private $attrNameLength;
     private $maxAttrs;
 
-    public function __construct($dbCommand, $attrNameLength = 20, $maxAttrs = 15) {
+    public function __construct($dbCommand, $attrNameLength = 20, $maxAttrs = 15)
+    {
         $this->attrNameLength = $attrNameLength;
         $this->maxAttrs = $maxAttrs;
         parent::__construct($dbCommand);
@@ -49,7 +50,7 @@ class Attribute extends Common\DAO
          *    need to unescape attribute name
          */
         $limit = $this->maxAttrs > 0 ? "LIMIT $this->maxAttrs" : '';
-        $sql = 
+        $sql =
             "SELECT id, 
             LEFT(REPLACE(
                 REPLACE(name, '\\\\\\'', '\\''),
@@ -67,7 +68,7 @@ class Attribute extends Common\DAO
      */
     public function getAttribute($attr)
     {
-        $sql = 
+        $sql =
             "SELECT id,
             LEFT(REPLACE(
                 REPLACE(name, '\\\\\\'', '\\''),

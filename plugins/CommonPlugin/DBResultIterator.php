@@ -39,11 +39,11 @@ class CommonPlugin_DBResultIterator implements Iterator, Countable
      * @param resource $result
      */
     public function __construct($resource)
-    {    
+    {
         $this->result = $resource;
         $this->row = 0;
         $this->count = sql_num_rows($resource);
-    }    
+    }
     
     public function __destruct()
     {
@@ -94,7 +94,7 @@ class CommonPlugin_DBResultIterator implements Iterator, Countable
     public function valid()
     {
         return (bool) ($this->row < $this->count);
-    }    
+    }
 
     /**
     * Implementation of Countable interface

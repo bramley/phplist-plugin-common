@@ -28,8 +28,12 @@ div.help td {
 </style>
 <h3><?php echo $this->i18n->get('plugin_title') . ': ' . $topic ?></h3>
 <div class="help">
-<?php if (isset($file)) include $file; ?>
-<?php if (isset($help)) echo $help; ?>
+<?php if (isset($file)) {
+    include $file;
+} ?>
+<?php if (isset($help)) {
+    echo $help;
+} ?>
 </div>
 </BODY>
 </HTML>

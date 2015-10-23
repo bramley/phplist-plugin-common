@@ -21,7 +21,7 @@ class CommonPlugin_ExportCSV
     {
     }
 
-    public function export (CommonPlugin_IExportable $exporter) 
+    public function export(CommonPlugin_IExportable $exporter)
     {
         $fileName = $exporter->exportFileName();
     

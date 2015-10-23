@@ -15,7 +15,7 @@
  * This class extends KLogger to provide configuration through config.php entries.
  * It over-rides the log() method to include the calling class/method/line number
  * 
- */ 
+ */
 use Psr\Log\LogLevel;
 use Psr\Log\NullLogger;
 
@@ -36,13 +36,14 @@ class CommonPlugin_Logger extends Katzgrau\KLogger\Logger
      * @param string $severity     One of the pre-defined PSR severity constants
      * @return CommonPlugin_Logger
      */
-    static public function instance()
+    public static function instance()
     {
         global $log_options;
         global $tmpdir;
 
-        if (isset(self::$instance))
+        if (isset(self::$instance)) {
             return self::$instance;
+        }
 
         if (isset($log_options['threshold']) && defined('Psr\Log\LogLevel::' . $log_options['threshold'])) {
             $threshold = constant('Psr\Log\LogLevel::' . $log_options['threshold']);
@@ -92,7 +93,7 @@ class CommonPlugin_Logger extends Katzgrau\KLogger\Logger
             return;
         }
 
-        $message = 
+        $message =
             "{$trace[$i]['class']}::{$trace[$i]['function']}, line {$trace[$i - 1]['line']}\n"
             . $message;
         parent::log($level, $message, $context);

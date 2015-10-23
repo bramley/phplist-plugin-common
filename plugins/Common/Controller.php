@@ -83,11 +83,11 @@ abstract class Controller
 
     public function run($action = null)
     {
-        if (!isset($action))
+        if (!isset($action)) {
             $action = 'default';
+        }
 
         $method = 'action' . ucfirst($action);
         $this->$method();
     }
-
 }
