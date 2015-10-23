@@ -20,7 +20,7 @@ use phpList\plugin\Common;
  * DAO class providing access to the list table
  * 
  */
-class List extends Common\DAO
+class Lists extends Common\DAO
 {
     public function listById($listID)
     {
