@@ -87,11 +87,11 @@ class Logger extends KLogger\Logger
     {
         $trace = debug_backtrace(false);
 
-        if (!empty($this->classes[$trace[2]['class']])) {
+        if (!empty($this->classes[$trace[1]['class']])) {
             $i = 1;
-        } elseif (!empty($this->classes[$trace[3]['class']])) {
+        } elseif (!empty($this->classes[$trace[2]['class']])) {
             $i = 2;
-        } elseif (!empty($this->classes[$trace[4]['class']])) {
+        } elseif (!empty($this->classes[$trace[3]['class']])) {
             $i = 3;
         } else {
             return;
