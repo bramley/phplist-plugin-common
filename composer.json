@@ -3,9 +3,9 @@
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
-        "psr/log": "1.0.*",
-        "katzgrau/klogger": "1.0.*",
-        "fguillot/picofeed": "dev-master",
-        "pelago/emogrifier": "*"
+        "psr/log": "1.0.0",
+        "katzgrau/klogger": "1.0.0",
+        "fguillot/picofeed": "v0.1.15",
+        "pelago/emogrifier": "v0.1"
     }
 }

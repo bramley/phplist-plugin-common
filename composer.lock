@@ -1,23 +1,24 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "489665e9276787099dfd2f4457d3ec4d",
+    "hash": "a5b6663e83a62247abb5fa7ea31bd002",
+    "content-hash": "efe09bad416ef5980946662cf5bdd4a8",
     "packages": [
         {
             "name": "fguillot/picofeed",
-            "version": "dev-master",
+            "version": "v0.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fguillot/picoFeed.git",
-                "reference": "eeb4656f9f662ba63802f22f0a77dae5c22c8532"
+                "reference": "ee91bcfd4be93d38ae5f870723c652a9d795c75f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/eeb4656f9f662ba63802f22f0a77dae5c22c8532",
-                "reference": "eeb4656f9f662ba63802f22f0a77dae5c22c8532",
+                "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/ee91bcfd4be93d38ae5f870723c652a9d795c75f",
+                "reference": "ee91bcfd4be93d38ae5f870723c652a9d795c75f",
                 "shasum": ""
             },
             "require": {
@@ -42,17 +43,16 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Unlicense"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Frédéric Guillot",
-                    "homepage": "http://fredericguillot.com"
+                    "name": "Frédéric Guillot"
                 }
             ],
-            "description": "Modern library to write or read feeds (RSS/Atom)",
-            "homepage": "http://fguillot.github.io/picoFeed",
-            "time": "2015-03-19 23:46:14"
+            "description": "Modern library to handle RSS/Atom feeds",
+            "homepage": "https://github.com/fguillot/picoFeed",
+            "time": "2015-10-23 21:59:31"
         },
         {
             "name": "katzgrau/klogger",
@@ -205,9 +205,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "fguillot/picofeed": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
