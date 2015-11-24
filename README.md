@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.3.0+20151124  Update picoFeed and KLogger packages
     3.2.0+20151023  Internal changes
     3.1.1+20151015  Minor internal changes
     3.1.0+20151012  csrf token compatibility change for phplist 3.2.1

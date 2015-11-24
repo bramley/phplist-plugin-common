@@ -1,3 +1,8 @@
+version 3.3.0+20151124
+      Correct indices
+      Update picoFeed to release v0.1.15
+      Update to version 1.2.0 of KLogger
+
 version 3.2.0+20151023
       Changes for coding standards
       Correct illegal class name, fixes #4

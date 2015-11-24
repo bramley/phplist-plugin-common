@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a5b6663e83a62247abb5fa7ea31bd002",
-    "content-hash": "efe09bad416ef5980946662cf5bdd4a8",
+    "hash": "0e34ca914636717effd7bfcf34b07973",
+    "content-hash": "044e456e75a364d4a4463ed8d850a2c2",
     "packages": [
         {
             "name": "fguillot/picofeed",
@@ -56,16 +56,16 @@
         },
         {
             "name": "katzgrau/klogger",
-            "version": "1.0.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/katzgrau/klogger.git",
-                "reference": "46cdd92a9b4a8443120cc955bf831450cb274813"
+                "url": "https://github.com/katzgrau/KLogger.git",
+                "reference": "87735262be7c3bd210740b5cd4831dee3d827c46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/katzgrau/klogger/zipball/46cdd92a9b4a8443120cc955bf831450cb274813",
-                "reference": "46cdd92a9b4a8443120cc955bf831450cb274813",
+                "url": "https://api.github.com/repos/katzgrau/KLogger/zipball/87735262be7c3bd210740b5cd4831dee3d827c46",
+                "reference": "87735262be7c3bd210740b5cd4831dee3d827c46",
                 "shasum": ""
             },
             "require": {
@@ -90,21 +90,19 @@
             ],
             "authors": [
                 {
-                    "name": "Dan Horrigan",
-                    "email": "dan@dhorrigan.com",
-                    "homepage": "http://dhorrigan.com",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Kenny Katzgrau",
                     "email": "katzgrau@gmail.com"
+                },
+                {
+                    "name": "Dan Horrigan",
+                    "email": "dan@dhorrigan.com"
                 }
             ],
             "description": "A Simple Logging Class",
             "keywords": [
                 "logging"
             ],
-            "time": "2014-03-20 02:36:36"
+            "time": "2015-11-04 22:43:22"
         },
         {
             "name": "pelago/emogrifier",
