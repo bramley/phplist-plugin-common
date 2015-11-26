@@ -1,3 +1,6 @@
+version 3.4.0+20151213
+      Upgrade emogrifier to V1.0.0
+
 version 3.3.0+20151124
       Correct indices
       Update picoFeed to release v0.1.15

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e34ca914636717effd7bfcf34b07973",
-    "content-hash": "044e456e75a364d4a4463ed8d850a2c2",
+    "hash": "697d7cdd9b53a49aa7447ac33f7a1a94",
+    "content-hash": "04e9714a13e2e6f6165fcf5b1e22dad7",
     "packages": [
         {
             "name": "fguillot/picofeed",
@@ -106,28 +106,33 @@
         },
         {
             "name": "pelago/emogrifier",
-            "version": "v0.1",
+            "version": "V1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jjriv/emogrifier.git",
-                "reference": "229fba489439f5606d816b0a13146971817e9bf4"
+                "reference": "1160bcbc523c7941d2d0dc2a9e59c51c66420b4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/229fba489439f5606d816b0a13146971817e9bf4",
-                "reference": "229fba489439f5606d816b0a13146971817e9bf4",
+                "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/1160bcbc523c7941d2d0dc2a9e59c51c66420b4b",
+                "reference": "1160bcbc523c7941d2d0dc2a9e59c51c66420b4b",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.0.*",
-                "squizlabs/php_codesniffer": "1.5.*",
-                "typo3-ci/typo3sniffpool": "dev-master"
+                "phpunit/phpunit": "4.8.11",
+                "squizlabs/php_codesniffer": "2.3.4",
+                "typo3-ci/typo3sniffpool": "2.1.1"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Pelago\\": "Classes/"
@@ -153,13 +158,13 @@
                     "email": "typo3-coding@oliverklee.de"
                 },
                 {
-                    "name": "Roman Ozana",
+                    "name": "Roman Ožana",
                     "email": "ozana@omdesign.cz"
                 }
             ],
             "description": "Converts CSS styles into inline style attributes in your HTML code",
             "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/",
-            "time": "2014-10-30 16:45:48"
+            "time": "2015-10-14 22:22:15"
         },
         {
             "name": "psr/log",
