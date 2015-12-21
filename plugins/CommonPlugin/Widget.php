@@ -14,7 +14,7 @@
 /**
  * This class provides customised links and html.
  * 
- */ 
+ */
 class CommonPlugin_Widget
 {
     const ATTRIBUTEFORM_TEMPLATE = '/widget_attributeform.tpl.php';
@@ -27,7 +27,7 @@ class CommonPlugin_Widget
     /*
      *    Public methods
      */
-    static public function attributeForm(CommonPlugin_BaseController $controller, $model, $search = true, $select = true)
+    public static function attributeForm(CommonPlugin_BaseController $controller, $model, $search = true, $select = true)
     {
         $params = array(
             'model' => $model,
@@ -40,5 +40,4 @@ class CommonPlugin_Widget
         );
         return $panel->display();
     }
-
 }

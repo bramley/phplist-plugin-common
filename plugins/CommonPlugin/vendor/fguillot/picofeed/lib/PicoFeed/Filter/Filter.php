@@ -3,45 +3,46 @@
 namespace PicoFeed\Filter;
 
 /**
- * Filter class
+ * Filter class.
  *
  * @author  Frederic Guillot
- * @package Filter
  */
 class Filter
 {
     /**
-     * Get the Html filter instance
+     * Get the Html filter instance.
      *
      * @static
-     * @access public
-     * @param  string  $html      HTML content
-     * @param  string  $website   Site URL (used to build absolute URL)
+     *
+     * @param string $html    HTML content
+     * @param string $website Site URL (used to build absolute URL)
+     *
      * @return Html
      */
     public static function html($html, $website)
     {
         $filter = new Html($html, $website);
+
         return $filter;
     }
 
     /**
-     * Escape HTML content
+     * Escape HTML content.
      *
      * @static
-     * @access public
+     *
      * @return string
      */
     public static function escape($content)
     {
-        return @htmlspecialchars($content, ENT_QUOTES, 'UTF-8', false);
+        return htmlspecialchars($content, ENT_QUOTES, 'UTF-8', false);
     }
 
     /**
-     * Remove HTML tags
+     * Remove HTML tags.
      *
-     * @access public
-     * @param  string  $data  Input data
+     * @param string $data Input data
+     *
      * @return string
      */
     public function removeHTMLTags($data)
@@ -50,11 +51,12 @@ class Filter
     }
 
     /**
-     * Remove the XML tag from a document
+     * Remove the XML tag from a document.
      *
      * @static
-     * @access public
-     * @param  string  $data  Input data
+     *
+     * @param string $data Input data
+     *
      * @return string
      */
     public static function stripXmlTag($data)
@@ -64,38 +66,38 @@ class Filter
         }
 
         do {
-
             $pos = strpos($data, '<?xml-stylesheet ');
 
             if ($pos !== false) {
                 $data = ltrim(substr($data, strpos($data, '?>') + 2));
             }
-
         } while ($pos !== false && $pos < 200);
 
         return $data;
     }
 
     /**
-     * Strip head tag from the HTML content
+     * Strip head tag from the HTML content.
      *
      * @static
-     * @access public
-     * @param  string  $data  Input data
+     *
+     * @param string $data Input data
+     *
      * @return string
      */
     public static function stripHeadTags($data)
     {
-        return preg_replace('@<head[^>]*?>.*?</head>@siu','', $data );
+        return preg_replace('@<head[^>]*?>.*?</head>@siu', '', $data);
     }
 
     /**
-     * Trim whitespace from the begining, the end and inside a string and don't break utf-8 string
+     * Trim whitespace from the begining, the end and inside a string and don't break utf-8 string.
      *
      * @static
-     * @access public
-     * @param  string  $value  Raw data
-     * @return string          Normalized data
+     *
+     * @param string $value Raw data
+     *
+     * @return string Normalized data
      */
     public static function stripWhiteSpace($value)
     {
@@ -107,25 +109,47 @@ class Filter
     }
 
     /**
-     * Dirty quickfixes before XML parsing
+     * Fixes before XML parsing.
      *
      * @static
-     * @access public
-     * @param  string  $data Raw data
-     * @return string        Normalized data
+     *
+     * @param string $data Raw data
+     *
+     * @return string Normalized data
      */
     public static function normalizeData($data)
     {
-        $invalid_chars = array(
-            "\x10",
-            "\xc3\x20",
-            "&#x1F;",
+        $entities = array(
+            '/(&#)(\d+);/m', // decimal encoded
+            '/(&#x)([a-f0-9]+);/mi', // hex encoded
         );
 
-        foreach ($invalid_chars as $needle) {
-            $data = str_replace($needle, '', $data);
-        }
+        // strip invalid XML 1.0 characters which are encoded as entities
+        $data = preg_replace_callback($entities, function ($matches) {
+            $code_point = $matches[2];
 
-        return $data;
+            // convert hex entity to decimal
+            if (strtolower($matches[1]) === '&#x') {
+                $code_point = hexdec($code_point);
+            }
+
+            $code_point = (int) $code_point;
+
+            // replace invalid characters
+            if ($code_point < 9
+                || ($code_point > 10 && $code_point < 13)
+                || ($code_point > 13 && $code_point < 32)
+                || ($code_point > 55295 && $code_point < 57344)
+                || ($code_point > 65533 && $code_point < 65536)
+                || $code_point > 1114111
+            ) {
+                return '';
+            };
+
+            return $matches[0];
+        }, $data);
+
+        // strip every utf-8 character than isn't in the range of valid XML 1.0 characters
+        return (string) preg_replace('/[^\x{0009}\x{000A}\x{000D}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}]/u', '', $data);
     }
 }

@@ -26,15 +26,16 @@ class CommonPlugin_HelpManager
     private $plugin;
     private $pluginDir;
 
-    private function pluginDir()
+    private function findPlugin()
     {
         global $plugins;
 
         if (isset($_GET['pi'])) {
-            $this->plugin = preg_replace('/\W/', '', $_GET['pi']);
+            $piName = preg_replace('/\W/', '', $_GET['pi']);
 
-            if (isset($plugins[$this->plugin]) && is_object($plugins[$this->plugin])) {
-                $this->pluginDir = $plugins[$this->plugin]->coderoot;
+            if (isset($plugins[$piName])) {
+                $this->plugin = $plugins[$piName];
+                $this->pluginDir = $this->plugin->coderoot;
                 return;
             }
         }
@@ -43,72 +44,36 @@ class CommonPlugin_HelpManager
 
     private function about()
     {
-        $params = array();
-        $plugins = array();
+        global $plugins;
 
-        if (is_file($f = $this->pluginDir . self::VERSION_FILE)) {
-            $version = file_get_contents($f);
-            $plugins[] = array('name' => $this->plugin, 'version' => $version);
-        }
+        $commonPi = $plugins[self::COMMON_PLUGIN];
+        $params = array();
+        $params['plugins'] = array(
+            array('name' => $this->plugin->name, 'version' => $this->plugin->version),
+            array('name' => $commonPi->name, 'version' => $commonPi->version)
+        );
 
         if (is_file($f = $this->pluginDir . self::LICENCE_FILE)
             ||
-            is_file($f = dirname(__FILE__) . '/' . self::LICENCE_FILE)) {
+            is_file($f = $commonPi->coderoot . self::LICENCE_FILE)) {
             $params['pluginLicence'] = file_get_contents($f);
         }
-
-        if (is_file($f = dirname(__FILE__) . '/' . self::VERSION_FILE)) {
-            $version = file_get_contents($f);
-            $plugins[] = array('name' => self::COMMON_PLUGIN, 'version' => $version);
-        }
-
-        $params['plugins'] = $plugins;
-        return $this->controller->render(dirname(__FILE__) . self::ABOUT_TEMPLATE, $params);
-   }
-
-    private function configFile()
-    {
-        $r = "Charset: {$this->controller->i18n->charSet}<br/><br/>";
-
-        if (isset($_SERVER['ConfigFile']) && is_file($f = $_SERVER['ConfigFile'])
-            ||
-            is_file($f = '../config/config.php')
-        ) {
-            $r .= 'Config file: ' . realpath($f);
-            $regex = '/((?:user|password)\s*=\s*)(["\'])(.+?)\2/';
-            $r .= '<pre>' . htmlspecialchars(preg_replace($regex, '$1$2* removed *$2', file_get_contents($f))) . '</pre>';
-        } else {
-            $r .= 'Cannot find config file';
-        }
-        return $r;
+        return $this->controller->render(__DIR__ . self::ABOUT_TEMPLATE, $params);
     }
 
     public function __construct($controller)
     {
         $this->controller = $controller;
+        $this->findPlugin();
     }
 
     public function display($topic)
     {
         ob_end_clean();
 
-        if ($topic == 'phpinfo') {
-            ob_start();
-            try {
-                phpinfo();
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-            echo preg_replace('/(?<!&nbsp;)&nbsp;(?!&nbsp;)/', ' ', ob_get_clean());
-            return;
-        }
-
-        $this->pluginDir();
         $params = array('topic' => $topic);
 
-        if ($topic == 'config.php') {
-            $params['help'] = $this->configFile();
-        } elseif ($topic == 'about') {
+        if ($topic == 'about') {
             $params['help'] = $this->about();
         } else {
             $lang = $_SESSION['adminlanguage']['iso'];
@@ -123,13 +88,6 @@ class CommonPlugin_HelpManager
             }
         }
         Header("Content-type: text/html; charset={$this->controller->i18n->charSet}");
-        print $this->controller->render(dirname(__FILE__) . self::HELP_TEMPLATE, $params);
-    }
-
-    public static function version(phplistPlugin $plugin)
-    {
-        if (is_file($f = $plugin->coderoot . self::VERSION_FILE)) {
-            return file_get_contents($f);
-        }
+        print $this->controller->render(__DIR__ . self::HELP_TEMPLATE, $params);
     }
 }

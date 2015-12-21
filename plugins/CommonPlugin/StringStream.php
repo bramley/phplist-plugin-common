@@ -17,7 +17,8 @@
  * See http://code.google.com/p/phpstringstream/
  */
  
-class StringStream {
+class StringStream
+{
     const MODE_READ = 1;
     const MODE_WRITE = 2;
 
@@ -25,16 +26,16 @@ class StringStream {
     private $_mode;
     private $_pos;
     
-    static private $references = array();
+    private static $references = array();
 
-    static public function stringId(&$variable)
+    public static function stringId(&$variable)
     {
         $id = count(self::$references);
         self::$references[$id] =& $variable;
         return $id;
     }
 
-    static public function fopen(&$variable, $mode = 'r')
+    public static function fopen(&$variable, $mode = 'r')
     {
         $id = self::stringId($variable);
         $fh = fopen("string://$id", $mode);
@@ -45,8 +46,9 @@ class StringStream {
     {
         $id = parse_url($path, PHP_URL_HOST);
 
-        if (!isset(self::$references[$id]))
+        if (!isset(self::$references[$id])) {
             return false;
+        }
 
         $this->_currentstring =& self::$references[$id];
 
@@ -69,21 +71,24 @@ class StringStream {
     
     public function stream_read($count)
     {
-        if ($this->_mode != self::MODE_READ)
+        if ($this->_mode != self::MODE_READ) {
             return false;
+        }
 
-        if ($this->stream_eof())
+        if ($this->stream_eof()) {
             return false;
+        }
 
         $result = substr($this->_currentstring, $this->_pos, $count);
         $this->_pos += $count;
-        return $result;    
+        return $result;
     }
     
     public function stream_write($data)
     {
-        if ($this->_mode != self::MODE_WRITE)
+        if ($this->_mode != self::MODE_WRITE) {
             return false;
+        }
 
         $count = strlen($data);
         $this->_currentstring = substr_replace($this->_currentstring, $data, $this->_pos, 0);

@@ -5,17 +5,15 @@ namespace PicoFeed\Client;
 use PicoFeed\Logging\Logger;
 
 /**
- * Stream context HTTP client
+ * Stream context HTTP client.
  *
  * @author  Frederic Guillot
- * @package Client
  */
 class Stream extends Client
 {
     /**
-     * Prepare HTTP headers
+     * Prepare HTTP headers.
      *
-     * @access private
      * @return string[]
      */
     private function prepareHeaders()
@@ -27,7 +25,7 @@ class Stream extends Client
 
         // disable compression in passthrough mode. It could result in double
         // compressed content which isn't decodeable by browsers
-        if (function_exists('gzdecode') && ! $this->isPassthroughEnabled()) {
+        if (function_exists('gzdecode') && !$this->isPassthroughEnabled()) {
             $headers[] = 'Accept-Encoding: gzip';
         }
 
@@ -47,20 +45,21 @@ class Stream extends Client
             $headers[] = 'Authorization: Basic '.base64_encode($this->username.':'.$this->password);
         }
 
+        $headers = array_merge($headers, $this->request_headers);
+
         return $headers;
     }
 
     /**
-     * Construct the final URL from location headers
+     * Construct the final URL from location headers.
      *
-     * @access private
-     * @param  array $headers List of HTTP response header
+     * @param array $headers List of HTTP response header
      */
     private function setEffectiveUrl($headers)
     {
-        foreach($headers as $header) {
+        foreach ($headers as $header) {
             if (stripos($header, 'Location') === 0) {
-                list($name, $value) = explode(': ', $header);
+                list(, $value) = explode(': ', $header);
 
                 $this->url = Url::resolve($value, $this->url);
             }
@@ -68,9 +67,8 @@ class Stream extends Client
     }
 
     /**
-     * Prepare stream context
+     * Prepare stream context.
      *
-     * @access private
      * @return array
      */
     private function prepareContext()
@@ -81,11 +79,10 @@ class Stream extends Client
                 'protocol_version' => 1.1,
                 'timeout' => $this->timeout,
                 'max_redirects' => $this->max_redirects,
-            )
+            ),
         );
 
         if ($this->proxy_hostname) {
-
             Logger::setMessage(get_called_class().' Proxy: '.$this->proxy_hostname.':'.$this->proxy_port);
 
             $context['http']['proxy'] = 'tcp://'.$this->proxy_hostname.':'.$this->proxy_port;
@@ -93,8 +90,7 @@ class Stream extends Client
 
             if ($this->proxy_username) {
                 Logger::setMessage(get_called_class().' Proxy credentials: Yes');
-            }
-            else {
+            } else {
                 Logger::setMessage(get_called_class().' Proxy credentials: No');
             }
         }
@@ -105,10 +101,9 @@ class Stream extends Client
     }
 
     /**
-     * Do the HTTP request
+     * Do the HTTP request.
      *
-     * @access public
-     * @return array   HTTP response ['body' => ..., 'status' => ..., 'headers' => ...]
+     * @return array HTTP response ['body' => ..., 'status' => ..., 'headers' => ...]
      */
     public function doRequest()
     {
@@ -119,7 +114,7 @@ class Stream extends Client
 
         // Make HTTP request
         $stream = @fopen($this->url, 'r', false, $context);
-        if (! is_resource($stream)) {
+        if (!is_resource($stream)) {
             throw new InvalidUrlException('Unable to establish a connection');
         }
 
@@ -135,8 +130,7 @@ class Stream extends Client
             }
 
             fpassthru($stream);
-        }
-        else {
+        } else {
             // Get the entire body until the max size
             $body = stream_get_contents($stream, $this->max_body_size + 1);
 
@@ -157,16 +151,16 @@ class Stream extends Client
         return array(
             'status' => $status,
             'body' => $this->decodeBody($body, $headers),
-            'headers' => $headers
+            'headers' => $headers,
         );
     }
 
     /**
-     * Decode body response according to the HTTP headers
+     * Decode body response according to the HTTP headers.
      *
-     * @access public
-     * @param  string          $body      Raw body
-     * @param  HttpHeaders     $headers   HTTP headers
+     * @param string      $body    Raw body
+     * @param HttpHeaders $headers HTTP headers
+     *
      * @return string
      */
     public function decodeBody($body, HttpHeaders $headers)
@@ -176,22 +170,22 @@ class Stream extends Client
         }
 
         if (isset($headers['Content-Encoding']) && $headers['Content-Encoding'] === 'gzip') {
-            $body = @gzdecode($body);
+            $body = gzdecode($body);
         }
 
         return $body;
     }
 
     /**
-     * Decode a chunked body
+     * Decode a chunked body.
      *
-     * @access public
-     * @param  string $str Raw body
-     * @return string      Decoded body
+     * @param string $str Raw body
+     *
+     * @return string Decoded body
      */
     public function decodeChunked($str)
     {
-        for ($result = ''; ! empty($str); $str = trim($str)) {
+        for ($result = ''; !empty($str); $str = trim($str)) {
 
             // Get the chunk length
             $pos = strpos($str, "\r\n");

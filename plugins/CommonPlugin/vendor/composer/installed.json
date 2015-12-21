@@ -40,18 +40,67 @@
         ]
     },
     {
-        "name": "katzgrau/klogger",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
+        "name": "fguillot/picofeed",
+        "version": "v0.1.15",
+        "version_normalized": "0.1.15.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/katzgrau/klogger.git",
-            "reference": "46cdd92a9b4a8443120cc955bf831450cb274813"
+            "url": "https://github.com/fguillot/picoFeed.git",
+            "reference": "ee91bcfd4be93d38ae5f870723c652a9d795c75f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/katzgrau/klogger/zipball/46cdd92a9b4a8443120cc955bf831450cb274813",
-            "reference": "46cdd92a9b4a8443120cc955bf831450cb274813",
+            "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/ee91bcfd4be93d38ae5f870723c652a9d795c75f",
+            "reference": "ee91bcfd4be93d38ae5f870723c652a9d795c75f",
+            "shasum": ""
+        },
+        "require": {
+            "ext-dom": "*",
+            "ext-iconv": "*",
+            "ext-libxml": "*",
+            "ext-simplexml": "*",
+            "ext-xml": "*",
+            "php": ">=5.3.0"
+        },
+        "suggest": {
+            "ext-curl": "PicoFeed will use cURL if present"
+        },
+        "time": "2015-10-23 21:59:31",
+        "bin": [
+            "picofeed"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PicoFeed": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Frédéric Guillot"
+            }
+        ],
+        "description": "Modern library to handle RSS/Atom feeds",
+        "homepage": "https://github.com/fguillot/picoFeed"
+    },
+    {
+        "name": "katzgrau/klogger",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/katzgrau/KLogger.git",
+            "reference": "87735262be7c3bd210740b5cd4831dee3d827c46"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/katzgrau/KLogger/zipball/87735262be7c3bd210740b5cd4831dee3d827c46",
+            "reference": "87735262be7c3bd210740b5cd4831dee3d827c46",
             "shasum": ""
         },
         "require": {
@@ -61,7 +110,7 @@
         "require-dev": {
             "phpunit/phpunit": "4.0.*"
         },
-        "time": "2014-03-20 02:36:36",
+        "time": "2015-11-04 22:43:22",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -78,14 +127,12 @@
         ],
         "authors": [
             {
-                "name": "Dan Horrigan",
-                "email": "dan@dhorrigan.com",
-                "homepage": "http://dhorrigan.com",
-                "role": "Lead Developer"
-            },
-            {
                 "name": "Kenny Katzgrau",
                 "email": "katzgrau@gmail.com"
+            },
+            {
+                "name": "Dan Horrigan",
+                "email": "dan@dhorrigan.com"
             }
         ],
         "description": "A Simple Logging Class",
@@ -95,30 +142,35 @@
     },
     {
         "name": "pelago/emogrifier",
-        "version": "v0.1",
-        "version_normalized": "0.1.0.0",
+        "version": "V1.0.0",
+        "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/jjriv/emogrifier.git",
-            "reference": "229fba489439f5606d816b0a13146971817e9bf4"
+            "reference": "1160bcbc523c7941d2d0dc2a9e59c51c66420b4b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/229fba489439f5606d816b0a13146971817e9bf4",
-            "reference": "229fba489439f5606d816b0a13146971817e9bf4",
+            "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/1160bcbc523c7941d2d0dc2a9e59c51c66420b4b",
+            "reference": "1160bcbc523c7941d2d0dc2a9e59c51c66420b4b",
             "shasum": ""
         },
         "require": {
             "ext-mbstring": "*",
-            "php": ">=5.3.0"
+            "php": ">=5.4.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "4.0.*",
-            "squizlabs/php_codesniffer": "1.5.*",
-            "typo3-ci/typo3sniffpool": "dev-master"
+            "phpunit/phpunit": "4.8.11",
+            "squizlabs/php_codesniffer": "2.3.4",
+            "typo3-ci/typo3sniffpool": "2.1.1"
         },
-        "time": "2014-10-30 16:45:48",
+        "time": "2015-10-14 22:22:15",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
@@ -145,61 +197,11 @@
                 "email": "typo3-coding@oliverklee.de"
             },
             {
-                "name": "Roman Ozana",
+                "name": "Roman Ožana",
                 "email": "ozana@omdesign.cz"
             }
         ],
         "description": "Converts CSS styles into inline style attributes in your HTML code",
         "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/"
-    },
-    {
-        "name": "fguillot/picofeed",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/fguillot/picoFeed.git",
-            "reference": "eeb4656f9f662ba63802f22f0a77dae5c22c8532"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/fguillot/picoFeed/zipball/eeb4656f9f662ba63802f22f0a77dae5c22c8532",
-            "reference": "eeb4656f9f662ba63802f22f0a77dae5c22c8532",
-            "shasum": ""
-        },
-        "require": {
-            "ext-dom": "*",
-            "ext-iconv": "*",
-            "ext-libxml": "*",
-            "ext-simplexml": "*",
-            "ext-xml": "*",
-            "php": ">=5.3.0"
-        },
-        "suggest": {
-            "ext-curl": "PicoFeed will use cURL if present"
-        },
-        "time": "2015-03-19 23:46:14",
-        "bin": [
-            "picofeed"
-        ],
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "PicoFeed": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Unlicense"
-        ],
-        "authors": [
-            {
-                "name": "Frédéric Guillot",
-                "homepage": "http://fredericguillot.com"
-            }
-        ],
-        "description": "Modern library to write or read feeds (RSS/Atom)",
-        "homepage": "http://fguillot.github.io/picoFeed"
     }
 ]

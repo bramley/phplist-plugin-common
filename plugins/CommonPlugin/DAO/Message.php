@@ -19,7 +19,7 @@ class CommonPlugin_DAO_Message extends CommonPlugin_DAO
 {
     public function messageById($msgid)
     {
-        $sql = 
+        $sql =
             "SELECT *
             FROM {$this->tables['message']} m
             WHERE m.id = $msgid";
@@ -37,7 +37,7 @@ class CommonPlugin_DAO_Message extends CommonPlugin_DAO
                 'draft', htmlformatted, sendformat, template, owner
             FROM {$this->tables['message']}
             WHERE id=$id";
-         $id = $this->dbCommand->queryInsertId($sql);
+        $id = $this->dbCommand->queryInsertId($sql);
 
         return $id;
     }
@@ -47,7 +47,7 @@ class CommonPlugin_DAO_Message extends CommonPlugin_DAO
         $sql = "
             DELETE FROM {$this->tables['message']}
             WHERE id=$id";
-         $count = $this->dbCommand->queryAffectedRows($sql);
+        $count = $this->dbCommand->queryAffectedRows($sql);
 
         if ($count > 0) {
             $sql =
@@ -104,7 +104,7 @@ class CommonPlugin_DAO_Message extends CommonPlugin_DAO
         $sql = "
            DELETE FROM {$this->tables['message']}
            WHERE status = 'draft' AND (subject = '' OR subject = '(no subject)')";
-         $count = $this->dbCommand->queryAffectedRows($sql);
+        $count = $this->dbCommand->queryAffectedRows($sql);
         return $count;
     }
 }

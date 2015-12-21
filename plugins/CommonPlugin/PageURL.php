@@ -43,6 +43,8 @@ class CommonPlugin_PageURL
 
     public function __toString()
     {
+        global $installation_name;
+
         $p = array();
 
         if ($this->page) {
@@ -52,6 +54,11 @@ class CommonPlugin_PageURL
             $p['pi'] = $_GET['pi'];
         }
 
+        $csrfName = $installation_name . '_csrf_token';
+
+        if (isset($_SESSION[$csrfName])) {
+            $p['tk'] = $_SESSION[$csrfName];
+        }
         return './?' . http_build_query($p + $this->params, '', '&') . ($this->fragment ? "#$this->fragment" : '');
     }
 }

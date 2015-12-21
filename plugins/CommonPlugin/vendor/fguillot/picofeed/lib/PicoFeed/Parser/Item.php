@@ -3,17 +3,15 @@
 namespace PicoFeed\Parser;
 
 /**
- * Feed Item
+ * Feed Item.
  *
  * @author  Frederic Guillot
- * @package Parser
  */
 class Item
 {
     /**
-     * List of known RTL languages
+     * List of known RTL languages.
      *
-     * @access public
      * @var public
      */
     public $rtl = array(
@@ -28,123 +26,110 @@ class Item
     );
 
     /**
-     * Item id
+     * Item id.
      *
-     * @access public
      * @var string
      */
     public $id = '';
 
     /**
-     * Item title
+     * Item title.
      *
-     * @access public
      * @var string
      */
     public $title = '';
 
     /**
-     * Item url
+     * Item url.
      *
-     * @access public
      * @var string
      */
     public $url = '';
 
     /**
-     * Item author
+     * Item author.
      *
-     * @access public
      * @var string
      */
-    public $author= '';
+    public $author = '';
 
     /**
-     * Item date
+     * Item date.
      *
-     * @access public
      * @var \DateTime
      */
     public $date = null;
 
     /**
-     * Item content
+     * Item content.
      *
-     * @access public
      * @var string
      */
     public $content = '';
 
     /**
-     * Item enclosure url
+     * Item enclosure url.
      *
-     * @access public
      * @var string
      */
     public $enclosure_url = '';
 
     /**
-     * Item enclusure type
+     * Item enclusure type.
      *
-     * @access public
      * @var string
      */
     public $enclosure_type = '';
 
     /**
-     * Item language
+     * Item language.
      *
-     * @access public
      * @var string
      */
     public $language = '';
 
     /**
-     * Raw XML
+     * Raw XML.
      *
-     * @access public
      * @var \SimpleXMLElement
      */
     public $xml;
 
     /**
-     * List of namespaces
+     * List of namespaces.
      *
-     * @access public
      * @var array
      */
     public $namespaces = array();
 
     /**
-     * Get specific XML tag or attribute value
+     * Get specific XML tag or attribute value.
      *
-     * @access public
-     * @param  string  $tag           Tag name (examples: guid, media:content)
-     * @param  string  $attribute     Tag attribute
-     * @return string
+     * @param string $tag       Tag name (examples: guid, media:content)
+     * @param string $attribute Tag attribute
+     *
+     * @return array|false Tag values or error
      */
     public function getTag($tag, $attribute = '')
     {
-        // Get namespaced value
-        if (strpos($tag, ':') !== false) {
-            list(,$tag) = explode(':', $tag);
-            return XmlParser::getNamespaceValue($this->xml, $this->namespaces, $tag, $attribute);
+        // convert to xPath attribute query
+        if ($attribute !== '') {
+            $attribute = '/@'.$attribute;
         }
 
-        // Return attribute value
-        if (! empty($attribute)) {
-            return (string) $this->xml->{$tag}[$attribute];
+        // construct query
+        $query = './/'.$tag.$attribute;
+        $elements = XmlParser::getXPathResult($this->xml, $query, $this->namespaces);
+
+        if ($elements === false) { // xPath error
+            return false;
         }
 
-        // Return tag content
-        return (string) $this->xml->$tag;
+        return array_map(function ($element) { return (string) $element;}, $elements);
     }
 
     /**
-     * Return item information
-     *
-     * @access public
-     * $return string
+     * Return item information.
      */
     public function __toString()
     {
@@ -162,10 +147,7 @@ class Item
     }
 
     /**
-     * Get title
-     *
-     * @access public
-     * $return string
+     * Get title.
      */
     public function getTitle()
     {
@@ -173,10 +155,7 @@ class Item
     }
 
     /**
-     * Get url
-     *
-     * @access public
-     * $return string
+     * Get url.
      */
     public function getUrl()
     {
@@ -184,10 +163,7 @@ class Item
     }
 
     /**
-     * Get id
-     *
-     * @access public
-     * $return string
+     * Get id.
      */
     public function getId()
     {
@@ -195,10 +171,7 @@ class Item
     }
 
     /**
-     * Get date
-     *
-     * @access public
-     * $return integer
+     * Get date.
      */
     public function getDate()
     {
@@ -206,10 +179,7 @@ class Item
     }
 
     /**
-     * Get content
-     *
-     * @access public
-     * $return string
+     * Get content.
      */
     public function getContent()
     {
@@ -217,10 +187,7 @@ class Item
     }
 
     /**
-     * Get enclosure url
-     *
-     * @access public
-     * $return string
+     * Get enclosure url.
      */
     public function getEnclosureUrl()
     {
@@ -228,10 +195,7 @@ class Item
     }
 
     /**
-     * Get enclosure type
-     *
-     * @access public
-     * $return string
+     * Get enclosure type.
      */
     public function getEnclosureType()
     {
@@ -239,10 +203,7 @@ class Item
     }
 
     /**
-     * Get language
-     *
-     * @access public
-     * $return string
+     * Get language.
      */
     public function getLanguage()
     {
@@ -250,10 +211,7 @@ class Item
     }
 
     /**
-     * Get author
-     *
-     * @access public
-     * $return string
+     * Get author.
      */
     public function getAuthor()
     {
@@ -261,9 +219,8 @@ class Item
     }
 
     /**
-     * Return true if the item is "Right to Left"
+     * Return true if the item is "Right to Left".
      *
-     * @access public
      * @return bool
      */
     public function isRTL()

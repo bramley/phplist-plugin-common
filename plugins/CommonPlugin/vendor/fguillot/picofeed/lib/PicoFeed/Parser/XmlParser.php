@@ -4,25 +4,24 @@ namespace PicoFeed\Parser;
 
 use Closure;
 use DomDocument;
-use DOMXPath;
 use SimpleXmlElement;
 
 /**
- * XML parser class
+ * XML parser class.
  *
  * Checks for XML eXternal Entity (XXE) and XML Entity Expansion (XEE) attacks on XML documents
  *
  * @author  Frederic Guillot
- * @package Parser
  */
 class XmlParser
 {
     /**
-     * Get a SimpleXmlElement instance or return false
+     * Get a SimpleXmlElement instance or return false.
      *
      * @static
-     * @access public
-     * @param  string   $input   XML content
+     *
+     * @param string $input XML content
+     *
      * @return mixed
      */
     public static function getSimpleXml($input)
@@ -30,10 +29,9 @@ class XmlParser
         $dom = self::getDomDocument($input);
 
         if ($dom !== false) {
-
             $simplexml = simplexml_import_dom($dom);
 
-            if (! $simplexml instanceof SimpleXmlElement) {
+            if (!$simplexml instanceof SimpleXmlElement) {
                 return false;
             }
 
@@ -44,28 +42,28 @@ class XmlParser
     }
 
     /**
-     * Scan the input for XXE attacks
+     * Scan the input for XXE attacks.
      *
-     * @param string    $input       Unsafe input
-     * @param Closure   $callback    Callback called to build the dom.
-     *                               Must be an instance of DomDocument and receives the input as argument
+     * @param string  $input    Unsafe input
+     * @param Closure $callback Callback called to build the dom.
+     *                          Must be an instance of DomDocument and receives the input as argument
      *
-     * @return bool|DomDocument      False if an XXE attack was discovered,
-     *                               otherwise the return of the callback
+     * @return bool|DomDocument False if an XXE attack was discovered,
+     *                          otherwise the return of the callback
      */
     private static function scanInput($input, Closure $callback)
     {
-        if (substr(php_sapi_name(), 0, 3) === 'fpm') {
+        $isRunningFpm = substr(php_sapi_name(), 0, 3) === 'fpm';
+
+        if ($isRunningFpm) {
 
             // If running with PHP-FPM and an entity is detected we refuse to parse the feed
             // @see https://bugs.php.net/bug.php?id=64938
             if (strpos($input, '<!ENTITY') !== false) {
                 return false;
             }
-        }
-        else {
-
-            libxml_disable_entity_loader(true);
+        } else {
+            $entityLoaderDisabled = libxml_disable_entity_loader(true);
         }
 
         libxml_use_internal_errors(true);
@@ -81,15 +79,20 @@ class XmlParser
             }
         }
 
+        if ($isRunningFpm === false) {
+            libxml_disable_entity_loader($entityLoaderDisabled);
+        }
+
         return $dom;
     }
 
     /**
-     * Get a DomDocument instance or return false
+     * Get a DomDocument instance or return false.
      *
      * @static
-     * @access public
-     * @param  string   $input   XML content
+     *
+     * @param string $input XML content
+     *
      * @return \DOMNDocument
      */
     public static function getDomDocument($input)
@@ -99,8 +102,9 @@ class XmlParser
         }
 
         $dom = self::scanInput($input, function ($in) {
-            $dom = new DomDocument;
+            $dom = new DomDocument();
             $dom->loadXml($in, LIBXML_NONET);
+
             return $dom;
         });
 
@@ -113,30 +117,32 @@ class XmlParser
     }
 
     /**
-     * Load HTML document by using a DomDocument instance or return false on failure
+     * Load HTML document by using a DomDocument instance or return false on failure.
      *
      * @static
-     * @access public
-     * @param  string   $input   XML content
+     *
+     * @param string $input XML content
+     *
      * @return \DOMDocument
      */
     public static function getHtmlDocument($input)
     {
         if (empty($input)) {
-            return new DomDocument;
+            return new DomDocument();
         }
 
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
             $callback = function ($in) {
-                $dom = new DomDocument;
+                $dom = new DomDocument();
                 $dom->loadHTML($in, LIBXML_NONET);
+
                 return $dom;
             };
-        }
-        else {
+        } else {
             $callback = function ($in) {
-                $dom = new DomDocument;
+                $dom = new DomDocument();
                 $dom->loadHTML($in);
+
                 return $dom;
             };
         }
@@ -145,32 +151,33 @@ class XmlParser
     }
 
     /**
-     * Convert a HTML document to XML
+     * Convert a HTML document to XML.
      *
      * @static
-     * @access public
-     * @param  string   $html   HTML document
+     *
+     * @param string $html HTML document
+     *
      * @return string
      */
-    public static function HtmlToXml($html)
+    public static function htmlToXml($html)
     {
         $dom = self::getHtmlDocument('<?xml version="1.0" encoding="UTF-8">'.$html);
+
         return $dom->saveXML($dom->getElementsByTagName('body')->item(0));
     }
 
     /**
-     * Get XML parser errors
+     * Get XML parser errors.
      *
      * @static
-     * @access public
+     *
      * @return string
      */
     public static function getErrors()
     {
         $errors = array();
 
-        foreach(libxml_get_errors() as $error) {
-
+        foreach (libxml_get_errors() as $error) {
             $errors[] = sprintf('XML error: %s (Line: %d - Column: %d - Code: %d)',
                 $error->message,
                 $error->line,
@@ -183,11 +190,12 @@ class XmlParser
     }
 
     /**
-     * Get the encoding from a xml tag
+     * Get the encoding from a xml tag.
      *
      * @static
-     * @access public
-     * @param  string  $data  Input data
+     *
+     * @param string $data Input data
+     *
      * @return string
      */
     public static function getEncodingFromXmlTag($data)
@@ -195,7 +203,6 @@ class XmlParser
         $encoding = '';
 
         if (strpos($data, '<?xml') !== false) {
-
             $data = substr($data, 0, strrpos($data, '?>'));
             $data = str_replace("'", '"', $data);
 
@@ -212,99 +219,61 @@ class XmlParser
     }
 
     /**
-     * Extract charset from meta tag
+     * Get the charset from a meta tag.
      *
      * @static
-     * @access public
-     * @param  string  $data  meta tag content
-     * @return string
-     */
-    public static function findCharset($data)
-    {
-        $result = explode('charset=', $data);
-        return isset($result[1]) ? $result[1] : $data;
-    }
-
-    /**
-     * Get the encoding from a xml tag
      *
-     * @static
-     * @access public
-     * @param  string  $data  Input data
+     * @param string $data Input data
+     *
      * @return string
      */
     public static function getEncodingFromMetaTag($data)
     {
         $encoding = '';
 
-        $dom = static::getHtmlDocument($data);
-        $xpath = new DOMXPath($dom);
-
-        $tags = array(
-            '/html/head/meta[translate(@http-equiv, "CENOPTY", "cenopty")="content-type"]/@content', //HTML4, convert upper to lower-case
-            '/html/head/meta/@charset', //HTML5
-        );
-
-        $nodes = $xpath->query(implode(' | ', $tags));
-
-        foreach ($nodes as $node) {
-            $encoding = static::findCharset($node->nodeValue);
+        if (preg_match('/<meta.*?charset\s*=\s*["\']?\s*([^"\'\s\/>;]+)/i', $data, $match) === 1) {
+            $encoding = strtolower($match[1]);
         }
 
         return $encoding;
     }
 
     /**
-     * Get xml:lang value
+     * Rewrite XPath query to use namespace-uri and local-name derived from prefix.
      *
-     * @static
-     * @access public
-     * @param  string  $xml  XML string
-     * @return string        Language
+     * @param string $query XPath query
+     * @param array  $ns    Prefix to namespace URI mapping
+     *
+     * @return string
      */
-    public static function getXmlLang($xml)
+    public static function replaceXPathPrefixWithNamespaceURI($query, array $ns)
     {
-        $dom = self::getDomDocument($xml);
+        return preg_replace_callback('/([A-Z0-9]+):([A-Z0-9]+)/iu', function ($matches) use ($ns) {
+            // don't try to map the special prefix XML
+            if (strtolower($matches[1]) === 'xml') {
+                return $matches[0];
+            }
 
-        if ($dom === false) {
-            return '';
-        }
-
-        $xpath = new DOMXPath($dom);
-        return $xpath->evaluate('string(//@xml:lang[1])') ?: '';
+            return '*[namespace-uri()="'.$ns[$matches[1]].'" and local-name()="'.$matches[2].'"]';
+        },
+        $query);
     }
 
     /**
-     * Get a value from a XML namespace
+     * Get the result elements of a XPath query.
      *
-     * @static
-     * @access public
-     * @param  \SimpleXMLElement    $xml           XML element
-     * @param  array                $namespaces    XML namespaces
-     * @param  string               $property      XML tag name
-     * @param  string               $attribute     XML attribute name
-     * @return string
+     * @param \SimpleXMLElement $xml   XML element
+     * @param string            $query XPath query
+     * @param array             $ns    Prefix to namespace URI mapping
+     *
+     * @return \SimpleXMLElement
      */
-    public static function getNamespaceValue(SimpleXMLElement $xml, array $namespaces, $property, $attribute = '')
+    public static function getXPathResult(SimpleXMLElement $xml, $query, array $ns = array())
     {
-        foreach ($namespaces as $name => $url) {
-            $namespace = $xml->children($namespaces[$name]);
-
-            if (isset($namespace->$property) && $namespace->$property->count() > 0) {
-
-                if ($attribute) {
-
-                    foreach ($namespace->$property->attributes() as $xml_attribute => $xml_value) {
-                        if ($xml_attribute === $attribute && $xml_value) {
-                            return (string) $xml_value;
-                        }
-                    }
-                }
-
-                return (string) $namespace->$property;
-            }
+        if (!empty($ns)) {
+            $query = static::replaceXPathPrefixWithNamespaceURI($query, $ns);
         }
 
-        return '';
+        return $xml->xpath($query);
     }
 }

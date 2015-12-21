@@ -45,6 +45,18 @@ class CommonPlugin extends phplistPlugin
         'session' => array('category' => 'config'),
     );
 
+    public $publicPages = array('image');
+
+    public function __construct()
+    {
+        $this->coderoot = dirname(__FILE__) . '/CommonPlugin/';
+        parent::__construct();
+        $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
+            ? file_get_contents($f)
+            : '';
+        include_once $this->coderoot . 'functions.php';
+    }
+
     public function sendFormats()
     {
         require_once $this->coderoot . 'Autoloader.php';
@@ -62,13 +74,10 @@ class CommonPlugin extends phplistPlugin
         return array();
     }
 
-    public function __construct()
+    public function dependencyCheck()
     {
-        $this->coderoot = dirname(__FILE__) . '/CommonPlugin/';
-        $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
-            ? file_get_contents($f)
-            : '';
-        parent::__construct();
-        include_once $this->coderoot . 'functions.php';
+        return array(
+            'PHP version 5.3.0 or greater' => version_compare(PHP_VERSION, '5.3') > 0,
+        );
     }
 }

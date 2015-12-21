@@ -27,5 +27,4 @@ class CommonPlugin_HtmlToPdf extends WkHtmlToPdf
     {
         $this->options['footer-html'] = $this->createTmpFile($html);
     }
-
 }

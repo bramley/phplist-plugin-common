@@ -14,7 +14,7 @@
 /**
  * This is a base exception from which all other exceptions inherit
  * 
- */ 
+ */
 abstract class CommonPlugin_Exception extends Exception
 {
     protected $i18n;
@@ -33,12 +33,12 @@ abstract class CommonPlugin_Exception extends Exception
         parent::__construct($t, $code);
     }
 
-    public static function errorHandler($errno, $errstr, $errfile, $errline ) {
-
-        if (!($errno & error_reporting()))
+    public static function errorHandler($errno, $errstr, $errfile, $errline)
+    {
+        if (!($errno & error_reporting())) {
             return true;
+        }
 
-           throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-
+        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
     }
 }

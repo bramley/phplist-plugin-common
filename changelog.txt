@@ -1,3 +1,42 @@
+version 3.4.0+20151213
+      Upgrade emogrifier to V1.0.0
+
+version 3.3.0+20151124
+      Correct indices
+      Update picoFeed to release v0.1.15
+      Update to version 1.2.0 of KLogger
+
+version 3.2.0+20151023
+      Changes for coding standards
+      Correct illegal class name, fixes #4
+      Correct use of global Exception class
+      Change to base directory used by class maps
+      Added class map
+
+version 3.1.1+20151015
+      Avoid throwing exception when creating I18N
+      GitHub #5, ensure that the correct version is used
+
+version 3.1.0+20151012
+      Use classpath for autoloading
+      Use new csrf token name introduced in phplist 3.2.1
+
+version 3.0.4+20151007
+      Remove need for the plugins directory to be called plugins
+
+version 3.0.3+20150828
+      Refactoring pager and listing classes
+
+version 3.0.2+20150819
+      Make image page a public page
+
+version 3.0.1+20150813
+      Include token parameter in url
+
+version 2015-07-21
+      Parallel directory for namespaced classes
+      psr-4 autoloader
+
 version 2015-05-29
 MarcelvC (2):
       updated German language file de_UTF-8.php; now in line with en.php

@@ -3,14 +3,9 @@
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
-        "psr/log": "1.0.*",
-        "katzgrau/klogger": "1.0.*",
-        "fguillot/picofeed": "dev-master",
-        "pelago/emogrifier": "*"
-    },
-    "autoload": {
-        "psr-0": {
-            "": ["plugins/CommonPlugin/ext/chart", "plugins/CommonPlugin/ext/mikehaertl", "plugins/CommonPlugin/ext/yii"]
-        }
+        "psr/log": "1.0.0",
+        "katzgrau/klogger": "1.2.0",
+        "fguillot/picofeed": "v0.1.15",
+        "pelago/emogrifier": "V1.0.0"
     }
 }

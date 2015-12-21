@@ -2,93 +2,95 @@
 
 namespace PicoFeed\Filter;
 
+use PicoFeed\Config\Config;
 use PicoFeed\Client\Url;
+use PicoFeed\Scraper\RuleLoader;
 use PicoFeed\Parser\XmlParser;
 
 /**
- * HTML Filter class
+ * HTML Filter class.
  *
  * @author  Frederic Guillot
- * @package Filter
  */
 class Html
 {
     /**
-     * Config object
+     * Config object.
      *
-     * @access private
      * @var \PicoFeed\Config\Config
      */
     private $config;
 
     /**
-     * Unfiltered XML data
+     * Unfiltered XML data.
      *
-     * @access private
      * @var string
      */
     private $input = '';
 
     /**
-     * Filtered XML data
+     * Filtered XML data.
      *
-     * @access private
      * @var string
      */
     private $output = '';
 
     /**
-     * List of empty tags
+     * List of empty tags.
      *
-     * @access private
      * @var array
      */
     private $empty_tags = array();
 
     /**
-     * Empty flag
+     * Empty flag.
      *
-     * @access private
-     * @var boolean
+     * @var bool
      */
     private $empty = true;
 
     /**
-     * Tag instance
+     * Tag instance.
      *
-     * @access public
      * @var \PicoFeed\Filter\Tag
      */
     public $tag = '';
 
     /**
-     * Attribute instance
+     * Attribute instance.
      *
-     * @access public
      * @var \PicoFeed\Filter\Attribute
      */
     public $attribute = '';
 
     /**
-     * Initialize the filter, all inputs data must be encoded in UTF-8 before
+     * The website to filter.
      *
-     * @access public
-     * @param  string  $html      HTML content
-     * @param  string  $website   Site URL (used to build absolute URL)
+     * @var string
+     */
+    private $website;
+
+    /**
+     * Initialize the filter, all inputs data must be encoded in UTF-8 before.
+     *
+     * @param string $html    HTML content
+     * @param string $website Site URL (used to build absolute URL)
      */
     public function __construct($html, $website)
     {
-        $this->input = XmlParser::HtmlToXml($html);
+        $this->config = new Config();
+        $this->input = XmlParser::htmlToXml($html);
         $this->output = '';
-        $this->tag = new Tag;
+        $this->tag = new Tag($this->config);
+        $this->website = $website;
         $this->attribute = new Attribute(new Url($website));
     }
 
     /**
-     * Set config object
+     * Set config object.
      *
-     * @access public
-     * @param  \PicoFeed\Config\Config  $config   Config instance
+     * @param \PicoFeed\Config\Config $config Config instance
+     *
      * @return \PicoFeed\Filter\Html
      */
     public function setConfig($config)
@@ -114,9 +116,8 @@ class Html
     }
 
     /**
-     * Run tags/attributes filtering
+     * Run tags/attributes filtering.
      *
-     * @access public
      * @return string
      */
     public function execute()
@@ -138,9 +139,7 @@ class Html
     }
 
     /**
-     * Called before XML parsing
-     *
-     * @access public
+     * Called before XML parsing.
      */
     public function preFilter()
     {
@@ -148,34 +147,64 @@ class Html
     }
 
     /**
-     * Called after XML parsing
-     *
-     * @access public
+     * Called after XML parsing.
      */
     public function postFilter()
     {
         $this->output = $this->tag->removeEmptyTags($this->output);
+        $this->output = $this->filterRules($this->output);
+        $this->output = $this->tag->removeMultipleBreakTags($this->output);
         $this->output = trim($this->output);
     }
 
     /**
-     * Parse opening tag
+     * Called after XML parsing.
      *
-     * @access public
-     * @param  resource  $parser       XML parser
-     * @param  string    $tag          Tag name
-     * @param  array     $attributes   Tag attributes
+     * @param string $content the content that should be filtered
+     */
+    public function filterRules($content)
+    {
+        // the constructor should require a config, then this if can be removed
+        if ($this->config === null) {
+            $config = new Config();
+        } else {
+            $config = $this->config;
+        }
+
+        $loader = new RuleLoader($config);
+        $rules = $loader->getRules($this->website);
+
+        $url = new Url($this->website);
+        $sub_url = $url->getFullPath();
+
+        if (isset($rules['filter'])) {
+            foreach ($rules['filter'] as $pattern => $rule) {
+                if (preg_match($pattern, $sub_url)) {
+                    foreach ($rule as $search => $replace) {
+                        $content = preg_replace($search, $replace, $content);
+                    }
+                }
+            }
+        }
+
+        return $content;
+    }
+
+    /**
+     * Parse opening tag.
+     *
+     * @param resource $parser     XML parser
+     * @param string   $tag        Tag name
+     * @param array    $attributes Tag attributes
      */
     public function startTag($parser, $tag, array $attributes)
     {
         $this->empty = true;
 
         if ($this->tag->isAllowed($tag, $attributes)) {
-
             $attributes = $this->attribute->filter($tag, $attributes);
 
             if ($this->attribute->hasRequiredAttributes($tag, $attributes)) {
-
                 $attributes = $this->attribute->addAttributes($tag, $attributes);
 
                 $this->output .= $this->tag->openHtmlTag($tag, $this->attribute->toHtml($attributes));
@@ -187,25 +216,23 @@ class Html
     }
 
     /**
-     * Parse closing tag
+     * Parse closing tag.
      *
-     * @access public
-     * @param  resource  $parser    XML parser
-     * @param  string    $tag       Tag name
+     * @param resource $parser XML parser
+     * @param string   $tag    Tag name
      */
     public function endTag($parser, $tag)
     {
-        if (! array_pop($this->empty_tags) && $this->tag->isAllowedTag($tag)) {
+        if (!array_pop($this->empty_tags) && $this->tag->isAllowedTag($tag)) {
             $this->output .= $this->tag->closeHtmlTag($tag);
         }
     }
 
     /**
-     * Parse tag content
+     * Parse tag content.
      *
-     * @access public
-     * @param  resource  $parser    XML parser
-     * @param  string    $content   Tag content
+     * @param resource $parser  XML parser
+     * @param string   $content Tag content
      */
     public function dataTag($parser, $content)
     {

@@ -10,17 +10,15 @@ use PicoFeed\Logging\Logger;
 use PicoFeed\Parser\XmlParser;
 
 /**
- * Reader class
+ * Reader class.
  *
  * @author  Frederic Guillot
- * @package Reader
  */
 class Reader
 {
     /**
-     * Feed formats for detection
+     * Feed formats for detection.
      *
-     * @access private
      * @var array
      */
     private $formats = array(
@@ -32,35 +30,35 @@ class Reader
     );
 
     /**
-     * Config class instance
+     * Config class instance.
      *
-     * @access private
      * @var \PicoFeed\Config\Config
      */
     private $config;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @access public
-     * @param  \PicoFeed\Config\Config   $config   Config class instance
+     * @param \PicoFeed\Config\Config $config Config class instance
      */
     public function __construct(Config $config = null)
     {
-        $this->config = $config ?: new Config;
+        $this->config = $config ?: new Config();
         Logger::setTimezone($this->config->getTimezone());
     }
 
     /**
-     * Download a feed (no discovery)
+     * Download a feed (no discovery).
      *
-     * @access public
-     * @param  string            $url              Feed url
-     * @param  string            $last_modified    Last modified HTTP header
-     * @param  string            $etag             Etag HTTP header
+     * @param string $url           Feed url
+     * @param string $last_modified Last modified HTTP header
+     * @param string $etag          Etag HTTP header
+     * @param string $username      HTTP basic auth username
+     * @param string $password      HTTP basic auth password
+     *
      * @return \PicoFeed\Client\Client
      */
-    public function download($url, $last_modified = '', $etag = '')
+    public function download($url, $last_modified = '', $etag = '', $username = '', $password = '')
     {
         $url = $this->prependScheme($url);
 
@@ -68,24 +66,28 @@ class Reader
                         ->setConfig($this->config)
                         ->setLastModified($last_modified)
                         ->setEtag($etag)
+                        ->setUsername($username)
+                        ->setPassword($password)
                         ->execute($url);
     }
 
     /**
-     * Discover and download a feed
+     * Discover and download a feed.
      *
-     * @access public
-     * @param  string            $url              Feed or website url
-     * @param  string            $last_modified    Last modified HTTP header
-     * @param  string            $etag             Etag HTTP header
+     * @param string $url           Feed or website url
+     * @param string $last_modified Last modified HTTP header
+     * @param string $etag          Etag HTTP header
+     * @param string $username      HTTP basic auth username
+     * @param string $password      HTTP basic auth password
+     *
      * @return \PicoFeed\Client\Client
      */
-    public function discover($url, $last_modified = '', $etag = '')
+    public function discover($url, $last_modified = '', $etag = '', $username = '', $password = '')
     {
-        $client = $this->download($url, $last_modified, $etag);
+        $client = $this->download($url, $last_modified, $etag, $username, $password);
 
         // It's already a feed or the feed was not modified
-        if (! $client->isModified() || $this->detectFormat($client->getContent())) {
+        if (!$client->isModified() || $this->detectFormat($client->getContent())) {
             return $client;
         }
 
@@ -96,16 +98,16 @@ class Reader
             throw new SubscriptionNotFoundException('Unable to find a subscription');
         }
 
-        return $this->download($links[0], $last_modified, $etag);
+        return $this->download($links[0], $last_modified, $etag, $username, $password);
     }
 
     /**
-     * Find feed urls inside a HTML document
+     * Find feed urls inside a HTML document.
      *
-     * @access public
-     * @param  string    $url        Website url
-     * @param  string    $html       HTML content
-     * @return array                 List of feed links
+     * @param string $url  Website url
+     * @param string $html HTML content
+     *
+     * @return array List of feed links
      */
     public function find($url, $html)
     {
@@ -121,15 +123,12 @@ class Reader
         );
 
         foreach ($queries as $query) {
-
             $nodes = $xpath->query($query);
 
             foreach ($nodes as $node) {
-
                 $link = $node->getAttribute('href');
 
-                if (! empty($link)) {
-
+                if (!empty($link)) {
                     $feedUrl = new Url($link);
                     $siteUrl = new Url($url);
 
@@ -144,12 +143,12 @@ class Reader
     }
 
     /**
-     * Get a parser instance
+     * Get a parser instance.
      *
-     * @access public
-     * @param  string                $url          Site url
-     * @param  string                $content      Feed content
-     * @param  string                $encoding     HTTP encoding
+     * @param string $url      Site url
+     * @param string $content  Feed content
+     * @param string $encoding HTTP encoding
+     *
      * @return \PicoFeed\Parser\Parser
      */
     public function getParser($url, $content, $encoding)
@@ -171,10 +170,10 @@ class Reader
     }
 
     /**
-     * Detect the feed format
+     * Detect the feed format.
      *
-     * @access public
-     * @param  string    $content     Feed content
+     * @param string $content Feed content
+     *
      * @return string
      */
     public function detectFormat($content)
@@ -194,16 +193,15 @@ class Reader
     }
 
     /**
-     * Add the prefix "http://" if the end-user just enter a domain name
+     * Add the prefix "http://" if the end-user just enter a domain name.
      *
-     * @access public
-     * @param  string    $url    Url
+     * @param string $url Url
      * @retunr string
      */
     public function prependScheme($url)
     {
-        if (! preg_match('%^https?://%', $url)) {
-           $url = 'http://' . $url;
+        if (!preg_match('%^https?://%', $url)) {
+            $url = 'http://'.$url;
         }
 
         return $url;

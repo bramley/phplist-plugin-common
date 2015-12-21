@@ -1,9 +1,14 @@
 <?php
+
 return array(
-    'test_url' => 'http://pastebin.com/ed1pP9Ak',
-    'body' => array(
-        '//div[@class="text"]',
+    'grabber' => array(
+        '%.*%' => array(
+            'test_url' => 'http://pastebin.com/ed1pP9Ak',
+            'body' => array(
+                '//div[@class="text"]',
+            ),
+            'strip' => array(
+            ),
+        ),
     ),
-    'strip' => array(
-    )
 );
