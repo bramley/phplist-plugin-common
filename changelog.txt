@@ -1,3 +1,8 @@
+version 3.5.0+20160110
+      Improve display of email addresses
+      Allow plugins to have own autoloader
+      Remove Emogrifier package
+
 version 3.4.0+20151213
       Upgrade emogrifier to V1.0.0
 
