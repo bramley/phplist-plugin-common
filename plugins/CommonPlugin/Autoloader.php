@@ -40,7 +40,11 @@ function CommonPlugin_Autoloader_main()
     }
     $loader->add('', $paths);
 
-    foreach ($plugins as $pi) {
+    foreach ($plugins as $piName => $pi) {
+        if ($piName != 'CommonPlugin' && file_exists($ownAutoloader = $pi->coderoot . 'vendor/autoload.php')) {
+            require $ownAutoloader;
+        }
+
         if (file_exists($f = $pi->coderoot . 'class_map.php')) {
             $base = dirname($pi->coderoot);
             $piClassMap = include $f;

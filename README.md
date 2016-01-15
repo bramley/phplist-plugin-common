@@ -51,6 +51,8 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.0+20160110  Improve display of email addresses
+                    Remove Emogrifier package
     3.4.0+20151213  Update Emogrifier package
     3.3.0+20151124  Update picoFeed and KLogger packages
     3.2.0+20151023  Internal changes
