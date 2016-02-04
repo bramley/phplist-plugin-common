@@ -1,3 +1,10 @@
+version 3.5.1+20160204
+      Fixes #6
+      Made menu items translatable; added menu items to language files
+      Removed old button styles
+      Change English menu items
+      Revise docblock
+
 version 3.5.0+20160110
       Improve display of email addresses
       Allow plugins to have own autoloader

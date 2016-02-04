@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.1+20160204  Improve German translation
     3.5.0+20160110  Improve display of email addresses
                     Remove Emogrifier package
     3.4.0+20151213  Update Emogrifier package
