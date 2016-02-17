@@ -17,14 +17,15 @@
  */
 class CommonPlugin_Tabs extends WebblerTabs
 {
+    public function display()
+    {
+        return '<div class="minitabs">'
+            . parent::display()
+            . '</div>';
+    }
+
     public function addTab($caption, $url = '', $name = '')
     {
         parent::addTab(htmlspecialchars($caption), htmlspecialchars($url), $name);
-    }
-
-    public function __construct()
-    {
-        $this->setListClass('sendcampaign');
-        $this->setId('sendtabs');
     }
 }

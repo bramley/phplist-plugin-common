@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.2+20160217  Use same tab style as core phplist
     3.5.1+20160204  Improve German translation
     3.5.0+20160110  Improve display of email addresses
                     Remove Emogrifier package
