@@ -1,3 +1,6 @@
+version 3.5.3+20160329
+      Correct namespace
+
 version 3.5.2+20160217
       Use same tab style as core phplist
 

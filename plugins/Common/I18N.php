@@ -39,7 +39,7 @@ class I18N
     /*
      *    Private methods
      */
-    public function __construct(phplistPlugin $pi = null)
+    public function __construct(\phplistPlugin $pi = null)
     {
         global $I18N, $strCharSet;
 
