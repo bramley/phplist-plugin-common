@@ -1,9 +1,0 @@
-<p>Copyright &copy; 2011-2015 Duncan Cameron <a href='http://www.dcameron.me.uk/phplist/'>www.dcameron.me.uk/phplist/</a></p>
-<p>This plugin is licensed under the <a target='_blank' href='http://www.gnu.org/licenses/gpl.html'>GNU General Public License, Version 3</a>.</p>
-<p>This plugin uses parts of the following copyrighted software:</p>
-<ul>
-<li><a target='_blank' href='http://www.yiiframework.com/'>Yii Framework</a>, by Yii Software LLC. Released under the BSD Licence, see CommonPlugin/Yii licence.txt.
-<li><a target='_blank' href='https://github.com/katzgrau/KLogger'>KLogger</a>, by Kenny Katzgrau. Released under the MIT Licence, see CommonPlugin/KLogger licence.txt.
-<li><a target='_blank' href='http://led24.de/iconset/'>LED Icons</a>, by Marcis Gasuns. Released under the <a target='_blank' href='http://creativecommons.org/licenses/by-sa/3.0/'>Creative Commons Licence</a>.
-</ul>
-
