@@ -1,3 +1,7 @@
+version 3.5.4+20160330
+      Remove unnecessary licence file
+      Rationalise use of .tpl.php files
+
 version 3.5.3+20160329
       Correct namespace
 
