@@ -41,7 +41,7 @@ class I18N
      */
     public function __construct(\phplistPlugin $pi = null)
     {
-        global $I18N, $strCharSet;
+        global $I18N, $strCharSet, $plugins;
 
         $this->charSet = strtoupper($strCharSet);
         $this->coreI18N = $I18N;
@@ -49,7 +49,7 @@ class I18N
 
         $pluginDir = $pi ? $pi->coderoot : $this->pluginDir();
         $this->lan = $this->loadLanguageFile($this->languageDir($pluginDir));
-        $this->lan += $this->loadLanguageFile($this->languageDir(dirname(__FILE__) . '/'));
+        $this->lan += $this->loadLanguageFile($this->languageDir($plugins['CommonPlugin']->coderoot));
     }
 
     private function pluginDir()
