@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.5+20160513  Minor changes and fixes
     3.5.4+20160330  Internal changes
     3.5.3+20160329  Internal change to correct namespace
     3.5.2+20160217  Use same tab style as core phplist

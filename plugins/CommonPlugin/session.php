@@ -17,4 +17,5 @@
  */
 ob_start();
 var_dump($_SESSION);
-echo '<pre>' . htmlspecialchars(ob_get_clean()) . '</pre>';
+$output = ob_get_clean();
+echo  extension_loaded('xdebug') ? $output : '<pre>' . htmlspecialchars($output) . '</pre>';

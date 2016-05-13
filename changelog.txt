@@ -1,3 +1,10 @@
+version 3.5.5+20160513
+      Allow callbacks to be used for an IPopulator
+      Remove need for the second parameter to queryOne()
+      Fix problem with incorrect directory being used
+      Added method block comments and code standards changes
+      Avoid html escaping when xdebug is loaded
+
 version 3.5.4+20160330
       Remove unnecessary licence file
       Rationalise use of .tpl.php files
