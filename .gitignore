@@ -136,9 +136,10 @@ plugins/CommonPlugin/vendor/psr/log/*
 plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/
 
 plugins/CommonPlugin/vendor/fguillot/picofeed/*
-!plugins/CommonPlugin/vendor/fguillot/picofeed/UNLICENSE
+!plugins/CommonPlugin/vendor/fguillot/picofeed/LICENSE
 !plugins/CommonPlugin/vendor/fguillot/picofeed/lib/
 
 plugins/CommonPlugin/vendor/chdemko/bitarray/*
 !plugins/CommonPlugin/vendor/chdemko/bitarray/src
 !plugins/CommonPlugin/vendor/chdemko/bitarray/cite.bib
+!plugins/CommonPlugin/vendor/chdemko/bitarray/README.md

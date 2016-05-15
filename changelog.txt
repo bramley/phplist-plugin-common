@@ -1,3 +1,7 @@
+version 3.5.6+20160515
+      Install bitarray using Composer
+      Revise licence information
+
 version 3.5.5+20160513
       Allow callbacks to be used for an IPopulator
       Remove need for the second parameter to queryOne()
