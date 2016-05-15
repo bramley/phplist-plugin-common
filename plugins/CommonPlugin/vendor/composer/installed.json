@@ -139,5 +139,60 @@
         "keywords": [
             "logging"
         ]
+    },
+    {
+        "name": "chdemko/bitarray",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/chdemko/php-bitarray.git",
+            "reference": "e7627033c8ed5198da16373ac120c759732a6711"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/chdemko/php-bitarray/zipball/e7627033c8ed5198da16373ac120c759732a6711",
+            "reference": "e7627033c8ed5198da16373ac120c759732a6711",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpdocumentor/phpdocumentor": "2.5.*@dev",
+            "satooshi/php-coveralls": "dev-master"
+        },
+        "time": "2014-06-18 12:21:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "chdemko\\BitArray\\": "src/BitArray"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "CECILL-B"
+        ],
+        "authors": [
+            {
+                "name": "Christophe Demko",
+                "email": "chdemko@gmail.com",
+                "homepage": "http://chdemko.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "BitArray for PHP >= 5.4",
+        "homepage": "http://github.com/chdemko/php-bitarray",
+        "keywords": [
+            "array",
+            "bits",
+            "iterator"
+        ]
     }
 ]

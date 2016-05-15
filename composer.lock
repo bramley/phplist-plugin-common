@@ -4,9 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "48001b307209345a9ad829f01386693a",
-    "content-hash": "e35f9726d33b5bccbb36f118721da218",
+    "hash": "ba398fb179f48489c36150051a5c97fe",
+    "content-hash": "0cd7f933646aba9bff491850ee6852a7",
     "packages": [
+        {
+            "name": "chdemko/bitarray",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chdemko/php-bitarray.git",
+                "reference": "e7627033c8ed5198da16373ac120c759732a6711"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chdemko/php-bitarray/zipball/e7627033c8ed5198da16373ac120c759732a6711",
+                "reference": "e7627033c8ed5198da16373ac120c759732a6711",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.5.*@dev",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "chdemko\\BitArray\\": "src/BitArray"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CECILL-B"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Demko",
+                    "email": "chdemko@gmail.com",
+                    "homepage": "http://chdemko.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "BitArray for PHP >= 5.4",
+            "homepage": "http://github.com/chdemko/php-bitarray",
+            "keywords": [
+                "array",
+                "bits",
+                "iterator"
+            ],
+            "time": "2014-06-18 12:21:40"
+        },
         {
             "name": "fguillot/picofeed",
             "version": "v0.1.15",
