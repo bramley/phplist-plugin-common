@@ -1,3 +1,10 @@
+version 3.5.7+20160527
+      Move ext directory
+      use classmap for vendor directory
+      Rework autoloader
+      Regenerate class map
+      Use correct file path for yii licence
+
 version 3.5.6+20160515
       Install bitarray using Composer
       Revise licence information

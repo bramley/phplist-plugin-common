@@ -7,5 +7,17 @@
         "katzgrau/klogger": "1.2.0",
         "fguillot/picofeed": "v0.1.15",
         "chdemko/bitarray": "1.0.0"
+    },
+    "autoload": {
+        "classmap": [
+            "plugins/CommonPlugin/vendor/chdemko/bitarray/src",
+            "plugins/CommonPlugin/vendor/ext/",
+            "plugins/CommonPlugin/vendor/fguillot/picofeed/lib",
+            "plugins/CommonPlugin/vendor/katzgrau/klogger/src",
+            "plugins/CommonPlugin/vendor/psr/log/Psr"
+        ],
+        "exclude-from-classmap": [
+            "plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/"
+        ]
     }
 }

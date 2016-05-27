@@ -2,7 +2,7 @@
 <p>This plugin is licensed under the <a target='_blank' href='http://www.gnu.org/licenses/gpl.html'>GNU General Public License, Version 3</a>.</p>
 <p>This plugin uses parts of the following copyrighted software:</p>
 <ul>
-<li><a target='_blank' href="http://www.yiiframework.com/">Yii Framework</a>, by Yii Software LLC. Released under the BSD Licence, see file CommonPlugin/ext/yii/Yii licence.txt.
+<li><a target='_blank' href="http://www.yiiframework.com/">Yii Framework</a>, by Yii Software LLC. Released under the BSD Licence, see file CommonPlugin/vendor/ext/yii/Yii licence.txt.
 <li><a target='_blank' href="https://github.com/katzgrau/KLogger">KLogger</a>, by Kenny Katzgrau. Released under the MIT Licence, see file CommonPlugin/vendor/katzgrau/klogger/README.markdown.
 <li><a target='_blank' href="https://github.com/fguillot/picoFeed">PicoFeed</a>, by Frederic Guillot. Released under the MIT Licence, see file CommonPlugin/vendor/fguillot/picofeed/LICENSE.
 <li><a target='_blank' href="https://github.com/mikehaertl/phpwkhtmltopdf">WkHtmlToPdf</a>, by Michael Härtl. Released under the <a href="http://www.opensource.org/licenses/MIT">MIT Licence</a>.
