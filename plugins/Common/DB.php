@@ -89,13 +89,27 @@ class DB
         return Sql_Fetch_Assoc($resource);
     }
 
-    public function queryOne($sql, $field)
+    /**
+     * Returns a single value which can be either a named field or the first field.
+     * 
+     * @param string $sql   the query
+     * @param string $field a named field to return (optional)
+     * 
+     * @return string|false the field value or false if no rows
+     */
+    public function queryOne($sql, $field = null)
     {
-        /*
-         * 
-         */
         $row = $this->queryRow($sql);
-        return $row ? $row[$field] : false;
+
+        if (!$row) {
+            return false;
+        }
+
+        if ($field === null) {
+            return reset($row);
+        }
+
+        return $row[$field];
     }
 
     public function queryColumn($sql, $field, $index = null)

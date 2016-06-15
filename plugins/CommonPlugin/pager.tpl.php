@@ -4,10 +4,9 @@
  * 
  * This file is a part of CommonPlugin.
  *
- * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2012 Duncan Cameron
+ * @copyright 2011-2016 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -22,12 +21,12 @@
  * Available fields
  * - range: message displaying range of items
  * - show: selector for items per page
- * - first: link to page containing first item
- * - previous: link to previous page of items
- * - next: link to next page of items
- * - last: link to last page of items
- * - webbler: WebblerListing instance
- * - message: optional message when there are no results to display
+ * - first: link to first page of items
+ * - back: link to previous page of items
+ * - forward: link to next page of items
+ * - last: link to the final page of items
+ * - prev: link to same page for the previous message
+ * - next: link to same page for the next message
  */
 ?>
 <style type="text/css">
@@ -52,24 +51,8 @@ td.listingelementcenter {
 td.listingelementright {
   text-align: right !important;
 }
-/*
- * Copy of buttonpublish styles from phplist.css
- */
-a.button:link, a.button:visited {
-    font-family: verdana, sans-serif;
-    font-size : 11px;
-    color : #999966;
-    background-color : #ffffff;
-    font-weight: bold;
-    text-align : middle;
-    text-decoration : none;
-    border: 1px #999966 solid;
-    padding: 2px;
-    margin: 2px;
-}
-a.button:hover {
-    color : #666633;
-}
+
+
 .content table {
     table-layout: auto;
 }

@@ -3,12 +3,12 @@
 namespace phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
+ * CommonPlugin for phplist.
  * 
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
  * @copyright 2011-2012 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
@@ -19,7 +19,6 @@ namespace phpList\plugin\Common;
  * The same approach as core phplist is used. A language file for each translated language.
  * If a language file does not exist then the class falls-back to English.
  * The language files are in the lan subdirectory of a plugin's main directory.
- * 
  */
 class I18N
 {
@@ -36,12 +35,19 @@ class I18N
      */
     public $charSet;
 
-    /*
-     *    Private methods
+    /**
+     * Private constructor for the singleton pattern.
+     *
+     * @param phplistPlugin $pi an optional plugin whose language file should
+     *                          be used for translations.
+     * 
+     * @throws Exception if the code is not executing within a plugin
+     * 
+     * @return string the plugin's directory
      */
-    public function __construct(phplistPlugin $pi = null)
+    public function __construct(\phplistPlugin $pi = null)
     {
-        global $I18N, $strCharSet;
+        global $I18N, $strCharSet, $plugins;
 
         $this->charSet = strtoupper($strCharSet);
         $this->coreI18N = $I18N;
@@ -49,9 +55,16 @@ class I18N
 
         $pluginDir = $pi ? $pi->coderoot : $this->pluginDir();
         $this->lan = $this->loadLanguageFile($this->languageDir($pluginDir));
-        $this->lan += $this->loadLanguageFile($this->languageDir(dirname(__FILE__) . '/'));
+        $this->lan += $this->loadLanguageFile($this->languageDir($plugins['CommonPlugin']->coderoot));
     }
 
+    /**
+     * Derives the directory for a plugin using the $_GET parameter.
+     *
+     * @throws Exception if the code is not executing within a plugin
+     * 
+     * @return string the plugin's directory
+     */
     private function pluginDir()
     {
         global $plugins;
@@ -66,16 +79,31 @@ class I18N
         throw new \Exception('I18N must be created within a plugin');
     }
 
+    /**
+     * Derives the language directory within a plugin directory.
+     * 
+     * @param string $pluginDir the plugin directory
+     *
+     * @return string the actual or best guess language directory
+     */
     private function languageDir($pluginDir)
     {
-        if (is_dir($pluginDir . 'lan/')) {
-            $dir = $pluginDir . 'lan/';
+        if (is_dir($pluginDir.'lan/')) {
+            $dir = $pluginDir.'lan/';
         } else {
             $dir = $pluginDir;
         }
+
         return $dir;
     }
 
+    /**
+     * Searches for the language file beneath a given directory.
+     * 
+     * @param string $dir the target directory
+     *
+     * @return array array of translations
+     */
     private function loadLanguageFile($dir)
     {
         if (is_file($f = "{$dir}{$this->coreI18N->language}_{$this->charSet}.php")
@@ -88,20 +116,35 @@ class I18N
         } else {
             $lan = array();
         }
+
         return $lan;
     }
-    /*
-     *    Public methods
+
+    /**
+     * Returns the single instance of this class.
+     * 
+     * @return I18N The instance of this class
      */
     public static function instance()
     {
         if (!isset(self::$instance)) {
             $c = __CLASS__;
-            self::$instance = new $c;
+            self::$instance = new $c();
         }
+
         return self::$instance;
     }
 
+    /**
+     * Translates a key or array of keys.
+     * Tries lower case when the key does not exist.
+     * Further parameters can be provided for sprintf() type formatting.
+     * 
+     * @param array|string $key   the key or keys to be translated
+     * @param mixed        $v,... additional variables to format with vsprintf()
+     *
+     * @return array|string A translated string if one is found, or the key if not found.  
+     */
     public function get($key)
     {
         if (is_array($key)) {
@@ -121,9 +164,17 @@ class I18N
             array_shift($args);
             $t = vsprintf($t, $args);
         }
+
         return $t;
     }
 
+    /**
+     * Translates a key or array of keys in UTF-8.
+     * 
+     * @param array|string $key the key or keys to be translated
+     *
+     * @return array|string A translated string if one is found, or the key if not found.  
+     */
     public function getUtf8($key)
     {
         if ($this->charSet == 'UTF-8') {
@@ -135,6 +186,7 @@ class I18N
         }
 
         $t = $this->get($key);
+
         return $this->iconv
             ? iconv($this->charSet, 'UTF-8', $t)
             : utf8_encode($t);

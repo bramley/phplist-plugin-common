@@ -14,8 +14,11 @@
     /**
      * Add the plugin directories to the composer autoload
      * Use PSR-4 for namespaced plugins
-     * Use PSR-0 for non-namespaced plugins and classes in the ext directory
+     * Use PSR-0 for non-namespaced plugins
      *
+     * Create autoloader for other plugins.
+     * Add classmap for plugins.
+     * 
      * @access  public
      * @return  void
      */
@@ -31,16 +34,13 @@ function CommonPlugin_Autoloader_main()
         ? PLUGIN_ROOTDIR : $systemroot . '/' . PLUGIN_ROOTDIR;
 
     $loader->addPsr4('phpList\\plugin\\', $paths);
-    $iterator = new DirectoryIterator(dirname(__FILE__) . '/ext');
-
-    foreach ($iterator as $file) {
-        if ($file->isDir() && !$file->isDot()) {
-            $paths[] = $file->getPathname();
-        }
-    }
     $loader->add('', $paths);
 
-    foreach ($plugins as $pi) {
+    foreach ($plugins as $piName => $pi) {
+        if ($piName != 'CommonPlugin' && file_exists($ownAutoloader = $pi->coderoot . 'vendor/autoload.php')) {
+            require $ownAutoloader;
+        }
+
         if (file_exists($f = $pi->coderoot . 'class_map.php')) {
             $base = dirname($pi->coderoot);
             $piClassMap = include $f;

@@ -1,4 +1,5 @@
 <?php
+
 return array(
     'CommonPlugin_BaseController' => $base . '/CommonPlugin/BaseController.php',
     'CommonPlugin_ClassLoader' => $base . '/CommonPlugin/ClassLoader.php',
@@ -33,6 +34,7 @@ return array(
     'CommonPlugin_PageLink' => $base . '/CommonPlugin/PageLink.php',
     'CommonPlugin_PageURL' => $base . '/CommonPlugin/PageURL.php',
     'CommonPlugin_Pager' => $base . '/CommonPlugin/Pager.php',
+    'CommonPlugin_Populator' => $base . '/CommonPlugin/Populator.php',
     'CommonPlugin_ProxySettingsException' => $base . '/CommonPlugin/GoogleChart.php',
     'CommonPlugin_Tabs' => $base . '/CommonPlugin/Tabs.php',
     'CommonPlugin_Toolbar' => $base . '/CommonPlugin/Toolbar.php',
@@ -70,6 +72,7 @@ return array(
     'phpList\plugin\Common\PageLink' => $base . '/Common/PageLink.php',
     'phpList\plugin\Common\PageURL' => $base . '/Common/PageURL.php',
     'phpList\plugin\Common\Pager' => $base . '/Common/Pager.php',
+    'phpList\plugin\Common\Populator' => $base . '/Common/Populator.php',
     'phpList\plugin\Common\Tabs' => $base . '/Common/Tabs.php',
     'phpList\plugin\Common\Toolbar' => $base . '/Common/Toolbar.php',
     'phpList\plugin\Common\ToolbarButton' => $base . '/Common/Toolbar.php',

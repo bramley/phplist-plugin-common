@@ -40,65 +40,6 @@
         ]
     },
     {
-        "name": "pelago/emogrifier",
-        "version": "v0.1",
-        "version_normalized": "0.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jjriv/emogrifier.git",
-            "reference": "229fba489439f5606d816b0a13146971817e9bf4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/229fba489439f5606d816b0a13146971817e9bf4",
-            "reference": "229fba489439f5606d816b0a13146971817e9bf4",
-            "shasum": ""
-        },
-        "require": {
-            "ext-mbstring": "*",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.0.*",
-            "squizlabs/php_codesniffer": "1.5.*",
-            "typo3-ci/typo3sniffpool": "dev-master"
-        },
-        "time": "2014-10-30 16:45:48",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Pelago\\": "Classes/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "John Reeve",
-                "email": "jreeve@pelagodesign.com"
-            },
-            {
-                "name": "Cameron Brooks"
-            },
-            {
-                "name": "Jaime Prado"
-            },
-            {
-                "name": "Oliver Klee",
-                "email": "typo3-coding@oliverklee.de"
-            },
-            {
-                "name": "Roman Ozana",
-                "email": "ozana@omdesign.cz"
-            }
-        ],
-        "description": "Converts CSS styles into inline style attributes in your HTML code",
-        "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/"
-    },
-    {
         "name": "fguillot/picofeed",
         "version": "v0.1.15",
         "version_normalized": "0.1.15.0",
@@ -197,6 +138,61 @@
         "description": "A Simple Logging Class",
         "keywords": [
             "logging"
+        ]
+    },
+    {
+        "name": "chdemko/bitarray",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/chdemko/php-bitarray.git",
+            "reference": "e7627033c8ed5198da16373ac120c759732a6711"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/chdemko/php-bitarray/zipball/e7627033c8ed5198da16373ac120c759732a6711",
+            "reference": "e7627033c8ed5198da16373ac120c759732a6711",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpdocumentor/phpdocumentor": "2.5.*@dev",
+            "satooshi/php-coveralls": "dev-master"
+        },
+        "time": "2014-06-18 12:21:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "chdemko\\BitArray\\": "src/BitArray"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "CECILL-B"
+        ],
+        "authors": [
+            {
+                "name": "Christophe Demko",
+                "email": "chdemko@gmail.com",
+                "homepage": "http://chdemko.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "BitArray for PHP >= 5.4",
+        "homepage": "http://github.com/chdemko/php-bitarray",
+        "keywords": [
+            "array",
+            "bits",
+            "iterator"
         ]
     }
 ]

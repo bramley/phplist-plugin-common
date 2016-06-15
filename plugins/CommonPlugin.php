@@ -44,11 +44,6 @@ class CommonPlugin extends phplistPlugin
         'config_file' => array('category' => 'config'),
         'session' => array('category' => 'config'),
     );
-    public $pageTitles = array(
-        'phpinfo' => 'View phpinfo',
-        'config_file' => 'View config.php',
-        'session' => 'View session',
-    );
     public $publicPages = array('image');
 
     public function __construct()
@@ -64,6 +59,12 @@ class CommonPlugin extends phplistPlugin
     public function sendFormats()
     {
         require_once $this->coderoot . 'Autoloader.php';
+        $i18n = new CommonPlugin_I18N($this);
+        $this->pageTitles = array(
+            'phpinfo' => $i18n->get('view_phpinfo'),
+            'config_file' => $i18n->get('view_config.php'),
+            'session' => $i18n->get('view_session'),
+        );
         return null;
     }
 

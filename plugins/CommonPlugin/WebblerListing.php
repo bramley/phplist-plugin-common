@@ -49,7 +49,20 @@ class CommonPlugin_WebblerListing extends WebblerListing
      */
     public function addColumnEmail($name, $column_name, $value, $url = '', $align = '')
     {
-        parent::addColumn($name, $column_name, str_replace('@', '@&#8203;', htmlspecialchars($value, ENT_QUOTES)), htmlspecialchars($url), $align);
+        $maxLength = 29;
+
+        if (strlen($value) > $maxLength) {
+            $middle = '…';
+            $outerLength = (int)(($maxLength - strlen($middle)) / 2);
+            $shortValue = sprintf(
+                '<span title="%s">%s</span>',
+                $value,
+                htmlspecialchars(substr($value, 0, $outerLength)) . $middle . htmlspecialchars(substr($value, -$outerLength))
+            );
+        } else {
+            $shortValue = htmlspecialchars($value);
+        }
+        $this->addColumnHtml($name, $column_name, $shortValue, $url, $align);
     }
 
     public function addColumnHtml($name, $column_name, $value, $url = '', $align = '')

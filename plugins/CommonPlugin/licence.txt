@@ -2,8 +2,12 @@
 <p>This plugin is licensed under the <a target='_blank' href='http://www.gnu.org/licenses/gpl.html'>GNU General Public License, Version 3</a>.</p>
 <p>This plugin uses parts of the following copyrighted software:</p>
 <ul>
-<li><a target='_blank' href='http://www.yiiframework.com/'>Yii Framework</a>, by Yii Software LLC. Released under the BSD Licence, see CommonPlugin/Yii licence.txt.
-<li><a target='_blank' href='https://github.com/katzgrau/KLogger'>KLogger</a>, by Kenny Katzgrau. Released under the MIT Licence, see CommonPlugin/KLogger licence.txt.
+<li><a target='_blank' href="http://www.yiiframework.com/">Yii Framework</a>, by Yii Software LLC. Released under the BSD Licence, see file CommonPlugin/vendor/ext/yii/Yii licence.txt.
+<li><a target='_blank' href="https://github.com/katzgrau/KLogger">KLogger</a>, by Kenny Katzgrau. Released under the MIT Licence, see file CommonPlugin/vendor/katzgrau/klogger/README.markdown.
+<li><a target='_blank' href="https://github.com/fguillot/picoFeed">PicoFeed</a>, by Frederic Guillot. Released under the MIT Licence, see file CommonPlugin/vendor/fguillot/picofeed/LICENSE.
+<li><a target='_blank' href="https://github.com/mikehaertl/phpwkhtmltopdf">WkHtmlToPdf</a>, by Michael Härtl. Released under the <a href="http://www.opensource.org/licenses/MIT">MIT Licence</a>.
+<li><a target='_blank' href="https://github.com/php-fig/log">PSR Log</a>, by PHP Framework Interoperability Group. See file CommonPlugin/vendor/psr/log/LICENSE.
+<li><a target='_blank' href="https://raw.githubusercontent.com/chdemko/php-bitarray/master/cite.bib">BitArray</a>, by Christophe Demko. Released under the <a href="http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html">CeCILL-B Free Software License</a>.
 <li><a target='_blank' href='http://led24.de/iconset/'>LED Icons</a>, by Marcis Gasuns. Released under the <a target='_blank' href='http://creativecommons.org/licenses/by-sa/3.0/'>Creative Commons Licence</a>.
 </ul>
 

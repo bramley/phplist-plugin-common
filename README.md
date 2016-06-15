@@ -16,7 +16,7 @@ When installing or upgrading a plugin ensure that the latest CommonPlugin is ins
 
 This plugin is for phplist 3.0.0 and later.
 
-Requires php version 5.3 or later.
+Requires php version 5.4 or later.
 
 The version of this plugin dated 2015-03-23 has an incompatible change. 
 Other plugins that depend on CommonPlugin should be upgraded to their latest version.
@@ -51,6 +51,16 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.7+20160527  Internal rework of class autoloading
+    3.5.6+20160515  Minor changes
+    3.5.5+20160513  Minor changes and fixes
+    3.5.4+20160330  Internal changes
+    3.5.3+20160329  Internal change to correct namespace
+    3.5.2+20160217  Use same tab style as core phplist
+    3.5.1+20160204  Improve German translation
+    3.5.0+20160110  Improve display of email addresses
+                    Remove Emogrifier package
+    3.4.0+20151213  Update Emogrifier package
     3.3.0+20151124  Update picoFeed and KLogger packages
     3.2.0+20151023  Internal changes
     3.1.1+20151015  Minor internal changes
