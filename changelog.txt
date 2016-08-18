@@ -1,3 +1,6 @@
+version 3.5.8+20160818
+      Upgrade PicoFeed to version 0.1.24
+
 version 3.5.7+20160527
       Move ext directory
       use classmap for vendor directory

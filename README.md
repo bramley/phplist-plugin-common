@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.8+20160818  Upgrade Picofeed package
     3.5.7+20160527  Internal rework of class autoloading
     3.5.6+20160515  Minor changes
     3.5.5+20160513  Minor changes and fixes
