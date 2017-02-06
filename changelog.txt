@@ -1,3 +1,7 @@
+version 3.5.9+20170206
+      Rename and update the cs config file
+      Generate UUID when copying a message for phplist version 3.3.0.
+
 version 3.5.8+20160818
       Upgrade PicoFeed to version 0.1.24
 

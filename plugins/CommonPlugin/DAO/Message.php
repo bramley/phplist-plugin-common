@@ -17,6 +17,8 @@
  */
 class CommonPlugin_DAO_Message extends CommonPlugin_DAO
 {
+    const UUID_VERSION = '3.3.0';
+
     public function messageById($msgid)
     {
         $sql =
@@ -26,20 +28,30 @@ class CommonPlugin_DAO_Message extends CommonPlugin_DAO
 
         return $this->dbCommand->queryRow($sql);
     }
+
     public function copyMessage($id)
     {
         $sql = "
             INSERT INTO {$this->tables['message']} 
             (id, subject, fromfield, tofield, replyto, message, textmessage, footer, entered, modified, embargo,repeatuntil,
-                status,htmlformatted,sendformat, template,owner
+                status, htmlformatted, sendformat, template, owner
             )
             SELECT NULL, CONCAT('Copy - ', subject), fromfield, tofield, replyto, message, textmessage, footer, now(), now(), now(), now(),
                 'draft', htmlformatted, sendformat, template, owner
             FROM {$this->tables['message']}
-            WHERE id=$id";
-        $id = $this->dbCommand->queryInsertId($sql);
+            WHERE id = $id";
+        $newId = $this->dbCommand->queryInsertId($sql);
 
-        return $id;
+        if (version_compare(getConfig('version'), self::UUID_VERSION) >= 0) {
+            $uuid = \UUID::generate(4);
+            $sql = "
+                UPDATE {$this->tables['message']}
+                SET uuid = '$uuid'
+                WHERE id = $newId";
+            $this->dbCommand->queryAffectedRows($sql);
+        }
+
+        return $newId;
     }
 
     public function deleteMessage($id)
