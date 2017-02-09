@@ -1,4 +1,4 @@
-<p>Copyright &copy; 2011-2015 Duncan Cameron <a href='http://www.dcameron.me.uk/phplist/'>www.dcameron.me.uk/phplist/</a></p>
+<p>Copyright &copy; 2011-2017 Duncan Cameron <a href='http://www.dcameron.me.uk/phplist/'>www.dcameron.me.uk/phplist/</a></p>
 <p>This plugin is licensed under the <a target='_blank' href='http://www.gnu.org/licenses/gpl.html'>GNU General Public License, Version 3</a>.</p>
 <p>This plugin uses parts of the following copyrighted software:</p>
 <ul>
