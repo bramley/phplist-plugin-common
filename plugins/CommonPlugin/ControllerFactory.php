@@ -17,6 +17,7 @@
  * @category  phplist
  * @package   CommonPlugin
  */
-class CommonPlugin_ControllerFactory extends CommonPlugin_ControllerFactoryBase
+class CommonPlugin_ControllerFactory
+    extends phpList\plugin\Common\ControllerFactory
 {
 }

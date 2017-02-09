@@ -16,15 +16,7 @@
  * This class extends WkHtmlToPdf to provide some convenience methods
  * 
  */
-class CommonPlugin_HtmlToPdf extends WkHtmlToPdf
+class CommonPlugin_HtmlToPdf
+    extends phpList\plugin\Common\HtmlToPdf
 {
-    public function headerHtml($html)
-    {
-        $this->options['header-html'] = $this->createTmpFile($html);
-    }
-    
-    public function footerHtml($html)
-    {
-        $this->options['footer-html'] = $this->createTmpFile($html);
-    }
 }

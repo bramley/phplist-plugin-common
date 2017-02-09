@@ -16,37 +16,6 @@
  * 
  */
 class CommonPlugin_Listing
+    extends phpList\plugin\Common\Listing
 {
-    private $controller;
-    private $populator;
-
-    public $noResultsMessage = 'no_results';
-    public $pager;
-    public $sort = false;
-
-    public function __construct(CommonPlugin_Controller $controller, CommonPlugin_IPopulator $populator)
-    {
-        $this->controller = $controller;
-        $this->populator = $populator;
-        $this->pager = new CommonPlugin_Pager($controller);
-    }
-
-    public function display()
-    {
-        $total = $this->populator->total();
-
-        $w = new CommonPlugin_WebblerListing();
-        $w->usePanel($this->pager->display($total));
-
-        if ($this->sort) {
-            $w->addSort();
-        }
-
-        if ($total == 0) {
-            $w->addElement($this->controller->i18n->get($this->noResultsMessage));
-        }
-        list($start, $limit) = $this->pager->range();
-        $this->populator->populate($w, $start, $limit);
-        return $w->display();
-    }
 }

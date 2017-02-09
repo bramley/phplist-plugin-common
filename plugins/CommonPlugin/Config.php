@@ -17,31 +17,7 @@
  */
 
 class CommonPlugin_Config
+    extends phpList\plugin\Common\Config
 {
-    private $dao;
-    private $id;
-    private $config;
-
-    public function __construct($id, $default = array())
-    {
-        $this->id = $id;
-        $this->dao = new CommonPlugin_DAO_Config(new CommonPlugin_DB());
-        $this->config = unserialize($this->dao->getItem($id));
-
-        if ($this->config === false) {
-            $this->config = $default;
-        }
-    }
-
-    public function get($key)
-    {
-        return isset($this->config[$key]) ? $this->config[$key] : null;
-    }
-
-    public function set($key, $value)
-    {
-        $this->config[$key] = $value;
-        $r = $this->dao->setItem($this->id, serialize($this->config));
-    }
 }
 

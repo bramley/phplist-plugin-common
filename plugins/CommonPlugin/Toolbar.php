@@ -16,59 +16,7 @@
  * This class implements a button toolbar
  * 
  */
-class CommonPlugin_Toolbar_Button
-{
-    public $url;
-    public $icon;
-    public $caption;
-    public $attributes = array();
-    
-    public function display()
-    {
-        $this->attributes['href'] = $this->url;
-        return CHtml::tag('a', $this->attributes, new CommonPlugin_ImageTag($this->icon, $this->caption));
-    }
-}
-
 class CommonPlugin_Toolbar
+    extends phpList\plugin\Common\Toolbar
 {
-    const TEMPLATE = '/toolbar.tpl.php';
-
-    private $buttons = array();
-    private $controller;
-
-    public function __construct($controller)
-    {
-        $this->controller = $controller;
-    }
-
-    public function addExportButton(array $query = array())
-    {
-        $button = new CommonPlugin_Toolbar_Button;
-        $button->url = new CommonPlugin_PageURL(null, $query + array('action' => 'exportCSV'));
-        $button->icon = 'excel.png';
-        $button->caption = $this->controller->i18n->get('export');
-        $this->buttons[] = $button;
-    }
-
-    public function addHelpButton($topic)
-    {
-        foreach (array(
-            array('caption' => 'help', 'topic' => $topic, 'icon' => 'info.png', 'class' => 'pluginhelpdialog'),
-            array('caption' => 'about', 'topic' => 'about', 'icon' => 'gnu_licence.png', 'class' => 'pluginhelpdialog')
-        ) as $param) {
-            $button = new CommonPlugin_Toolbar_Button;
-            $button->url = new CommonPlugin_PageURL(null, array('action' => 'help', 'topic' => $param['topic']));
-            $button->icon = $param['icon'];
-            $button->caption = $this->controller->i18n->get($param['caption']);
-            $button->attributes = array('class' => $param['class'], 'target' => '_blank');
-            $this->buttons[] = $button;
-        }
-    }
-
-    public function display()
-    {
-        $params = array('buttons' => $this->buttons);
-        return $this->controller->render(dirname(__FILE__) . self::TEMPLATE, $params);
-    }
 }

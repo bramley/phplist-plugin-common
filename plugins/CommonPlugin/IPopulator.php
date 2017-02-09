@@ -16,7 +16,6 @@
  * 
  */
 interface CommonPlugin_IPopulator
+    extends phpList\plugin\Common\IPopulator
 {
-    public function populate(WebblerListing $w, $start, $limit);
-    public function total();
 }

@@ -17,28 +17,6 @@
  * 
  */
 abstract class CommonPlugin_BaseController
+    extends phpList\plugin\Common\BaseController
 {
-    /*
-     *    Public methods
-     */
-
-    public function __construct()
-    {
-    }
-
-    public function render($_template, array $_params = array())
-    {
-        /*
-         * Capture the rendering of the template
-         */
-        extract($_params);
-        ob_start();
-        try {
-            include $_template;
-        } catch (Exception $e) {
-            ob_end_clean();
-            throw $e;
-        }
-        return ob_get_clean();
-    }
 }

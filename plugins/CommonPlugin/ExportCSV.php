@@ -16,26 +16,6 @@
  * 
  */
 class CommonPlugin_ExportCSV
+    extends phpList\plugin\Common\ExportCSV
 {
-    public function __construct()
-    {
-    }
-
-    public function export(CommonPlugin_IExportable $exporter)
-    {
-        $fileName = $exporter->exportFileName();
-    
-        ob_end_clean();
-        Header('Content-type: text/csv');
-        Header("Content-disposition:  attachment; filename={$fileName}.csv");
-        $out = fopen('php://output', 'w');
-        fputcsv($out, $exporter->exportFieldNames());
-        $rows = $exporter->exportRows();
-
-        foreach ($rows as $row) {
-            fputcsv($out, $exporter->exportValues($row));
-        }
-        
-        fclose($out);
-    }
 }

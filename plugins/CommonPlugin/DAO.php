@@ -16,20 +16,6 @@
  * 
  */
 class CommonPlugin_DAO
+    extends phpList\plugin\Common\DAO
 {
-    protected $dbCommand;
-    protected $tables;
-    protected $table_prefix;
-    /*
-     * Public methods
-     */
-    public function __construct($dbCommand)
-    {
-        global $tables;
-        global $table_prefix;
-
-        $this->dbCommand = $dbCommand;
-        $this->tables = $tables;
-        $this->table_prefix = $table_prefix;
-    }
 }

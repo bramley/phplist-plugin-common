@@ -17,20 +17,6 @@
  * Encapsulates how the image is served
  */
 class CommonPlugin_ImageTag
+    extends phpList\plugin\Common\ImageTag
 {
-    /*
-     *    Public methods
-     */
-    public function __construct($image, $title)
-    {
-        $this->image = $image;
-        $this->title = $title;
-        $this->alt = $title;
-    }
-
-    public function __toString()
-    {
-        $imageUrl = new CommonPlugin_PageURL('image', array('pi' => 'CommonPlugin', 'image' => $this->image));
-        return CHtml::tag('img', array('src'=> $imageUrl, 'alt' => $this->alt, 'title' => $this->title));
-    }
 }

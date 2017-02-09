@@ -16,9 +16,6 @@
  * 
  */
 interface CommonPlugin_IExportable
+    extends phpList\plugin\Common\IExportable
 {
-    public function exportFileName();
-    public function exportRows();
-    public function exportFieldNames();
-    public function exportValues(array $row);
 }
