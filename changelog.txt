@@ -1,3 +1,12 @@
+version 3.5.11+20170209
+      Remove obsolete files
+      Change all non-namespaced classes to inherit from the equivalent namespaced class
+      Move template files
+      Correct type hint
+      regenerate class map
+      Update licence year, remove obsolete @link comments
+      Update the required php version.
+
 version 3.5.10+20170209
       When copying a message copy rows from the messagedata table.
 

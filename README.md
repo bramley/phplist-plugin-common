@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.11+20170209 Internal changes
     3.5.10+20170209 When copying a message copy rows from the messagedata table
     3.5.9+20170206  Change to copying a message for phplist 3.3.0
     3.5.8+20160818  Upgrade Picofeed package

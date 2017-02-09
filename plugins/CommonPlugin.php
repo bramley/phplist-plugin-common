@@ -72,7 +72,7 @@ class CommonPlugin extends phplistPlugin
     public function dependencyCheck()
     {
         return array(
-            'PHP version 5.3.0 or greater' => version_compare(PHP_VERSION, '5.3') > 0,
+            'PHP version 5.4.0 or greater' => version_compare(PHP_VERSION, '5.4') > 0,
         );
     }
 }
