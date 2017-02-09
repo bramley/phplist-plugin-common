@@ -42,7 +42,7 @@ class Populator implements IPopulator
      * @param int            $start the start index
      * @param int            $limit the number of items to display
      */
-    public function populate(WebblerListing $w, $start, $limit)
+    public function populate(\WebblerListing $w, $start, $limit)
     {
         $callback = $this->populateCallback;
         $callback($w, $start, $limit);

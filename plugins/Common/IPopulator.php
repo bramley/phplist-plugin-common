@@ -20,6 +20,6 @@ namespace phpList\plugin\Common;
  */
 interface IPopulator
 {
-    public function populate(WebblerListing $w, $start, $limit);
+    public function populate(\WebblerListing $w, $start, $limit);
     public function total();
 }
