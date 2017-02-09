@@ -1,3 +1,6 @@
+version 3.5.10+20170209
+      When copying a message copy rows from the messagedata table.
+
 version 3.5.9+20170206
       Rename and update the cs config file
       Generate UUID when copying a message for phplist version 3.3.0.

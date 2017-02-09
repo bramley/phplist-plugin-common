@@ -34,15 +34,29 @@ class Message extends Common\DAO
         return $this->dbCommand->queryRow($sql);
     }
 
+    /**
+     * Create a row in the message table populated with fields from an existing row and a
+     * generated UUID.
+     * Create rows in the messagedata table populated from existing rows, and allow plugins
+     * to copy additional rows.
+     *
+     * @param int $id the message id
+     *
+     * @return int the id of the created message 
+     */
     public function copyMessage($id)
     {
+        global $plugins;
+
         $sql = "
             INSERT INTO {$this->tables['message']} 
-            (id, subject, fromfield, tofield, replyto, message, textmessage, footer, entered, modified, embargo,repeatuntil,
-                status, htmlformatted, sendformat, template, owner
+            (id, subject, fromfield, tofield, replyto, message, textmessage, footer,
+                entered, modified, embargo, repeatinterval, repeatuntil,
+                status, htmlformatted, sendformat, template, owner, requeueinterval, requeueuntil
             )
-            SELECT NULL, CONCAT('Copy - ', subject), fromfield, tofield, replyto, message, textmessage, footer, now(), now(), now(), now(),
-                'draft', htmlformatted, sendformat, template, owner
+            SELECT NULL, CONCAT('Copy - ', subject), fromfield, tofield, replyto, message, textmessage, footer,
+                now(), now(), embargo, repeatinterval, repeatuntil,
+                'draft', htmlformatted, sendformat, template, owner, requeueinterval, requeueuntil
             FROM {$this->tables['message']}
             WHERE id = $id";
         $newId = $this->dbCommand->queryInsertId($sql);
@@ -55,6 +69,29 @@ class Message extends Common\DAO
                 WHERE id = $newId";
             $this->dbCommand->queryAffectedRows($sql);
         }
+        $rowNames = array('sendmethod', 'sendurl', 'campaigntitle', 'excludelist');
+
+        foreach ($plugins as $pi) {
+            if (method_exists($pi, 'copyCampaignHook')) {
+                $rowNames = array_merge($rowNames, $pi->copyCampaignHook());
+            }
+        }
+        $inList = implode(
+            ', ',
+            array_map(
+                function ($item) {
+                    return "'" . sql_escape($item) . "'";
+                },
+                $rowNames
+            )
+        );
+        $sql = "
+            INSERT INTO {$this->tables['messagedata']}
+            (name, id, data)
+            SELECT name, $newId, data
+            FROM {$this->tables['messagedata']}
+            WHERE id = $id AND name IN ($inList)";
+        $this->dbCommand->queryAffectedRows($sql);
 
         return $newId;
     }
