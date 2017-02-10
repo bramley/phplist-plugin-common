@@ -1,3 +1,7 @@
+version 3.5.12+20170216
+      Correct name of csrf token
+      Toolbar button for external help
+
 version 3.5.11+20170209
       Remove obsolete files
       Change all non-namespaced classes to inherit from the equivalent namespaced class
