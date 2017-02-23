@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.13+20170223 Copy rows in the listmessage table when copying a message
     3.5.12+20170216 Use correct csrf token name
     3.5.11+20170209 Internal changes
     3.5.10+20170209 When copying a message copy rows from the messagedata table

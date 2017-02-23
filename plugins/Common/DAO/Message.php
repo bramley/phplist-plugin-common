@@ -39,7 +39,8 @@ class Message extends Common\DAO
      * generated UUID.
      * Create rows in the messagedata table populated from existing rows, and allow plugins
      * to copy additional rows.
-     *
+     * Copy rows from the listmessage table.
+     * 
      * @param int $id the message id
      *
      * @return int the id of the created message 
@@ -91,6 +92,14 @@ class Message extends Common\DAO
             SELECT name, $newId, data
             FROM {$this->tables['messagedata']}
             WHERE id = $id AND name IN ($inList)";
+        $this->dbCommand->queryAffectedRows($sql);
+
+        $sql = "
+            INSERT INTO {$this->tables['listmessage']}
+            (messageid, listid, entered)
+            SELECT $newId, listid, now()
+            FROM {$this->tables['listmessage']}
+            WHERE messageid = $id";
         $this->dbCommand->queryAffectedRows($sql);
 
         return $newId;
