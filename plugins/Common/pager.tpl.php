@@ -60,18 +60,27 @@ div.pager {
     border: 0px;
     padding-bottom: 0px;
 }
-.pager div.inline {
+div.pagerinline {
     float: left;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
 }
 </style>
 <div class='pager'>
-    <div class='inline' style='width: 33%'><?php echo $range ?></div>
-    <div class='inline' style='width: 34%; text-align: center'><?php echo $show ?></div>
+    <div class='pagerinline left' style='width: 33.333%;'><?php echo $range ?></div>
+    <div class='pagerinline center' style='width: 33.333%;'><?php echo $show ?></div>
 <?php if (isset($prev)): ?>
-    <div class='inline' style='width: 23%; text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
-    <div class='inline' style='width: 10%; text-align: center'><?php echo $prev; ?> | <?php echo $next; ?></div>
+    <div class='pagerinline right' style='width: 23.333%;'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
+    <div class='pagerinline center' style='width: 10%;'><?php echo $prev; ?> | <?php echo $next; ?></div>
 <?php else: ?>
-    <div class='inline' style='width: 33%; text-align: right'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
+    <div class='pagerinline right' style='width: 33.333%;'><?php echo $first ?> | <?php echo $back ?> | <?php echo $forward ?> | <?php echo $last ?></div>
 <?php endif; ?>
 </div>
 
