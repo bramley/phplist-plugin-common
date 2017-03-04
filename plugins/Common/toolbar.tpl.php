@@ -17,47 +17,8 @@
  * Available fields
  * - $buttons: array of buttons to be displayed
  */
-
-/**
- *   Replace javascript help functions to allow window size to be specified
- */
-global $pagefooter;
-
-$pagefooter[basename(__FILE__)] = <<<END
-<script type='text/javascript'>
-function openPluginHelpDialog(url, width, height) {
-  $("#dialog").dialog({
-    minHeight: 400,
-    maxHeight: 800,
-    height: height,
-    width: width,
-    maxWidth: 650,
-    modal: true,
-    show: 'blind',
-    hide: 'explode',
-    scrollbars: 1
-  });
-  $("#dialog").load(url);
-  $(".ui-widget-overlay").click(function() {
-    $("#dialog").dialog('close');
-  });
-}
-
-$(document).ready(function() {
-    $(".pluginhelpdialog").unbind('click');
-    $(".pluginhelpdialog").click(function() {
-        openPluginHelpDialog(this.href, 500, 650);
-        return false;
-    });
-    $(".pluginhelpdialogwide").unbind('click');
-    $(".pluginhelpdialogwide").click(function() {
-        openPluginHelpDialog(this.href, 650, 800);
-        return false;
-    });
-});
-</script>
-END
 ?>
+
 <style type="text/css">
 div.toolbar {
     float: right;
@@ -66,6 +27,9 @@ div.toolbar img {
     margin-right: 5px;
     border: 0px;
     vertical-align: bottom;
+}
+.glyphicon {
+    top: 5px;
 }
 </style>
 <div class='toolbar'>

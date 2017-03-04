@@ -1,3 +1,6 @@
+version 3.5.15+20170304
+      Use core phplist help dialog
+
 version 3.5.14+20170302
       Rework pager css to improve appearance with bootlist theme
 

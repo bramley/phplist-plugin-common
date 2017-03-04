@@ -58,10 +58,10 @@ class Toolbar
     public function addAboutButton()
     {
         $this->buttons[] = new ToolbarButton(
-            new PageURL(null, array('action' => 'help', 'topic' => 'about')),
+            new PageURL('help', array('pi' => $_GET['pi'], 'topic' => 'about')),
             'gnu_licence.png',
             $this->controller->i18n->get('about'),
-            array('class' => 'pluginhelpdialog', 'target' => '_blank')
+            array('class' => 'helpdialog', 'target' => '_blank', 'style' => 'background: none; display: inline;')
         );
     }
 
@@ -77,10 +77,10 @@ class Toolbar
     public function addHelpButton($topic)
     {
         $this->buttons[] = new ToolbarButton(
-            new PageURL(null, array('action' => 'help', 'topic' => $topic)),
+            new PageURL('help', array('pi' => $_GET['pi'], 'topic' => $topic)),
             'info.png',
             $this->controller->i18n->get('help'),
-            array('class' => 'pluginhelpdialog', 'target' => '_blank')
+            array('class' => 'helpdialog', 'target' => '_blank', 'style' => 'background: none; display: inline;')
         );
         $this->addAboutButton();
     }
