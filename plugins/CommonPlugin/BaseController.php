@@ -7,7 +7,7 @@
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2012 Duncan Cameron
+ * @copyright 2011-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -17,28 +17,6 @@
  * 
  */
 abstract class CommonPlugin_BaseController
+    extends phpList\plugin\Common\BaseController
 {
-    /*
-     *    Public methods
-     */
-
-    public function __construct()
-    {
-    }
-
-    public function render($_template, array $_params = array())
-    {
-        /*
-         * Capture the rendering of the template
-         */
-        extract($_params);
-        ob_start();
-        try {
-            include $_template;
-        } catch (Exception $e) {
-            ob_end_clean();
-            throw $e;
-        }
-        return ob_get_clean();
-    }
 }

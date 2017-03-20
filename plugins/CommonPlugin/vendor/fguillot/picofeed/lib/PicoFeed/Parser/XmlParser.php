@@ -2,15 +2,17 @@
 
 namespace PicoFeed\Parser;
 
-use Closure;
-use DomDocument;
-use SimpleXmlElement;
+use DOMDocument;
+use SimpleXMLElement;
+use ZendXml\Exception\RuntimeException;
+use ZendXml\Security;
 
 /**
  * XML parser class.
  *
  * Checks for XML eXternal Entity (XXE) and XML Entity Expansion (XEE) attacks on XML documents
  *
+ * @package PicoFeed\Parser
  * @author  Frederic Guillot
  */
 class XmlParser
@@ -19,81 +21,20 @@ class XmlParser
      * Get a SimpleXmlElement instance or return false.
      *
      * @static
-     *
      * @param string $input XML content
-     *
      * @return mixed
      */
     public static function getSimpleXml($input)
     {
-        $dom = self::getDomDocument($input);
-
-        if ($dom !== false) {
-            $simplexml = simplexml_import_dom($dom);
-
-            if (!$simplexml instanceof SimpleXmlElement) {
-                return false;
-            }
-
-            return $simplexml;
-        }
-
-        return false;
-    }
-
-    /**
-     * Scan the input for XXE attacks.
-     *
-     * @param string  $input    Unsafe input
-     * @param Closure $callback Callback called to build the dom.
-     *                          Must be an instance of DomDocument and receives the input as argument
-     *
-     * @return bool|DomDocument False if an XXE attack was discovered,
-     *                          otherwise the return of the callback
-     */
-    private static function scanInput($input, Closure $callback)
-    {
-        $isRunningFpm = substr(php_sapi_name(), 0, 3) === 'fpm';
-
-        if ($isRunningFpm) {
-
-            // If running with PHP-FPM and an entity is detected we refuse to parse the feed
-            // @see https://bugs.php.net/bug.php?id=64938
-            if (strpos($input, '<!ENTITY') !== false) {
-                return false;
-            }
-        } else {
-            $entityLoaderDisabled = libxml_disable_entity_loader(true);
-        }
-
-        libxml_use_internal_errors(true);
-
-        $dom = $callback($input);
-
-        // Scan for potential XEE attacks using ENTITY
-        foreach ($dom->childNodes as $child) {
-            if ($child->nodeType === XML_DOCUMENT_TYPE_NODE) {
-                if ($child->entities->length > 0) {
-                    return false;
-                }
-            }
-        }
-
-        if ($isRunningFpm === false) {
-            libxml_disable_entity_loader($entityLoaderDisabled);
-        }
-
-        return $dom;
+        return self::scan($input);
     }
 
     /**
      * Get a DomDocument instance or return false.
      *
      * @static
-     *
      * @param string $input XML content
-     *
-     * @return \DOMNDocument
+     * @return DOMDocument
      */
     public static function getDomDocument($input)
     {
@@ -101,12 +42,7 @@ class XmlParser
             return false;
         }
 
-        $dom = self::scanInput($input, function ($in) {
-            $dom = new DomDocument();
-            $dom->loadXml($in, LIBXML_NONET);
-
-            return $dom;
-        });
+        $dom = self::scan($input, new DOMDocument());
 
         // The document is empty, there is probably some parsing errors
         if ($dom && $dom->childNodes->length === 0) {
@@ -117,52 +53,62 @@ class XmlParser
     }
 
     /**
+     * Small wrapper around ZendXml to turn their exceptions into PicoFeed exceptions
+     *
+     * @static
+     * @access private
+     * @param  string      $input
+     * @param  DOMDocument $dom
+     * @throws XmlEntityException
+     * @return SimpleXMLElement|DomDocument|boolean
+     */
+    private static function scan($input, $dom = null)
+    {
+        try {
+            return Security::scan($input, $dom);
+        } catch(RuntimeException $e) {
+            throw new XmlEntityException($e->getMessage());
+        }
+    }
+
+    /**
      * Load HTML document by using a DomDocument instance or return false on failure.
      *
      * @static
-     *
-     * @param string $input XML content
-     *
-     * @return \DOMDocument
+     * @access public
+     * @param  string $input XML content
+     * @return DOMDocument
      */
     public static function getHtmlDocument($input)
     {
+        $dom = new DomDocument();
+
         if (empty($input)) {
-            return new DomDocument();
+            return $dom;
         }
+
+        libxml_use_internal_errors(true);
 
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-            $callback = function ($in) {
-                $dom = new DomDocument();
-                $dom->loadHTML($in, LIBXML_NONET);
-
-                return $dom;
-            };
+            $dom->loadHTML($input, LIBXML_NONET);
         } else {
-            $callback = function ($in) {
-                $dom = new DomDocument();
-                $dom->loadHTML($in);
-
-                return $dom;
-            };
+            $dom->loadHTML($input);
         }
 
-        return self::scanInput($input, $callback);
+        return $dom;
     }
 
     /**
      * Convert a HTML document to XML.
      *
      * @static
-     *
-     * @param string $html HTML document
-     *
+     * @access public
+     * @param  string $html HTML document
      * @return string
      */
     public static function htmlToXml($html)
     {
         $dom = self::getHtmlDocument('<?xml version="1.0" encoding="UTF-8">'.$html);
-
         return $dom->saveXML($dom->getElementsByTagName('body')->item(0));
     }
 
@@ -170,7 +116,7 @@ class XmlParser
      * Get XML parser errors.
      *
      * @static
-     *
+     * @access public
      * @return string
      */
     public static function getErrors()
@@ -193,9 +139,8 @@ class XmlParser
      * Get the encoding from a xml tag.
      *
      * @static
-     *
-     * @param string $data Input data
-     *
+     * @access public
+     * @param  string $data Input data
      * @return string
      */
     public static function getEncodingFromXmlTag($data)
@@ -222,9 +167,8 @@ class XmlParser
      * Get the charset from a meta tag.
      *
      * @static
-     *
-     * @param string $data Input data
-     *
+     * @access public
+     * @param  string $data Input data
      * @return string
      */
     public static function getEncodingFromMetaTag($data)
@@ -241,9 +185,10 @@ class XmlParser
     /**
      * Rewrite XPath query to use namespace-uri and local-name derived from prefix.
      *
+     * @static
+     * @access public
      * @param string $query XPath query
      * @param array  $ns    Prefix to namespace URI mapping
-     *
      * @return string
      */
     public static function replaceXPathPrefixWithNamespaceURI($query, array $ns)
@@ -262,11 +207,12 @@ class XmlParser
     /**
      * Get the result elements of a XPath query.
      *
-     * @param \SimpleXMLElement $xml   XML element
-     * @param string            $query XPath query
-     * @param array             $ns    Prefix to namespace URI mapping
-     *
-     * @return \SimpleXMLElement
+     * @static
+     * @access public
+     * @param  SimpleXMLElement  $xml   XML element
+     * @param  string            $query XPath query
+     * @param  array             $ns    Prefix to namespace URI mapping
+     * @return SimpleXMLElement[]
      */
     public static function getXPathResult(SimpleXMLElement $xml, $query, array $ns = array())
     {
@@ -275,5 +221,26 @@ class XmlParser
         }
 
         return $xml->xpath($query);
+    }
+
+    /**
+     * Get the first Xpath result or SimpleXMLElement value
+     *
+     * @static
+     * @access public
+     * @param  mixed $value
+     * @return string
+     */
+    public static function getValue($value)
+    {
+        $result = '';
+
+        if (is_array($value) && count($value) > 0) {
+            $result = (string) $value[0];
+        } elseif (is_a($value, 'SimpleXMLElement')) {
+            return $result = (string) $value;
+        }
+
+        return trim($result);
     }
 }

@@ -12,9 +12,8 @@ use CHtml;
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2012 Duncan Cameron
+ * @copyright 2011-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
- * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
 
 /**
@@ -23,14 +22,23 @@ use CHtml;
  */
 class ToolbarButton
 {
-    public $url;
-    public $icon;
-    public $caption;
-    public $attributes = array();
+    private $url;
+    private $icon;
+    private $caption;
+    private $attributes;
     
+    public function __construct($url, $icon, $caption, $attributes = [])
+    {
+        $this->url = $url;
+        $this->icon = $icon;
+        $this->caption = $caption;
+        $this->attributes = $attributes;
+    }
+
     public function display()
     {
         $this->attributes['href'] = $this->url;
+
         return CHtml::tag('a', $this->attributes, new ImageTag($this->icon, $this->caption));
     }
 }
@@ -47,33 +55,51 @@ class Toolbar
         $this->controller = $controller;
     }
 
+    public function addAboutButton()
+    {
+        $this->buttons[] = new ToolbarButton(
+            new PageURL('help', array('pi' => $_GET['pi'], 'topic' => 'about')),
+            'gnu_licence.png',
+            $this->controller->i18n->get('about'),
+            array('class' => 'helpdialog', 'target' => '_blank', 'style' => 'background: none; display: inline;')
+        );
+    }
+
     public function addExportButton(array $query = array())
     {
-        $button = new ToolbarButton;
-        $button->url = new PageURL(null, $query + array('action' => 'exportCSV'));
-        $button->icon = 'excel.png';
-        $button->caption = $this->controller->i18n->get('export');
-        $this->buttons[] = $button;
+        $this->buttons[] = new ToolbarButton(
+            new PageURL(null, $query + array('action' => 'exportCSV')),
+            'excel.png',
+            $this->controller->i18n->get('export')
+        );
     }
 
     public function addHelpButton($topic)
     {
-        foreach (array(
-            array('caption' => 'help', 'topic' => $topic, 'icon' => 'info.png', 'class' => 'pluginhelpdialog'),
-            array('caption' => 'about', 'topic' => 'about', 'icon' => 'gnu_licence.png', 'class' => 'pluginhelpdialog')
-        ) as $param) {
-            $button = new ToolbarButton;
-            $button->url = new PageURL(null, array('action' => 'help', 'topic' => $param['topic']));
-            $button->icon = $param['icon'];
-            $button->caption = $this->controller->i18n->get($param['caption']);
-            $button->attributes = array('class' => $param['class'], 'target' => '_blank');
-            $this->buttons[] = $button;
-        }
+        $this->buttons[] = new ToolbarButton(
+            new PageURL('help', array('pi' => $_GET['pi'], 'topic' => $topic)),
+            'info.png',
+            $this->controller->i18n->get('help'),
+            array('class' => 'helpdialog', 'target' => '_blank', 'style' => 'background: none; display: inline;')
+        );
+        $this->addAboutButton();
+    }
+
+    public function addExternalHelpButton($url)
+    {
+        $this->buttons[] = new ToolbarButton(
+            $url,
+            'info.png',
+            $this->controller->i18n->get('help'),
+            array('target' => '_blank')
+        );
+        $this->addAboutButton();
     }
 
     public function display()
     {
         $params = array('buttons' => $this->buttons);
+
         return $this->controller->render(dirname(__FILE__) . self::TEMPLATE, $params);
     }
 }

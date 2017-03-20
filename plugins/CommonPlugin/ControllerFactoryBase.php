@@ -7,7 +7,7 @@
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2012 Duncan Cameron
+ * @copyright 2011-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -18,34 +18,6 @@
  * @package   CommonPlugin
  */
 abstract class CommonPlugin_ControllerFactoryBase
+    extends phpList\plugin\Common\ControllerFactoryBase
 {
-    protected $defaultType = null;
-
-    /**
-     * Helper method to create a controller using plugin and type
-     * @param string $pi the plugin
-     * @param array $params further parameters from the URL
-     * @return CommonPlugin_Controller 
-     * @access protected
-     */
-    protected function createControllerType($pi, array $params)
-    {
-        $type = isset($params['type']) ? $params['type'] : $this->defaultType;
-        $class = $pi . '_Controller_' . ucfirst($type);
-        return new $class();
-    }
-
-    /**
-     * Default implementation to create a controller using plugin only, type is ignored
-     * Must be over-ridden by a sub-class if type needs to be used
-     * @param string $pi the plugin
-     * @param array $params further parameters from the URL
-     * @return CommonPlugin_Controller 
-     * @access public
-     */
-    public function createController($pi, array $params)
-    {
-        $class = $pi . '_Controller';
-        return new $class();
-    }
 }

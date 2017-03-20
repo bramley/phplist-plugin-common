@@ -1,3 +1,35 @@
+version 3.5.15+20170304
+      Use core phplist help dialog
+
+version 3.5.14+20170302
+      Rework pager css to improve appearance with bootlist theme
+
+version 3.5.13+20170223
+      Copy rows in the listmessage table when copying a message.
+
+version 3.5.12+20170216
+      Correct name of csrf token
+      Toolbar button for external help
+
+version 3.5.11+20170209
+      Remove obsolete files
+      Change all non-namespaced classes to inherit from the equivalent namespaced class
+      Move template files
+      Correct type hint
+      regenerate class map
+      Update licence year, remove obsolete @link comments
+      Update the required php version.
+
+version 3.5.10+20170209
+      When copying a message copy rows from the messagedata table.
+
+version 3.5.9+20170206
+      Rename and update the cs config file
+      Generate UUID when copying a message for phplist version 3.3.0.
+
+version 3.5.8+20160818
+      Upgrade PicoFeed to version 0.1.24
+
 version 3.5.7+20160527
       Move ext directory
       use classmap for vendor directory

@@ -10,7 +10,7 @@ namespace phpList\plugin\Common;
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2016 Duncan Cameron
+ * @copyright 2016-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -42,7 +42,7 @@ class Populator implements IPopulator
      * @param int            $start the start index
      * @param int            $limit the number of items to display
      */
-    public function populate(WebblerListing $w, $start, $limit)
+    public function populate(\WebblerListing $w, $start, $limit)
     {
         $callback = $this->populateCallback;
         $callback($w, $start, $limit);

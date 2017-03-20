@@ -10,9 +10,8 @@ namespace phpList\plugin\Common;
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2014 Duncan Cameron
+ * @copyright 2011-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
- * @link      http://forums.phplist.com/viewtopic.php?f=7&t=35427
  */
 
 /**
@@ -46,6 +45,8 @@ class PageURL
 
     public function __toString()
     {
+        global $installation_name;
+
         $p = array();
 
         if ($this->page) {
@@ -54,10 +55,12 @@ class PageURL
             $p['page'] = $_GET['page'];
             $p['pi'] = $_GET['pi'];
         }
+        $csrfName = $installation_name . '_csrf_token';
 
-        if (isset($_SESSION['csrf_token'])) {
-            $p['tk'] = $_SESSION['csrf_token'];
+        if (isset($_SESSION[$csrfName])) {
+            $p['tk'] = $_SESSION[$csrfName];
         }
+
         return './?' . http_build_query($p + $this->params, '', '&') . ($this->fragment ? "#$this->fragment" : '');
     }
 }

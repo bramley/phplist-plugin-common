@@ -7,7 +7,7 @@
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2012 Duncan Cameron
+ * @copyright 2011-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -16,28 +16,6 @@
  * 
  */
 class CommonPlugin_Widget
+    extends phpList\plugin\Common\Widget
 {
-    const ATTRIBUTEFORM_TEMPLATE = '/widget_attributeform.tpl.php';
-    /*
-     *    Private methods
-     */
-    private function __construct()
-    {
-    }
-    /*
-     *    Public methods
-     */
-    public static function attributeForm(CommonPlugin_BaseController $controller, $model, $search = true, $select = true)
-    {
-        $params = array(
-            'model' => $model,
-            'showSearch' => $search,
-            'showSelect' => $select
-        );
-        $title = $search ? $controller->i18n->get('Find subscribers') : $controller->i18n->get('Select attributes');
-        $panel = new UIPanel($title,
-            $controller->render(dirname(__FILE__) . self::ATTRIBUTEFORM_TEMPLATE, $params)
-        );
-        return $panel->display();
-    }
 }

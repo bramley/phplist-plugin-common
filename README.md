@@ -51,6 +51,14 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.5.15+20170304 Make help dialog compatible with new phplist theme
+    3.5.14+20170302 Improve pager css
+    3.5.13+20170223 Copy rows in the listmessage table when copying a message
+    3.5.12+20170216 Use correct csrf token name
+    3.5.11+20170209 Internal changes
+    3.5.10+20170209 When copying a message copy rows from the messagedata table
+    3.5.9+20170206  Change to copying a message for phplist 3.3.0
+    3.5.8+20160818  Upgrade Picofeed package
     3.5.7+20160527  Internal rework of class autoloading
     3.5.6+20160515  Minor changes
     3.5.5+20160513  Minor changes and fixes
