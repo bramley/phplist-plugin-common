@@ -38,3 +38,18 @@ div.toolbar img {
 endforeach; ?>
 </div>
 <div class='clear'></div>
+<?php
+
+global $pagefooter;
+
+$pagefooter[__FILE__] = <<<'END'
+<script>
+$(document).ready(function(){
+    $(".dialog").click(function() {
+        $("#dialog").dialog();
+        $("#dialog").load(this.href);
+        return false;
+    });
+})
+</script>
+END;

@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.6.0+20170409  Now exports in a similar way to core phplist
     3.5.16+20170402 Remove the PicoFeed package
     3.5.15+20170304 Make help dialog compatible with new phplist theme
     3.5.14+20170302 Improve pager css

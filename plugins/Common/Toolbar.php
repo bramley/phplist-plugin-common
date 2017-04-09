@@ -70,7 +70,8 @@ class Toolbar
         $this->buttons[] = new ToolbarButton(
             new PageURL(null, $query + array('action' => 'exportCSV')),
             'excel.png',
-            $this->controller->i18n->get('export')
+            $this->controller->i18n->get('export'),
+            ['class' => 'dialog']
         );
     }
 

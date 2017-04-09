@@ -50,10 +50,29 @@ abstract class Controller
         exit;
     }
 
-    protected function actionExportCSV()
+    protected function actionExportCSV(IExportable $exportable = null)
     {
-        $exporter = new ExportCSV();
-        $exporter->export($this);
+        if ($exportable === null) {
+            $exportable = $this;
+        }
+        $exporter = new ExportCSVAsync();
+
+        while (ob_get_level()) {
+            ob_end_clean();
+        }
+
+        if (isset($_GET['stage'])) {
+            switch ($_GET['stage']) {
+                case 'build':
+                   $exporter->export($exportable);
+                   break;
+                case 'send':
+                   $exporter->send($exportable);
+                   break;
+            }
+        } else {
+            $exporter->progress();
+        }
         exit;
     }
 
