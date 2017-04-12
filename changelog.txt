@@ -1,3 +1,7 @@
+version 3.6.1+20170414
+      Replace custom iterator class for query result
+      The bootlist theme needs different js to display a dialog
+
 version 3.6.0+20170409
       Export asynchronously using an iframe.
       Display progress in a dialog.

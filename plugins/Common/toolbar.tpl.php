@@ -28,8 +28,14 @@ div.toolbar img {
     border: 0px;
     vertical-align: bottom;
 }
+.clear {
+    clear: both;
+}
 .glyphicon {
     top: 5px;
+}
+.modal-dialog {
+     width: 40%;
 }
 </style>
 <div class='toolbar'>
@@ -40,16 +46,8 @@ endforeach; ?>
 <div class='clear'></div>
 <?php
 
-global $pagefooter;
+global $plugins, $pagefooter, $ui;
 
-$pagefooter[__FILE__] = <<<'END'
-<script>
-$(document).ready(function(){
-    $(".dialog").click(function() {
-        $("#dialog").dialog();
-        $("#dialog").load(this.href);
-        return false;
-    });
-})
-</script>
-END;
+if (is_readable($f = $plugins['CommonPlugin']->coderoot . "ui/$ui/dialog.js")) {
+    $pagefooter[__FILE__] = file_get_contents($f);
+}
