@@ -1,3 +1,8 @@
+version 3.6.2+20170516
+      Use client polling approach to display progress.
+      Bring translations up to date.
+      Add method to create a url from $_GET.
+
 version 3.6.1+20170414
       Replace custom iterator class for query result
       The bootlist theme needs different js to display a dialog

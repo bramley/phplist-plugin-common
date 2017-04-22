@@ -13,8 +13,7 @@
 
 /**
  * This file contains the English text
- * 
-*/
+ */
 $lan = array(
 //  CommonPlugin.php
     'view_phpinfo' => 'phpinfo',
@@ -44,4 +43,8 @@ $lan = array(
     'unconfirmed only' => 'unconfirmed only',
     'blacklisted only' => 'blacklisted only',
     'not blacklisted only' => 'not blacklisted only',
+//  ExportCSVAsync.php
+    'Exporting, this may take a while' => 'Exporting, this may take a while',
+    'Generating the export data' => 'Generating the export data',
+    'Exported %d of %d %d%%' => 'Exported %d of %d %d%%',
 );

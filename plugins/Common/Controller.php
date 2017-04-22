@@ -1,7 +1,4 @@
 <?php
-
-namespace phpList\plugin\Common;
-
 /**
  * CommonPlugin for phplist
  * 
@@ -13,8 +10,10 @@ namespace phpList\plugin\Common;
  * @copyright 2011-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
-abstract class Controller
-    extends BaseController
+
+namespace phpList\plugin\Common;
+
+abstract class Controller extends BaseController
 {
     /*
      *    Public attributes
@@ -57,7 +56,7 @@ abstract class Controller
         }
         $exporter = new ExportCSVAsync();
 
-        while (ob_get_level()) {
+        while (ob_get_level() > 0) {
             ob_end_clean();
         }
 
@@ -69,9 +68,12 @@ abstract class Controller
                 case 'send':
                    $exporter->send($exportable);
                    break;
+                case 'progress':
+                   $exporter->progress();
+                   break;
             }
         } else {
-            $exporter->progress();
+            $exporter->start();
         }
         exit;
     }

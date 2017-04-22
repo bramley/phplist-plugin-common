@@ -6,6 +6,9 @@ $(document).ready(function(){
         );
         $("#dialog .modal-content").load(this.href);
         $("#dialog #mymodal").modal('show');
+        closedialog = function () {
+            $("#dialog #mymodal").modal('hide');
+        };
         return false;
     });
 })

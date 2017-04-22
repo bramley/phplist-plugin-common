@@ -1,7 +1,4 @@
 <?php
-
-namespace phpList\plugin\Common;
-
 /**
  * CommonPlugin for phplist
  * 
@@ -13,6 +10,8 @@ namespace phpList\plugin\Common;
  * @copyright 2011-2017 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
+
+namespace phpList\plugin\Common;
 
 /**
  * Convenience class to create a URL to either the current or another phplist page
@@ -26,21 +25,32 @@ class PageURL
     private $page;
     private $params;
     private $fragment;
-    /*
-     *    Public methods
-     */
+
     /**
      * Constructor
-     * @param string $page the page name
-     * @param array $params additional parameters for the URL
+     * 
+     * @param string $page     the page name
+     * @param array  $params   additional parameters for the URL
      * @param string $fragment hash fragment to be appended to the URL
-     * @access public
      */
     public function __construct($page = null, array $params = array(), $fragment = '')
     {
         $this->page = $page;
         $this->params = $params;
         $this->fragment = $fragment;
+    }
+
+    /**
+     * Create a URL using the current parameters in $_GET.
+     * 
+     * @param array  $params   parameters to override or add to those in $_GET
+     * @param string $fragment hash fragment to be appended to the URL
+     *
+     * @return PageURL
+     */
+    public static function createFromGet(array $params = [], $fragment = '')
+    {
+        return new self(null, array_merge($_GET, $params), $fragment);
     }
 
     public function __toString()

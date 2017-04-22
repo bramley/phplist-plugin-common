@@ -158,7 +158,7 @@ class Pager
      */
     private function pageLink($text, array $params)
     {
-        return new PageLink(new PageURL(null,  array_merge($_GET, $params)), htmlspecialchars($text));
+        return new PageLink(PageURL::createFromGet($params), htmlspecialchars($text));
     }
 
     /**
@@ -201,13 +201,13 @@ class Pager
         $nextArrow = '&#x25b6;';
         $this->linkPrev = $prev
             ? new PageLink(
-                new PageURL(null, array_merge($_GET, array($param => $prev, $this->start => 0))),
+                PageURL::createFromGet(array($param => $prev, $this->start => 0)),
                 $prevArrow
             )
             : $prevArrow;
         $this->linkNext = $next
             ? new PageLink(
-                new PageURL(null, array_merge($_GET, array($param => $next, $this->start => 0))),
+                PageURL::createFromGet(array($param => $next, $this->start => 0)),
                 $nextArrow
             )
             : $nextArrow;

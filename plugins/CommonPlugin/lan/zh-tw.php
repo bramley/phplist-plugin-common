@@ -13,26 +13,38 @@
 
 /**
  * This file contains the Traditional Chinese translation of the English text
- * 
- *    Important - this file must be saved in UTF-8 encoding
  */
 $lan = array(
-//    Pager.php
+//  CommonPlugin.php
+    'view_phpinfo' => 'phpinfo',
+    'view_config.php' => 'config.php',
+    'view_session' => 'php session',
+//  Pager.php
     'Showing %d to %d of %d' => '顯示編號由 %d 至 %d 共 %d',
     'Show' => '顯示數量',
     'no_results' => '沒有紀錄可以顯示',
-//    Widget.php
-    'download to Excel' => '下載Excel',
+//  Toolbar.php
+    'export' => '下載Excel',
     'help' => '說明',
     'about' => '關於',
-//    General
+//  Widget.php
+    'Find subscribers' => 'Find subscribers',
+    'Select attributes' => 'Select attributes',
+//  General
     'top' => '回到頁首',
-    'closewindow' => '關閉視窗',
-//    attributeform.tpl
+//  widget_attributeform.tpl.php
     'Search for' => '搜尋',
-    'unconfirmed_caption' => '只顯示未確認的使用者',
-    'blacklisted_caption' => '只顯示黑名單的使用者',
-//    GoogleChart.php
-    'http_proxy_options_error' => '無法設定網頁代理選項',
-    'chart_error' => '無法建立圖表'
+    'List' => 'List',
+    'All' => 'All',
+    'Confirmed' => 'Confirmed',
+    'Blacklisted' => 'Blacklisted',
+    'All subscribers' => 'All subscribers',
+    'confirmed only' => 'confirmed only',
+    'unconfirmed only' => 'unconfirmed only',
+    'blacklisted only' => 'blacklisted only',
+    'not blacklisted only' => 'not blacklisted only',
+//  ExportCSVAsync.php
+    'Exporting, this may take a while' => 'Exporting, this may take a while',
+    'Generating the export data' => 'Generating the export data',
+    'Exported %d of %d %d%%' => 'Exported %d of %d %d%%',
 );

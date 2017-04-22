@@ -12,25 +12,39 @@
  */
 
 /**
- * This file contains the English text
- * 
-*/$lan = array(
-//    Pager.php
+ * This file contains the Spanish translations
+ */
+$lan = array(
+//  CommonPlugin.php
+    'view_phpinfo' => 'phpinfo',
+    'view_config.php' => 'config.php',
+    'view_session' => 'php session',
+//  Pager.php
     'Showing %d to %d of %d' => 'Mostrando %d al %d de %d',
     'Show' => 'Mostrar',
     'no_results' => 'No hay resultados para mostrar',
-//    Widget.php
-    'download to Excel' => 'descargar',
+//  Toolbar.php
+    'export' => 'descargar',
     'help' => 'ayuda',
     'about' => 'acerca de',
-//    General
+//  Widget.php
+    'Find subscribers' => 'Find subscribers',
+    'Select attributes' => 'Select attributes',
+//  General
     'top' => 'arriba',
-    'closewindow' => 'cerrar esta ventana',
-//    widget_attributeform.tpl.php
+//  widget_attributeform.tpl.php
     'Search for' => 'Buscar',
-    'unconfirmed_caption' => 'Mostrar s&oacute;lo no confirmados',
-    'blacklisted_caption' => 'Mostrar s&oacute;lo de la lista negra',
-//    GoogleChart.php
-    'http_proxy_options_error' => 'No se pueden establecer las opciones de proxy http',
-    'chart_error' => 'No se puede crear el gr&aacute;fico'
+    'List' => 'List',
+    'All' => 'All',
+    'Confirmed' => 'Confirmed',
+    'Blacklisted' => 'Mostrar s&oacute;lo de la lista negra',
+    'All subscribers' => 'All subscribers',
+    'confirmed only' => 'confirmed only',
+    'unconfirmed only' => 'unconfirmed only',
+    'blacklisted only' => 'blacklisted only',
+    'not blacklisted only' => 'not blacklisted only',
+//  ExportCSVAsync.php
+    'Exporting, this may take a while' => 'Exporting, this may take a while',
+    'Generating the export data' => 'Generating the export data',
+    'Exported %d of %d %d%%' => 'Exported %d of %d %d%%',
 );

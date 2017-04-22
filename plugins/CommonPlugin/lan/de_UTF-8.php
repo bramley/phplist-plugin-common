@@ -13,11 +13,7 @@
 
 /**
  * This file contains the German translation of the English text
- *
- * Important - this file must be saved in UTF-8 encoding
- *
  */
- 
 $lan = array(
 //  CommonPlugin.php
     'view_phpinfo' => 'phpinfo anzeigen',
@@ -47,4 +43,8 @@ $lan = array(
     'unconfirmed only' => 'nur unbestätigte Abonnenten',
     'blacklisted only' => 'nur gesperrte Abonnenten (Blacklist)',
     'not blacklisted only' => 'nur nicht-gesperrte Abonnenten',
+//  ExportCSVAsync.php
+    'Exporting, this may take a while' => 'Exporting, this may take a while',
+    'Generating the export data' => 'Generating the export data',
+    'Exported %d of %d %d%%' => 'Exported %d of %d %d%%',
 );
