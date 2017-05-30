@@ -56,9 +56,10 @@ abstract class Model
             if (isset($new[$key])) {
                 $v = $new[$key];
                 /*
-                 * unselected check-boxes come as zero values, remove and re-index array
+                 * unselected check-boxes come as zero values in a numerically indexed array
+                 * remove and re-index array
                  */
-                if (is_array($v)) {
+                if (is_array($v) && isset($v[0])) {
                     $value = array_values(array_filter($v));
                 } else {
                     $value = $v;
