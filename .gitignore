@@ -11,7 +11,18 @@ plugins/CommonPlugin/vendor/psr/log/*
 !plugins/CommonPlugin/vendor/psr/log/Psr
 plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/
 
+plugins/CommonPlugin/vendor/psr/container/*
+!plugins/CommonPlugin/vendor/psr/container/LICENSE
+!plugins/CommonPlugin/vendor/psr/container/src
+
 plugins/CommonPlugin/vendor/chdemko/bitarray/*
 !plugins/CommonPlugin/vendor/chdemko/bitarray/src
 !plugins/CommonPlugin/vendor/chdemko/bitarray/cite.bib
 !plugins/CommonPlugin/vendor/chdemko/bitarray/README.md
+
+plugins/CommonPlugin/vendor/container-interop/container-interop/*
+!plugins/CommonPlugin/vendor/container-interop/container-interop/LICENSE
+!plugins/CommonPlugin/vendor/container-interop/container-interop/src
+
+plugins/CommonPlugin/vendor/mouf/picotainer/*
+!plugins/CommonPlugin/vendor/mouf/picotainer/src

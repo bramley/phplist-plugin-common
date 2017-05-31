@@ -7,5 +7,8 @@ $baseDir = dirname(dirname(dirname($vendorDir)));
 
 return array(
     'chdemko\\BitArray\\' => array($vendorDir . '/chdemko/bitarray/src/BitArray'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'Mouf\\Picotainer\\' => array($vendorDir . '/mouf/picotainer/src'),
     'Katzgrau\\KLogger\\' => array($vendorDir . '/katzgrau/klogger/src'),
+    'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
 );

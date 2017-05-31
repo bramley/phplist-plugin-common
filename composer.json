@@ -3,6 +3,7 @@
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
+        "mouf/picotainer": "1.1.0",
         "psr/log": "1.0.0",
         "katzgrau/klogger": "1.2.0",
         "chdemko/bitarray": "1.0.0"
@@ -10,8 +11,11 @@
     "autoload": {
         "classmap": [
             "plugins/CommonPlugin/vendor/chdemko/bitarray/src",
+            "plugins/CommonPlugin/vendor/container-interop/container-interop/src",
             "plugins/CommonPlugin/vendor/ext/",
             "plugins/CommonPlugin/vendor/katzgrau/klogger/src",
+            "plugins/CommonPlugin/vendor/mouf/picotainer/src",
+            "plugins/CommonPlugin/vendor/psr/container/src",
             "plugins/CommonPlugin/vendor/psr/log/Psr"
         ],
         "exclude-from-classmap": [

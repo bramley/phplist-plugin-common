@@ -11,9 +11,21 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         array (
             'chdemko\\BitArray\\' => 17,
         ),
+        'P' => 
+        array (
+            'Psr\\Container\\' => 14,
+        ),
+        'M' => 
+        array (
+            'Mouf\\Picotainer\\' => 16,
+        ),
         'K' => 
         array (
             'Katzgrau\\KLogger\\' => 17,
+        ),
+        'I' => 
+        array (
+            'Interop\\Container\\' => 18,
         ),
     );
 
@@ -22,9 +34,21 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         array (
             0 => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray',
         ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Mouf\\Picotainer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mouf/picotainer/src',
+        ),
         'Katzgrau\\KLogger\\' => 
         array (
             0 => __DIR__ . '/..' . '/katzgrau/klogger/src',
+        ),
+        'Interop\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
     );
 
@@ -41,7 +65,15 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
     public static $classMap = array (
         'CHtml' => __DIR__ . '/..' . '/ext/yii/CHtml.php',
         'Chart' => __DIR__ . '/..' . '/ext/chart/Chart.php',
+        'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
+        'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
+        'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
         'Katzgrau\\KLogger\\Logger' => __DIR__ . '/..' . '/katzgrau/klogger/src/Logger.php',
+        'Mouf\\Picotainer\\Picotainer' => __DIR__ . '/..' . '/mouf/picotainer/src/Picotainer.php',
+        'Mouf\\Picotainer\\PicotainerNotFoundException' => __DIR__ . '/..' . '/mouf/picotainer/src/PicotainerNotFoundException.php',
+        'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
+        'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
+        'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
         'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
