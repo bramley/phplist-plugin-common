@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.6.3+20170601  Include picotainer package
     3.6.2+20170516  Improve reporting of progress when exporting
     3.6.1+20170414  Display export dialog with bootlist theme
     3.6.0+20170409  Now exports in a similar way to core phplist

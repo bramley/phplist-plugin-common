@@ -46,8 +46,14 @@ endforeach; ?>
 <div class='clear'></div>
 <?php
 
-global $plugins, $pagefooter, $ui;
+global $plugins, $pagefooter, $ui, $THEMES;
 
-if (is_readable($f = $plugins['CommonPlugin']->coderoot . "ui/$ui/dialog.js")) {
+if (isset($THEMES[$ui]['parentdir'])) {
+    $dir = $THEMES[$ui]['parentdir'];
+} else {
+    $dir = $ui;
+}
+
+if (is_readable($f = $plugins['CommonPlugin']->coderoot . "ui/$dir/dialog.js")) {
     $pagefooter[__FILE__] = file_get_contents($f);
 }

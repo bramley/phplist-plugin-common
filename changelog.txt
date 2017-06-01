@@ -1,3 +1,8 @@
+version 3.6.3+20170601
+      Improve handling of check boxes in model.
+      Add picotainer package
+      For a subtheme use dialog.js of the parent theme.
+
 version 3.6.2+20170516
       Use client polling approach to display progress.
       Bring translations up to date.
