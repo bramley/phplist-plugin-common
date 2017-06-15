@@ -51,6 +51,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.6.4+20170625  Add DIC dependencies for Common Plugin
     3.6.3+20170601  Include picotainer package
     3.6.2+20170516  Improve reporting of progress when exporting
     3.6.1+20170414  Display export dialog with bootlist theme

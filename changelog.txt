@@ -1,3 +1,6 @@
+version 3.6.4+20170625
+      Add DIC dependencies for CommonPlugin
+
 version 3.6.3+20170601
       Improve handling of check boxes in model.
       Add picotainer package
