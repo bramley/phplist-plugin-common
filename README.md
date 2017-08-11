@@ -14,12 +14,10 @@ When installing or upgrading a plugin ensure that the latest CommonPlugin is ins
 
 ### Dependencies ###
 
-This plugin is for phplist 3.0.0 and later.
+This plugin is for phplist 3.0.0 and later. For phplist versions prior to 3.2.5 phplist must use the mysqli database
+extension (not mysql).
 
 Requires php version 5.4 or later.
-
-The version of this plugin dated 2015-03-23 has an incompatible change. 
-Other plugins that depend on CommonPlugin should be upgraded to their latest version.
 
 ### Set the plugin directory ###
 The default plugin directory is `plugins` within the phplist `admin` directory but you can use a directory outside
@@ -51,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.6.5+20170811  Add dependency on using mysqli
     3.6.4+20170625  Add DIC dependencies for Common Plugin
     3.6.3+20170601  Include picotainer package
     3.6.2+20170516  Improve reporting of progress when exporting

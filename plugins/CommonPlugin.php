@@ -71,8 +71,11 @@ class CommonPlugin extends phplistPlugin
 
     public function dependencyCheck()
     {
+        global $database_module;
+
         return array(
             'PHP version 5.4.0 or greater' => version_compare(PHP_VERSION, '5.4') > 0,
+            'phpList must use mysqli (not mysql)' => $database_module == 'mysqli.inc',
         );
     }
 }
