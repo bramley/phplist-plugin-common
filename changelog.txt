@@ -1,3 +1,6 @@
+version 3.6.6+20170906
+      Allow other plugins to process the deletion of a campaign
+
 version 3.6.5+20170811
       Add dependency on using mysqli, not mysql
 

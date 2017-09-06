@@ -107,48 +107,56 @@ class Message extends Common\DAO
 
     public function deleteMessage($id)
     {
+        global $plugins;
+
         $sql = "
             DELETE FROM {$this->tables['message']}
             WHERE id=$id";
         $count = $this->dbCommand->queryAffectedRows($sql);
 
-        if ($count > 0) {
-            $sql =
-                "DELETE FROM {$this->tables['usermessage']}
-                WHERE messageid = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql =
-                "DELETE FROM {$this->tables['listmessage']}
-                WHERE messageid = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql =
-                "DELETE FROM {$this->tables['linktrack_ml']}
-                WHERE messageid = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql =
-                "DELETE FROM {$this->tables['linktrack_uml_click']}
-                WHERE messageid = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql =
-                "DELETE FROM {$this->tables['messagedata']}
-                WHERE id = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql =
-                "DELETE FROM {$this->tables['message_attachment']}
-                WHERE messageid = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql =
-                "DELETE FROM {$this->tables['user_message_bounce']}
-                WHERE message = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            $sql =
-                "DELETE FROM {$this->tables['user_message_forward']}
-                WHERE message = $id";
-            $count = $this->dbCommand->queryAffectedRows($sql);
-            return true;
-        } else {
+        if ($count == 0) {
             return false;
         }
+        $sql =
+            "DELETE FROM {$this->tables['usermessage']}
+            WHERE messageid = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['listmessage']}
+            WHERE messageid = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['linktrack_ml']}
+            WHERE messageid = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['linktrack_uml_click']}
+            WHERE messageid = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['messagedata']}
+            WHERE id = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['message_attachment']}
+            WHERE messageid = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['user_message_bounce']}
+            WHERE message = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['user_message_forward']}
+            WHERE message = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+
+        foreach ($plugins as $pi) {
+            if (method_exists($pi, 'deleteCampaignHook')) {
+                $pi->deleteCampaignHook($id);
+            }
+        }
+
+        return true;
     }
 
     public function requeueMessage($id)
