@@ -9,6 +9,9 @@ use Psr\Container\ContainerInterface;
  */
 
 return [
+    'phpList\plugin\Common\Context' => function (ContainerInterface $container) {
+        return Context::create();
+    },
     'phpList\plugin\Common\DAO\Attribute' => function (ContainerInterface $container) {
         return new \phpList\plugin\Common\DAO\Attribute(
             $container->get('phpList\plugin\Common\DB')
@@ -35,6 +38,6 @@ return [
         );
     },
     'phpList\plugin\Common\DB' => function (ContainerInterface $container) {
-        return new \phpList\plugin\Common\DB();
+        return new DB();
     },
 ];

@@ -1,3 +1,6 @@
+version 3.6.7+20170911
+      Added Context class
+
 version 3.6.6+20170906
       Allow other plugins to process the deletion of a campaign
 
