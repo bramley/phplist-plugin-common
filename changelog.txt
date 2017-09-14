@@ -1,3 +1,7 @@
+version 3.6.8+20170914
+Hironori Kamada (1):
+      Add Japanese language file, closes #8.
+
 version 3.6.7+20170911
       Added Context class
 

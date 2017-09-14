@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.6.8+20170914  Add Japanese language file
     3.6.7+20170911  Added Context class
     3.6.6+20170906  Allow other plugins to process the deletion of a campaign
     3.6.5+20170811  Add dependency on using mysqli
