@@ -1,3 +1,7 @@
+version 3.7.0+20170929
+      Extract curl and multi-curl handling to separate class.
+      Add php-multi-curl package
+
 version 3.6.8+20170914
 Hironori Kamada (1):
       Add Japanese language file, closes #8.

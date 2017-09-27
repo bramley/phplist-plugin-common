@@ -26,3 +26,8 @@ plugins/CommonPlugin/vendor/container-interop/container-interop/*
 
 plugins/CommonPlugin/vendor/mouf/picotainer/*
 !plugins/CommonPlugin/vendor/mouf/picotainer/src
+
+plugins/CommonPlugin/vendor/jmathai/php-multi-curl/*
+!plugins/CommonPlugin/vendor/jmathai/php-multi-curl/LICENSE
+!plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src/
+plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src/example.php

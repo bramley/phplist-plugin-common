@@ -23,6 +23,10 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         array (
             'Katzgrau\\KLogger\\' => 17,
         ),
+        'J' => 
+        array (
+            'JMathai\\PhpMultiCurl\\' => 21,
+        ),
         'I' => 
         array (
             'Interop\\Container\\' => 18,
@@ -45,6 +49,10 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Katzgrau\\KLogger\\' => 
         array (
             0 => __DIR__ . '/..' . '/katzgrau/klogger/src',
+        ),
+        'JMathai\\PhpMultiCurl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jmathai/php-multi-curl/src',
         ),
         'Interop\\Container\\' => 
         array (
