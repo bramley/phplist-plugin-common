@@ -1,3 +1,6 @@
+version 3.7.2+20171116
+      Update plugin translations on logout
+
 version 3.7.1+20171111
       Add DAO method to confirm user
 

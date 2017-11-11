@@ -78,4 +78,41 @@ class CommonPlugin extends phplistPlugin
             'phpList must use mysqli (not mysql)' => $database_module == 'mysqli.inc',
         );
     }
+
+    /**
+     * Hook called on logout.
+     * Use this to update plugin translations for the current language.
+     */
+    public function logout()
+    {
+        global $I18N, $plugins, $tables;
+
+        foreach ($plugins as $piName => $pi) {
+            $languageFile = sprintf('%slan/translations_%s.php', $pi->coderoot, $I18N->language);
+
+            if (!file_exists($languageFile)) {
+                continue;
+            }
+            $configKey = sprintf('%s_translations_%s', $piName, $I18N->language);
+            $lastUpdate = getConfig($configKey);
+            $modified = filemtime($languageFile);
+
+            if ($lastUpdate == '' || $lastUpdate < $modified) {
+                $translations = require $languageFile;
+
+                foreach ($translations as $t) {
+                    $original = sql_escape($t[0]);
+                    $translation = sql_escape($t[1]);
+                    $query = <<<END
+                        REPLACE INTO {$tables['i18n']}
+                        (lan, original, translation)
+                        VALUES ('$I18N->language', '$original', '$translation')
+END;
+                    Sql_Query($query);
+                }
+                SaveConfig($configKey, $modified);
+                logEvent("Translations updated for $piName language $I18N->language");
+            }
+        }
+    }
 }

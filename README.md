@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.2+20171116  Update plugin translations on logout
     3.7.1+20171111  Add DAO method to confirm user
     3.7.0+20170929  Add class to send emails using curl and multi-curl
     3.6.8+20170914  Add Japanese language file
