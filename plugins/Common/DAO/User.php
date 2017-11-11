@@ -61,4 +61,15 @@ class User extends Common\DAO
 
         return $this->dbCommand->queryAffectedRows($sql);
     }
+
+    public function confirmUser($email)
+    {
+        $email = sql_escape($email);
+        $sql =
+            "UPDATE {$this->tables['user']} u
+            SET confirmed = 1
+            WHERE email = '$email'";
+
+        return $this->dbCommand->queryAffectedRows($sql);
+    }
 }

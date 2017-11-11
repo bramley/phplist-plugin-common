@@ -1,3 +1,6 @@
+version 3.7.1+20171111
+      Add DAO method to confirm user
+
 version 3.7.0+20170929
       Extract curl and multi-curl handling to separate class.
       Add php-multi-curl package
