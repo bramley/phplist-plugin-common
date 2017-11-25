@@ -1,3 +1,6 @@
+version 3.7.3+20171125
+      Use correct logical operator
+
 version 3.7.2+20171116
       Update plugin translations on logout
 
