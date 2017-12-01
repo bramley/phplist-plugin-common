@@ -26,9 +26,13 @@ class Context
 
         return $commandline ? new CommandLineContext() : new BrowserContext();
     }
+
+    private function __construct()
+    {
+    }
 }
 
-class CommandLineContext
+class CommandLineContext extends Context
 {
     public function start()
     {
@@ -48,7 +52,7 @@ class CommandLineContext
     }
 }
 
-class BrowserContext
+class BrowserContext extends Context
 {
     public function start()
     {

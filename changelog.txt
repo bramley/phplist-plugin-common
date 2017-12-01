@@ -1,3 +1,6 @@
+version 3.7.4+20171201
+      Correct use of inheritance for Context class
+
 version 3.7.3+20171125
       Use correct logical operator
 

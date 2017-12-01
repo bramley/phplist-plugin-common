@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.4+20171201  Minor bug fix
     3.7.3+20171125  Minor bug fix
     3.7.2+20171116  Update plugin translations on logout
     3.7.1+20171111  Add DAO method to confirm user
