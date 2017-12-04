@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.5+20171204  Minor addition to logging
     3.7.4+20171201  Minor bug fix
     3.7.3+20171125  Minor bug fix
     3.7.2+20171116  Update plugin translations on logout

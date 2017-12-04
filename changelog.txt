@@ -1,3 +1,6 @@
+version 3.7.5+20171204
+      Logger method to test whether debug is enabled
+
 version 3.7.4+20171201
       Correct use of inheritance for Context class
 

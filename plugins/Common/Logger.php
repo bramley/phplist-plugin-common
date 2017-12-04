@@ -102,4 +102,9 @@ class Logger extends KLogger\Logger
             . $message;
         parent::log($level, $message, $context);
     }
+
+    public function isDebug()
+    {
+        return $this->threshold == LogLevel::DEBUG;
+    }
 }
