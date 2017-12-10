@@ -1,3 +1,6 @@
+version 3.7.6+20171210
+      Add JasonGrimes\Paginator class
+
 version 3.7.5+20171204
       Logger method to test whether debug is enabled
 

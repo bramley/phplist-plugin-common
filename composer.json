@@ -3,6 +3,7 @@
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
+        "jasongrimes/paginator": "~1.0",
         "jmathai/php-multi-curl": "dev-master",
         "mouf/picotainer": "1.1.0",
         "psr/log": "1.0.0",

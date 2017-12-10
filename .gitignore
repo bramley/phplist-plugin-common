@@ -31,3 +31,7 @@ plugins/CommonPlugin/vendor/jmathai/php-multi-curl/*
 !plugins/CommonPlugin/vendor/jmathai/php-multi-curl/LICENSE
 !plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src/
 plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src/example.php
+
+plugins/CommonPlugin/vendor/jasongrimes/paginator/*
+!plugins/CommonPlugin/vendor/jasongrimes/paginator/LICENSE
+!plugins/CommonPlugin/vendor/jasongrimes/paginator/src/
