@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.7+20171217  Minor changes
     3.7.6+20171210  Added Paginator class
     3.7.5+20171204  Minor addition to logging
     3.7.4+20171201  Minor bug fix
