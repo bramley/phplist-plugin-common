@@ -37,7 +37,7 @@ class Paginator extends \JasonGrimes\Paginator
             $class = $page['isCurrent'] ? 'selected' : 'unselected';
             $html .= $page['url']
                 ? sprintf('<a class="%s" href="%s">%d</a>', $class, htmlspecialchars($page['url']), $page['num'])
-                : sprintf('<span class="inactive">%d<span>', $page['num']);
+                : sprintf('<span class="inactive">%s</span>', $page['num']);
         }
         $html .= $this->getNextUrl()
             ? sprintf('<a class="unselected" href="%s">%s</a>', htmlspecialchars($this->getNextUrl()), $this->nextText)

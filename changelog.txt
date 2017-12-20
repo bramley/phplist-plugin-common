@@ -1,3 +1,6 @@
+version 3.7.8+20171220
+      Correct display of '...' in Paginator class.
+
 version 3.7.7+20171217
       Work-around for Trevelyn theme to stop links being displayed as buttons
       Added class to send file to browser
