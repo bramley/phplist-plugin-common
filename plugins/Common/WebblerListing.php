@@ -58,14 +58,7 @@ END;
      */
     public function addColumn($name, $column_name, $value, $url = '', $align = '', array $attributes = [])
     {
-        $columnValue = htmlspecialchars($value, ENT_QUOTES);
-
-        if ($url) {
-            if (!isset($attributes['class'])) {
-                $attributes['class'] = 'nobutton';
-            }
-            $columnValue = new PageLink($url, $columnValue, $attributes);
-        }
+        $columnValue = $url ? $this->createLink($url, $value, $value, $attributes) : $value;
         parent::addColumn($name, $column_name, $columnValue, '', $align);
     }
 
@@ -87,15 +80,14 @@ END;
         if (strlen($value) > $maxLength) {
             $middle = '…';
             $outerLength = (int)(($maxLength - strlen($middle)) / 2);
-            $shortValue = sprintf(
-                '<span title="%s">%s</span>',
-                $value,
-                htmlspecialchars(substr($value, 0, $outerLength)) . $middle . htmlspecialchars(substr($value, -$outerLength))
-            );
+            $shortValue = substr($value, 0, $outerLength) . $middle . substr($value, -$outerLength);
         } else {
-            $shortValue = htmlspecialchars($value);
+            $shortValue = $value;
         }
-        $this->addColumn($name, $column_name, $shortValue, $url, $align);
+        $columnValue = $url
+            ? $this->createLink($url, $shortValue, $value)
+            : $shortValue;
+        parent::addColumn($name, $column_name, $columnValue, '', $align);
     }
 
     /**
@@ -112,5 +104,15 @@ END;
     public function addRowHtml($name, $row_name, $value, $url = '', $align = '', $class = '')
     {
         parent::addRow($name, $row_name, $value, htmlspecialchars($url), $align, $class = '');
+    }
+
+    /**
+     * Create a link with attributes adding nobutton class and title.
+     */
+    private function createLink($url, $value, $title, array $attributes = [])
+    {
+        $additionalAttributes = ['class' => 'nobutton', 'title' => $title];
+
+        return new PageLink($url, htmlspecialchars($value, ENT_QUOTES), $attributes + $additionalAttributes);
     }
 }

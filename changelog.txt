@@ -1,3 +1,6 @@
+version 3.7.9+20171228
+      Correct display of an email address in a webbler listing.
+
 version 3.7.8+20171220
       Correct display of '...' in Paginator class.
 
