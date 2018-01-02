@@ -58,7 +58,7 @@ END;
      */
     public function addColumn($name, $column_name, $value, $url = '', $align = '', array $attributes = [])
     {
-        $columnValue = $url ? $this->createLink($url, $value, $value, $attributes) : $value;
+        $columnValue = $url ? $this->createLink($url, $value, $value, $attributes) : htmlspecialchars($value, ENT_QUOTES);
         parent::addColumn($name, $column_name, $columnValue, '', $align);
     }
 
@@ -86,7 +86,7 @@ END;
         }
         $columnValue = $url
             ? $this->createLink($url, $shortValue, $value)
-            : $shortValue;
+            : htmlspecialchars($shortValue, ENT_QUOTES);
         parent::addColumn($name, $column_name, $columnValue, '', $align);
     }
 
@@ -108,6 +108,13 @@ END;
 
     /**
      * Create a link with attributes adding nobutton class and title.
+     *
+     * @param string $url        value for the href attribute
+     * @param string $value      the link value treated as text
+     * @param string $title      value for the title attribute
+     * @param array  $attributes attributes for the link
+     *
+     * @return an html a element
      */
     private function createLink($url, $value, $title, array $attributes = [])
     {
