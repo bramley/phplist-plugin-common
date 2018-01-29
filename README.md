@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.11+20180129 Add image for external URL
     3.7.10+20180102 Fix bug introduced in previous change
     3.7.9+20171228  Fix bug in displaying email address
     3.7.8+20171220  Bug fix for Paginator class

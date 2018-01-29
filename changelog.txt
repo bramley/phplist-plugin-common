@@ -1,3 +1,6 @@
+version 3.7.11+20180129
+      Add image for external URL
+
 version 3.7.10+20180102
       Added htmlspecialchars() inadvertently removed
 
