@@ -5,20 +5,19 @@ namespace phpList\plugin\Common;
 use XMLWriter;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * This class manages the export in XML format
- * 
+ * This class manages the export in XML format.
  */
 class ExportXML
 {
@@ -29,10 +28,10 @@ class ExportXML
     public function export(IExportable $exporter)
     {
         $fileName = $exporter->exportFileName();
-    
+
         ob_end_clean();
-        Header('Content-type: text/xml');
-        Header("Content-disposition:  attachment; filename={$fileName}.xml");
+        header('Content-type: text/xml');
+        header("Content-disposition:  attachment; filename={$fileName}.xml");
 
         $oXMLout = new XMLWriter();
         $oXMLout->openMemory();
@@ -56,6 +55,6 @@ class ExportXML
         }
         $oXMLout->endElement();
         $oXMLout->endDocument();
-        print $oXMLout->outputMemory();
+        echo $oXMLout->outputMemory();
     }
 }

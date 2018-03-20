@@ -1,34 +1,32 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
-
 /**
- * Template for the attribute search and select widget form
+ * Template for the attribute search and select widget form.
  */
 
 /**
- *
  * Available fields
  * - $showSearch: whether to show the search fields
  * - $model: the model
  *        searchTerm: term to search on
- *        searchBy: attribute to search on 
+ *        searchBy: attribute to search on
  *        attributes: associative array of user attributes
  *        listID: selected list to filter
  *        lists: associative array of lists
  *        selectedAttrs: array of selected attributes
  *        unconfirmed: show only unconfirmed users
- *        blacklisted: show only blacklisted users
+ *        blacklisted: show only blacklisted users.
  */
 ?>
 <style type="text/css">
@@ -94,7 +92,7 @@ input[type="text"], select {
              CHtml::listData($model->attributes, 'id', 'name'),
             array(
                 'separator' => ' ', 'uncheckValue' => 0,
-                'template' => '<div class="inline">{input} {label}</div>'
+                'template' => '<div class="inline">{input} {label}</div>',
             )
         ); ?>
             <input type='submit' name='SearchForm[submit]' value='<?php echo $this->i18n->get('Show'); ?>' />

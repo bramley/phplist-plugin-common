@@ -3,14 +3,14 @@
 namespace phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * 
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -31,12 +31,12 @@ class DBResultIterator extends \IteratorIterator implements \Countable
         parent::__construct($result);
         $this->count = $result->num_rows;
     }
-        
+
     /**
      * Implementation of Countable interface.
      * Returns the number of rows in the result.
-     * 
-     * @return integer
+     *
+     * @return int
      */
     public function count()
     {

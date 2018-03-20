@@ -1,28 +1,24 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
-    /**
-     * Add the plugin directories to the composer autoload
-     * Use PSR-4 for namespaced plugins
-     * Use PSR-0 for non-namespaced plugins
-     *
-     * Create autoloader for other plugins.
-     * Add classmap for plugins.
-     * 
-     * @access  public
-     * @return  void
-     */
-
+/**
+ * Add the plugin directories to the composer autoload
+ * Use PSR-4 for namespaced plugins
+ * Use PSR-0 for non-namespaced plugins.
+ *
+ * Create autoloader for other plugins.
+ * Add classmap for plugins.
+ */
 function CommonPlugin_Autoloader_main()
 {
     global $systemroot, $plugins;

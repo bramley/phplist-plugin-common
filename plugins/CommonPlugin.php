@@ -1,7 +1,7 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * This plugin is free software: you can redistribute it and/or modify
@@ -12,19 +12,17 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
-
 /**
- * Registers the plugin with phplist
+ * Registers the plugin with phplist.
  */
-
 class CommonPlugin extends phplistPlugin
 {
     const VERSION_FILE = 'version.txt';
@@ -61,6 +59,7 @@ class CommonPlugin extends phplistPlugin
             'config_file' => $i18n->get('view_config.php'),
             'session' => $i18n->get('view_session'),
         );
+
         return null;
     }
 

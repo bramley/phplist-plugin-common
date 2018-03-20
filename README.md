@@ -8,7 +8,7 @@ It also provides three pages which are added to the Config menu
 * display the config.php file (user id and passwords are removed)
 * display the contents of the php session
 
-When installing or upgrading a plugin ensure that the latest CommonPlugin is installed as well.
+When installing or upgrading a plugin ensure that you install or upgrade to the latest CommonPlugin as well.
 
 ## Installation ##
 
@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.13+20180321 Coding standards changes
     3.7.12+20180320 Minor internal changes
     3.7.11+20180129 Add image for external URL
     3.7.10+20180102 Fix bug introduced in previous change

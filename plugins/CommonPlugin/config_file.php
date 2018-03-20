@@ -1,19 +1,18 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- *  This page displays the phplist config.php file
- *
+ *  This page displays the phplist config.php file.
  */
 function CommonPlugin_showConfig()
 {
@@ -34,6 +33,7 @@ function CommonPlugin_showConfig()
     } else {
         $r = 'Cannot find config file';
     }
+
     return $r;
 }
 echo CommonPlugin_showConfig();

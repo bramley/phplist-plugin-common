@@ -4,7 +4,7 @@ if (!function_exists('array_column')) {
     function array_column($input, $columnKey, $indexKey = null)
     {
         $result = array();
-   
+
         if (null === $indexKey) {
             if (null === $columnKey) {
                 // trigger_error('What are you doing? Use array_values() instead!', E_USER_NOTICE);
@@ -25,7 +25,7 @@ if (!function_exists('array_column')) {
                 }
             }
         }
-   
+
         return $result;
     }
 }

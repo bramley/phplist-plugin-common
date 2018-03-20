@@ -4,13 +4,13 @@ namespace phpList\plugin\Common;
 
 /**
  * CommonPlugin for phplist.
- * 
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
  *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -39,10 +39,10 @@ class I18N
      * Private constructor for the singleton pattern.
      *
      * @param phplistPlugin $pi an optional plugin whose language file should
-     *                          be used for translations.
-     * 
+     *                          be used for translations
+     *
      * @throws Exception if the code is not executing within a plugin
-     * 
+     *
      * @return string the plugin's directory
      */
     public function __construct(\phplistPlugin $pi = null)
@@ -62,7 +62,7 @@ class I18N
      * Derives the directory for a plugin using the $_GET parameter.
      *
      * @throws Exception if the code is not executing within a plugin
-     * 
+     *
      * @return string the plugin's directory
      */
     private function pluginDir()
@@ -81,7 +81,7 @@ class I18N
 
     /**
      * Derives the language directory within a plugin directory.
-     * 
+     *
      * @param string $pluginDir the plugin directory
      *
      * @return string the actual or best guess language directory
@@ -99,7 +99,7 @@ class I18N
 
     /**
      * Searches for the language file beneath a given directory.
-     * 
+     *
      * @param string $dir the target directory
      *
      * @return array array of translations
@@ -122,7 +122,7 @@ class I18N
 
     /**
      * Returns the single instance of this class.
-     * 
+     *
      * @return I18N The instance of this class
      */
     public static function instance()
@@ -139,11 +139,11 @@ class I18N
      * Translates a key or array of keys.
      * Tries lower case when the key does not exist.
      * Further parameters can be provided for sprintf() type formatting.
-     * 
+     *
      * @param array|string $key   the key or keys to be translated
      * @param mixed        $v,... additional variables to format with vsprintf()
      *
-     * @return array|string A translated string if one is found, or the key if not found.  
+     * @return array|string a translated string if one is found, or the key if not found
      */
     public function get($key)
     {
@@ -170,10 +170,10 @@ class I18N
 
     /**
      * Translates a key or array of keys in UTF-8.
-     * 
+     *
      * @param array|string $key the key or keys to be translated
      *
-     * @return array|string A translated string if one is found, or the key if not found.  
+     * @return array|string a translated string if one is found, or the key if not found
      */
     public function getUtf8($key)
     {

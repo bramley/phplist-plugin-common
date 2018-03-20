@@ -3,20 +3,19 @@
 namespace phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
+ * CommonPlugin for phplist.
  *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * This class manages the export in CSV format
- *
+ * This class manages the export in CSV format.
  */
 class ExportCSVAsync
 {
@@ -136,8 +135,8 @@ END;
 
         $tempFile = $_SESSION[__CLASS__]['file'];
         $fileName = $exportable->exportFileName();
-        Header('Content-type: text/csv');
-        Header("Content-disposition:  attachment; filename={$fileName}.csv");
+        header('Content-type: text/csv');
+        header("Content-disposition:  attachment; filename={$fileName}.csv");
         readfile($tempFile);
         $deleted = unlink($tempFile);
 

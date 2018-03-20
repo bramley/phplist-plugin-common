@@ -5,19 +5,19 @@ namespace phpList\plugin\Common\DAO;
 use phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * DAO class that provides access to the attribute table
+ * DAO class that provides access to the attribute table.
  */
 class Attribute extends Common\DAO
 {
@@ -30,6 +30,7 @@ class Attribute extends Common\DAO
         $this->maxAttrs = $maxAttrs;
         parent::__construct($dbCommand);
     }
+
     /*
      * Returns the fields for each attribute keyed by attribute id
      */
@@ -39,8 +40,10 @@ class Attribute extends Common\DAO
         foreach ($this->attributes() as $a) {
             $result[$a['id']] = $a;
         }
+
         return $result;
     }
+
     /*
      * Returns the fields for all attributes
      */
@@ -63,6 +66,7 @@ class Attribute extends Common\DAO
 
         return $this->dbCommand->queryAll($sql);
     }
+
     /*
      * Returns the fields for one attribute
      */

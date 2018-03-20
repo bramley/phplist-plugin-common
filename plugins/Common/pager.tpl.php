@@ -1,23 +1,19 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
- * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
-
 /**
- * Template file for the Pager class
- * 
+ * Template file for the Pager class.
  */
 
 /**
- *
  * Available fields
  * - range: message displaying range of items
  * - show: selector for items per page
@@ -26,7 +22,7 @@
  * - forward: link to next page of items
  * - last: link to the final page of items
  * - prev: link to same page for the previous message
- * - next: link to same page for the next message
+ * - next: link to same page for the next message.
  */
 ?>
 <style type="text/css">

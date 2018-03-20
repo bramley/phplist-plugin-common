@@ -3,20 +3,19 @@
 namespace phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2016-2017 Duncan Cameron
+ * @copyright 2016-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
  * This class provides a facade allowing anonymous functions to be used in a IPopulator.
- * 
  */
 class Populator implements IPopulator
 {
@@ -26,15 +25,15 @@ class Populator implements IPopulator
     /**
      * Constructor.
      *
-     * @param callback   $populate
-     * @param callback   $total
+     * @param callback $populate
+     * @param callback $total
      */
     public function __construct($populate, $total)
     {
         $this->populateCallback = $populate;
         $this->totalCallback = $total;
     }
-    
+
     /**
      * Calls the populate callback.
      *
@@ -47,7 +46,7 @@ class Populator implements IPopulator
         $callback = $this->populateCallback;
         $callback($w, $start, $limit);
     }
-    
+
     /**
      * Calls the total callback.
      *

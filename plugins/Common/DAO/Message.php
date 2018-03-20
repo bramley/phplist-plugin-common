@@ -5,20 +5,19 @@ namespace phpList\plugin\Common\DAO;
 use phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * DAO class providing access to the message table
- * 
+ * DAO class providing access to the message table.
  */
 class Message extends Common\DAO
 {
@@ -40,10 +39,10 @@ class Message extends Common\DAO
      * Create rows in the messagedata table populated from existing rows, and allow plugins
      * to copy additional rows.
      * Copy rows from the listmessage table.
-     * 
+     *
      * @param int $id the message id
      *
-     * @return int the id of the created message 
+     * @return int the id of the created message
      */
     public function copyMessage($id)
     {
@@ -176,6 +175,7 @@ class Message extends Common\DAO
            DELETE FROM {$this->tables['message']}
            WHERE status = 'draft' AND (subject = '' OR subject = '(no subject)')";
         $count = $this->dbCommand->queryAffectedRows($sql);
+
         return $count;
     }
 }

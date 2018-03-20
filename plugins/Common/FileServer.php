@@ -1,13 +1,13 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -40,6 +40,7 @@ class FileServer
     {
         if (!file_exists($filepath)) {
             header('HTTP/1.0 404 Not Found');
+
             return;
         }
         $mtime = new DateTime('@' . filemtime($filepath));
@@ -49,6 +50,7 @@ class FileServer
 
             if ($mtime <= $since) {
                 header('HTTP/1.1 304 Not Modified');
+
                 return;
             }
         }

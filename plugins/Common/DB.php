@@ -3,20 +3,19 @@
 namespace phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * This class provides an interface to the phplist database subroutines
- * 
+ * This class provides an interface to the phplist database subroutines.
  */
 class DB
 {
@@ -31,7 +30,7 @@ class DB
     private function _query($sql)
     {
         /*
-         * 
+         *
          */
         $level = error_reporting(0);
         $time_start = microtime(true);
@@ -43,8 +42,10 @@ class DB
         if (!$resource) {
             throw new \Exception('A problem with the query: ' . $sql);
         }
+
         return $resource;
     }
+
     /*
      *    Public methods
      */
@@ -56,25 +57,27 @@ class DB
     public function queryInsertId($sql)
     {
         /*
-         * 
+         *
          */
         $resource = $this->_query($sql);
+
         return Sql_Insert_Id();
     }
 
     public function queryAffectedRows($sql)
     {
         /*
-         * 
+         *
          */
         $resource = $this->_query($sql);
+
         return Sql_Affected_Rows();
     }
 
     public function queryAll($sql)
     {
         /*
-         * 
+         *
          */
         return new DBResultIterator($this->_query($sql));
     }
@@ -82,7 +85,7 @@ class DB
     public function queryRow($sql)
     {
         /*
-         * 
+         *
          */
         $resource = $this->_query($sql);
 
@@ -91,10 +94,10 @@ class DB
 
     /**
      * Returns a single value which can be either a named field or the first field.
-     * 
+     *
      * @param string $sql   the query
      * @param string $field a named field to return (optional)
-     * 
+     *
      * @return string|false the field value or false if no rows
      */
     public function queryOne($sql, $field = null)
@@ -115,9 +118,10 @@ class DB
     public function queryColumn($sql, $field, $index = null)
     {
         /*
-         * 
+         *
          */
         $iterator = $this->queryAll($sql);
+
         return array_column(iterator_to_array($iterator), $field, $index);
     }
 }
