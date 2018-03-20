@@ -20,24 +20,16 @@ namespace phpList\plugin\Common;
  */
 class Main
 {
-    const REQUIRED_VERSION = '5.3.0';
-
     public static function run(ControllerFactoryBase $cf = null)
     {
-        $level = error_reporting(E_ALL | E_STRICT);
-        set_error_handler('phpList\plugin\Common\Exception::errorHandler', E_ALL | E_STRICT);
+        $errorsHandled = E_ALL ^ E_NOTICE ^ E_DEPRECATED ^ E_STRICT;
+        $level = error_reporting($errorsHandled);
+        set_error_handler('phpList\plugin\Common\Exception::errorHandler', $errorsHandled);
 
         try {
-            $version = phpversion();
-
-            if (version_compare($version, self::REQUIRED_VERSION) < 0) {
-                throw new Exception(sprintf("php version $version found, plugin requires version %s or later", self::REQUIRED_VERSION));
-            }
-
             if (!$cf) {
                 $cf = new ControllerFactory();
             }
-
             $controller = $cf->createController($_GET['pi'], $_GET);
             $action = isset($_GET['action']) ? $_GET['action'] : null;
             $controller->run($action);
