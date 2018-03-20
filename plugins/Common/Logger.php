@@ -34,11 +34,9 @@ class Logger extends KLogger\Logger
      */
 
     /**
-     * Creates a configured instance using entries from config.php
+     * Creates a configured instance using entries from config.php.
      *
-     * @param string  $logDirectory File path to the logging directory
-     * @param string $severity     One of the pre-defined PSR severity constants
-     * @return Logger
+     * @return Psr\Log\AbstractLogger
      */
     public static function instance()
     {
@@ -51,29 +49,23 @@ class Logger extends KLogger\Logger
 
         if (isset($log_options['threshold']) && defined('Psr\Log\LogLevel::' . $log_options['threshold'])) {
             $threshold = constant('Psr\Log\LogLevel::' . $log_options['threshold']);
-
-            if (isset($log_options['dir'])) {
-                $dir = $log_options['dir'];
-            } elseif (isset($tmpdir)) {
-                $dir = $tmpdir;
-            } else {
-                $dir = '/var/tmp';
-            }
-
-            if (isset($_GET['pi'])) {
-                $pi = preg_replace('/\W/', '', $_GET['pi']);
-                $dir .= '/' . $pi;
-            }
+            $dir = isset($log_options['dir']) ? $log_options['dir'] : $tmpdir;
             $logger = new self($dir, $threshold);
             $logger->setDateFormat('D d M Y H:i:s');
         } else {
             $logger = new NullLogger();
         }
-
         self::$instance = $logger;
+
         return $logger;
     }
 
+    /**
+     * Constructor.
+     *
+     * @param string $dir       File path to the logging directory
+     * @param string $threshold One of the pre-defined PSR severity constants
+     */
     public function __construct($dir, $threshold)
     {
         global $log_options;
@@ -83,28 +75,33 @@ class Logger extends KLogger\Logger
         parent::__construct($dir, $threshold);
     }
 
+    /**
+     * Logs messages only from configured classes.
+     * Prepends the calling class/method/line number to the message.
+     *
+     * @param string $level
+     * @param string $message
+     * @param array  $context
+     */
     public function log($level, $message, array $context = array())
     {
-        $trace = debug_backtrace(false);
+        $trace = debug_backtrace(false, 3);
+        /*
+         * [0] is AbstractLogger calling this method
+         * [1] is the caller of debug(), info() etc, which gives the line number
+         * [2] is the previous level, which gives the class/method of the caller
+         */
+        $frame = 1;
 
-        if (!empty($this->classes[$trace[1]['class']])) {
-            $i = 1;
-        } elseif (!empty($this->classes[$trace[2]['class']])) {
-            $i = 2;
-        } elseif (!empty($this->classes[$trace[3]['class']])) {
-            $i = 3;
-        } else {
+        if (empty($this->classes[$trace[$frame + 1]['class']])) {
             return;
         }
-
-        $message =
-            "{$trace[$i]['class']}::{$trace[$i]['function']}, line {$trace[$i - 1]['line']}\n"
-            . $message;
+        $message = sprintf(
+            "%s::%s, line %d\n",
+            $trace[$frame + 1]['class'],
+            $trace[$frame + 1]['function'],
+            $trace[$frame]['line']
+        ) . $message;
         parent::log($level, $message, $context);
-    }
-
-    public function isDebug()
-    {
-        return $this->threshold == LogLevel::DEBUG;
     }
 }
