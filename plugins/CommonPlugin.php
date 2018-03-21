@@ -33,6 +33,8 @@ class CommonPlugin extends phplistPlugin
     public $name = 'Common Plugin';
     public $enabled = true;
     public $authors = 'Duncan Cameron';
+    public $description = 'Provides support classes required by some other plugins.';
+    public $documentationUrl = 'https://resources.phplist.com/plugin/common';
     public $topMenuLinks = array(
         'phpinfo' => array('category' => 'config'),
         'config_file' => array('category' => 'config'),

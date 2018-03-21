@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.14+20180328 Display description and documentation url on the plugins page
     3.7.13+20180321 Coding standards changes
     3.7.12+20180320 Minor internal changes
     3.7.11+20180129 Add image for external URL
