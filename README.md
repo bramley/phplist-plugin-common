@@ -14,8 +14,7 @@ When installing or upgrading a plugin ensure that you install or upgrade to the 
 
 ### Dependencies ###
 
-This plugin is for phplist 3.0.0 and later. For phplist versions prior to 3.2.5 phplist must use the mysqli database
-extension (not mysql).
+This plugin requires phplist 3.3.2 or later.
 
 Requires php version 5.4 or later.
 
@@ -26,15 +25,6 @@ The benefit of this is that installed plugins will not be affected when you upgr
 
 ### Install through phplist ###
 The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
-
-In phplist releases 3.0.5 and earlier there is a bug that can cause a plugin to be incompletely installed on some configurations (<https://mantis.phplist.com/view.php?id=16865>). 
-Check that these files are in the plugin directory. If not then you will need to install manually. The bug has been fixed in release 3.0.6.
-
-* the file CommonPlugin.php
-* the directory CommonPlugin
-* the directory Common
-
-Then click the small orange icon to enable the plugin.
 
 ### Install manually ###
 Download the plugin zip file from <https://github.com/bramley/phplist-plugin-common/archive/master.zip>
@@ -49,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.8.0+20180621  Add dependency on phplist 3.3.2
     3.7.18+20180528 Add subscribe page id as a search field on the attribute form
     3.7.17+20180528 Add class to translate text on frontend pages
     3.7.16+20180525 Update plugin translations for all languages on logout

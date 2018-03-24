@@ -35,6 +35,7 @@ class CommonPlugin extends phplistPlugin
     public $authors = 'Duncan Cameron';
     public $description = 'Provides support classes required by some other plugins.';
     public $documentationUrl = 'https://resources.phplist.com/plugin/common';
+    public $priority = 100;
     public $topMenuLinks = array(
         'phpinfo' => array('category' => 'config'),
         'config_file' => array('category' => 'config'),
@@ -44,7 +45,7 @@ class CommonPlugin extends phplistPlugin
 
     public function __construct()
     {
-        $this->coderoot = dirname(__FILE__) . '/CommonPlugin/';
+        $this->coderoot = dirname(__FILE__) . '/' . __CLASS__ . '/';
         parent::__construct();
         $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
             ? file_get_contents($f)
@@ -52,17 +53,16 @@ class CommonPlugin extends phplistPlugin
         include_once $this->coderoot . 'functions.php';
     }
 
-    public function sendFormats()
+    public function activate()
     {
-        require_once $this->coderoot . 'Autoloader.php';
+        require $this->coderoot . 'Autoloader.php';
+
         $i18n = new CommonPlugin_I18N($this);
         $this->pageTitles = array(
             'phpinfo' => $i18n->get('view_phpinfo'),
             'config_file' => $i18n->get('view_config.php'),
             'session' => $i18n->get('view_session'),
         );
-
-        return null;
     }
 
     public function adminmenu()
@@ -72,11 +72,9 @@ class CommonPlugin extends phplistPlugin
 
     public function dependencyCheck()
     {
-        global $database_module;
-
         return array(
             'PHP version 5.4.0 or greater' => version_compare(PHP_VERSION, '5.4') > 0,
-            'phpList must use mysqli (not mysql)' => $database_module == 'mysqli.inc',
+            'phpList version 3.3.2 or later' => version_compare(VERSION, '3.3.2') >= 0,
         );
     }
 

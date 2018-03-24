@@ -1,3 +1,8 @@
+version 3.8.0+20180621
+      Set priority so this plugin is activated first
+      Create autoloader in activate()
+      Dependency on phplist 3.3.2
+
 version 3.7.18+20180528
       Add subscribe page id as a search field on the attribute form
 
