@@ -135,8 +135,8 @@ END;
 
         $tempFile = $_SESSION[__CLASS__]['file'];
         $fileName = $exportable->exportFileName();
-        header('Content-type: text/csv');
-        header("Content-disposition:  attachment; filename={$fileName}.csv");
+        header('Content-Type: text/csv');
+        header(sprintf('Content-Disposition: attachment; filename="%s.csv"', $fileName));
         readfile($tempFile);
         $deleted = unlink($tempFile);
 

@@ -28,8 +28,8 @@ class ExportCSV
         $fileName = $exporter->exportFileName();
 
         ob_end_clean();
-        header('Content-type: text/csv');
-        header("Content-disposition:  attachment; filename={$fileName}.csv");
+        header('Content-Type: text/csv');
+        header(sprintf('Content-Disposition: attachment; filename="%s.csv"', $fileName));
         $out = fopen('php://output', 'w');
         fputcsv($out, $exporter->exportFieldNames());
         $rows = $exporter->exportRows();

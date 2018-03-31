@@ -30,8 +30,8 @@ class ExportXML
         $fileName = $exporter->exportFileName();
 
         ob_end_clean();
-        header('Content-type: text/xml');
-        header("Content-disposition:  attachment; filename={$fileName}.xml");
+        header('Content-Type: text/xml');
+        header(sprintf('Content-Disposition: attachment; filename="%s.xml"', $fileName));
 
         $oXMLout = new XMLWriter();
         $oXMLout->openMemory();
