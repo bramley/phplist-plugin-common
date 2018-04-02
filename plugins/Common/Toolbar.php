@@ -67,7 +67,7 @@ class Toolbar
     public function addExportButton(array $query = array())
     {
         $this->buttons[] = new ToolbarButton(
-            new PageURL(null, $query + array('action' => 'exportCSV')),
+            PageURL::createFromGet($query + array('action' => 'exportCSV')),
             'excel.png',
             $this->controller->i18n->get('export'),
             ['class' => 'dialog']

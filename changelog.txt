@@ -1,5 +1,6 @@
-version 3.7.15+20180331
+version 3.7.15+20180402
       Correct Content-Disposition header to put file name in quotes
+      Use $_GET for the toolbar export URL
 
 version 3.7.14+20180328
       Add plugin description and documentation url
