@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.16+20180525 Update plugin translations for all languages on logout
     3.7.15+20180402 Minor internal changes
     3.7.14+20180328 Display description and documentation url on the plugins page
     3.7.13+20180321 Coding standards changes

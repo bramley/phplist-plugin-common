@@ -1,3 +1,6 @@
+version 3.7.16+20180525
+      Update plugin translations for all languages on logout
+
 version 3.7.15+20180402
       Correct Content-Disposition header to put file name in quotes
       Use $_GET for the toolbar export URL
