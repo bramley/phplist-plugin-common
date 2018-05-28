@@ -57,6 +57,7 @@ return array(
     'phpList\plugin\Common\ExportCSVAsync' => $base . '/Common/ExportCSVAsync.php',
     'phpList\plugin\Common\ExportXML' => $base . '/Common/ExportXML.php',
     'phpList\plugin\Common\FileServer' => $base . '/Common/FileServer.php',
+    'phpList\plugin\Common\FrontendTranslator' => $base . '/Common/FrontendTranslator.php',
     'phpList\plugin\Common\HelpManager' => $base . '/Common/HelpManager.php',
     'phpList\plugin\Common\HtmlToPdf' => $base . '/Common/HtmlToPdf.php',
     'phpList\plugin\Common\I18N' => $base . '/Common/I18N.php',

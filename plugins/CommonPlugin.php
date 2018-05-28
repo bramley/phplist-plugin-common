@@ -19,7 +19,6 @@
  * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
-use phpList\plugin\Common\Logger;
 
 /**
  * Registers the plugin with phplist.
@@ -83,38 +82,24 @@ class CommonPlugin extends phplistPlugin
 
     /**
      * Hook called on logout.
-     * Use this to update plugin translations.
+     * Use this to update plugin translations for the current language.
      */
     public function logout()
     {
-        global $plugins, $tables;
-
-        $logger = Logger::instance();
+        global $I18N, $plugins, $tables;
 
         foreach ($plugins as $piName => $pi) {
-            if (!file_exists($langDir = $pi->coderoot . 'lan')) {
+            $languageFile = sprintf('%slan/translations_%s.php', $pi->coderoot, $I18N->language);
+
+            if (!file_exists($languageFile)) {
                 continue;
             }
+            $configKey = sprintf('%s_translations_%s', $piName, $I18N->language);
+            $lastUpdate = getConfig($configKey);
+            $modified = filemtime($languageFile);
 
-            foreach (new DirectoryIterator($langDir) as $file) {
-                if ($file->isDir()) {
-                    continue;
-                }
-
-                if (!preg_match('/^translations_(.+)\.php$/', $file->getFilename(), $matches)) {
-                    $logger->debug('Ignoring ' . $file->getPathname());
-                    continue;
-                }
-                $language = $matches[1];
-                $configKey = sprintf('%s_translations_%s', $piName, $language);
-                $lastUpdate = getConfig($configKey);
-                $modified = $file->getMTime();
-
-                if (!($lastUpdate == '' || $lastUpdate < $modified)) {
-                    $logger->debug("Not changed last update $lastUpdate modified $modified" . $file->getPathname());
-                    continue;
-                }
-                $translations = require $file->getPathname();
+            if ($lastUpdate == '' || $lastUpdate < $modified) {
+                $translations = require $languageFile;
 
                 foreach ($translations as $t) {
                     $original = sql_escape($t[0]);
@@ -122,12 +107,12 @@ class CommonPlugin extends phplistPlugin
                     $query = <<<END
                         REPLACE INTO {$tables['i18n']}
                         (lan, original, translation)
-                        VALUES ('$language', '$original', '$translation')
+                        VALUES ('$I18N->language', '$original', '$translation')
 END;
                     Sql_Query($query);
                 }
                 SaveConfig($configKey, $modified);
-                logEvent("Translations updated for $piName language $language");
+                logEvent("Translations updated for $piName language $I18N->language");
             }
         }
     }
