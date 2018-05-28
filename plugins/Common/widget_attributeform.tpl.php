@@ -54,7 +54,7 @@ input[type="text"], select {
             <div class='inline'>
             <?php echo CHtml::dropDownList(
             'SearchForm[searchBy]', $model->searchTerm == '' ? 'email' : $model->searchBy,
-            array('email' => 'email', 'id' => 'id', 'uniqid' => 'unique id') + CHtml::listData($model->attributes, 'id', 'name')
+            array('email' => 'email', 'id' => 'id', 'uniqid' => 'unique id', 'subspage' => 'subscribe page id') + CHtml::listData($model->attributes, 'id', 'name')
             ); ?>&nbsp;
             </div>
             <label class="inline">

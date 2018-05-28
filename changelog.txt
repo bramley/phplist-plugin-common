@@ -1,3 +1,6 @@
+version 3.7.18+20180528
+      Add subscribe page id as a search field on the attribute form
+
 version 3.7.17+20180528
       Add class to translate text for frontend pages
       Revert previous change of updating plugin translations

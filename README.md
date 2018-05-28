@@ -49,6 +49,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.7.18+20180528 Add subscribe page id as a search field on the attribute form
     3.7.17+20180528 Add class to translate text on frontend pages
     3.7.16+20180525 Update plugin translations for all languages on logout
     3.7.15+20180402 Minor internal changes
