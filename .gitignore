@@ -35,3 +35,7 @@ plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src/example.php
 plugins/CommonPlugin/vendor/jasongrimes/paginator/*
 !plugins/CommonPlugin/vendor/jasongrimes/paginator/LICENSE
 !plugins/CommonPlugin/vendor/jasongrimes/paginator/src/
+
+plugins/CommonPlugin/vendor/jdorn/sql-formatter/*
+!plugins/CommonPlugin/vendor/jdorn/sql-formatter/LICENSE.txt
+!plugins/CommonPlugin/vendor/jdorn/sql-formatter/lib/

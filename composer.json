@@ -8,7 +8,8 @@
         "mouf/picotainer": "1.1.0",
         "psr/log": "1.0.0",
         "katzgrau/klogger": "1.2.0",
-        "chdemko/bitarray": "1.0.0"
+        "chdemko/bitarray": "1.0.0",
+        "jdorn/sql-formatter": "^1.2"
     },
     "autoload": {
         "classmap": [

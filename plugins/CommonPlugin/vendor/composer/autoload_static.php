@@ -97,6 +97,7 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
         'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
         'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
+        'SqlFormatter' => __DIR__ . '/..' . '/jdorn/sql-formatter/lib/SqlFormatter.php',
         'WkHtmlToPdf' => __DIR__ . '/..' . '/ext/mikehaertl/WkHtmlToPdf.php',
         'chdemko\\BitArray\\BitArray' => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray/BitArray.php',
         'chdemko\\BitArray\\Iterator' => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray/Iterator.php',

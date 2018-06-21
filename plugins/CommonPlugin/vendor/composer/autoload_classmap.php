@@ -25,6 +25,7 @@ return array(
     'Psr\\Log\\LoggerInterface' => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php',
     'Psr\\Log\\LoggerTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php',
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
+    'SqlFormatter' => $vendorDir . '/jdorn/sql-formatter/lib/SqlFormatter.php',
     'WkHtmlToPdf' => $vendorDir . '/ext/mikehaertl/WkHtmlToPdf.php',
     'chdemko\\BitArray\\BitArray' => $vendorDir . '/chdemko/bitarray/src/BitArray/BitArray.php',
     'chdemko\\BitArray\\Iterator' => $vendorDir . '/chdemko/bitarray/src/BitArray/Iterator.php',
