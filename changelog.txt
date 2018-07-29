@@ -1,3 +1,6 @@
+version 3.8.1+20180729
+      Add method to delete 'not sent' rows from usermessage table.
+
 version 3.8.0+20180621
       Set priority so this plugin is activated first
       Create autoloader in activate()

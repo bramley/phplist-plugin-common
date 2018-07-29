@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.8.1+20180729  Add method to delete 'not sent' rows from usermessage table
     3.8.0+20180621  Add dependency on phplist 3.3.2
     3.7.18+20180528 Add subscribe page id as a search field on the attribute form
     3.7.17+20180528 Add class to translate text on frontend pages

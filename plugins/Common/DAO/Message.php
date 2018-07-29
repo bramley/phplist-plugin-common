@@ -178,4 +178,14 @@ class Message extends Common\DAO
 
         return $count;
     }
+
+    public function deleteNotSent($id)
+    {
+        $sql = "DELETE FROM {$this->tables['usermessage']}
+            WHERE status = 'not sent'
+            AND messageid = $id
+        ";
+
+        return $this->dbCommand->queryAffectedRows($sql);
+    }
 }
