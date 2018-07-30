@@ -130,7 +130,7 @@ class MailSender
             ++$this->totalSuccess;
         } else {
             ++$this->totalFailure;
-            logEvent(sprintf('Multi-curl http code %s result %s email %s', $code, $manager->response, $call['email']));
+            logEvent(sprintf('Multi-curl http code %s result %s email %s', $httpCode, $manager->response, $call['email']));
         }
     }
 

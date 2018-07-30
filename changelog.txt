@@ -1,3 +1,6 @@
+version 3.8.2+20180730
+      Fix problem of incorrect variable name
+
 version 3.8.1+20180729
       Add method to delete 'not sent' rows from usermessage table.
 
