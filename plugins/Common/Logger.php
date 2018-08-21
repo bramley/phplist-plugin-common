@@ -75,6 +75,7 @@ class Logger extends KLogger\Logger
     }
 
     /**
+     * Overrides the parent method.
      * Logs messages only from configured classes.
      * Prepends the calling class/method/line number to the message.
      *
@@ -84,6 +85,9 @@ class Logger extends KLogger\Logger
      */
     public function log($level, $message, array $context = array())
     {
+        if ($this->logLevels[$this->logLevelThreshold] < $this->logLevels[$level]) {
+            return;
+        }
         $trace = debug_backtrace(false, 3);
         /*
          * [0] is AbstractLogger calling this method
@@ -95,12 +99,13 @@ class Logger extends KLogger\Logger
         if (empty($this->classes[$trace[$frame + 1]['class']])) {
             return;
         }
-        $message = sprintf(
-            "%s::%s, line %d\n",
+        $logMessage = sprintf(
+            "%s::%s, line %d\n%s",
             $trace[$frame + 1]['class'],
             $trace[$frame + 1]['function'],
-            $trace[$frame]['line']
-        ) . $message;
-        parent::log($level, $message, $context);
+            $trace[$frame]['line'],
+            (string) $message
+        );
+        $this->write($this->formatMessage($level, $logMessage, $context));
     }
 }
