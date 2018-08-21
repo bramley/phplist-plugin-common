@@ -40,4 +40,7 @@ return [
     'phpList\plugin\Common\DB' => function (ContainerInterface $container) {
         return new DB();
     },
+    'Logger' => function (ContainerInterface $container) {
+        return Logger::instance();
+    },
 ];
