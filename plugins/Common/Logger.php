@@ -24,8 +24,7 @@ use Katzgrau\KLogger;
 
 class Logger extends KLogger\Logger
 {
-    private static $instance;
-    private $threshold;
+    protected static $instance;
     private $classes;
 
     /*
@@ -42,19 +41,19 @@ class Logger extends KLogger\Logger
         global $log_options;
         global $tmpdir;
 
-        if (isset(self::$instance)) {
-            return self::$instance;
+        if (isset(static::$instance)) {
+            return static::$instance;
         }
 
         if (isset($log_options['threshold']) && defined('Psr\Log\LogLevel::' . $log_options['threshold'])) {
             $threshold = constant('Psr\Log\LogLevel::' . $log_options['threshold']);
             $dir = isset($log_options['dir']) ? $log_options['dir'] : $tmpdir;
-            $logger = new self($dir, $threshold);
+            $logger = new static($dir, $threshold);
             $logger->setDateFormat('D d M Y H:i:s');
         } else {
             $logger = new NullLogger();
         }
-        self::$instance = $logger;
+        static::$instance = $logger;
 
         return $logger;
     }
@@ -70,7 +69,6 @@ class Logger extends KLogger\Logger
         global $log_options;
 
         $this->classes = isset($log_options['classes']) ? $log_options['classes'] : array();
-        $this->threshold = $threshold;
         parent::__construct($dir, $threshold);
     }
 
@@ -88,16 +86,26 @@ class Logger extends KLogger\Logger
         if ($this->logLevels[$this->logLevelThreshold] < $this->logLevels[$level]) {
             return;
         }
-        $trace = debug_backtrace(false, 3);
+        $trace = debug_backtrace(false, 4);
         /*
          * [0] is AbstractLogger calling this method
          * [1] is the caller of debug(), info() etc, which gives the line number
-         * [2] is the previous level, which gives the class/method of the caller
+         * [2] is the previous level, which gives the class/method of the caller of debug(), info() etc
+         *
+         * The frame index is increased by 1 when log() is implemented by a wrapper or subclass
+         * [0] is a wrapper or subclass calling this method
+         * [1] is AbstractLogger calling the log() method of a wrapper or subclass
+         * [2] is the caller of debug(), info() etc, which gives the line number
+         * [3] is the previous level, which gives the class/method of the caller of debug(), info() etc
          */
         $frame = 1;
 
         if (empty($this->classes[$trace[$frame + 1]['class']])) {
-            return;
+            $frame = 2;
+
+            if (empty($this->classes[$trace[$frame + 1]['class']])) {
+                return;
+            }
         }
         $logMessage = sprintf(
             "%s::%s, line %d\n%s",
