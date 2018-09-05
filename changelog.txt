@@ -1,3 +1,13 @@
+version 3.9.0+20180905
+      Add Logger to DIC
+      Separate generation of dialog js
+      Add class to encapsulate a callback that returns a string
+      Allow message to be an object that can be stringified
+      Format sql queries when logging
+      Add sql-formatter package
+      Allow Logger to be subclassed.
+      Class to log only unique messages
+
 version 3.8.2+20180730
       Fix problem of incorrect variable name
 

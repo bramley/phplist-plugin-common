@@ -76,9 +76,11 @@ return array(
     'phpList\plugin\Common\Pager' => $base . '/Common/Pager.php',
     'phpList\plugin\Common\Paginator' => $base . '/Common/Paginator.php',
     'phpList\plugin\Common\Populator' => $base . '/Common/Populator.php',
+    'phpList\plugin\Common\StringCallback' => $base . '/Common/StringCallback.php',
     'phpList\plugin\Common\Tabs' => $base . '/Common/Tabs.php',
     'phpList\plugin\Common\Toolbar' => $base . '/Common/Toolbar.php',
     'phpList\plugin\Common\ToolbarButton' => $base . '/Common/Toolbar.php',
+    'phpList\plugin\Common\UniqueLogger' => $base . '/Common/UniqueLogger.php',
     'phpList\plugin\Common\WebblerListing' => $base . '/Common/WebblerListing.php',
     'phpList\plugin\Common\Widget' => $base . '/Common/Widget.php',
 );
