@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.9.1+20181020  Internal changes
     3.9.0+20180905  Collection of internal changes
     3.8.2+20180730  Minor bug fix
     3.8.1+20180729  Add method to delete 'not sent' rows from usermessage table
