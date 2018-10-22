@@ -21,7 +21,7 @@ trait ListsTrait
     public function listById($listID)
     {
         $sql =
-            "SELECT REPLACE(l.name, '&amp;', '&') as name, l.description
+            "SELECT REPLACE(l.name, '&amp;', '&') as name, l.description, l.active
             FROM {$this->tables['list']} l
             WHERE id = $listID";
 
