@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.9.2+20181022  Internal changes
     3.9.1+20181020  Internal changes
     3.9.0+20180905  Collection of internal changes
     3.8.2+20180730  Minor bug fix

@@ -1,3 +1,6 @@
+version 3.9.2+20181022
+      Add active field to listById() etc
+
 version 3.9.1+20181020
       Use traits for the DAOs to simplify reuse
 

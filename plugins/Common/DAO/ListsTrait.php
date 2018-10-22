@@ -21,7 +21,7 @@ trait ListsTrait
     public function listById($listID)
     {
         $sql =
-            "SELECT REPLACE(l.name, '&amp;', '&') as name, l.description
+            "SELECT REPLACE(l.name, '&amp;', '&') as name, l.description, l.active
             FROM {$this->tables['list']} l
             WHERE id = $listID";
 
@@ -32,7 +32,7 @@ trait ListsTrait
     {
         $owner = $loginid ? 'WHERE l.owner = ' . $loginid : '';
         $sql =
-            "SELECT l.id, REPLACE(l.name, '&amp;', '&') as name, l.description
+            "SELECT l.id, REPLACE(l.name, '&amp;', '&') as name, l.description, l.active
             FROM {$this->tables['list']} l
             $owner
             ORDER BY l.listorder";
@@ -43,7 +43,7 @@ trait ListsTrait
     public function listsForMessage($msgid, $column = null)
     {
         $sql =
-            "SELECT l.id, REPLACE(l.name, '&amp;', '&') AS name, l.description
+            "SELECT l.id, REPLACE(l.name, '&amp;', '&') AS name, l.description, l.active
             FROM {$this->tables['listmessage']} lm
             JOIN {$this->tables['list']} l ON lm.listid = l.id
             WHERE lm.messageid = $msgid";
