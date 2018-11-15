@@ -35,10 +35,10 @@
 td.listinghdname, td.listinghdelement {
   text-align : left !important;
 }
-td.listingname, td.listingelement, td.listingelementleft, td.listingelementcenter, td.listingelementright {
+td.listingname, td.listingelement, td.listingelementleft, td.listingelementcenter, td.listingelementright, td.listingelementwrap {
   padding: 2px;
 }
-td.listingname, td.listingelement, td.listingelementleft {
+td.listingname, td.listingelement, td.listingelementleft, td.listingelementwrap {
   text-align: left !important;
 }
 td.listingelementcenter {
@@ -46,6 +46,9 @@ td.listingelementcenter {
 }
 td.listingelementright {
   text-align: right !important;
+}
+td.listingelementwrap {
+  word-break: break-all;
 }
 
 
