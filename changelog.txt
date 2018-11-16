@@ -1,3 +1,7 @@
+version 3.9.3+20181116
+      Add style to wrap a long text value
+      coding standards changes
+
 version 3.9.2+20181022
       Add active field to listById() etc
 
