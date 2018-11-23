@@ -1,3 +1,7 @@
+version 3.9.5+20181203
+Maasik (1):
+      Add Russian translation file
+
 version 3.9.4+20181130
       Correct setting of CURLOPT_HEADER
 
