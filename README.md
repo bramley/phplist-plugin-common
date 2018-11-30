@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.9.4+20181130  Bug fix for MailSender class
     3.9.3+20181116  Minor internal changes
     3.9.2+20181022  Internal changes
     3.9.1+20181020  Internal changes
