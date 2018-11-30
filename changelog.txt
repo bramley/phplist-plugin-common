@@ -1,3 +1,9 @@
+version 3.9.6+20181210
+      Remove obsolete file
+      Revise French translation
+      Allow 'All' string in pager to be translated
+      Add context for remote processing pages
+
 version 3.9.5+20181203
 Maasik (1):
       Add Russian translation file

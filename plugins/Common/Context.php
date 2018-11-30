@@ -21,9 +21,14 @@ class Context
 {
     public static function create()
     {
-        global $commandline;
+        global $commandline, $inRemoteCall;
 
-        return $commandline ? new CommandLineContext() : new BrowserContext();
+        return $commandline
+        ? new CommandLineContext()
+        : ($inRemoteCall
+            ? new RemoteContext()
+            : new BrowserContext()
+        );
     }
 
     private function __construct()
@@ -48,6 +53,24 @@ class CommandLineContext extends Context
     public function output($line)
     {
         echo "\n", $line;
+    }
+}
+
+class RemoteContext extends Context
+{
+    public function start()
+    {
+        ob_end_clean();
+    }
+
+    public function finish()
+    {
+        ob_start();
+    }
+
+    public function output($line)
+    {
+        echo $line, "\n";
     }
 }
 
