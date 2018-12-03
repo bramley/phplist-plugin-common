@@ -40,7 +40,7 @@ $lan = array(
     'Blacklisted' => 'Заблокированные',
     'All subscribers' => 'Все подписчики',
     'confirmed only' => 'только подтвержденные',
-    'unconfirmed only' => 'тоько не подтвержденные',
+    'unconfirmed only' => 'только не подтвержденные',
     'blacklisted only' => 'только заблокированные',
     'not blacklisted only' => 'только не заблокированные',
 //  ExportCSVAsync.php
