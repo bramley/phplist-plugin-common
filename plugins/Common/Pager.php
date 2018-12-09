@@ -238,9 +238,10 @@ class Pager
         $items = array();
 
         foreach ($this->itemsPerPage as $i) {
+            $translatedPageSize = $this->controller->i18n->get($i);
             $items[] = $this->pageSizeStr == $i
-            ? "<b>$i</b>"
-            : $this->pageLink($i, array($this->start => $this->startCurrent, $this->show => $i));
+            ? "<b>$translatedPageSize</b>"
+            : $this->pageLink($translatedPageSize, array($this->start => $this->startCurrent, $this->show => $i));
         }
         $vars = array(
             'range' => $this->total > 0
