@@ -1,9 +1,4 @@
 <?php
-
-namespace phpList\plugin\Common;
-
-use UIPanel;
-
 /**
  * CommonPlugin for phplist.
  *
@@ -16,6 +11,10 @@ use UIPanel;
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
+namespace phpList\plugin\Common;
+
+use UIPanel;
+
 /**
  * This class provides customised links and html.
  */
@@ -23,16 +22,10 @@ class Widget
 {
     const ATTRIBUTEFORM_TEMPLATE = '/widget_attributeform.tpl.php';
 
-    /*
-     *    Private methods
-     */
     private function __construct()
     {
     }
 
-    /*
-     *    Public methods
-     */
     public static function attributeForm(BaseController $controller, $model, $search = true, $select = true)
     {
         $params = array(
@@ -41,8 +34,9 @@ class Widget
             'showSelect' => $select,
         );
         $title = $search ? s('Find subscribers') : s('Select attributes');
-        $panel = new UIPanel($title,
-            $controller->render(dirname(__FILE__) . self::ATTRIBUTEFORM_TEMPLATE, $params)
+        $panel = new UIPanel(
+            $title,
+            new View(__DIR__ . self::ATTRIBUTEFORM_TEMPLATE, $params)
         );
 
         return $panel->display();

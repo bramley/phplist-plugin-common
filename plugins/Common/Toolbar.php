@@ -47,12 +47,6 @@ class Toolbar
     const TEMPLATE = '/toolbar.tpl.php';
 
     private $buttons = array();
-    private $controller;
-
-    public function __construct($controller)
-    {
-        $this->controller = $controller;
-    }
 
     public function addAboutButton()
     {
@@ -100,6 +94,6 @@ class Toolbar
     {
         $params = array('buttons' => $this->buttons);
 
-        return $this->controller->render(dirname(__FILE__) . self::TEMPLATE, $params);
+        return new View(__DIR__ . self::TEMPLATE, $params);
     }
 }

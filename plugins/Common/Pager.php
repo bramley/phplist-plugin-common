@@ -21,8 +21,6 @@ class Pager
     const START = 'start';
     const SHOW = 'show';
 
-    private $controller;
-
     /**
      * The number of instances of this class that have been created.
      *
@@ -169,9 +167,8 @@ class Pager
     /**
      * Class constructor.
      */
-    public function __construct($controller)
+    public function __construct()
     {
-        $this->controller = $controller;
         $suffix = self::$instances == 0 ? '' : self::$instances;
         ++self::$instances;
         $this->show = self::SHOW . $suffix;
@@ -263,6 +260,6 @@ class Pager
             $vars['next'] = $this->linkNext;
         }
 
-        return $this->controller->render(dirname(__FILE__) . '/pager.tpl.php', $vars);
+        return new View(__DIR__ . '/pager.tpl.php', $vars);
     }
 }
