@@ -34,11 +34,6 @@ class ExportCSVAsync
         session_write_close();
     }
 
-    public function __construct()
-    {
-        $this->i18n = I18N::instance();
-    }
-
     /**
      * Generate the html for the progress area.
      */
@@ -71,7 +66,7 @@ window.timerId = setInterval(
 END;
         printf(
             $format,
-            $this->i18n->get('Exporting, this may take a while'),
+            s('Exporting, this may take a while'),
             $img_busy,
             $buildUrl,
             $progressUrl,
@@ -103,7 +98,7 @@ END;
 
         fputcsv($out, $exportable->exportFieldNames());
 
-        $this->updateProgress($this->i18n->get('Generating the export data'));
+        $this->updateProgress(s('Generating the export data'));
         $rows = $exportable->exportRows();
         $total = count($rows);
         $interval = max((int) ($total / 10), 100);
@@ -111,7 +106,7 @@ END;
         foreach ($rows as $i => $row) {
             if ($i % $interval == 0) {
                 $percent = round($i / $total * 100);
-                $this->updateProgress($this->i18n->get('Exported %d of %d %d%%', $i, $total, $percent));
+                $this->updateProgress(s('Exported %d of %d %d%%', $i, $total, $percent));
             }
             fputcsv($out, $exportable->exportValues($row));
         }

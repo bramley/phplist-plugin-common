@@ -57,11 +57,10 @@ class CommonPlugin extends phplistPlugin
     {
         require $this->coderoot . 'Autoloader.php';
 
-        $i18n = new CommonPlugin_I18N($this);
         $this->pageTitles = array(
-            'phpinfo' => $i18n->get('view_phpinfo'),
-            'config_file' => $i18n->get('view_config.php'),
-            'session' => $i18n->get('view_session'),
+            'phpinfo' => s('view_phpinfo'),
+            'config_file' => s('view_config.php'),
+            'session' => s('view_session'),
         );
     }
 

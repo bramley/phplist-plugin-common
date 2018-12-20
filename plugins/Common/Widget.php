@@ -40,7 +40,7 @@ class Widget
             'showSearch' => $search,
             'showSelect' => $select,
         );
-        $title = $search ? $controller->i18n->get('Find subscribers') : $controller->i18n->get('Select attributes');
+        $title = $search ? s('Find subscribers') : s('Select attributes');
         $panel = new UIPanel($title,
             $controller->render(dirname(__FILE__) . self::ATTRIBUTEFORM_TEMPLATE, $params)
         );

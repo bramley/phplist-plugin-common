@@ -1,7 +1,4 @@
 <?php
-
-namespace phpList\plugin\Common;
-
 /**
  * CommonPlugin for phplist.
  *
@@ -13,6 +10,8 @@ namespace phpList\plugin\Common;
  * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
+
+namespace phpList\plugin\Common;
 
 /**
  * This class combines the Pager and WebblerListing objects.
@@ -45,7 +44,7 @@ class Listing
         }
 
         if ($total == 0) {
-            $w->addElement($this->controller->i18n->get($this->noResultsMessage));
+            $w->addElement(s($this->noResultsMessage));
         }
         list($start, $limit) = $this->pager->range();
         $this->populator->populate($w, $start, $limit);

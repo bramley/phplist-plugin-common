@@ -1,7 +1,4 @@
 <?php
-
-namespace phpList\plugin\Common;
-
 /**
  * CommonPlugin for phplist.
  *
@@ -13,6 +10,8 @@ namespace phpList\plugin\Common;
  * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
+
+namespace phpList\plugin\Common;
 
 /**
  * This class provides pagination of results.
@@ -238,23 +237,25 @@ class Pager
         $items = array();
 
         foreach ($this->itemsPerPage as $i) {
-            $translatedPageSize = $this->controller->i18n->get($i);
+            $translatedPageSize = s($i);
             $items[] = $this->pageSizeStr == $i
-            ? "<b>$translatedPageSize</b>"
-            : $this->pageLink($translatedPageSize, array($this->start => $this->startCurrent, $this->show => $i));
+                ? "<b>$translatedPageSize</b>"
+                : $this->pageLink($translatedPageSize, array($this->start => $this->startCurrent, $this->show => $i));
         }
         $vars = array(
             'range' => $this->total > 0
-                ? $this->controller->i18n->get(
+                ? s(
                     'Showing %d to %d of %d',
-                    $this->startCurrent + 1, min($this->startCurrent + $this->pageSize, $this->total), $this->total
+                    $this->startCurrent + 1,
+                    min($this->startCurrent + $this->pageSize, $this->total),
+                    $this->total
                 )
                 : '&nbsp;',
             'first' => $this->navigation('<<', 0, $this->startCurrent > 0),
             'back' => $this->navigation('<', $this->startCurrent - $this->pageSize, $this->startCurrent > 0),
             'forward' => $this->navigation('>', $this->startCurrent + $this->pageSize, $this->startCurrent < $this->startFinal),
             'last' => $this->navigation('>>', $this->startFinal, $this->startCurrent < $this->startFinal),
-            'show' => $this->controller->i18n->get('Show') . ' ' . implode(' | ', $items),
+            'show' => s('Show') . ' ' . implode(' | ', $items),
         );
 
         if (isset($this->linkPrev)) {

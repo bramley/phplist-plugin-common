@@ -47,7 +47,7 @@ input[type="text"], select {
         <?php if ($showSearch): ?>
         <div style='padding-bottom: 10px;'>
             <label class="inline">
-        <?php echo $this->i18n->get('Search for'); ?>:
+        <?php echo s('Search for'); ?>:
             <input size="24" type="text" value="<?php echo htmlspecialchars($model->searchTerm); ?>" 
                 name="SearchForm[searchTerm]" id="SearchForm_searchTerm" />
             </label>
@@ -58,27 +58,27 @@ input[type="text"], select {
             ); ?>&nbsp;
             </div>
             <label class="inline">
-            <?php echo $this->i18n->get('List'); ?>:
+            <?php echo s('List'); ?>:
             <?php echo CHtml::dropDownList(
                 'SearchForm[listID]', $model->listID,
                 CHtml::listData($model->lists, 'id', 'name'),
-                array('prompt' => $this->i18n->get('All'))
+                array('prompt' => s('All'))
             ); ?>
             </label>
 
             <div class='inline'>
                 <label>
-            <?php echo $this->i18n->get('Confirmed'); ?>:
+            <?php echo s('Confirmed'); ?>:
             <?php echo CHtml::dropDownList(
                 'SearchForm[confirmed]', $model->confirmed,
-                $this->i18n->get(array(1 => 'All subscribers', 2 => 'confirmed only', 3 => 'unconfirmed only'))
+                array(1 => s('All subscribers'), 2 => s('confirmed only'), 3 => s('unconfirmed only'))
             ); ?>
                 </label>
                 <label>
-            <?php echo $this->i18n->get('Blacklisted'); ?>:
+            <?php echo s('Blacklisted'); ?>:
             <?php echo CHtml::dropDownList(
                 'SearchForm[blacklisted]', $model->blacklisted,
-                $this->i18n->get(array(1 => 'All subscribers', 2 => 'blacklisted only', 3 => 'not blacklisted only'))
+                array(1 => s('All subscribers'), 2 => s('blacklisted only'), 3 => s('not blacklisted only'))
             ); ?>
                 </label>
             </div>
@@ -95,7 +95,7 @@ input[type="text"], select {
                 'template' => '<div class="inline">{input} {label}</div>',
             )
         ); ?>
-            <input type='submit' name='SearchForm[submit]' value='<?php echo $this->i18n->get('Show'); ?>' />
+            <input type='submit' name='SearchForm[submit]' value='<?php echo s('Show'); ?>' />
         </div>
     </fieldset>
 </form>
