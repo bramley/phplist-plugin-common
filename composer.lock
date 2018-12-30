@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "463c869860d03f8a47fd185abc74b093",
+    "content-hash": "1b026f8fd6abff173918d44da92c3a79",
     "packages": [
         {
             "name": "chdemko/bitarray",
