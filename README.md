@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.9.7+20181230  Internal changes
     3.9.6+20181210  Minor internal changes
     3.9.5+20181203  Add Russian translation file
     3.9.4+20181130  Bug fix for MailSender class

@@ -11,6 +11,10 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         array (
             'chdemko\\BitArray\\' => 17,
         ),
+        'S' => 
+        array (
+            'Symfony\\Component\\Filesystem\\' => 29,
+        ),
         'P' => 
         array (
             'Psr\\Container\\' => 14,
@@ -37,6 +41,10 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'chdemko\\BitArray\\' => 
         array (
             0 => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray',
+        ),
+        'Symfony\\Component\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/filesystem',
         ),
         'Psr\\Container\\' => 
         array (
