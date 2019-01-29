@@ -211,7 +211,7 @@ class MailSender
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        if ($response === false || $httpCode != 200 || !$this->client->verifyResponse($response)) {
+        if ($response === false || preg_match('/^2\d\d$/', $httpCode) !== 1 || !$this->client->verifyResponse($response)) {
             $error = curl_error($curl);
             logEvent(sprintf('MailSender http code: %s, result: %s, curl error: %s', $httpCode, strip_tags($response), $error));
             curl_close($curl);
