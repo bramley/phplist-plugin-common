@@ -96,20 +96,42 @@ class CommonPlugin extends phplistPlugin
             $modified = filemtime($languageFile);
 
             if ($lastUpdate == '' || $lastUpdate < $modified) {
+                $changed = false;
                 $translations = require $languageFile;
 
                 foreach ($translations as $t) {
+                    /*
+                     * Add translation if it does not already exist
+                     */
                     $original = sql_escape($t[0]);
                     $translation = sql_escape($t[1]);
                     $query = <<<END
-                        REPLACE INTO {$tables['i18n']}
+                        INSERT IGNORE INTO {$tables['i18n']}
                         (lan, original, translation)
                         VALUES ('$I18N->language', '$original', '$translation')
 END;
                     Sql_Query($query);
+
+                    if (Sql_Affected_Rows() > 0) {
+                        $changed = true;
+                    } else {
+                        /*
+                         * Update translation if it has changed
+                         */
+                        $query = <<<END
+                            UPDATE {$tables['i18n']}
+                            SET translation = '$translation'
+                            WHERE lan = '$I18N->language' AND original = '$original' AND translation != '$translation'
+END;
+                        Sql_Query($query);
+                        $changed = $changed || Sql_Affected_Rows() > 0;
+                    }
                 }
-                SaveConfig($configKey, $modified);
-                logEvent("Translations updated for $piName language $I18N->language");
+
+                if ($changed) {
+                    SaveConfig($configKey, $modified);
+                    logEvent("Translations updated for $piName language $I18N->language");
+                }
             }
         }
     }
