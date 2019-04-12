@@ -46,7 +46,7 @@ trait MessageTrait
         global $plugins;
 
         $sql = "
-            INSERT INTO {$this->tables['message']} 
+            INSERT INTO {$this->tables['message']}
             (id, subject, fromfield, tofield, replyto, message, textmessage, footer,
                 entered, modified, embargo, repeatinterval, repeatuntil,
                 status, htmlformatted, sendformat, template, owner, requeueinterval, requeueuntil
@@ -145,6 +145,10 @@ trait MessageTrait
             "DELETE FROM {$this->tables['user_message_forward']}
             WHERE message = $id";
         $count = $this->dbCommand->queryAffectedRows($sql);
+        $sql =
+            "DELETE FROM {$this->tables['user_message_view']}
+            WHERE messageid = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
 
         foreach ($plugins as $pi) {
             if (method_exists($pi, 'deleteCampaignHook')) {
@@ -159,7 +163,7 @@ trait MessageTrait
     {
         $sql =
             "UPDATE {$this->tables['message']}
-            SET status = 'submitted', sendstart = now() 
+            SET status = 'submitted', sendstart = now()
             WHERE id = $id AND status IN ('sent', 'suspended')";
         $count = $this->dbCommand->queryAffectedRows($sql);
 
