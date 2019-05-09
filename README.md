@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.2+20190509 Improve display of icons
     3.10.1+20190318 Log event for update of frontend translations only when they have changed
     3.10.0+20190222 Improvements to translations, other internal changes
     3.9.8+20190129  Minor change to MailSender class

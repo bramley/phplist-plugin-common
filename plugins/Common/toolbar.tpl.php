@@ -31,7 +31,7 @@ div.toolbar img {
 .clear {
     clear: both;
 }
-.glyphicon {
+div.toolbar .glyphicon {
     top: 5px;
 }
 .modal-dialog {
