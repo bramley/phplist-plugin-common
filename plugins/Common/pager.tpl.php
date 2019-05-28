@@ -71,6 +71,15 @@ div.pagerinline {
 .center {
     text-align: center;
 }
+
+/* separator after header row and between rows that have elements */
+tr[valign] + tr.row1, tr.rowelement + tr.row1 {
+    border-top: 2px solid #999;
+}
+/* separator after the final row element */
+tr.rowelement:last-child {
+    border-bottom: 2px solid #999;
+}
 </style>
 <div class='pager'>
     <div class='pagerinline left' style='width: 33.333%;'><?php echo $range; ?></div>
