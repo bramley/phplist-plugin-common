@@ -55,10 +55,6 @@ td.listingelementwrap {
 .content table {
     table-layout: auto;
 }
-div.pager {
-    border: 0px;
-    padding-bottom: 0px;
-}
 div.pagerinline {
     float: left;
 }
@@ -81,7 +77,7 @@ tr.rowelement:last-child {
     border-bottom: 2px solid #999;
 }
 </style>
-<div class='pager'>
+<div>
     <div class='pagerinline left' style='width: 33.333%;'><?php echo $range; ?></div>
     <div class='pagerinline center' style='width: 33.333%;'><?php echo $show; ?></div>
 <?php if (isset($prev)): ?>
