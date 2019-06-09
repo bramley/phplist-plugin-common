@@ -136,19 +136,21 @@ class Pager
     }
 
     /**
-     * Generate the html for a navigation link, either as a link if active or text.
+     * Generate the html for a paging link.
      *
-     * @param string $text   text for link
-     * @param int    $start  start item index
-     * @param bool   $active whether to create a link or just text
+     * @param int    $start start item index
+     * @param string $class css class
+     * @param string $title title attribute
      *
-     * @return string a link or text, each will be html entity encoded
+     * @return string
      */
-    private function navigation($text, $start, $active)
+    private function pagingLink($start, $class, $title)
     {
-        return $active
-            ? $this->pageLink($text, array($this->start => $start))
-            : htmlspecialchars($text);
+        return new PageLink(
+            PageURL::createFromGet([$this->start => $start], 'paging'),
+            '',
+            ['class' => $class, 'title' => $title]
+        );
     }
 
     /**
@@ -248,10 +250,10 @@ class Pager
                     $this->total
                 )
                 : '&nbsp;',
-            'first' => $this->navigation('<<', 0, $this->startCurrent > 0),
-            'back' => $this->navigation('<', $this->startCurrent - $this->pageSize, $this->startCurrent > 0),
-            'forward' => $this->navigation('>', $this->startCurrent + $this->pageSize, $this->startCurrent < $this->startFinal),
-            'last' => $this->navigation('>>', $this->startFinal, $this->startCurrent < $this->startFinal),
+            'first' => $this->pagingLink(0, 'first', s('First Page')),
+            'back' => $this->pagingLink(max(0, $this->startCurrent - $this->pageSize), 'previous', s('Previous')),
+            'forward' => $this->pagingLink(min($this->startFinal, $this->startCurrent + $this->pageSize), 'next', s('Next')),
+            'last' => $this->pagingLink($this->startFinal, 'last', s('Last Page')),
             'show' => s('Show') . ' ' . implode(' | ', $items),
         );
 
