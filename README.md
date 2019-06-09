@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.4+20190609 Use the same paging controls as core phplist
     3.10.3+20190528 Improve display of listing and pager
     3.10.2+20190509 Improve display of icons
     3.10.1+20190318 Log event for update of frontend translations only when they have changed

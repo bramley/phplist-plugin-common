@@ -83,6 +83,8 @@ tr.rowelement:last-child {
 <?php if (isset($prev)): ?>
     <div class='pagerinline center' style='width: 10%;'><?php echo $prev; ?> | <?php echo $next; ?></div>
 <?php endif; ?>
+<?php if (isset($first)): ?>
     <div class='controls right'><?= $first, $back, $forward, $last; ?></div>
+<?php endif; ?>
 </div>
 

@@ -1,3 +1,7 @@
+version 3.10.4+20190609
+      Use the same paging controls as core phplist
+      Display paging controls only when there is more than one page of results
+
 version 3.10.3+20190528
       Improve display of webbler listings that have rows with elements
       Remove pager css class from the pager div to avoid clash with core phplist

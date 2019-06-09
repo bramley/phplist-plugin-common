@@ -241,7 +241,7 @@ class Pager
                 ? "<b>$translatedPageSize</b>"
                 : $this->pageLink($translatedPageSize, array($this->start => $this->startCurrent, $this->show => $i));
         }
-        $vars = array(
+        $vars = [
             'range' => $this->total > 0
                 ? s(
                     'Showing %d to %d of %d',
@@ -250,12 +250,17 @@ class Pager
                     $this->total
                 )
                 : '&nbsp;',
-            'first' => $this->pagingLink(0, 'first', s('First Page')),
-            'back' => $this->pagingLink(max(0, $this->startCurrent - $this->pageSize), 'previous', s('Previous')),
-            'forward' => $this->pagingLink(min($this->startFinal, $this->startCurrent + $this->pageSize), 'next', s('Next')),
-            'last' => $this->pagingLink($this->startFinal, 'last', s('Last Page')),
             'show' => s('Show') . ' ' . implode(' | ', $items),
-        );
+        ];
+
+        if ($this->total > $this->pageSize) {
+            $vars += [
+                'first' => $this->pagingLink(0, 'first', s('First Page')),
+                'back' => $this->pagingLink(max(0, $this->startCurrent - $this->pageSize), 'previous', s('Previous')),
+                'forward' => $this->pagingLink(min($this->startFinal, $this->startCurrent + $this->pageSize), 'next', s('Next')),
+                'last' => $this->pagingLink($this->startFinal, 'last', s('Last Page')),
+            ];
+        }
 
         if (isset($this->linkPrev)) {
             $vars['prev'] = $this->linkPrev;
