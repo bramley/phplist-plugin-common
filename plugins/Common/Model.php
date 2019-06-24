@@ -65,7 +65,7 @@ abstract class Model
                 } else {
                     $value = $v;
                 }
-                $dirty = isset($this->persist[$key]);
+                $dirty = $dirty || isset($this->persist[$key]);
             }
         }
         unset($value);
