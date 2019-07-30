@@ -1,3 +1,7 @@
+version 3.10.5+20190730
+      Correct error in detecting whether model fields have changed
+      Handle clicking the chart to redirect to another page
+
 version 3.10.4+20190609
       Use the same paging controls as core phplist
       Display paging controls only when there is more than one page of results
