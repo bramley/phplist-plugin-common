@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.6+20190825 Remove unnecessary output of command line signature
     3.10.5+20190730 Support clicking a chart to redirect to another page
     3.10.4+20190609 Use the same paging controls as core phplist
     3.10.3+20190528 Improve display of listing and pager

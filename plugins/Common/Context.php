@@ -41,7 +41,6 @@ class CommandLineContext extends Context
     public function start()
     {
         ob_end_clean();
-        echo ClineSignature();
     }
 
     public function finish()
