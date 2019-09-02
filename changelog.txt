@@ -1,3 +1,6 @@
+version 3.10.7+20190902
+      Add DAO for template table
+
 version 3.10.6+20190825
       Remove unnecessary output of command line signature
 
