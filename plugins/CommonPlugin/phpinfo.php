@@ -34,6 +34,14 @@ function CommonPlugin_phpinfo($html)
         </xsl:copy>
     </xsl:template>
 
+    <xsl:template match="style">
+        <!-- remove styling of a link because it overrides the trevelin theme -->
+        <xsl:copy>
+            <xsl:value-of select="substring-before(., 'a:link {color: #009; text-decoration: none; background-color: #fff;}')"/>
+            <xsl:value-of select="substring-after(., 'a:link {color: #009; text-decoration: none; background-color: #fff;}&#x0A;')"/>
+        </xsl:copy>
+    </xsl:template>
+
 <!-- process only style and body elements -->
     <xsl:template match="/">
         <xsl:text>&#x0A;</xsl:text>

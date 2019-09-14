@@ -39,6 +39,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.8+20190914 Improve display of phpinfo with the trevelin theme
     3.10.7+20190902 Add DAO for template table
     3.10.6+20190825 Remove unnecessary output of command line signature
     3.10.5+20190730 Support clicking a chart to redirect to another page
