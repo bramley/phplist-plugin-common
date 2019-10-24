@@ -8,7 +8,8 @@ It also provides three pages which are added to the Config menu
 * display the config.php file (user id and passwords are removed)
 * display the contents of the php session
 
-When installing or upgrading a plugin ensure that you install or upgrade to the latest CommonPlugin as well.
+The plugin is now included in phplist so you should not normally need to install the plugin yourself.
+However when installing or upgrading another plugin ensure that you upgrade to the latest CommonPlugin as well.
 
 ## Installation ##
 
@@ -17,11 +18,6 @@ When installing or upgrading a plugin ensure that you install or upgrade to the 
 This plugin requires phplist 3.3.2 or later.
 
 Requires php version 5.4 or later.
-
-### Set the plugin directory ###
-The default plugin directory is `plugins` within the phplist `admin` directory but you can use a directory outside
-of the web root by changing the definition of `PLUGIN_ROOTDIR` in config.php.
-The benefit of this is that installed plugins will not be affected when you upgrade phplist.
 
 ### Install through phplist ###
 The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
@@ -39,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.9+20191024 Minor change to display of the config.php file
     3.10.8+20190914 Improve display of phpinfo with the trevelin theme
     3.10.7+20190902 Add DAO for template table
     3.10.6+20190825 Remove unnecessary output of command line signature
