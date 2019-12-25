@@ -31,7 +31,7 @@ class StringStream
 
     public static function stringId(&$variable)
     {
-        $id = count(self::$references);
+        $id = uniqid();
         self::$references[$id] = &$variable;
 
         return $id;
@@ -79,12 +79,8 @@ class StringStream
             return false;
         }
 
-        if ($this->stream_eof()) {
-            return false;
-        }
-
         $result = substr($this->_currentstring, $this->_pos, $count);
-        $this->_pos += $count;
+        $this->_pos += strlen($result);
 
         return $result;
     }
