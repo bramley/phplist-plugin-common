@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.10+20191225 Minor improvements to StringStream class
     3.10.9+20191024 Minor change to display of the config.php file
     3.10.8+20190914 Improve display of phpinfo with the trevelin theme
     3.10.7+20190902 Add DAO for template table
