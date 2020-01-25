@@ -19,7 +19,13 @@ namespace phpList\plugin\Common;
  */
 class Main
 {
-    public static function run(ControllerFactoryBase $cf = null)
+    /**
+     * Create and run a controller.
+     *
+     * @param ControllerFactoryBase $cf     a controller factory
+     * @param string                $action the controller action
+     */
+    public static function run(ControllerFactoryBase $cf = null, $action = '')
     {
         $errorsHandled = E_ALL ^ E_NOTICE ^ E_DEPRECATED ^ E_STRICT;
         $level = error_reporting($errorsHandled);
@@ -30,7 +36,7 @@ class Main
                 $cf = new ControllerFactory();
             }
             $controller = $cf->createController($_GET['pi'], $_GET);
-            $action = isset($_GET['action']) ? $_GET['action'] : null;
+            $action = $action ?: (isset($_GET['action']) ? $_GET['action'] : null);
             $controller->run($action);
         } catch (\Exception $e) {
             echo '<p>' . nl2br(htmlspecialchars($e->getMessage())) . '</p>';
