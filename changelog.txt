@@ -1,3 +1,6 @@
+version 3.10.12+20200127
+      Refactor ExportCSV class to support exporting to a file handle.
+
 version 3.10.11+20200125
       Allow action to be specified when running a controller
 

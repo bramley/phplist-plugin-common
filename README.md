@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.12+20200127 Minor internal change
     3.10.11+20200125 Minor internal change
     3.10.10+20191225 Minor improvements to StringStream class
     3.10.9+20191024 Minor change to display of the config.php file

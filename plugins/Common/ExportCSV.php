@@ -19,25 +19,40 @@ namespace phpList\plugin\Common;
  */
 class ExportCSV
 {
-    public function __construct()
+    /**
+     * @param IExportable $exportable
+     */
+    public function __construct(IExportable $exportable)
     {
+        $this->exportable = $exportable;
     }
 
-    public function export(IExportable $exporter)
+    /**
+     * Export as CSV to the browser.
+     */
+    public function export()
     {
-        $fileName = $exporter->exportFileName();
+        $fileName = $this->exportable->exportFileName();
 
         ob_end_clean();
         header('Content-Type: text/csv');
         header(sprintf('Content-Disposition: attachment; filename="%s.csv"', $fileName));
-        $out = fopen('php://output', 'w');
-        fputcsv($out, $exporter->exportFieldNames());
-        $rows = $exporter->exportRows();
 
-        foreach ($rows as $row) {
-            fputcsv($out, $exporter->exportValues($row));
+        $this->exportToFile(fopen('php://output', 'w'));
+    }
+
+    /**
+     * Export as CSV to a file handle.
+     *
+     * @param resource $fh
+     */
+    public function exportToFile($fh)
+    {
+        fputcsv($fh, $this->exportable->exportFieldNames());
+
+        foreach ($this->exportable->exportRows() as $row) {
+            fputcsv($fh, $this->exportable->exportValues($row));
         }
-
-        fclose($out);
+        fclose($fh);
     }
 }
