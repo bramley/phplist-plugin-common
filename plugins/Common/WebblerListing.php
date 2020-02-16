@@ -20,8 +20,8 @@ namespace phpList\plugin\Common;
 class WebblerListing extends \WebblerListing
 {
     /*
-     * Constructor.
-     * Work-around for Trevelyn theme to stop links being displayed as buttons
+     * Work-around for Trevelyn theme to stop links being displayed as buttons.
+     * Make the webblerlisting table responsive.
      */
     public function __construct($title = '', $help = '')
     {
@@ -32,6 +32,8 @@ class WebblerListing extends \WebblerListing
 <script>
 $(document).ready(function(){
     $('a.nobutton').removeClass('btn btn-xs btn-primary');
+    $('div.responsive-listing .content').first().addClass('table-responsive');
+
 });
 </script>
 END;
@@ -40,6 +42,14 @@ END;
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * Extend parent method to wrap the listing in a div element to make the webblerlisting table responsive.
+     */
+    public function display($add_index = 0, $class = '')
+    {
+        return sprintf('<div class="responsive-listing">%s</div>', parent::display($add_index, $class));
     }
 
     /**

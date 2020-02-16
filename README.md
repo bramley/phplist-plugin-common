@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.10.13+20200216 Make the webblerlisting table responsive
     3.10.12+20200127 Minor internal change
     3.10.11+20200125 Minor internal change
     3.10.10+20191225 Minor improvements to StringStream class

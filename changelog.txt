@@ -1,3 +1,6 @@
+version 3.10.13+20200216
+      Use the same approach as core phplist to make the webblerlisting table responsive.
+
 version 3.10.12+20200127
       Refactor ExportCSV class to support exporting to a file handle.
 
