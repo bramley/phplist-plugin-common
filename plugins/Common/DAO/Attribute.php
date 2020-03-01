@@ -21,11 +21,4 @@ use phpList\plugin\Common\DAO as CommonDAO;
 class Attribute extends CommonDAO
 {
     use AttributeTrait;
-
-    public function __construct($dbCommand, $attrNameLength = 20, $maxAttrs = 15)
-    {
-        $this->attrNameLength = $attrNameLength;
-        $this->maxAttrs = $maxAttrs;
-        parent::__construct($dbCommand);
-    }
 }

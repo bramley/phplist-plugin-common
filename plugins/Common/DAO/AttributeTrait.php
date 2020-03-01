@@ -18,60 +18,67 @@ namespace phpList\plugin\Common\DAO;
  */
 trait AttributeTrait
 {
-    private $attrNameLength;
-    private $maxAttrs;
-
-    /*
-     * Returns the fields for each attribute keyed by attribute id
+    /**
+     * Returns the fields for each attribute keyed by attribute id.
+     * Can limit the number of attributes returned and the length of the attribute name.
+     *
+     * @return array attributes indexed by id
      */
-    public function attributesById()
+    public function attributesById($attrNameLength = 0, $maxAttrs = 0)
     {
-        $result = array();
-        foreach ($this->attributes() as $a) {
-            $result[$a['id']] = $a;
+        $limit = $maxAttrs > 0 ? "LIMIT $maxAttrs" : '';
+        $sql =
+            "SELECT id, name, type, tablename
+            FROM {$this->tables['attribute']}
+            ORDER BY listorder
+            $limit";
+        $result = [];
+
+        foreach ($this->dbCommand->queryAll($sql) as $row) {
+            $row['name'] = $this->transformAttributeName($row['name'], $attrNameLength);
+            $result[$row['id']] = $row;
         }
 
         return $result;
     }
 
-    /*
-     * Returns the fields for all attributes
+    /**
+     * Now just an alias for attributesById().
      */
-    public function attributes()
+    public function attributes(...$params)
     {
-        /*
-         *    need to unescape attribute name
-         */
-        $limit = $this->maxAttrs > 0 ? "LIMIT $this->maxAttrs" : '';
-        $sql =
-            "SELECT id, 
-            LEFT(REPLACE(
-                REPLACE(name, '\\\\\\'', '\\''),
-                '\\\\\\\\', '\\\\'
-            ), $this->attrNameLength) AS name,
-            type, tablename 
-            FROM {$this->tables['attribute']} 
-            ORDER BY listorder
-            $limit";
-
-        return $this->dbCommand->queryAll($sql);
+        return $this->attributesById(...$params);
     }
 
     /*
      * Returns the fields for one attribute
+     *
+     * @return array attribute fields
      */
     public function getAttribute($attr)
     {
         $sql =
-            "SELECT id,
-            LEFT(REPLACE(
-                REPLACE(name, '\\\\\\'', '\\''),
-                '\\\\\\\\', '\\\\'
-            ), $this->attrNameLength) AS name,
-            type, tablename 
-            FROM {$this->tables['attribute']} 
+            "SELECT id, name, type, tablename
+            FROM {$this->tables['attribute']}
             WHERE id = $attr";
+        $row = $this->dbCommand->queryRow($sql);
+        $row['name'] = $this->transformAttributeName($row['name']);
 
-        return $this->dbCommand->queryRow($sql);
+        return $row;
+    }
+
+    private function transformAttributeName($name, $attrNameLength = 0)
+    {
+        $name = stripslashes($name);
+
+        if ($attrNameLength > 0) {
+            if (strlen($name) > $attrNameLength) {
+                $leftLength = (int) ($attrNameLength / 2);
+                $rightLength = $attrNameLength - $leftLength - 1;
+                $name = substr($name, 0, $leftLength) . '…' . substr($name, -$rightLength);
+            }
+        }
+
+        return $name;
     }
 }

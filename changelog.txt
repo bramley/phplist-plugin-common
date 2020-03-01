@@ -1,3 +1,7 @@
+version 3.11.0+20200306
+      Rework the attribute DAO
+      Move parameters from constructor to method call
+
 version 3.10.13+20200216
       Use the same approach as core phplist to make the webblerlisting table responsive.
 
