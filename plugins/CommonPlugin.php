@@ -51,6 +51,7 @@ class CommonPlugin extends phplistPlugin
             ? file_get_contents($f)
             : '';
         include_once $this->coderoot . 'functions.php';
+        include_once $this->coderoot . 'polyfill.php';
     }
 
     public function activate()

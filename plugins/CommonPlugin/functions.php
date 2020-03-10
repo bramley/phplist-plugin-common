@@ -1,31 +1,39 @@
 <?php
 
-if (!function_exists('array_column')) {
-    function array_column($input, $columnKey, $indexKey = null)
-    {
-        $result = array();
+namespace phpList\plugin\Common;
 
-        if (null === $indexKey) {
-            if (null === $columnKey) {
-                // trigger_error('What are you doing? Use array_values() instead!', E_USER_NOTICE);
-                $result = array_values($input);
-            } else {
-                foreach ($input as $row) {
-                    $result[] = $row[$columnKey];
-                }
-            }
-        } else {
-            if (null === $columnKey) {
-                foreach ($input as $row) {
-                    $result[$row[$indexKey]] = $row;
-                }
-            } else {
-                foreach ($input as $row) {
-                    $result[$row[$indexKey]] = $row[$columnKey];
-                }
+/**
+ * Get a config value then split it into lines.
+ *
+ * @param string $item
+ *
+ * @return array
+ */
+function getConfigLines($item)
+{
+    return splitIntoLines(getConfig($item));
+}
+
+/**
+ * Split a string into lines allowing for any line-ending.
+ *
+ * @param string $string
+ *
+ * @return array
+ */
+function splitIntoLines($value)
+{
+    $lines = [];
+
+    if ($value !== '') {
+        foreach (preg_split('|\R+|', $value) as $line) {
+            $line = trim($line);
+
+            if ($line !== '') {
+                $lines[] = $line;
             }
         }
-
-        return $result;
     }
+
+    return $lines;
 }
