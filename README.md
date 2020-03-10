@@ -35,7 +35,8 @@ This should contain
 ## Version history ##
 
     version     Description
-    3.11.0+20200306
+    3.11.1+20200310 Add functions to split a string into lines and to get a config entry as lines.
+    3.11.0+20200306 Internal changes
     3.10.13+20200216 Make the webblerlisting table responsive
     3.10.12+20200127 Minor internal change
     3.10.11+20200125 Minor internal change

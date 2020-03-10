@@ -19,8 +19,8 @@ namespace phpList\plugin\Common;
  * It over-rides the log() method to include the calling class/method/line number
  *
  */
-use Psr\Log\NullLogger;
 use Katzgrau\KLogger;
+use Psr\Log\NullLogger;
 
 class Logger extends KLogger\Logger
 {

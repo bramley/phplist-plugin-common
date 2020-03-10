@@ -1,3 +1,7 @@
+version 3.11.1+20200310
+      Add functions to split a string into lines and to get a config entry as lines.
+      cs fixer
+
 version 3.11.0+20200306
       Rework the attribute DAO
       Move parameters from constructor to method call
