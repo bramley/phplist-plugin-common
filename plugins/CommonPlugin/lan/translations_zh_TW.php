@@ -16,9 +16,9 @@
  */
 return [
 //  CommonPlugin.php
-    ['view_phpinfo', 'phpinfo'],
-    ['view_config.php', 'config.php'],
-    ['view_session', 'php session'],
+    ['phpinfo', 'phpinfo'],
+    ['config.php', 'config.php'],
+    ['php session', 'php session'],
 //  Pager.php
     ['Showing %d to %d of %d', '顯示編號由 %d 至 %d 共 %d'],
     ['no_results', '沒有紀錄可以顯示'],

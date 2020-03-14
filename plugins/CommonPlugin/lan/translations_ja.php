@@ -16,9 +16,9 @@
  */
 return [
 //  CommonPlugin.php
-    ['view_phpinfo', 'phpinfoを表示'],
-    ['view_config.php', 'config.phpを表示'],
-    ['view_session', 'phpセッションを表示'],
+    ['phpinfo', 'phpinfoを表示'],
+    ['config.php', 'config.phpを表示'],
+    ['php session', 'phpセッションを表示'],
 //  Pager.php
     ['Showing %d to %d of %d', '%d 件目から %d 件目を表示 (%d 件中)'],
     ['no_results', '表示結果はありません。'],

@@ -59,9 +59,9 @@ class CommonPlugin extends phplistPlugin
         require $this->coderoot . 'Autoloader.php';
 
         $this->pageTitles = array(
-            'phpinfo' => s('view_phpinfo'),
-            'config_file' => s('view_config.php'),
-            'session' => s('view_session'),
+            'phpinfo' => s('phpinfo'),
+            'config_file' => s('config.php'),
+            'session' => s('php session'),
         );
     }
 

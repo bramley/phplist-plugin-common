@@ -1,3 +1,7 @@
+version 3.11.2+20200314
+      Add Dutch translations thanks to by Peter Buijs.
+      Ensure that the page titles are displayed in English for languages that do not have translations.
+
 version 3.11.1+20200310
       Add functions to split a string into lines and to get a config entry as lines.
       cs fixer

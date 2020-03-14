@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.11.2+20200314 Add Dutch translations thanks to by Peter Buijs.
     3.11.1+20200310 Add functions to split a string into lines and to get a config entry as lines.
     3.11.0+20200306 Internal changes
     3.10.13+20200216 Make the webblerlisting table responsive

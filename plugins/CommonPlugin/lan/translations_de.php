@@ -16,9 +16,9 @@
  */
 return [
 //  CommonPlugin.php
-    ['view_phpinfo', 'phpinfo anzeigen'],
-    ['view_config.php', 'config.php anzeigen'],
-    ['view_session', 'Sitzung anzeigen'],
+    ['phpinfo', 'phpinfo anzeigen'],
+    ['config.php', 'config.php anzeigen'],
+    ['php session', 'Sitzung anzeigen'],
 //  Pager.php
     ['Showing %d to %d of %d', 'Zeige %d bis %d von %d'],
     ['no_results', 'Keine Ergebnisse anzuzeigen'],
