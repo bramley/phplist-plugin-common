@@ -34,6 +34,10 @@ interface IMailClient
 
     /**
      * Provides additional http headers to be added to the request.
+     * For backwards compatibility the parameters are not included in the method signature.
+     *
+     * @param $messageheader string
+     * @param $messagebody   string
      *
      * @return array headers
      */

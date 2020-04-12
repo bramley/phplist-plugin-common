@@ -40,6 +40,8 @@ class MailSender
     private $totalSuccess = 0;
     /** @var int total of multi-curl calls that failed */
     private $totalFailure = 0;
+    /** @var phpList\plugin\Common\Logger */
+    private $logger;
 
     /**
      * Constructor.
@@ -52,6 +54,7 @@ class MailSender
         $this->multiLog = $multiLog;
         $this->curlVerbose = $curlVerbose;
         $this->verifyCert = $verifyCert;
+        $this->logger = Logger::instance();
     }
 
     /**
@@ -106,6 +109,7 @@ class MailSender
         curl_setopt($curl, CURLOPT_DNS_USE_GLOBAL_CACHE, true);
         curl_setopt($curl, CURLOPT_USERAGENT, NAME . ' (phpList version ' . VERSION . ', http://www.phplist.com/)');
         curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLINFO_HEADER_OUT, true);
 
         if ($this->curlVerbose) {
             curl_setopt($curl, CURLOPT_VERBOSE, true);
@@ -175,10 +179,10 @@ class MailSender
         if (count($this->calls) == $this->multiLimit) {
             $this->waitForCallToComplete(array_shift($this->calls));
         }
-
         $curl = $this->initialiseCurl();
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->client->httpHeaders());
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $this->client->requestBody($phplistmailer, $messageheader, $messagebody));
+        $body = $this->client->requestBody($phplistmailer, $messageheader, $messagebody);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->client->httpHeaders($messageheader, $body));
 
         $this->calls[] = [
             'manager' => $this->mc->addCurl($curl),
@@ -205,11 +209,13 @@ class MailSender
         if ($curl === null) {
             $curl = $this->initialiseCurl();
         }
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->client->httpHeaders());
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $this->client->requestBody($phplistmailer, $messageheader, $messagebody));
+        $body = $this->client->requestBody($phplistmailer, $messageheader, $messagebody);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->client->httpHeaders($messageheader, $body));
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $sentHeaders = curl_getinfo($curl, CURLINFO_HEADER_OUT);
 
         if ($response === false || preg_match('/^2\d\d$/', $httpCode) !== 1 || !$this->client->verifyResponse($response)) {
             $error = curl_error($curl);

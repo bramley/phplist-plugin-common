@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.12.0+20200412 Mail client support for Amazon SES signing the message body
     3.11.2+20200314 Add Dutch translations thanks to by Peter Buijs.
     3.11.1+20200310 Add functions to split a string into lines and to get a config entry as lines.
     3.11.0+20200306 Internal changes
