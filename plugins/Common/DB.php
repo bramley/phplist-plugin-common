@@ -34,12 +34,13 @@ class DB
     {
         $level = error_reporting(0);
 
-        $time_start = microtime(true);
+        $startTime = microtime(true);
         $resource = Sql_Query($sql);
+        $elapsed = microtime(true) - $startTime;
         $callback = new StringCallback(
-            function () use ($sql, $time_start) {
+            function () use ($sql, $elapsed) {
                 $formatted = SqlFormatter::format($sql, false);
-                $elapsed = (microtime(true) - $time_start) * 1000;
+                $elapsed = $elapsed * 1000;
 
                 return "elapsed time $elapsed ms\n$formatted";
             }
