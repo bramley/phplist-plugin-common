@@ -180,13 +180,27 @@ trait MessageTrait
         return $count;
     }
 
-    public function deleteNotSent($id)
+    public function deleteNotSent($id, $subscribers)
     {
-        $sql = "DELETE FROM {$this->tables['usermessage']}
-            WHERE status = 'not sent'
-            AND messageid = $id
-        ";
+        foreach ($subscribers as $userId) {
+            $sql = "DELETE FROM {$this->tables['usermessage']}
+                WHERE status = 'not sent'
+                AND messageid = $id
+                AND userid = $userId
+            ";
+        }
 
         return $this->dbCommand->queryAffectedRows($sql);
+    }
+
+    public function submitCampaign($messageId)
+    {
+        Sql_Query(
+            "UPDATE {$this->tables['message']}
+            SET status = 'submitted'
+            WHERE (status = 'sent' OR status = 'draft') AND id = $messageId"
+        );
+
+        return Sql_Affected_Rows() > 0;
     }
 }

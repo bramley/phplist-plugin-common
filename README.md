@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.12.2+20200517 Minor internal changes
     3.12.1+20200415 Improve timing of database queries
     3.12.0+20200412 Mail client support for Amazon SES signing the message body
     3.11.2+20200314 Add Dutch translations thanks to by Peter Buijs.
