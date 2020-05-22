@@ -3,20 +3,19 @@
 namespace phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * This is a base class providing common functionality for all models
- * 
+ * This is a base class providing common functionality for all models.
  */
 abstract class Model
 {
@@ -29,6 +28,7 @@ abstract class Model
      */
     protected $properties = array();
     protected $persist = array();
+
     /*
      *    Protected methods
      */
@@ -45,6 +45,7 @@ abstract class Model
             }
         }
     }
+
     /*
      *    Public methods
      */
@@ -56,14 +57,15 @@ abstract class Model
             if (isset($new[$key])) {
                 $v = $new[$key];
                 /*
-                 * unselected check-boxes come as zero values, remove and re-index array
+                 * unselected check-boxes come as zero values in a numerically indexed array
+                 * remove and re-index array
                  */
-                if (is_array($v)) {
+                if (is_array($v) && isset($v[0])) {
                     $value = array_values(array_filter($v));
                 } else {
                     $value = $v;
                 }
-                $dirty = isset($this->persist[$key]);
+                $dirty = $dirty || isset($this->persist[$key]);
             }
         }
         unset($value);

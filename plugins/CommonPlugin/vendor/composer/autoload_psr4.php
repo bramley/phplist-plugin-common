@@ -7,5 +7,10 @@ $baseDir = dirname(dirname(dirname($vendorDir)));
 
 return array(
     'chdemko\\BitArray\\' => array($vendorDir . '/chdemko/bitarray/src/BitArray'),
+    'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'Mouf\\Picotainer\\' => array($vendorDir . '/mouf/picotainer/src'),
     'Katzgrau\\KLogger\\' => array($vendorDir . '/katzgrau/klogger/src'),
+    'JMathai\\PhpMultiCurl\\' => array($vendorDir . '/jmathai/php-multi-curl/src'),
+    'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
 );

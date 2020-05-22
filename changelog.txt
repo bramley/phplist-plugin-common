@@ -1,3 +1,228 @@
+version 3.12.2+20200517
+      Remove 'notsent' rows from usermessage table only for specific subscribers.
+
+version 3.12.1+20200415
+      Improve timing of database queries.
+
+version 3.12.0+20200412
+      Pass the message headers and body to the httpHeaders() method of mail clients
+
+version 3.11.2+20200314
+      Add Dutch translations thanks to by Peter Buijs.
+      Ensure that the page titles are displayed in English for languages that do not have translations.
+
+version 3.11.1+20200310
+      Add functions to split a string into lines and to get a config entry as lines.
+      cs fixer
+
+version 3.11.0+20200306
+      Rework the attribute DAO
+      Move parameters from constructor to method call
+
+version 3.10.13+20200216
+      Use the same approach as core phplist to make the webblerlisting table responsive.
+
+version 3.10.12+20200127
+      Refactor ExportCSV class to support exporting to a file handle.
+
+version 3.10.11+20200125
+      Allow action to be specified when running a controller
+
+version 3.10.10+20191225
+      Minor improvements to StringStream class
+      Add phpunit tests for StringStream class
+
+version 3.10.9+20191024
+      Hide the value of defines whose name contains KEY
+
+version 3.10.8+20190914
+      Remove phpinfo styling of a link because it disrupts the trevelin theme
+
+version 3.10.7+20190902
+      Add DAO for template table
+
+version 3.10.6+20190825
+      Remove unnecessary output of command line signature
+
+version 3.10.5+20190730
+      Correct error in detecting whether model fields have changed
+      Handle clicking the chart to redirect to another page
+
+version 3.10.4+20190609
+      Use the same paging controls as core phplist
+      Display paging controls only when there is more than one page of results
+
+version 3.10.3+20190528
+      Improve display of webbler listings that have rows with elements
+      Remove pager css class from the pager div to avoid clash with core phplist
+
+version 3.10.2+20190509
+      Remove rows from user_message_view table when deleting a message
+      Improve css rule for toolbar icon
+
+version 3.10.1+20190318
+      Log event for update of frontend translations only when they have changed
+
+version 3.10.0+20190222
+      Replace i18n->get() by s()
+      New translation files
+      Add View class to render() templates
+
+version 3.9.8+20190129
+      Change MailSender to treat any 2xx status code as successful
+
+version 3.9.7+20181230
+      Lock jasongrimes/paginator to version 1.0.2
+      Add symfony filesystem package
+
+version 3.9.6+20181210
+      Remove obsolete file
+      Revise French translation
+      Allow 'All' string in pager to be translated
+      Add context for remote processing pages
+
+version 3.9.5+20181203
+Maasik (1):
+      Add Russian translation file
+
+version 3.9.4+20181130
+      Correct setting of CURLOPT_HEADER
+
+version 3.9.3+20181116
+      Add style to wrap a long text value
+      coding standards changes
+
+version 3.9.2+20181022
+      Add active field to listById() etc
+
+version 3.9.1+20181020
+      Use traits for the DAOs to simplify reuse
+
+version 3.9.0+20180905
+      Add Logger to DIC
+      Separate generation of dialog js
+      Add class to encapsulate a callback that returns a string
+      Allow message to be an object that can be stringified
+      Format sql queries when logging
+      Add sql-formatter package
+      Allow Logger to be subclassed.
+      Class to log only unique messages
+
+version 3.8.2+20180730
+      Fix problem of incorrect variable name
+
+version 3.8.1+20180729
+      Add method to delete 'not sent' rows from usermessage table.
+
+version 3.8.0+20180621
+      Set priority so this plugin is activated first
+      Create autoloader in activate()
+      Dependency on phplist 3.3.2
+
+version 3.7.18+20180528
+      Add subscribe page id as a search field on the attribute form
+
+version 3.7.17+20180528
+      Add class to translate text for frontend pages
+      Revert previous change of updating plugin translations
+
+version 3.7.16+20180525
+      Update plugin translations for all languages on logout
+
+version 3.7.15+20180402
+      Correct Content-Disposition header to put file name in quotes
+      Use $_GET for the toolbar export URL
+
+version 3.7.14+20180328
+      Add plugin description and documentation url
+
+version 3.7.13+20180321
+      coding standard changes
+      update copyright year to 2018
+
+version 3.7.12+20180320
+      Removed logging to a plugin-specific file.
+      Refactor and tidy-up code.
+      Remove redundant method.
+      Remove obsolete check of PHP version.
+      Reduce the level of errors being reported.
+
+version 3.7.11+20180129
+      Add image for external URL
+
+version 3.7.10+20180102
+      Added htmlspecialchars() inadvertently removed
+
+version 3.7.9+20171228
+      Correct display of an email address in a webbler listing.
+
+version 3.7.8+20171220
+      Correct display of '...' in Paginator class.
+
+version 3.7.7+20171217
+      Work-around for Trevelyn theme to stop links being displayed as buttons
+      Added class to send file to browser
+      Class to customise the display of \JasonGrimes\Paginator
+
+version 3.7.6+20171210
+      Add JasonGrimes\Paginator class
+
+version 3.7.5+20171204
+      Logger method to test whether debug is enabled
+
+version 3.7.4+20171201
+      Correct use of inheritance for Context class
+
+version 3.7.3+20171125
+      Use correct logical operator
+
+version 3.7.2+20171116
+      Update plugin translations on logout
+
+version 3.7.1+20171111
+      Add DAO method to confirm user
+
+version 3.7.0+20170929
+      Extract curl and multi-curl handling to separate class.
+      Add php-multi-curl package
+
+version 3.6.8+20170914
+Hironori Kamada (1):
+      Add Japanese language file, closes #8.
+
+version 3.6.7+20170911
+      Added Context class
+
+version 3.6.6+20170906
+      Allow other plugins to process the deletion of a campaign
+
+version 3.6.5+20170811
+      Add dependency on using mysqli, not mysql
+
+version 3.6.4+20170625
+      Add DIC dependencies for CommonPlugin
+
+version 3.6.3+20170601
+      Improve handling of check boxes in model.
+      Add picotainer package
+      For a subtheme use dialog.js of the parent theme.
+
+version 3.6.2+20170516
+      Use client polling approach to display progress.
+      Bring translations up to date.
+      Add method to create a url from $_GET.
+
+version 3.6.1+20170414
+      Replace custom iterator class for query result
+      The bootlist theme needs different js to display a dialog
+
+version 3.6.0+20170409
+      Export asynchronously using an iframe.
+      Display progress in a dialog.
+
+version 3.5.16+20170402
+      Remove PicoFeed and ZendXml
+
 version 3.5.15+20170304
       Use core phplist help dialog
 

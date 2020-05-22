@@ -8,35 +8,19 @@ It also provides three pages which are added to the Config menu
 * display the config.php file (user id and passwords are removed)
 * display the contents of the php session
 
-When installing or upgrading a plugin ensure that the latest CommonPlugin is installed as well.
+The plugin is now included in phplist so you should not normally need to install the plugin yourself.
+However when installing or upgrading another plugin ensure that you upgrade to the latest CommonPlugin as well.
 
 ## Installation ##
 
 ### Dependencies ###
 
-This plugin is for phplist 3.0.0 and later.
+This plugin requires phplist 3.3.2 or later.
 
 Requires php version 5.4 or later.
 
-The version of this plugin dated 2015-03-23 has an incompatible change. 
-Other plugins that depend on CommonPlugin should be upgraded to their latest version.
-
-### Set the plugin directory ###
-The default plugin directory is `plugins` within the phplist `admin` directory but you can use a directory outside
-of the web root by changing the definition of `PLUGIN_ROOTDIR` in config.php.
-The benefit of this is that installed plugins will not be affected when you upgrade phplist.
-
 ### Install through phplist ###
 The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
-
-In phplist releases 3.0.5 and earlier there is a bug that can cause a plugin to be incompletely installed on some configurations (<https://mantis.phplist.com/view.php?id=16865>). 
-Check that these files are in the plugin directory. If not then you will need to install manually. The bug has been fixed in release 3.0.6.
-
-* the file CommonPlugin.php
-* the directory CommonPlugin
-* the directory Common
-
-Then click the small orange icon to enable the plugin.
 
 ### Install manually ###
 Download the plugin zip file from <https://github.com/bramley/phplist-plugin-common/archive/master.zip>
@@ -51,6 +35,67 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.12.2+20200517 Minor internal changes
+    3.12.1+20200415 Improve timing of database queries
+    3.12.0+20200412 Mail client support for Amazon SES signing the message body
+    3.11.2+20200314 Add Dutch translations thanks to by Peter Buijs.
+    3.11.1+20200310 Add functions to split a string into lines and to get a config entry as lines.
+    3.11.0+20200306 Internal changes
+    3.10.13+20200216 Make the webblerlisting table responsive
+    3.10.12+20200127 Minor internal change
+    3.10.11+20200125 Minor internal change
+    3.10.10+20191225 Minor improvements to StringStream class
+    3.10.9+20191024 Minor change to display of the config.php file
+    3.10.8+20190914 Improve display of phpinfo with the trevelin theme
+    3.10.7+20190902 Add DAO for template table
+    3.10.6+20190825 Remove unnecessary output of command line signature
+    3.10.5+20190730 Support clicking a chart to redirect to another page
+    3.10.4+20190609 Use the same paging controls as core phplist
+    3.10.3+20190528 Improve display of listing and pager
+    3.10.2+20190509 Improve display of icons
+    3.10.1+20190318 Log event for update of frontend translations only when they have changed
+    3.10.0+20190222 Improvements to translations, other internal changes
+    3.9.8+20190129  Minor change to MailSender class
+    3.9.7+20181230  Internal changes
+    3.9.6+20181210  Minor internal changes
+    3.9.5+20181203  Add Russian translation file
+    3.9.4+20181130  Bug fix for MailSender class
+    3.9.3+20181116  Minor internal changes
+    3.9.2+20181022  Internal changes
+    3.9.1+20181020  Internal changes
+    3.9.0+20180905  Collection of internal changes
+    3.8.2+20180730  Minor bug fix
+    3.8.1+20180729  Add method to delete 'not sent' rows from usermessage table
+    3.8.0+20180621  Add dependency on phplist 3.3.2
+    3.7.18+20180528 Add subscribe page id as a search field on the attribute form
+    3.7.17+20180528 Add class to translate text on frontend pages
+    3.7.16+20180525 Update plugin translations for all languages on logout
+    3.7.15+20180402 Minor internal changes
+    3.7.14+20180328 Display description and documentation url on the plugins page
+    3.7.13+20180321 Coding standards changes
+    3.7.12+20180320 Minor internal changes
+    3.7.11+20180129 Add image for external URL
+    3.7.10+20180102 Fix bug introduced in previous change
+    3.7.9+20171228  Fix bug in displaying email address
+    3.7.8+20171220  Bug fix for Paginator class
+    3.7.7+20171217  Minor changes
+    3.7.6+20171210  Added Paginator class
+    3.7.5+20171204  Minor addition to logging
+    3.7.4+20171201  Minor bug fix
+    3.7.3+20171125  Minor bug fix
+    3.7.2+20171116  Update plugin translations on logout
+    3.7.1+20171111  Add DAO method to confirm user
+    3.7.0+20170929  Add class to send emails using curl and multi-curl
+    3.6.8+20170914  Add Japanese language file
+    3.6.7+20170911  Added Context class
+    3.6.6+20170906  Allow other plugins to process the deletion of a campaign
+    3.6.5+20170811  Add dependency on using mysqli
+    3.6.4+20170625  Add DIC dependencies for Common Plugin
+    3.6.3+20170601  Include picotainer package
+    3.6.2+20170516  Improve reporting of progress when exporting
+    3.6.1+20170414  Display export dialog with bootlist theme
+    3.6.0+20170409  Now exports in a similar way to core phplist
+    3.5.16+20170402 Remove the PicoFeed package
     3.5.15+20170304 Make help dialog compatible with new phplist theme
     3.5.14+20170302 Improve pager css
     3.5.13+20170223 Copy rows in the listmessage table when copying a message

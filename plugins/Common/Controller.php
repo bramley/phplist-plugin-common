@@ -1,20 +1,19 @@
 <?php
-
-namespace phpList\plugin\Common;
-
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
-abstract class Controller
-    extends BaseController
+
+namespace phpList\plugin\Common;
+
+abstract class Controller extends BaseController
 {
     /*
      *    Public attributes
@@ -29,6 +28,7 @@ abstract class Controller
     {
         $val = stripslashes($val);
     }
+
     /*
      *    Protected methods
      */
@@ -50,10 +50,32 @@ abstract class Controller
         exit;
     }
 
-    protected function actionExportCSV()
+    protected function actionExportCSV(IExportable $exportable = null)
     {
-        $exporter = new ExportCSV();
-        $exporter->export($this);
+        if ($exportable === null) {
+            $exportable = $this;
+        }
+        $exporter = new ExportCSVAsync();
+
+        while (ob_get_level() > 0) {
+            ob_end_clean();
+        }
+
+        if (isset($_GET['stage'])) {
+            switch ($_GET['stage']) {
+                case 'build':
+                   $exporter->export($exportable);
+                   break;
+                case 'send':
+                   $exporter->send($exportable);
+                   break;
+                case 'progress':
+                   $exporter->progress();
+                   break;
+            }
+        } else {
+            $exporter->start();
+        }
         exit;
     }
 
@@ -71,6 +93,7 @@ abstract class Controller
         logEvent($message);
         $page = $currentPage;
     }
+
     /*
      *    Public methods
      */

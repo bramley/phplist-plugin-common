@@ -3,42 +3,56 @@
 namespace phpList\plugin\Common;
 
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * This class manages the export in CSV format
- * 
+ * This class manages the export in CSV format.
  */
 class ExportCSV
 {
-    public function __construct()
+    /**
+     * @param IExportable $exportable
+     */
+    public function __construct(IExportable $exportable)
     {
+        $this->exportable = $exportable;
     }
 
-    public function export(IExportable $exporter)
+    /**
+     * Export as CSV to the browser.
+     */
+    public function export()
     {
-        $fileName = $exporter->exportFileName();
-    
-        ob_end_clean();
-        Header('Content-type: text/csv');
-        Header("Content-disposition:  attachment; filename={$fileName}.csv");
-        $out = fopen('php://output', 'w');
-        fputcsv($out, $exporter->exportFieldNames());
-        $rows = $exporter->exportRows();
+        $fileName = $this->exportable->exportFileName();
 
-        foreach ($rows as $row) {
-            fputcsv($out, $exporter->exportValues($row));
+        ob_end_clean();
+        header('Content-Type: text/csv');
+        header(sprintf('Content-Disposition: attachment; filename="%s.csv"', $fileName));
+
+        $this->exportToFile(fopen('php://output', 'w'));
+    }
+
+    /**
+     * Export as CSV to a file handle.
+     *
+     * @param resource $fh
+     */
+    public function exportToFile($fh)
+    {
+        fputcsv($fh, $this->exportable->exportFieldNames());
+
+        foreach ($this->exportable->exportRows() as $row) {
+            fputcsv($fh, $this->exportable->exportValues($row));
         }
-        
-        fclose($out);
+        fclose($fh);
     }
 }

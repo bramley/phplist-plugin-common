@@ -1,4 +1,5 @@
 .php_cs.cache
+.phpunit.result.cache
 
 ## Composer ##
 composer.phar
@@ -11,15 +12,37 @@ plugins/CommonPlugin/vendor/psr/log/*
 !plugins/CommonPlugin/vendor/psr/log/Psr
 plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/
 
-plugins/CommonPlugin/vendor/fguillot/picofeed/*
-!plugins/CommonPlugin/vendor/fguillot/picofeed/LICENSE
-!plugins/CommonPlugin/vendor/fguillot/picofeed/lib/
+plugins/CommonPlugin/vendor/psr/container/*
+!plugins/CommonPlugin/vendor/psr/container/LICENSE
+!plugins/CommonPlugin/vendor/psr/container/src
 
 plugins/CommonPlugin/vendor/chdemko/bitarray/*
 !plugins/CommonPlugin/vendor/chdemko/bitarray/src
 !plugins/CommonPlugin/vendor/chdemko/bitarray/cite.bib
 !plugins/CommonPlugin/vendor/chdemko/bitarray/README.md
 
-plugins/CommonPlugin/vendor/zendframework/zendxml/*
-!plugins/CommonPlugin/vendor/zendframework/zendxml/library
-!plugins/CommonPlugin/vendor/zendframework/zendxml/LICENSE.md
+plugins/CommonPlugin/vendor/container-interop/container-interop/*
+!plugins/CommonPlugin/vendor/container-interop/container-interop/LICENSE
+!plugins/CommonPlugin/vendor/container-interop/container-interop/src
+
+plugins/CommonPlugin/vendor/mouf/picotainer/*
+!plugins/CommonPlugin/vendor/mouf/picotainer/src
+
+plugins/CommonPlugin/vendor/jmathai/php-multi-curl/*
+!plugins/CommonPlugin/vendor/jmathai/php-multi-curl/LICENSE
+!plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src/
+plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src/example.php
+
+plugins/CommonPlugin/vendor/jasongrimes/paginator/*
+!plugins/CommonPlugin/vendor/jasongrimes/paginator/LICENSE
+!plugins/CommonPlugin/vendor/jasongrimes/paginator/src/
+
+plugins/CommonPlugin/vendor/jdorn/sql-formatter/*
+!plugins/CommonPlugin/vendor/jdorn/sql-formatter/LICENSE.txt
+!plugins/CommonPlugin/vendor/jdorn/sql-formatter/lib/
+
+plugins/CommonPlugin/vendor/symfony/filesystem/*
+!plugins/CommonPlugin/vendor/symfony/filesystem/LICENSE
+!plugins/CommonPlugin/vendor/symfony/filesystem/Filesystem.php
+!plugins/CommonPlugin/vendor/symfony/filesystem/LockHandler.php
+!plugins/CommonPlugin/vendor/symfony/filesystem/Exception/

@@ -1,21 +1,19 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * DAO class providing access to the config table
- * 
+ * DAO class providing access to the config table.
  */
-class CommonPlugin_DAO_Config
-    extends phpList\plugin\Common\DAO\Config
+class CommonPlugin_DAO_Config extends phpList\plugin\Common\DAO\Config
 {
 }

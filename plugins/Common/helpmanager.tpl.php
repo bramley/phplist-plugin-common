@@ -1,18 +1,18 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- * Template HTML for the help page
+ * Template HTML for the help page.
  */
 ?>
 <HTML>
@@ -26,7 +26,7 @@ div.help td {
     padding: 1px;
 }
 </style>
-<h3><?php echo $this->i18n->get('plugin_title') . ': ' . $topic ?></h3>
+<h3><?php echo $this->i18n->get('plugin_title') . ': ' . $topic; ?></h3>
 <div class="help">
 <?php if (isset($file)) {
     include $file;

@@ -3,17 +3,23 @@
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
+        "symfony/filesystem": "3.4",
+        "jasongrimes/paginator": "1.0.2",
+        "jmathai/php-multi-curl": "dev-master",
+        "mouf/picotainer": "1.1.0",
         "psr/log": "1.0.0",
         "katzgrau/klogger": "1.2.0",
-        "fguillot/picofeed": "v0.1.24",
-        "chdemko/bitarray": "1.0.0"
+        "chdemko/bitarray": "1.0.0",
+        "jdorn/sql-formatter": "^1.2"
     },
     "autoload": {
         "classmap": [
             "plugins/CommonPlugin/vendor/chdemko/bitarray/src",
+            "plugins/CommonPlugin/vendor/container-interop/container-interop/src",
             "plugins/CommonPlugin/vendor/ext/",
-            "plugins/CommonPlugin/vendor/fguillot/picofeed/lib",
             "plugins/CommonPlugin/vendor/katzgrau/klogger/src",
+            "plugins/CommonPlugin/vendor/mouf/picotainer/src",
+            "plugins/CommonPlugin/vendor/psr/container/src",
             "plugins/CommonPlugin/vendor/psr/log/Psr"
         ],
         "exclude-from-classmap": [

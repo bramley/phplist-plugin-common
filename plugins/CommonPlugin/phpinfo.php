@@ -1,19 +1,18 @@
 <?php
 /**
- * CommonPlugin for phplist
- * 
+ * CommonPlugin for phplist.
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
- * @package   CommonPlugin
+ *
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /**
- *  This page displays phpinfo
- *
+ *  This page displays phpinfo.
  */
 function CommonPlugin_phpinfo($html)
 {
@@ -21,9 +20,9 @@ function CommonPlugin_phpinfo($html)
         throw new Exception('The xsl extension must be installed to display phpinfo');
     }
 
-    $xml = new DOMDocument;
+    $xml = new DOMDocument();
     $xml->loadHTML($html);
-    $xsl = new DOMDocument;
+    $xsl = new DOMDocument();
     $xsl->loadXML(<<<END
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" indent="yes" encoding="UTF-8"/>
@@ -32,6 +31,14 @@ function CommonPlugin_phpinfo($html)
     <xsl:template match="@*|node()">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="style">
+        <!-- remove styling of a link because it overrides the trevelin theme -->
+        <xsl:copy>
+            <xsl:value-of select="substring-before(., 'a:link {color: #009; text-decoration: none; background-color: #fff;}')"/>
+            <xsl:value-of select="substring-after(., 'a:link {color: #009; text-decoration: none; background-color: #fff;}&#x0A;')"/>
         </xsl:copy>
     </xsl:template>
 
@@ -47,8 +54,9 @@ function CommonPlugin_phpinfo($html)
 END
     );
 
-    $proc = new XSLTProcessor;
+    $proc = new XSLTProcessor();
     $proc->importStyleSheet($xsl);
+
     return $proc->transformToXML($xml);
 }
 

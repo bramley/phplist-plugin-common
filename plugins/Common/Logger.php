@@ -2,31 +2,29 @@
 
 namespace phpList\plugin\Common;
 
-/**
+/*
  * CommonPlugin for phplist
- * 
+ *
  * This file is a part of CommonPlugin.
  *
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2017 Duncan Cameron
+ * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
-/**
+/*
  * This class extends KLogger to provide configuration through config.php entries.
  * It over-rides the log() method to include the calling class/method/line number
- * 
+ *
  */
-use Psr\Log\LogLevel;
-use Psr\Log\NullLogger;
 use Katzgrau\KLogger;
+use Psr\Log\NullLogger;
 
 class Logger extends KLogger\Logger
 {
-    private static $instance;
-    private $threshold;
+    protected static $instance;
     private $classes;
 
     /*
@@ -34,72 +32,88 @@ class Logger extends KLogger\Logger
      */
 
     /**
-     * Creates a configured instance using entries from config.php
+     * Creates a configured instance using entries from config.php.
      *
-     * @param string  $logDirectory File path to the logging directory
-     * @param string $severity     One of the pre-defined PSR severity constants
-     * @return Logger
+     * @return Psr\Log\AbstractLogger
      */
     public static function instance()
     {
         global $log_options;
         global $tmpdir;
 
-        if (isset(self::$instance)) {
-            return self::$instance;
+        if (isset(static::$instance)) {
+            return static::$instance;
         }
 
         if (isset($log_options['threshold']) && defined('Psr\Log\LogLevel::' . $log_options['threshold'])) {
             $threshold = constant('Psr\Log\LogLevel::' . $log_options['threshold']);
-
-            if (isset($log_options['dir'])) {
-                $dir = $log_options['dir'];
-            } elseif (isset($tmpdir)) {
-                $dir = $tmpdir;
-            } else {
-                $dir = '/var/tmp';
-            }
-
-            if (isset($_GET['pi'])) {
-                $pi = preg_replace('/\W/', '', $_GET['pi']);
-                $dir .= '/' . $pi;
-            }
-            $logger = new self($dir, $threshold);
+            $dir = isset($log_options['dir']) ? $log_options['dir'] : $tmpdir;
+            $logger = new static($dir, $threshold);
             $logger->setDateFormat('D d M Y H:i:s');
         } else {
             $logger = new NullLogger();
         }
+        static::$instance = $logger;
 
-        self::$instance = $logger;
         return $logger;
     }
 
+    /**
+     * Constructor.
+     *
+     * @param string $dir       File path to the logging directory
+     * @param string $threshold One of the pre-defined PSR severity constants
+     */
     public function __construct($dir, $threshold)
     {
         global $log_options;
 
         $this->classes = isset($log_options['classes']) ? $log_options['classes'] : array();
-        $this->threshold = $threshold;
         parent::__construct($dir, $threshold);
     }
 
+    /**
+     * Overrides the parent method.
+     * Logs messages only from configured classes.
+     * Prepends the calling class/method/line number to the message.
+     *
+     * @param string $level
+     * @param string $message
+     * @param array  $context
+     */
     public function log($level, $message, array $context = array())
     {
-        $trace = debug_backtrace(false);
-
-        if (!empty($this->classes[$trace[1]['class']])) {
-            $i = 1;
-        } elseif (!empty($this->classes[$trace[2]['class']])) {
-            $i = 2;
-        } elseif (!empty($this->classes[$trace[3]['class']])) {
-            $i = 3;
-        } else {
+        if ($this->logLevels[$this->logLevelThreshold] < $this->logLevels[$level]) {
             return;
         }
+        $trace = debug_backtrace(false, 4);
+        /*
+         * [0] is AbstractLogger calling this method
+         * [1] is the caller of debug(), info() etc, which gives the line number
+         * [2] is the previous level, which gives the class/method of the caller of debug(), info() etc
+         *
+         * The frame index is increased by 1 when log() is implemented by a wrapper or subclass
+         * [0] is a wrapper or subclass calling this method
+         * [1] is AbstractLogger calling the log() method of a wrapper or subclass
+         * [2] is the caller of debug(), info() etc, which gives the line number
+         * [3] is the previous level, which gives the class/method of the caller of debug(), info() etc
+         */
+        $frame = 1;
 
-        $message =
-            "{$trace[$i]['class']}::{$trace[$i]['function']}, line {$trace[$i - 1]['line']}\n"
-            . $message;
-        parent::log($level, $message, $context);
+        if (empty($this->classes[$trace[$frame + 1]['class']])) {
+            $frame = 2;
+
+            if (empty($this->classes[$trace[$frame + 1]['class']])) {
+                return;
+            }
+        }
+        $logMessage = sprintf(
+            "%s::%s, line %d\n%s",
+            $trace[$frame + 1]['class'],
+            $trace[$frame + 1]['function'],
+            $trace[$frame]['line'],
+            (string) $message
+        );
+        $this->write($this->formatMessage($level, $logMessage, $context));
     }
 }
