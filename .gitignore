@@ -41,6 +41,18 @@ plugins/CommonPlugin/vendor/jdorn/sql-formatter/*
 !plugins/CommonPlugin/vendor/jdorn/sql-formatter/LICENSE.txt
 !plugins/CommonPlugin/vendor/jdorn/sql-formatter/lib/
 
+plugins/CommonPlugin/vendor/pelago/emogrifier/*
+!plugins/CommonPlugin/vendor/pelago/emogrifier/LICENSE
+!plugins/CommonPlugin/vendor/pelago/emogrifier/src/
+
+plugins/CommonPlugin/vendor/symfony/css-selector/*
+!plugins/CommonPlugin/vendor/symfony/css-selector/CssSelectorConverter.php
+!plugins/CommonPlugin/vendor/symfony/css-selector/LICENSE
+!plugins/CommonPlugin/vendor/symfony/css-selector/Exception
+!plugins/CommonPlugin/vendor/symfony/css-selector/Node
+!plugins/CommonPlugin/vendor/symfony/css-selector/Parser
+!plugins/CommonPlugin/vendor/symfony/css-selector/XPath
+
 plugins/CommonPlugin/vendor/symfony/filesystem/*
 !plugins/CommonPlugin/vendor/symfony/filesystem/LICENSE
 !plugins/CommonPlugin/vendor/symfony/filesystem/Filesystem.php

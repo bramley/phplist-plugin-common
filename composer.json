@@ -3,14 +3,16 @@
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
-        "symfony/filesystem": "3.4",
-        "jasongrimes/paginator": "1.0.2",
-        "jmathai/php-multi-curl": "dev-master",
-        "mouf/picotainer": "1.1.0",
-        "psr/log": "1.0.0",
-        "katzgrau/klogger": "1.2.0",
         "chdemko/bitarray": "1.0.0",
-        "jdorn/sql-formatter": "^1.2"
+        "jasongrimes/paginator": "1.0.2",
+        "jdorn/sql-formatter": "^1.2",
+        "jmathai/php-multi-curl": "dev-master",
+        "katzgrau/klogger": "1.2.0",
+        "mouf/picotainer": "1.1.0",
+        "pelago/emogrifier": "^3.1",
+        "psr/log": "1.0.0",
+        "symfony/css-selector": "^3.0",
+        "symfony/filesystem": "3.4"
     },
     "autoload": {
         "classmap": [
@@ -19,8 +21,11 @@
             "plugins/CommonPlugin/vendor/ext/",
             "plugins/CommonPlugin/vendor/katzgrau/klogger/src",
             "plugins/CommonPlugin/vendor/mouf/picotainer/src",
+            "plugins/CommonPlugin/vendor/pelago/emogrifier/src",
             "plugins/CommonPlugin/vendor/psr/container/src",
-            "plugins/CommonPlugin/vendor/psr/log/Psr"
+            "plugins/CommonPlugin/vendor/psr/log/Psr",
+            "plugins/CommonPlugin/vendor/symfony/css-selector",
+            "plugins/CommonPlugin/vendor/symfony/filesystem"
         ],
         "exclude-from-classmap": [
             "plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/"
