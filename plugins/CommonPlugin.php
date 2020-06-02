@@ -19,6 +19,7 @@
  * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
+use Pelago\Emogrifier\CssInliner;
 
 /**
  * Registers the plugin with phplist.
@@ -42,6 +43,15 @@ class CommonPlugin extends phplistPlugin
         'session' => array('category' => 'config'),
     );
     public $publicPages = array('image');
+    public $settings = [
+        'common_inline_css' => [
+            'description' => 'Inline CSS styles',
+            'type' => 'boolean',
+            'value' => false,
+            'allowempty' => true,
+            'category' => 'campaign',
+        ],
+    ];
 
     public function __construct()
     {
@@ -63,6 +73,7 @@ class CommonPlugin extends phplistPlugin
             'config_file' => s('config.php'),
             'session' => s('php session'),
         );
+        parent::activate();
     }
 
     public function adminmenu()
@@ -73,7 +84,7 @@ class CommonPlugin extends phplistPlugin
     public function dependencyCheck()
     {
         return array(
-            'PHP version 5.4.0 or greater' => version_compare(PHP_VERSION, '5.4') > 0,
+            'PHP version 5.6.0 or greater' => version_compare(PHP_VERSION, '5.6') > 0,
             'phpList version 3.3.2 or later' => version_compare(VERSION, '3.3.2') >= 0,
         );
     }
@@ -135,5 +146,22 @@ END;
                 }
             }
         }
+    }
+
+    /**
+     * Use this hook to inline CSS in the final email body.
+     *
+     * @param PHPMailer $mail instance of PHPMailer
+     *
+     * @return array
+     */
+    public function messageHeaders($mail)
+    {
+        if (getConfig('common_inline_css') && $mail->ContentType == 'text/html') {
+            $inlinedHtml = CssInliner::fromHtml($mail->Body)->inlineCss()->render();
+            $mail->Body = $inlinedHtml;
+        }
+
+        return [];
     }
 }

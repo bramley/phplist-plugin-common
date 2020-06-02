@@ -17,7 +17,7 @@ However when installing or upgrading another plugin ensure that you upgrade to t
 
 This plugin requires phplist 3.3.2 or later.
 
-Requires php version 5.4 or later.
+Requires php version 5.6 or later.
 
 ### Install through phplist ###
 The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.13.0+20200602 Inline CSS using Emogrifier
     3.12.2+20200517 Minor internal changes
     3.12.1+20200415 Improve timing of database queries
     3.12.0+20200412 Mail client support for Amazon SES signing the message body
