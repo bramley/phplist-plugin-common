@@ -25,7 +25,9 @@
             "plugins/CommonPlugin/vendor/psr/container/src",
             "plugins/CommonPlugin/vendor/psr/log/Psr",
             "plugins/CommonPlugin/vendor/symfony/css-selector",
-            "plugins/CommonPlugin/vendor/symfony/filesystem"
+            "plugins/CommonPlugin/vendor/symfony/filesystem",
+            "plugins/CommonPlugin/vendor/crossjoin/css/src/Crossjoin/Css/",
+            "plugins/CommonPlugin/vendor/crossjoin/pre-mailer/src/Crossjoin/PreMailer/"
         ],
         "exclude-from-classmap": [
             "plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/"
