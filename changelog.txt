@@ -1,3 +1,7 @@
+version 3.13.1+20200606
+      Add crossjoin package source files for autoloading
+      Include premailer as a choice for inlining CSS.
+
 version 3.13.0+20200602
       Add emogrifier and css-selector packages.
       Optionally inline CSS using Emogrifier.

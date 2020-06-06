@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.13.1+20200606 Include premailer as a choice for inlining CSS
     3.13.0+20200602 Inline CSS using Emogrifier
     3.12.2+20200517 Minor internal changes
     3.12.1+20200415 Improve timing of database queries
