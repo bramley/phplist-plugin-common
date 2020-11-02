@@ -1,3 +1,6 @@
+version 3.13.2+20201102
+      Add method to update the template content
+
 version 3.13.1+20200606
       Add crossjoin package source files for autoloading
       Include premailer as a choice for inlining CSS.
