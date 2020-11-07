@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.14.0+20201107 Add page to export the event log
     3.13.2+20201102 Add method to update the template content
     3.13.1+20200606 Include premailer as a choice for inlining CSS
     3.13.0+20200602 Inline CSS using Emogrifier

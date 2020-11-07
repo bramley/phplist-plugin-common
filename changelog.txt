@@ -1,3 +1,6 @@
+version 3.14.0+20201107
+      Add page to export the event log
+
 version 3.13.2+20201102
       Add method to update the template content
 

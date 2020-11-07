@@ -44,6 +44,7 @@ class CommonPlugin extends phplistPlugin
         'phpinfo' => array('category' => 'config'),
         'config_file' => array('category' => 'config'),
         'session' => array('category' => 'config'),
+        'exportlog' => array('category' => 'system'),
     );
     public $publicPages = array('image');
     public $settings = array(
@@ -80,6 +81,7 @@ class CommonPlugin extends phplistPlugin
             'phpinfo' => s('phpinfo'),
             'config_file' => s('config.php'),
             'session' => s('php session'),
+            'exportlog' => s('Export the event log'),
         );
         parent::activate();
     }
