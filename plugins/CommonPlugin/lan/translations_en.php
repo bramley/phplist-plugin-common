@@ -19,7 +19,6 @@ return [
     ['phpinfo', 'phpinfo'],
     ['config.php', 'config.php'],
     ['php session', 'php session'],
-    ['Export the event log', 'Export the event log'],
 //  Pager.php
     ['Showing %d to %d of %d', 'Showing %d to %d of %d'],
     ['no_results', 'No results to display'],
