@@ -47,12 +47,17 @@ class FrontendTranslator
     }
 
     /**
-     * @param string $key text to be translated
+     * @param string $key     text to be translated
+     * @param mixed  ...$args optional sprintf parameters
      *
      * @return string
      */
-    public function s($key)
+    public function s($key, ...$args)
     {
-        return isset($this->translations[$key]) ? $this->translations[$key] : $key;
+        $translated = isset($this->translations[$key]) ? $this->translations[$key] : $key;
+
+        return count($args) > 0
+             ? sprintf($translated, ...$args)
+             : $translated;
     }
 }

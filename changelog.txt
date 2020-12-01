@@ -1,3 +1,6 @@
+version 3.14.2+20201201
+      Support sprintf parameters in front-end translations
+
 version 3.14.1+20201110
       Revert previous change that added export event log page
 
