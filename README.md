@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.14.3+20210201 Avoid invalid tag errors in the phpinfo page
     3.14.2+20201201 Support sprintf parameters in front-end translations
     3.14.1+20201110 Remove export event log page, now in Addons Plugin
     3.14.0+20201107 Add page to export the event log
