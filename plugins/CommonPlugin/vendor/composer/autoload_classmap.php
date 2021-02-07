@@ -8,6 +8,7 @@ $baseDir = dirname(dirname(dirname($vendorDir)));
 return array(
     'CHtml' => $vendorDir . '/ext/yii/CHtml.php',
     'Chart' => $vendorDir . '/ext/chart/Chart.php',
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Crossjoin\\Css\\Format\\Rule\\AtCharset\\CharsetRule' => $vendorDir . '/crossjoin/css/src/Crossjoin/Css/Format/Rule/AtCharset/CharsetRule.php',
     'Crossjoin\\Css\\Format\\Rule\\AtDocument\\DocumentRule' => $vendorDir . '/crossjoin/css/src/Crossjoin/Css/Format/Rule/AtDocument/DocumentRule.php',
     'Crossjoin\\Css\\Format\\Rule\\AtFontFace\\FontFaceDeclaration' => $vendorDir . '/crossjoin/css/src/Crossjoin/Css/Format/Rule/AtFontFace/FontFaceDeclaration.php',
@@ -61,6 +62,7 @@ return array(
     'Crossjoin\\PreMailer\\HtmlFile' => $vendorDir . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlFile.php',
     'Crossjoin\\PreMailer\\HtmlString' => $vendorDir . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlString.php',
     'Crossjoin\\PreMailer\\PreMailerAbstract' => $vendorDir . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/PreMailerAbstract.php',
+    'FPDF' => $vendorDir . '/ext/fpdf/fpdf.php',
     'Interop\\Container\\ContainerInterface' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
     'Interop\\Container\\Exception\\ContainerException' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
     'Interop\\Container\\Exception\\NotFoundException' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
