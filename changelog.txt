@@ -1,3 +1,8 @@
+version 3.15.0+20210207
+      Add FPDF package
+      Add class to extend FPDF
+      Add setting for logo to include in PDF reports and default phplist logo
+
 version 3.14.3+20210201
       Avoid invalid tag errors in the phpinfo page
 

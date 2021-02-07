@@ -46,24 +46,32 @@ class CommonPlugin extends phplistPlugin
         'session' => array('category' => 'config'),
     );
     public $publicPages = array('image');
-    public $settings = array(
-        'common_inline_css_package' => array(
-            'description' => 'The package to use to inline CSS',
-            'type' => 'select',
-            'value' => self::CSS_INLINE_NONE,
-            'values' => array(
-                self::CSS_INLINE_NONE => self::CSS_INLINE_NONE,
-                self::CSS_INLINE_EMOGRIFIER => self::CSS_INLINE_EMOGRIFIER,
-                self::CSS_INLINE_PREMAILER => self::CSS_INLINE_PREMAILER,
-            ),
-            'allowempty' => false,
-            'category' => 'campaign',
-        ),
-    );
 
     public function __construct()
     {
         $this->coderoot = dirname(__FILE__) . '/' . __CLASS__ . '/';
+        $this->settings = [
+            'common_inline_css_package' => [
+                'description' => 'The package to use to inline CSS',
+                'type' => 'select',
+                'value' => self::CSS_INLINE_NONE,
+                'values' => array(
+                    self::CSS_INLINE_NONE => self::CSS_INLINE_NONE,
+                    self::CSS_INLINE_EMOGRIFIER => self::CSS_INLINE_EMOGRIFIER,
+                    self::CSS_INLINE_PREMAILER => self::CSS_INLINE_PREMAILER,
+                ),
+                'allowempty' => false,
+                'category' => 'campaign',
+            ],
+            'common_pdf_logo_path' => [
+                'value' => $this->coderoot . 'images/logo.png',
+                'description' => 'File system path or URL to a logo to be used on PDF reports',
+                'type' => 'text',
+                'allowempty' => false,
+                'category' => 'campaign',
+            ],
+        ];
+
         parent::__construct();
         $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
             ? file_get_contents($f)
