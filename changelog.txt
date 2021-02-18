@@ -1,3 +1,6 @@
+version 3.15.1+20210218
+      Remove 'All' from translation files because it is in core phplist
+
 version 3.15.0+20210207
       Add FPDF package
       Add class to extend FPDF
