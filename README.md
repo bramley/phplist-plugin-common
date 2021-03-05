@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.15.2+20210305 Slight optimisation of checking for language updates
     3.15.1+20210218 Minor change to translations
     3.15.0+20210207 Add FPDF package
     3.14.3+20210201 Avoid invalid tag errors in the phpinfo page

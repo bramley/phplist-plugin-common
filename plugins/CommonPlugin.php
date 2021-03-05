@@ -157,9 +157,9 @@ END;
                 }
 
                 if ($changed) {
-                    SaveConfig($configKey, $modified);
                     logEvent("Translations updated for $piName language $I18N->language");
                 }
+                SaveConfig($configKey, $modified);
             }
         }
     }
