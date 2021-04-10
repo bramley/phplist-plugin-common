@@ -26,7 +26,10 @@ class FPDF extends \FPDF
 
     public function Header()
     {
-        $this->Image(getConfig('common_pdf_logo_path'), 20);
+        global $plugins;
+
+        $imagePath = getConfig('common_pdf_logo_path') ?: $plugins['CommonPlugin']->coderoot . 'images/logo.png';
+        $this->Image($imagePath, 20);
         $this->SetY($this->GetY() + 5);
         $pageWidth = $this->GetPageWidth();
         $this->Line($this->lMargin, $this->GetY(), $pageWidth - $this->rMargin, $this->GetY());
