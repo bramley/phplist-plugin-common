@@ -141,6 +141,7 @@ class MailSender
     /**
      * Waits for each outstanding call to complete.
      * Writes the sequence of calls to a log file.
+     * Writes to the event log except when only one email has been sent.
      */
     private function completeCalls()
     {
@@ -153,7 +154,10 @@ class MailSender
         if ($this->multiLog) {
             file_put_contents("$tmpdir/multicurl.log", $this->mc->getSequence()->renderAscii());
         }
-        logEvent(sprintf('Multi-curl successes: %d, failures: %d', $this->totalSuccess, $this->totalFailure));
+
+        if (!($this->totalSuccess == 1 && $this->totalFailure == 0)) {
+            logEvent(sprintf('Multi-curl successes: %d, failures: %d', $this->totalSuccess, $this->totalFailure));
+        }
     }
 
     /**
