@@ -30,7 +30,6 @@ return [
     ['top', 'nach oben'],
 //  widget_attributeform.tpl.php
     ['Search for', 'Suche nach'],
-    ['All', 'Alle'],
     ['confirmed only', 'nur bestätigte Abonnenten'],
     ['unconfirmed only', 'nur unbestätigte Abonnenten'],
     ['blacklisted only', 'nur gesperrte Abonnenten (Blacklist)'],

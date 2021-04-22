@@ -17,7 +17,7 @@ However when installing or upgrading another plugin ensure that you upgrade to t
 
 This plugin requires phplist 3.3.2 or later.
 
-Requires php version 5.4 or later.
+Requires php version 5.6 or later.
 
 ### Install through phplist ###
 The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
@@ -35,6 +35,18 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.15.4+20210418 Minor change to the MailSender class
+    3.15.3+20210410 Minor internal changes
+    3.15.2+20210305 Slight optimisation of checking for language updates
+    3.15.1+20210218 Minor change to translations
+    3.15.0+20210207 Add FPDF package
+    3.14.3+20210201 Avoid invalid tag errors in the phpinfo page
+    3.14.2+20201201 Support sprintf parameters in front-end translations
+    3.14.1+20201110 Remove export event log page, now in Addons Plugin
+    3.14.0+20201107 Add page to export the event log
+    3.13.2+20201102 Add method to update the template content
+    3.13.1+20200606 Include premailer as a choice for inlining CSS
+    3.13.0+20200602 Inline CSS using Emogrifier
     3.12.2+20200517 Minor internal changes
     3.12.1+20200415 Improve timing of database queries
     3.12.0+20200412 Mail client support for Amazon SES signing the message body

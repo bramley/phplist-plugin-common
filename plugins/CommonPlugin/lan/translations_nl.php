@@ -30,7 +30,6 @@ return [
     ['top', 'boven'],
 //  widget_attributeform.tpl.php
     ['Search for', 'Zoek naar'],
-    ['All', 'Alle'],
     ['confirmed only', 'alleen bevestigd'],
     ['unconfirmed only', 'alleen niet bevestigd'],
     ['blacklisted only', 'alleen op Zwartelijst'],

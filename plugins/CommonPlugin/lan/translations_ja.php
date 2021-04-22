@@ -30,7 +30,6 @@ return [
     ['top', 'トップ'],
 //  widget_attributeform.tpl.php
     ['Search for', '検索'],
-    ['All', 'すべて'],
     ['confirmed only', '承認済のみ'],
     ['unconfirmed only', '未承認のみ'],
     ['blacklisted only', 'ブラックリストのみ'],

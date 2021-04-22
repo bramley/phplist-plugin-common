@@ -56,6 +56,7 @@ return array(
     'phpList\plugin\Common\ExportCSV' => $base . '/Common/ExportCSV.php',
     'phpList\plugin\Common\ExportCSVAsync' => $base . '/Common/ExportCSVAsync.php',
     'phpList\plugin\Common\ExportXML' => $base . '/Common/ExportXML.php',
+    'phpList\plugin\Common\FPDF' => $base . '/Common/FPDF.php',
     'phpList\plugin\Common\FileNotFoundException' => $base . '/Common/FileNotFoundException.php',
     'phpList\plugin\Common\FileServer' => $base . '/Common/FileServer.php',
     'phpList\plugin\Common\FrontendTranslator' => $base . '/Common/FrontendTranslator.php',

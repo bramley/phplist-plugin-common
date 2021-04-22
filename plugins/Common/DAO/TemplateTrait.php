@@ -32,4 +32,16 @@ END;
 
         return $row;
     }
+
+    public function updateTemplateBody($id, $body)
+    {
+        $body = sql_escape($body);
+        $sql =
+            "UPDATE {$this->tables['template']}
+            SET template = '$body'
+            WHERE id = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+
+        return $count;
+    }
 }

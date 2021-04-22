@@ -19,7 +19,7 @@ function CommonPlugin_phpinfo($html)
     if (!extension_loaded('xsl')) {
         throw new Exception('The xsl extension must be installed to display phpinfo');
     }
-
+    libxml_use_internal_errors(true);
     $xml = new DOMDocument();
     $xml->loadHTML($html);
     $xsl = new DOMDocument();

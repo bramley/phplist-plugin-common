@@ -30,7 +30,6 @@ return [
     ['top', 'вверх'],
 //  widget_attributeform.tpl.php
     ['Search for', 'Найти'],
-    ['All', 'Все'],
     ['confirmed only', 'только подтвержденные'],
     ['unconfirmed only', 'только не подтвержденные'],
     ['blacklisted only', 'только заблокированные'],
