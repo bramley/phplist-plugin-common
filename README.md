@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.15.5+20210428 Allow the plugin to be a dependency of phplist. Fixes #10.
     3.15.4+20210418 Minor change to the MailSender class
     3.15.3+20210410 Minor internal changes
     3.15.2+20210305 Slight optimisation of checking for language updates

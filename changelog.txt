@@ -1,3 +1,6 @@
+version 3.15.5+20210428
+      Allow the plugin to be a dependency of phplist. Fixes #10.
+
 version 3.15.4+20210418
       When using multicurl avoid adding to event log when only one email has been sent.
 
