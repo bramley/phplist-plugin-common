@@ -30,6 +30,17 @@ trait MessageTrait
         return $this->dbCommand->queryRow($sql);
     }
 
+    public function messageByUuid($uuid)
+    {
+        $uuid = sql_escape($uuid);
+        $sql =
+            "SELECT *
+            FROM {$this->tables['message']}
+            WHERE uuid = '$uuid'";
+
+        return $this->dbCommand->queryRow($sql);
+    }
+
     /**
      * Create a row in the message table populated with fields from an existing row and a
      * generated UUID.
