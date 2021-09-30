@@ -1,3 +1,8 @@
+version 3.15.6+20210930
+      Add method to get message by UUID
+      Add fallback definition of array_key_first() for php < 7.3
+      Return the first field when query_column() is called without a field name.
+
 version 3.15.5+20210428
       Allow the plugin to be a dependency of phplist. Fixes #10.
 
