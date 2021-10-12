@@ -214,4 +214,14 @@ trait MessageTrait
 
         return Sql_Affected_Rows() > 0;
     }
+
+    public function messageData($messageId, $name)
+    {
+        $sql =
+            "SELECT data
+            FROM {$this->tables['messagedata']} m
+            WHERE id = $messageId AND name = '$name'";
+
+        return $this->dbCommand->queryOne($sql);
+    }
 }
