@@ -1,3 +1,6 @@
+version 3.15.8+20211023
+      Add DAO method to suspend campaign
+
 version 3.15.7+20211012
       Add method to retrieve row from the messagedata table.
 

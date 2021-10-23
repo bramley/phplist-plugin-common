@@ -181,6 +181,17 @@ trait MessageTrait
         return $count;
     }
 
+    public function suspendMessage($id)
+    {
+        $sql =
+            "UPDATE {$this->tables['message']}
+            SET status = 'suspended'
+            WHERE id = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+
+        return $count;
+    }
+
     public function deleteDraftMessages()
     {
         $sql = "

@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.15.8+20211023 Add method to suspend campaign
     3.15.7+20211012 Add method to retrieve row from the messagedata table
     3.15.6+20210930 Minor change to querying a column
     3.15.5+20210428 Allow the plugin to be a dependency of phplist. Fixes #10.
