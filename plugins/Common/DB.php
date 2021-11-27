@@ -141,15 +141,23 @@ class DB
      * Runs a query and returns an array containing all result values of a single field.
      *
      * @param string $sql   the query
-     * @param string $field a named field to return
+     * @param string $field a named field to return or null to return the first field
      * @param string $field a named field to use as the index
      *
      * @return array
      */
-    public function queryColumn($sql, $field, $index = null)
+    public function queryColumn($sql, $field = null, $index = null)
     {
-        $iterator = $this->queryAll($sql);
+        $array = iterator_to_array($this->queryAll($sql));
 
-        return array_column(iterator_to_array($iterator), $field, $index);
+        if (count($array) == 0) {
+            return [];
+        }
+
+        if ($field === null) {
+            $field = array_key_first($array[0]);
+        }
+
+        return array_column($array, $field, $index);
     }
 }

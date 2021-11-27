@@ -1,5 +1,5 @@
 {
-    "name": "phplist/phplist-plugin-common",
+    "name": "bramley/phplist-plugin-common",
     "description": "Common plugin for phpList",
     "keywords": [
       "phplist",

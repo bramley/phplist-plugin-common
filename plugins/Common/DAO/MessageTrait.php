@@ -30,6 +30,17 @@ trait MessageTrait
         return $this->dbCommand->queryRow($sql);
     }
 
+    public function messageByUuid($uuid)
+    {
+        $uuid = sql_escape($uuid);
+        $sql =
+            "SELECT *
+            FROM {$this->tables['message']}
+            WHERE uuid = '$uuid'";
+
+        return $this->dbCommand->queryRow($sql);
+    }
+
     /**
      * Create a row in the message table populated with fields from an existing row and a
      * generated UUID.
@@ -170,6 +181,17 @@ trait MessageTrait
         return $count;
     }
 
+    public function suspendMessage($id)
+    {
+        $sql =
+            "UPDATE {$this->tables['message']}
+            SET status = 'suspended'
+            WHERE id = $id";
+        $count = $this->dbCommand->queryAffectedRows($sql);
+
+        return $count;
+    }
+
     public function deleteDraftMessages()
     {
         $sql = "
@@ -202,5 +224,15 @@ trait MessageTrait
         );
 
         return Sql_Affected_Rows() > 0;
+    }
+
+    public function messageData($messageId, $name)
+    {
+        $sql =
+            "SELECT data
+            FROM {$this->tables['messagedata']} m
+            WHERE id = $messageId AND name = '$name'";
+
+        return $this->dbCommand->queryOne($sql);
     }
 }
