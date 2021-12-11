@@ -13,12 +13,14 @@
 
 namespace phpList\plugin\Common;
 
-class FPDF extends \FPDF
+class FPDF extends \tFPDF
 {
     public function __construct()
     {
         parent::__construct();
-        $this->SetFont('Arial');
+        $this->AddFont('DejaVu', '', 'DejaVuSansCondensed.ttf', true);
+        $this->AddFont('DejaVu', 'B', 'DejaVuSansCondensed-Bold.ttf', true);
+        $this->SetFont('DejaVu');
         $this->SetFontSize(9);
         $this->SetLeftMargin(20);
         $this->SetRightMargin(20);

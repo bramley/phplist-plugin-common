@@ -1,3 +1,8 @@
+version 3.17.0+20211212
+      Add tFPDF
+      Remove FPDF, replaced by tFPDF
+      Use tFPDF instead of FPDF for unicode support
+
 version 3.16.0+20211128
       Update Emogrifier to V5.0.1
 
