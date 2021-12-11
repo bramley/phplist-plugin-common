@@ -142,7 +142,9 @@ return array(
     'Symfony\\Component\\Filesystem\\Exception\\IOExceptionInterface' => $vendorDir . '/symfony/filesystem/Exception/IOExceptionInterface.php',
     'Symfony\\Component\\Filesystem\\Filesystem' => $vendorDir . '/symfony/filesystem/Filesystem.php',
     'Symfony\\Component\\Filesystem\\LockHandler' => $vendorDir . '/symfony/filesystem/LockHandler.php',
+    'TTFontFile' => $vendorDir . '/setasign/tfpdf/font/unifont/ttfonts.php',
     'WkHtmlToPdf' => $vendorDir . '/ext/mikehaertl/WkHtmlToPdf.php',
     'chdemko\\BitArray\\BitArray' => $vendorDir . '/chdemko/bitarray/src/BitArray/BitArray.php',
     'chdemko\\BitArray\\Iterator' => $vendorDir . '/chdemko/bitarray/src/BitArray/Iterator.php',
+    'tFPDF' => $vendorDir . '/setasign/tfpdf/tfpdf.php',
 );

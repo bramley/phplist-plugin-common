@@ -232,9 +232,11 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Symfony\\Component\\Filesystem\\Exception\\IOExceptionInterface' => __DIR__ . '/..' . '/symfony/filesystem/Exception/IOExceptionInterface.php',
         'Symfony\\Component\\Filesystem\\Filesystem' => __DIR__ . '/..' . '/symfony/filesystem/Filesystem.php',
         'Symfony\\Component\\Filesystem\\LockHandler' => __DIR__ . '/..' . '/symfony/filesystem/LockHandler.php',
+        'TTFontFile' => __DIR__ . '/..' . '/setasign/tfpdf/font/unifont/ttfonts.php',
         'WkHtmlToPdf' => __DIR__ . '/..' . '/ext/mikehaertl/WkHtmlToPdf.php',
         'chdemko\\BitArray\\BitArray' => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray/BitArray.php',
         'chdemko\\BitArray\\Iterator' => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray/Iterator.php',
+        'tFPDF' => __DIR__ . '/..' . '/setasign/tfpdf/tfpdf.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

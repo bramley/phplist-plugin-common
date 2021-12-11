@@ -45,6 +45,18 @@ plugins/CommonPlugin/vendor/pelago/emogrifier/*
 !plugins/CommonPlugin/vendor/pelago/emogrifier/LICENSE
 !plugins/CommonPlugin/vendor/pelago/emogrifier/src/
 
+plugins/CommonPlugin/vendor/setasign/tfpdf/*
+!plugins/CommonPlugin/vendor/setasign/tfpdf/info.htm
+!plugins/CommonPlugin/vendor/setasign/tfpdf/tfpdf.php
+!plugins/CommonPlugin/vendor/setasign/tfpdf/font/
+plugins/CommonPlugin/vendor/setasign/tfpdf/font/unifont/*
+!plugins/CommonPlugin/vendor/setasign/tfpdf/font/unifont/DejaVu_LICENSE.txt
+!plugins/CommonPlugin/vendor/setasign/tfpdf/font/unifont/DejaVuSansCondensed-Bold.ttf
+!plugins/CommonPlugin/vendor/setasign/tfpdf/font/unifont/DejaVuSansCondensed-BoldOblique.ttf
+!plugins/CommonPlugin/vendor/setasign/tfpdf/font/unifont/DejaVuSansCondensed-Oblique.ttf
+!plugins/CommonPlugin/vendor/setasign/tfpdf/font/unifont/DejaVuSansCondensed.ttf
+!plugins/CommonPlugin/vendor/setasign/tfpdf/font/unifont/ttfonts.php
+
 plugins/CommonPlugin/vendor/symfony/css-selector/*
 !plugins/CommonPlugin/vendor/symfony/css-selector/CssSelectorConverter.php
 !plugins/CommonPlugin/vendor/symfony/css-selector/LICENSE

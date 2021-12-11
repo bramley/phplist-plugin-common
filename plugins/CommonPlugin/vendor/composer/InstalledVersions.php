@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'faac8dfef6d607628e0bc1ec4be7df5d5980140a',
+    'reference' => '155721644268a927de2be65b523ad676aea8bee4',
     'name' => 'bramley/phplist-plugin-common',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'faac8dfef6d607628e0bc1ec4be7df5d5980140a',
+      'reference' => '155721644268a927de2be65b523ad676aea8bee4',
     ),
     'chdemko/bitarray' => 
     array (
@@ -134,6 +134,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'fe0936ee26643249e916849d48e3a51d5f5e278b',
+    ),
+    'setasign/tfpdf' => 
+    array (
+      'pretty_version' => 'v1.32',
+      'version' => '1.32.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a879b83485c263605cbf98ab2e8fdd4d37ca2707',
     ),
     'symfony/css-selector' => 
     array (
