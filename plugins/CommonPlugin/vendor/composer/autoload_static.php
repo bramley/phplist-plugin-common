@@ -152,7 +152,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Crossjoin\\PreMailer\\HtmlFile' => __DIR__ . '/..' . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlFile.php',
         'Crossjoin\\PreMailer\\HtmlString' => __DIR__ . '/..' . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlString.php',
         'Crossjoin\\PreMailer\\PreMailerAbstract' => __DIR__ . '/..' . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/PreMailerAbstract.php',
-        'FPDF' => __DIR__ . '/..' . '/ext/fpdf/fpdf.php',
         'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
         'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
         'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',

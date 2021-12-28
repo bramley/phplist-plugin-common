@@ -62,7 +62,6 @@ return array(
     'Crossjoin\\PreMailer\\HtmlFile' => $vendorDir . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlFile.php',
     'Crossjoin\\PreMailer\\HtmlString' => $vendorDir . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlString.php',
     'Crossjoin\\PreMailer\\PreMailerAbstract' => $vendorDir . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/PreMailerAbstract.php',
-    'FPDF' => $vendorDir . '/ext/fpdf/fpdf.php',
     'Interop\\Container\\ContainerInterface' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
     'Interop\\Container\\Exception\\ContainerException' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
     'Interop\\Container\\Exception\\NotFoundException' => $vendorDir . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',

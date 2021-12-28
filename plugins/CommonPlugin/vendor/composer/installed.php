@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '155721644268a927de2be65b523ad676aea8bee4',
+    'reference' => 'da7400b04317ba75fe3093d5df5818ed99b9260e',
     'name' => 'bramley/phplist-plugin-common',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '155721644268a927de2be65b523ad676aea8bee4',
+      'reference' => 'da7400b04317ba75fe3093d5df5818ed99b9260e',
     ),
     'chdemko/bitarray' => 
     array (
@@ -95,12 +95,12 @@
     ),
     'psr/container' => 
     array (
-      'pretty_version' => '1.1.2',
-      'version' => '1.1.2.0',
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '513e0666f7216c7459170d56df27dfcefe1689ea',
+      'reference' => 'b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
     ),
     'psr/log' => 
     array (
