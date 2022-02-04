@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'da7400b04317ba75fe3093d5df5818ed99b9260e',
+    'reference' => '889c0a91108c67dc3c0c8213f9729b8249620cf2',
     'name' => 'bramley/phplist-plugin-common',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'da7400b04317ba75fe3093d5df5818ed99b9260e',
+      'reference' => '889c0a91108c67dc3c0c8213f9729b8249620cf2',
     ),
     'chdemko/bitarray' => 
     array (
@@ -92,12 +92,12 @@ private static $installed = array (
     ),
     'katzgrau/klogger' => 
     array (
-      'pretty_version' => '1.2.0',
-      'version' => '1.2.0.0',
+      'pretty_version' => '1.2.1',
+      'version' => '1.2.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '87735262be7c3bd210740b5cd4831dee3d827c46',
+      'reference' => 'a4ed373fa8a214aa4ae7aa4f221fe2c6ce862ef1',
     ),
     'mouf/picotainer' => 
     array (
