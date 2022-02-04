@@ -304,8 +304,9 @@ class Logger extends AbstractLogger
     private function getTimestamp()
     {
         $originalTime = microtime(true);
-        $micro = sprintf("%06d", ($originalTime - floor($originalTime)) * 1000000);
-        $date = new DateTime(date('Y-m-d H:i:s.'.$micro, $originalTime));
+        $floor = floor($originalTime);
+        $micro = sprintf("%06d", ($originalTime - $floor) * 1000000);
+        $date = new DateTime(date('Y-m-d H:i:s.'.$micro, (int) $floor));
 
         return $date->format($this->options['dateFormat']);
     }

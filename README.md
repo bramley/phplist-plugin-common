@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.18.1+20220204 Update KLogger package
     3.18.0+20211228 Revert the psr/container package
     3.17.0+20211212 Use tFPDF instead of FPDF for unicode support
     3.16.0+20211128 Update Emogrifier to V5.0.1
