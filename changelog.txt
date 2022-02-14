@@ -1,3 +1,7 @@
+version 3.18.2+20220218
+      Change pager to display 'Show ...' area only on first page of multi-page results.
+      Refactor the pager css so that it is included only once.
+
 version 3.18.1+20220204
       Update KLogger to version 1.2.1
       Pass integer parameter instead of float to date() to avoid php deprecation warning

@@ -250,10 +250,13 @@ class Pager
                     $this->total
                 )
                 : '&nbsp;',
-            'show' => s('Show') . ' ' . implode(' | ', $items),
+            'show' => '&nbsp;',
         ];
 
         if ($this->total > $this->pageSize) {
+            if ($this->startCurrent == 0) {
+                $vars['show'] = s('Show') . ' ' . implode(' | ', $items);
+            }
             $vars += [
                 'first' => $this->pagingLink(0, 'first', s('First Page')),
                 'back' => $this->pagingLink(max(0, $this->startCurrent - $this->pageSize), 'previous', s('Previous')),
