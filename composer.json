@@ -12,6 +12,7 @@
     "type": "phplist-plugin",
     "license": "GNU Affero General Public License version 3.0 or later (AGPLv3+)",
     "config": {
+        "platform-check": false,
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
