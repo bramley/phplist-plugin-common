@@ -204,15 +204,18 @@ trait MessageTrait
 
     public function deleteNotSent($id, $subscribers)
     {
+        $rows = 0;
+
         foreach ($subscribers as $userId) {
             $sql = "DELETE FROM {$this->tables['usermessage']}
                 WHERE status = 'not sent'
                 AND messageid = $id
                 AND userid = $userId
             ";
+            $rows += $this->dbCommand->queryAffectedRows($sql);
         }
 
-        return $this->dbCommand->queryAffectedRows($sql);
+        return $rows;
     }
 
     public function submitCampaign($messageId)
