@@ -35,6 +35,7 @@ This should contain
 ## Version history ##
 
     version     Description
+    3.18.5+20220627 Fix for problem of long admin name raised on the Subscribers plugin
     3.18.4+20220421 Fix error deleting 'not sent' rows from usermessage table
     3.18.3+20220415 Avoid composer check for php version
     3.18.2+20220218 Simplify display of pager

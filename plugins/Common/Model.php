@@ -35,7 +35,7 @@ abstract class Model
     protected function __construct($configItem = null)
     {
         if ($configItem) {
-            $admin = $_SESSION['logindetails']['adminname'];
+            $admin = $_SESSION['logindetails']['id'];
             $item = "$configItem|$admin";
             $this->config = new Config($item);
             $properties = $this->config->get('properties');

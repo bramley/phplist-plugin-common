@@ -1,3 +1,7 @@
+version 3.18.5+20220627
+      Use admin id instead of admin name in the key for config table.
+      Fixes issue raised on Subscribers plugin https://github.com/bramley/phplist-plugin-subscribers/issues/17
+
 version 3.18.4+20220421
       Fix error deleting 'not sent' rows from usermessage table
 
