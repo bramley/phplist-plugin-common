@@ -1,3 +1,8 @@
+version 3.19.0+20220629
+      Remove picotainer from control of Composer.
+      Remove use of ContainerInterop by Picotainer
+      Remove ContainerInterop package
+
 version 3.18.5+20220627
       Use admin id instead of admin name in the key for config table.
       Fixes issue raised on Subscribers plugin https://github.com/bramley/phplist-plugin-subscribers/issues/17

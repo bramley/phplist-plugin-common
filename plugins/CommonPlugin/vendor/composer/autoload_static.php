@@ -21,10 +21,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
             'Psr\\Container\\' => 14,
             'Pelago\\Emogrifier\\' => 18,
         ),
-        'M' => 
-        array (
-            'Mouf\\Picotainer\\' => 16,
-        ),
         'K' => 
         array (
             'Katzgrau\\KLogger\\' => 17,
@@ -32,10 +28,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'J' => 
         array (
             'JMathai\\PhpMultiCurl\\' => 21,
-        ),
-        'I' => 
-        array (
-            'Interop\\Container\\' => 18,
         ),
     );
 
@@ -60,10 +52,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         array (
             0 => __DIR__ . '/..' . '/pelago/emogrifier/src',
         ),
-        'Mouf\\Picotainer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mouf/picotainer/src',
-        ),
         'Katzgrau\\KLogger\\' => 
         array (
             0 => __DIR__ . '/..' . '/katzgrau/klogger/src',
@@ -71,10 +59,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'JMathai\\PhpMultiCurl\\' => 
         array (
             0 => __DIR__ . '/..' . '/jmathai/php-multi-curl/src',
-        ),
-        'Interop\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
     );
 
@@ -152,9 +136,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Crossjoin\\PreMailer\\HtmlFile' => __DIR__ . '/..' . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlFile.php',
         'Crossjoin\\PreMailer\\HtmlString' => __DIR__ . '/..' . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/HtmlString.php',
         'Crossjoin\\PreMailer\\PreMailerAbstract' => __DIR__ . '/..' . '/crossjoin/pre-mailer/src/Crossjoin/PreMailer/PreMailerAbstract.php',
-        'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
-        'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
-        'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
         'Katzgrau\\KLogger\\Logger' => __DIR__ . '/..' . '/katzgrau/klogger/src/Logger.php',
         'Mouf\\Picotainer\\Picotainer' => __DIR__ . '/..' . '/mouf/picotainer/src/Picotainer.php',
         'Mouf\\Picotainer\\PicotainerNotFoundException' => __DIR__ . '/..' . '/mouf/picotainer/src/PicotainerNotFoundException.php',

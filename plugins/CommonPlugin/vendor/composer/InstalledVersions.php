@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '889c0a91108c67dc3c0c8213f9729b8249620cf2',
+    'reference' => 'b14dadbcff175b98f7a689926283150b99fa1b28',
     'name' => 'bramley/phplist-plugin-common',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '889c0a91108c67dc3c0c8213f9729b8249620cf2',
+      'reference' => 'b14dadbcff175b98f7a689926283150b99fa1b28',
     ),
     'chdemko/bitarray' => 
     array (
@@ -52,15 +52,6 @@ private static $installed = array (
       array (
       ),
       'reference' => 'e7627033c8ed5198da16373ac120c759732a6711',
-    ),
-    'container-interop/container-interop' => 
-    array (
-      'pretty_version' => '1.2.0',
-      'version' => '1.2.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '79cbf1341c22ec75643d841642dd5d6acd83bdb8',
     ),
     'jasongrimes/paginator' => 
     array (
@@ -98,15 +89,6 @@ private static $installed = array (
       array (
       ),
       'reference' => 'a4ed373fa8a214aa4ae7aa4f221fe2c6ce862ef1',
-    ),
-    'mouf/picotainer' => 
-    array (
-      'pretty_version' => 'v1.1.0',
-      'version' => '1.1.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '83737d6af8534c35e0d4cd2f0afd1e2e6c0ad7d4',
     ),
     'pelago/emogrifier' => 
     array (

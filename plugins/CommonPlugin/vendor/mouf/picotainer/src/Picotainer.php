@@ -1,7 +1,6 @@
 <?php
 namespace Mouf\Picotainer;
 
-use Interop\Container\ContainerInterface as InteropContainer;
 use Psr\Container\ContainerInterface as Psr11Container;
 
 /**
@@ -10,7 +9,7 @@ use Psr\Container\ContainerInterface as Psr11Container;
  *
  * @author David Négrier <david@mouf-php.com>
  */
-class Picotainer implements InteropContainer
+class Picotainer implements Psr11Container
 {
 
     /**

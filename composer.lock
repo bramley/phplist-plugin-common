@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f184f8004df6bef2b385ece60fe0926",
+    "content-hash": "d8dc40de8fb20479b3aeab3c768e95d8",
     "packages": [
         {
             "name": "chdemko/bitarray",
@@ -62,42 +62,6 @@
                 "source": "https://github.com/chdemko/php-bitarray/tree/master"
             },
             "time": "2014-06-18T12:21:40+00:00"
-        },
-        {
-            "name": "container-interop/container-interop",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/container-interop/container-interop.git",
-                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/79cbf1341c22ec75643d841642dd5d6acd83bdb8",
-                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8",
-                "shasum": ""
-            },
-            "require": {
-                "psr/container": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Interop\\Container\\": "src/Interop/Container/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
-            "homepage": "https://github.com/container-interop/container-interop",
-            "support": {
-                "issues": "https://github.com/container-interop/container-interop/issues",
-                "source": "https://github.com/container-interop/container-interop/tree/master"
-            },
-            "abandoned": "psr/container",
-            "time": "2017-02-14T19:40:03+00:00"
         },
         {
             "name": "jasongrimes/paginator",
@@ -302,58 +266,6 @@
                 "source": "https://github.com/katzgrau/KLogger/tree/master"
             },
             "time": "2016-11-07T19:29:14+00:00"
-        },
-        {
-            "name": "mouf/picotainer",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/picotainer.git",
-                "reference": "83737d6af8534c35e0d4cd2f0afd1e2e6c0ad7d4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/picotainer/zipball/83737d6af8534c35e0d4cd2f0afd1e2e6c0ad7d4",
-                "reference": "83737d6af8534c35e0d4cd2f0afd1e2e6c0ad7d4",
-                "shasum": ""
-            },
-            "require": {
-                "container-interop/container-interop": "~1.2",
-                "psr/container": "^1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8",
-                "satooshi/php-coveralls": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mouf\\Picotainer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains a really minimalist dependency injection container compatible with container-interop.",
-            "homepage": "http://mouf-php.com",
-            "keywords": [
-                "container-interop",
-                "dependency injection",
-                "di"
-            ],
-            "support": {
-                "issues": "https://github.com/thecodingmachine/picotainer/issues",
-                "source": "https://github.com/thecodingmachine/picotainer/tree/1.1"
-            },
-            "time": "2017-03-09T09:19:17+00:00"
         },
         {
             "name": "pelago/emogrifier",

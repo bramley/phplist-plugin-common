@@ -21,7 +21,6 @@
         "jdorn/sql-formatter": "^1.2",
         "jmathai/php-multi-curl": "dev-master",
         "katzgrau/klogger": "1.2.1",
-        "mouf/picotainer": "1.1.0",
         "pelago/emogrifier": "^5.0.1",
         "psr/container": "1.0.0",
         "psr/log": "1.0.0",
@@ -32,7 +31,6 @@
     "autoload": {
         "classmap": [
             "plugins/CommonPlugin/vendor/chdemko/bitarray/src",
-            "plugins/CommonPlugin/vendor/container-interop/container-interop/src",
             "plugins/CommonPlugin/vendor/ext/",
             "plugins/CommonPlugin/vendor/katzgrau/klogger/src",
             "plugins/CommonPlugin/vendor/mouf/picotainer/src",
