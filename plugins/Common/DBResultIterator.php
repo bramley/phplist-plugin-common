@@ -38,6 +38,7 @@ class DBResultIterator extends \IteratorIterator implements \Countable
      *
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return $this->count;

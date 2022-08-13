@@ -23,6 +23,7 @@ return PhpCsFixer\Config::create()
             'imports_order' => ['class', 'function', 'const']
         ],
         'blank_line_after_namespace' => true,
+        'single_line_comment_style' => null,
     ])
     ->setFinder($finder)
 ;
