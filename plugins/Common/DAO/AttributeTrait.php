@@ -13,6 +13,8 @@
 
 namespace phpList\plugin\Common\DAO;
 
+use function phpList\plugin\Common\shortenText;
+
 /**
  * Trait that provides access to the attribute table.
  */
@@ -67,16 +69,12 @@ trait AttributeTrait
         return $row;
     }
 
-    private function transformAttributeName($name, $attrNameLength = 0)
+    private function transformAttributeName($name, $maxLength = 0)
     {
         $name = stripslashes($name);
 
-        if ($attrNameLength > 0) {
-            if (strlen($name) > $attrNameLength) {
-                $leftLength = (int) ($attrNameLength / 2);
-                $rightLength = $attrNameLength - $leftLength - 1;
-                $name = substr($name, 0, $leftLength) . '…' . substr($name, -$rightLength);
-            }
+        if ($maxLength > 0) {
+            $name = shortenText($name, $maxLength);
         }
 
         return $name;

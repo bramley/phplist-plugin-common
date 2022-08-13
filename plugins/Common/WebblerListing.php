@@ -2,6 +2,8 @@
 
 namespace phpList\plugin\Common;
 
+use function phpList\plugin\Common\shortenText as shortenText;
+
 /**
  * CommonPlugin for phplist.
  *
@@ -84,15 +86,7 @@ END;
      */
     public function addColumnEmail($name, $column_name, $value, $url = '', $align = '')
     {
-        $maxLength = 29;
-
-        if (strlen($value) > $maxLength) {
-            $middle = '…';
-            $outerLength = (int) (($maxLength - strlen($middle)) / 2);
-            $shortValue = substr($value, 0, $outerLength) . $middle . substr($value, -$outerLength);
-        } else {
-            $shortValue = $value;
-        }
+        $shortValue = shortenText($value);
         $columnValue = $url
             ? $this->createLink($url, $shortValue, $value)
             : htmlspecialchars($shortValue, ENT_QUOTES);

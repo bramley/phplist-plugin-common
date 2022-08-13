@@ -1,3 +1,8 @@
+version 3.20.0+20220813
+      Avoid php8.1 deprecation due to missing function signature
+      Copy the core phplist functions for shortening text from https://github.com/phpList/phplist3/pull/877
+      Use the core phplist function to shorten text, which is multi-byte aware
+
 version 3.19.0+20220629
       Remove picotainer from control of Composer.
       Remove use of ContainerInterop by Picotainer
