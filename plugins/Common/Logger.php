@@ -86,7 +86,7 @@ class Logger extends KLogger\Logger
         if ($this->logLevels[$this->logLevelThreshold] < $this->logLevels[$level]) {
             return;
         }
-        $trace = debug_backtrace(false, 4);
+        $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 4);
         /*
          * [0] is AbstractLogger calling this method
          * [1] is the caller of debug(), info() etc, which gives the line number
@@ -98,22 +98,24 @@ class Logger extends KLogger\Logger
          * [2] is the caller of debug(), info() etc, which gives the line number
          * [3] is the previous level, which gives the class/method of the caller of debug(), info() etc
          */
-        $frame = 1;
+        foreach ([1, 2] as $i) {
+            $caller = $trace[$i];
+            $previous = $trace[$i + 1];
 
-        if (empty($this->classes[$trace[$frame + 1]['class']])) {
-            $frame = 2;
+            if (isset($previous['class']) && isset($this->classes[$previous['class']])) {
+                if ($this->classes[$previous['class']]) {
+                    $logMessage = sprintf(
+                        "%s::%s, line %d\n%s",
+                        $previous['class'],
+                        $previous['function'],
+                        $caller['line'],
+                        (string) $message
+                    );
+                    $this->write($this->formatMessage($level, $logMessage, $context));
+                }
 
-            if (empty($this->classes[$trace[$frame + 1]['class']])) {
                 return;
             }
         }
-        $logMessage = sprintf(
-            "%s::%s, line %d\n%s",
-            $trace[$frame + 1]['class'],
-            $trace[$frame + 1]['function'],
-            $trace[$frame]['line'],
-            (string) $message
-        );
-        $this->write($this->formatMessage($level, $logMessage, $context));
     }
 }

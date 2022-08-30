@@ -1,3 +1,6 @@
+version 3.20.1+20220830
+      Avoid php PHP warning of undefined array key "class" when logging
+
 version 3.20.0+20220813
       Avoid php8.1 deprecation due to missing function signature
       Copy the core phplist functions for shortening text from https://github.com/phpList/phplist3/pull/877
