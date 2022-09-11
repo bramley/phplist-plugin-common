@@ -109,7 +109,6 @@ class MailSender
         curl_setopt($curl, CURLOPT_DNS_USE_GLOBAL_CACHE, true);
         curl_setopt($curl, CURLOPT_USERAGENT, NAME . ' (phpList version ' . VERSION . ', http://www.phplist.com/)');
         curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLINFO_HEADER_OUT, true);
 
         if ($this->curlVerbose) {
             curl_setopt($curl, CURLOPT_VERBOSE, true);
@@ -219,7 +218,6 @@ class MailSender
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $sentHeaders = curl_getinfo($curl, CURLINFO_HEADER_OUT);
 
         if ($response === false || preg_match('/^2\d\d$/', $httpCode) !== 1 || !$this->client->verifyResponse($response)) {
             $error = curl_error($curl);
