@@ -43,7 +43,7 @@ class MultiCurl
       'url'   => CURLINFO_EFFECTIVE_URL
       );
   }
-  
+
   public function reset(){
       $this->requests = array();
       $this->responses = array();
@@ -63,7 +63,7 @@ class MultiCurl
 
   public function addCurl($ch)
   {
-    if(gettype($ch) !== 'resource')
+    if(gettype($ch) !== 'resource' && !is_object($ch))
     {
       throw new MultiCurlInvalidParameterException('Parameter must be a valid curl handle');
     }
@@ -74,7 +74,7 @@ class MultiCurl
 
     $code = curl_multi_add_handle($this->mc, $ch);
     $this->startTimer($key);
-    
+
     // (1)
     if($code === CURLM_OK || $code === CURLM_CALL_MULTI_PERFORM)
     {
@@ -151,7 +151,7 @@ class MultiCurl
 
   private function getKey($ch)
   {
-    return (string)$ch;
+    return gettype($ch) == 'resource' ? (string)$ch : spl_object_hash($ch);
   }
 
   private function headerCallback($ch, $header)

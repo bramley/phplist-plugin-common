@@ -44,6 +44,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version     Description
+    3.21.0+20220912 Changes to multicurl to support php 8
     3.20.1+20220830 Avoid php PHP warning of undefined array key "class" when logging
     3.20.0+20220813 Improve shortening of multibyte text
     3.19.0+20220629 Remove picotainer from control of Composer
