@@ -32,6 +32,7 @@
         "classmap": [
             "plugins/CommonPlugin/vendor/chdemko/bitarray/src",
             "plugins/CommonPlugin/vendor/ext/",
+            "plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src",
             "plugins/CommonPlugin/vendor/katzgrau/klogger/src",
             "plugins/CommonPlugin/vendor/mouf/picotainer/src",
             "plugins/CommonPlugin/vendor/pelago/emogrifier/src",
