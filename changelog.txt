@@ -1,3 +1,6 @@
+version 3.21.1+20220915
+      Remove redundant non-namespaced version of StringStream class
+
 version 3.21.0+20220912
       Remove unnecessary use of CURLINFO_HEADER_OUT that was stopping verbose curl output
       Include classes from php-multi-curl in the composer classmap

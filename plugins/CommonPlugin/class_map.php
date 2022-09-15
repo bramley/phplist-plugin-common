@@ -80,6 +80,7 @@ return array(
     'phpList\plugin\Common\Populator' => $base . '/Common/Populator.php',
     'phpList\plugin\Common\RemoteContext' => $base . '/Common/Context.php',
     'phpList\plugin\Common\StringCallback' => $base . '/Common/StringCallback.php',
+    'phpList\plugin\Common\StringStream' => $base . '/Common/StringStream.php',
     'phpList\plugin\Common\Tabs' => $base . '/Common/Tabs.php',
     'phpList\plugin\Common\Toolbar' => $base . '/Common/Toolbar.php',
     'phpList\plugin\Common\ToolbarButton' => $base . '/Common/Toolbar.php',
