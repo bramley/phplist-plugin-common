@@ -1,3 +1,6 @@
+version 3.21.2+20220924
+      Add traits to class map
+
 version 3.21.1+20220915
       Remove redundant non-namespaced version of StringStream class
 
