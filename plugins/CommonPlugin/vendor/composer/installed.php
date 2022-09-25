@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'b14dadbcff175b98f7a689926283150b99fa1b28',
+    'reference' => 'cfe21a33ad98075aca67fd1502e3e607299ccc08',
     'name' => 'bramley/phplist-plugin-common',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'b14dadbcff175b98f7a689926283150b99fa1b28',
+      'reference' => 'cfe21a33ad98075aca67fd1502e3e607299ccc08',
     ),
     'chdemko/bitarray' => 
     array (
@@ -59,12 +59,12 @@
     ),
     'katzgrau/klogger' => 
     array (
-      'pretty_version' => '1.2.1',
-      'version' => '1.2.1.0',
+      'pretty_version' => '1.2.2',
+      'version' => '1.2.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a4ed373fa8a214aa4ae7aa4f221fe2c6ce862ef1',
+      'reference' => '36481c69db9305169a2ceadead25c2acaabd567c',
     ),
     'pelago/emogrifier' => 
     array (

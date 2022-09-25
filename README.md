@@ -44,6 +44,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version     Description
+    3.22.0+20220925 Update KLogger package to 1.2.2
     3.21.2+20220924 Add traits to class map
     3.21.1+20220915 Remove redundant non-namespaced version of StringStream class
     3.21.0+20220912 Changes to multicurl to support php 8
