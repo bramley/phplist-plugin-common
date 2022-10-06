@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
     'CommonPlugin_BaseController' => $base . '/CommonPlugin/BaseController.php',
     'CommonPlugin_Config' => $base . '/CommonPlugin/Config.php',
     'CommonPlugin_Controller' => $base . '/CommonPlugin/Controller.php',
@@ -94,4 +94,4 @@ return array(
     'phpList\plugin\Common\View' => $base . '/Common/View.php',
     'phpList\plugin\Common\WebblerListing' => $base . '/Common/WebblerListing.php',
     'phpList\plugin\Common\Widget' => $base . '/Common/Widget.php',
-);
+];

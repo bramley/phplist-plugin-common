@@ -238,4 +238,15 @@ trait MessageTrait
 
         return $this->dbCommand->queryOne($sql);
     }
+
+    public function messageAttachments($messageId)
+    {
+        $sql =
+            "SELECT a.id, filename, remotefile, mimetype, description, size
+            FROM {$this->tables['attachment']} a
+            JOIN {$this->tables['message_attachment']} ma ON a.id = ma.attachmentid
+            WHERE ma.messageid = $messageId";
+
+        return $this->dbCommand->queryAll($sql);
+    }
 }
