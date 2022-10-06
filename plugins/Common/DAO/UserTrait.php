@@ -68,4 +68,16 @@ trait UserTrait
 
         return $this->dbCommand->queryAffectedRows($sql);
     }
+
+    public function updateUserAttribute($email, $attributeId, $value)
+    {
+        $sql = <<<END
+    UPDATE {$this->tables['user_attribute']} ua
+    JOIN  {$this->tables['user']} u ON u.id = ua.userid
+    SET ua.value = '$value'
+    WHERE u.email = '$email' AND ua.attributeid = $attributeId
+END;
+
+        return $this->dbCommand->queryAffectedRows($sql);
+    }
 }
