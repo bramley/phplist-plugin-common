@@ -44,6 +44,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version     Description
+    3.23.0+20221019 Update the emogrifier package to 6.0.0
     3.22.1+20221006 Add methods to user and message traits
     3.22.0+20220925 Update KLogger package to 1.2.2
     3.21.2+20220924 Add traits to class map
