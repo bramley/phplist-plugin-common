@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'cfe21a33ad98075aca67fd1502e3e607299ccc08',
+    'reference' => 'fe926e1fe1e638192a5da8350687e5342af618d3',
     'name' => 'bramley/phplist-plugin-common',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'cfe21a33ad98075aca67fd1502e3e607299ccc08',
+      'reference' => 'fe926e1fe1e638192a5da8350687e5342af618d3',
     ),
     'chdemko/bitarray' => 
     array (
@@ -68,12 +68,12 @@
     ),
     'pelago/emogrifier' => 
     array (
-      'pretty_version' => 'v5.0.1',
-      'version' => '5.0.1.0',
+      'pretty_version' => 'v6.0.0',
+      'version' => '6.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '37595a9bb62c3c25969bdd9e8d7dd24c3ac62bc9',
+      'reference' => 'aa72d5407efac118f3896bcb995a2cba793df0ae',
     ),
     'psr/container' => 
     array (
@@ -92,6 +92,15 @@
       array (
       ),
       'reference' => 'fe0936ee26643249e916849d48e3a51d5f5e278b',
+    ),
+    'sabberworm/php-css-parser' => 
+    array (
+      'pretty_version' => '8.4.0',
+      'version' => '8.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e41d2140031d533348b2192a83f02d8dd8a71d30',
     ),
     'setasign/tfpdf' => 
     array (

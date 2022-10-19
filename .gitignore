@@ -45,6 +45,10 @@ plugins/CommonPlugin/vendor/pelago/emogrifier/*
 !plugins/CommonPlugin/vendor/pelago/emogrifier/LICENSE
 !plugins/CommonPlugin/vendor/pelago/emogrifier/src/
 
+plugins/CommonPlugin/vendor/sabberworm/php-css-parser/*
+!plugins/CommonPlugin/vendor/sabberworm/php-css-parser/LICENSE
+!plugins/CommonPlugin/vendor/sabberworm/php-css-parser/src/
+
 plugins/CommonPlugin/vendor/setasign/tfpdf/*
 !plugins/CommonPlugin/vendor/setasign/tfpdf/info.htm
 !plugins/CommonPlugin/vendor/setasign/tfpdf/tfpdf.php

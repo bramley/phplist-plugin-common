@@ -21,7 +21,7 @@
         "jdorn/sql-formatter": "^1.2",
         "jmathai/php-multi-curl": "dev-master",
         "katzgrau/klogger": "1.2.2",
-        "pelago/emogrifier": "^5.0.1",
+        "pelago/emogrifier": "~6.0",
         "psr/container": "1.0.0",
         "psr/log": "1.0.0",
         "symfony/css-selector": "^3.0",
@@ -31,6 +31,8 @@
     "autoload": {
         "classmap": [
             "plugins/CommonPlugin/vendor/chdemko/bitarray/src",
+            "plugins/CommonPlugin/vendor/crossjoin/css/src/",
+            "plugins/CommonPlugin/vendor/crossjoin/pre-mailer/src/"
             "plugins/CommonPlugin/vendor/ext/",
             "plugins/CommonPlugin/vendor/jmathai/php-multi-curl/src",
             "plugins/CommonPlugin/vendor/katzgrau/klogger/src",
@@ -38,10 +40,9 @@
             "plugins/CommonPlugin/vendor/pelago/emogrifier/src",
             "plugins/CommonPlugin/vendor/psr/container/src",
             "plugins/CommonPlugin/vendor/psr/log/Psr",
+            "plugins/CommonPlugin/vendor/sabberworm/php-css-parser/src",
             "plugins/CommonPlugin/vendor/symfony/css-selector",
             "plugins/CommonPlugin/vendor/symfony/filesystem",
-            "plugins/CommonPlugin/vendor/crossjoin/css/src/Crossjoin/Css/",
-            "plugins/CommonPlugin/vendor/crossjoin/pre-mailer/src/Crossjoin/PreMailer/"
         ],
         "exclude-from-classmap": [
             "plugins/CommonPlugin/vendor/psr/log/Psr/Log/Test/"
