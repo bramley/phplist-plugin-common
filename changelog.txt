@@ -1,3 +1,6 @@
+version 3.23.1+20221108
+      Fix php 8 error due to function signature
+
 version 3.23.0+20221019
       Update the emogrifier package to 6.0.0
       Use Emogrifier only when php version is at least 7.2
