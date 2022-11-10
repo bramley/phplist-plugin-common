@@ -1,3 +1,6 @@
+version 3.23.2+20221110
+      Revert the previous commit and fix in a better way without requiring php 7. Fixes #18
+
 version 3.23.1+20221108
       Fix php 8 error due to function signature
 

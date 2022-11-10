@@ -44,6 +44,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version     Description
+    3.23.2+20221110 Correct the previous fix
     3.23.1+20221108 Minor fix for php 8 compatibility
     3.23.0+20221019 Update the emogrifier package to 6.0.0
     3.22.1+20221006 Add methods to user and message traits
