@@ -74,7 +74,7 @@ class Logger extends KLogger\Logger
 
     /**
      * Overrides the parent method.
-     * Logs messages only from configured classes.
+     * Logs messages only from configured classes and class prefixes.
      * Prepends the calling class/method/line number to the message.
      *
      * @param string $level
@@ -102,19 +102,32 @@ class Logger extends KLogger\Logger
             $caller = $trace[$i];
             $previous = $trace[$i + 1];
 
-            if (isset($previous['class']) && isset($this->classes[$previous['class']])) {
-                if ($this->classes[$previous['class']]) {
-                    $logMessage = sprintf(
-                        "%s::%s, line %d\n%s",
-                        $previous['class'],
-                        $previous['function'],
-                        $caller['line'],
-                        (string) $message
-                    );
-                    $this->write($this->formatMessage($level, $logMessage, $context));
+            if (isset($previous['class'])) {
+                $class = $previous['class'];
+
+                if (isset($this->classes[$class])) {
+                    $key = $class;
+                    $found = true;
+                } else {
+                    list($prefix, $rest) = explode('\\', $class, 2);
+                    $key = $prefix;
+                    $found = isset($this->classes[$key]);
                 }
 
-                return;
+                if ($found) {
+                    if ($this->classes[$key]) {
+                        $logMessage = sprintf(
+                            "%s::%s, line %d\n%s",
+                            $previous['class'],
+                            $previous['function'],
+                            $caller['line'],
+                            (string) $message
+                        );
+                        $this->write($this->formatMessage($level, $logMessage, $context));
+                    }
+
+                    return;
+                }
             }
         }
     }

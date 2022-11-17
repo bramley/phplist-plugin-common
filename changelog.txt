@@ -1,3 +1,6 @@
+version 3.23.3+20221117
+      Allow logging for a package name
+
 version 3.23.2+20221110
       Revert the previous commit and fix in a better way without requiring php 7. Fixes #18
 
