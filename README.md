@@ -44,6 +44,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version     Description
+    3.23.4+20221130 Log return code and response when sending email
     3.23.3+20221117 Allow logging for a package name
     3.23.2+20221110 Correct the previous fix
     3.23.1+20221108 Minor fix for php 8 compatibility

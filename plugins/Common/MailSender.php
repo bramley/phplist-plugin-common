@@ -218,6 +218,8 @@ class MailSender
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $this->logger->debug($httpCode);
+        $this->logger->debug($response);
 
         if ($response === false || preg_match('/^2\d\d$/', $httpCode) !== 1 || !$this->client->verifyResponse($response)) {
             $error = curl_error($curl);

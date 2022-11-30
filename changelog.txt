@@ -1,3 +1,6 @@
+version 3.23.4+20221130
+      Log return code and response
+
 version 3.23.3+20221117
       Allow logging for a package name
 
