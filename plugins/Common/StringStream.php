@@ -132,4 +132,4 @@ class StringStream
         } */
 }
 
-stream_wrapper_register('string', 'phpList\plugin\Common\StringStream') or die('Failed to register string stream');
+stream_wrapper_register('string', 'phpList\plugin\Common\StringStream') or exit('Failed to register string stream');

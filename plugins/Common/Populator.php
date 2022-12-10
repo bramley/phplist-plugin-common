@@ -25,8 +25,8 @@ class Populator implements IPopulator
     /**
      * Constructor.
      *
-     * @param callback $populate
-     * @param callback $total
+     * @param callable $populate
+     * @param callable $total
      */
     public function __construct($populate, $total)
     {
