@@ -36,9 +36,9 @@ trait AttributeTrait
             $limit";
         $result = [];
 
-        foreach ($this->dbCommand->queryAll($sql) as $row) {
+        foreach ($this->dbCommand->queryAll($sql, 'id') as $id => $row) {
             $row['name'] = $this->transformAttributeName($row['name'], $attrNameLength);
-            $result[$row['id']] = $row;
+            $result[$id] = $row;
         }
 
         return $result;
