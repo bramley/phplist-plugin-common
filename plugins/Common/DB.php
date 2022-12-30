@@ -91,13 +91,14 @@ class DB
     /**
      * Runs a query and returns all the results.
      *
-     * @param string $sql the query
+     * @param string $sql       the query
+     * @param string $keyColumn optional result column to use as the key
      *
      * @return DBResultIterator iterator
      */
-    public function queryAll($sql)
+    public function queryAll($sql, $keyColumn = null)
     {
-        return new DBResultIterator($this->_query($sql));
+        return new DBResultIterator($this->_query($sql), $keyColumn);
     }
 
     /**

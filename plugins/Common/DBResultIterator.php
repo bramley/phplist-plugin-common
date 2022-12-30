@@ -20,16 +20,34 @@ namespace phpList\plugin\Common;
 class DBResultIterator extends \IteratorIterator implements \Countable
 {
     private $count;
+    private $keyColumn;
 
     /**
-     * Wraps the result in an interator.
+     * Wraps the result in an iterator.
      *
      * @param mysqli_result $result
+     * @param string        $keyColumn
      */
-    public function __construct(\mysqli_result $result)
+    public function __construct(\mysqli_result $result, $keyColumn = null)
     {
         parent::__construct($result);
         $this->count = $result->num_rows;
+        $this->keyColumn = $keyColumn;
+    }
+
+    /**
+     * Return the key as a column from the result otherwise the default.
+     *
+     * @return mixed
+     */
+    #[\ReturnTypeWillChange]
+    public function key()
+    {
+        if ($this->keyColumn === null) {
+            return parent::key();
+        }
+
+        return parent::current()[$this->keyColumn];
     }
 
     /**
