@@ -37,7 +37,7 @@ trait ListsTrait
             $owner
             ORDER BY l.listorder";
 
-        return $this->dbCommand->queryAll($sql);
+        return $this->dbCommand->queryAll($sql, 'id');
     }
 
     public function listsForMessage($msgid, $column = null)
