@@ -109,8 +109,8 @@ class Logger extends KLogger\Logger
                     $key = $class;
                     $found = true;
                 } else {
-                    list($prefix, $rest) = explode('\\', $class, 2);
-                    $key = $prefix;
+                    $parts = explode('\\', $class, 2);
+                    $key = $parts[0];
                     $found = isset($this->classes[$key]);
                 }
 
