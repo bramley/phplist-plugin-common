@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'fe926e1fe1e638192a5da8350687e5342af618d3',
+    'reference' => '3e026e1c03394348cbec39f403034dec5d07f223',
     'name' => 'bramley/phplist-plugin-common',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'fe926e1fe1e638192a5da8350687e5342af618d3',
+      'reference' => '3e026e1c03394348cbec39f403034dec5d07f223',
     ),
     'chdemko/bitarray' => 
     array (
@@ -68,12 +68,12 @@
     ),
     'pelago/emogrifier' => 
     array (
-      'pretty_version' => 'v6.0.0',
-      'version' => '6.0.0.0',
+      'pretty_version' => 'v7.0.0',
+      'version' => '7.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'aa72d5407efac118f3896bcb995a2cba793df0ae',
+      'reference' => '547b8c814794aec871e3c98b1c712f416755f4eb',
     ),
     'psr/container' => 
     array (
@@ -113,12 +113,12 @@
     ),
     'symfony/css-selector' => 
     array (
-      'pretty_version' => 'v3.4.47',
-      'version' => '3.4.47.0',
+      'pretty_version' => 'v4.4.44',
+      'version' => '4.4.44.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'da3d9da2ce0026771f5fe64cb332158f1bd2bc33',
+      'reference' => 'bd0a6737e48de45b4b0b7b6fc98c78404ddceaed',
     ),
     'symfony/filesystem' => 
     array (
@@ -128,6 +128,15 @@
       array (
       ),
       'reference' => 'de56eee71e0a128d8c54ccc1909cdefd574bad0f',
+    ),
+    'symfony/polyfill-php80' => 
+    array (
+      'pretty_version' => 'v1.27.0',
+      'version' => '1.27.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7a6ff3f1959bb01aefccb463a0f2cd3d3d2fd936',
     ),
   ),
 );

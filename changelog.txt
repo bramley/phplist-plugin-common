@@ -1,3 +1,11 @@
+version 3.24.0+20230108
+      Rename to use php-cs-fixer version 3
+      Allow DBResultIterator to be keyed by one of the result's columns
+      Use id column to index the result of querying attributes
+      Avoid php undefined array key warning
+      Use id column to index the result of querying lists
+      Update Emogrifier package to 7.0
+
 version 3.23.4+20221130
       Log return code and response
 

@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
 {
+    public static $files = array (
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'c' => 
         array (
@@ -13,6 +17,7 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Sabberworm\\CSS\\' => 15,
@@ -36,6 +41,10 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'chdemko\\BitArray\\' => 
         array (
             0 => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray',
+        ),
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
         'Symfony\\Component\\Filesystem\\' => 
         array (
@@ -85,6 +94,7 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
     );
 
     public static $classMap = array (
+        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'CHtml' => __DIR__ . '/..' . '/ext/yii/CHtml.php',
         'Chart' => __DIR__ . '/..' . '/ext/chart/Chart.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -159,6 +169,7 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Pelago\\Emogrifier\\HtmlProcessor\\HtmlPruner' => __DIR__ . '/..' . '/pelago/emogrifier/src/HtmlProcessor/HtmlPruner.php',
         'Pelago\\Emogrifier\\Utilities\\ArrayIntersector' => __DIR__ . '/..' . '/pelago/emogrifier/src/Utilities/ArrayIntersector.php',
         'Pelago\\Emogrifier\\Utilities\\CssConcatenator' => __DIR__ . '/..' . '/pelago/emogrifier/src/Utilities/CssConcatenator.php',
+        'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
@@ -210,6 +221,7 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Sabberworm\\CSS\\Value\\Value' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/Value/Value.php',
         'Sabberworm\\CSS\\Value\\ValueList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/Value/ValueList.php',
         'SqlFormatter' => __DIR__ . '/..' . '/jdorn/sql-formatter/lib/SqlFormatter.php',
+        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\CssSelector\\CssSelectorConverter' => __DIR__ . '/..' . '/symfony/css-selector/CssSelectorConverter.php',
         'Symfony\\Component\\CssSelector\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/css-selector/Exception/ExceptionInterface.php',
         'Symfony\\Component\\CssSelector\\Exception\\ExpressionErrorException' => __DIR__ . '/..' . '/symfony/css-selector/Exception/ExpressionErrorException.php',
@@ -265,6 +277,8 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Symfony\\Component\\Filesystem\\Filesystem' => __DIR__ . '/..' . '/symfony/filesystem/Filesystem.php',
         'Symfony\\Component\\Filesystem\\LockHandler' => __DIR__ . '/..' . '/symfony/filesystem/LockHandler.php',
         'TTFontFile' => __DIR__ . '/..' . '/setasign/tfpdf/font/unifont/ttfonts.php',
+        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'WkHtmlToPdf' => __DIR__ . '/..' . '/ext/mikehaertl/WkHtmlToPdf.php',
         'chdemko\\BitArray\\BitArray' => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray/BitArray.php',
         'chdemko\\BitArray\\Iterator' => __DIR__ . '/..' . '/chdemko/bitarray/src/BitArray/Iterator.php',

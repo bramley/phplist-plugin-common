@@ -21,10 +21,10 @@
         "jdorn/sql-formatter": "^1.2",
         "jmathai/php-multi-curl": "dev-master",
         "katzgrau/klogger": "1.2.2",
-        "pelago/emogrifier": "~6.0",
+        "pelago/emogrifier": "~7.0",
         "psr/container": "1.0.0",
         "psr/log": "1.0.0",
-        "symfony/css-selector": "^3.0",
+        "symfony/css-selector": "^4.4.23",
         "symfony/filesystem": "3.4",
         "setasign/tfpdf": "1.32"
     },

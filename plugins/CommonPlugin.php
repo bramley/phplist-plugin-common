@@ -30,6 +30,7 @@ class CommonPlugin extends phplistPlugin
     const CSS_INLINE_NONE = 'None';
     const CSS_INLINE_PREMAILER = 'PreMailer';
     const CSS_INLINE_EMOGRIFIER = 'Emogrifier';
+    const EMOGRIFIER_MINIMUM_PHP_VERSION = '7.3';
 
     /*
      *  Inherited variables
@@ -184,7 +185,7 @@ END;
             $preMailer->setOption($preMailer::OPTION_CSS_WRITER_CLASS, '\Crossjoin\Css\Writer\Pretty');
             $inlinedHtml = $preMailer->getHtml();
             $mail->Body = $inlinedHtml;
-        } elseif ($package == self::CSS_INLINE_EMOGRIFIER && version_compare(PHP_VERSION, '7.2') >= 0) {
+        } elseif ($package == self::CSS_INLINE_EMOGRIFIER && version_compare(PHP_VERSION, self::EMOGRIFIER_MINIMUM_PHP_VERSION) >= 0) {
             $inlinedHtml = CssInliner::fromHtml($mail->Body)->inlineCss()->render();
             $mail->Body = $inlinedHtml;
         }

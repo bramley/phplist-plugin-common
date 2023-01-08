@@ -74,3 +74,10 @@ plugins/CommonPlugin/vendor/symfony/filesystem/*
 !plugins/CommonPlugin/vendor/symfony/filesystem/Filesystem.php
 !plugins/CommonPlugin/vendor/symfony/filesystem/LockHandler.php
 !plugins/CommonPlugin/vendor/symfony/filesystem/Exception/
+
+plugins/CommonPlugin/vendor/symfony/polyfill-php80/*
+!plugins/CommonPlugin/vendor/symfony/polyfill-php80/LICENSE
+!plugins/CommonPlugin/vendor/symfony/polyfill-php80/bootstrap.php
+!plugins/CommonPlugin/vendor/symfony/polyfill-php80/Php80.php
+!plugins/CommonPlugin/vendor/symfony/polyfill-php80/PhpToken.php
+!plugins/CommonPlugin/vendor/symfony/polyfill-php80/Resources/

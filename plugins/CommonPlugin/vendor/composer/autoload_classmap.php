@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname(dirname(dirname($vendorDir)));
 
 return array(
+    'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'CHtml' => $vendorDir . '/ext/yii/CHtml.php',
     'Chart' => $vendorDir . '/ext/chart/Chart.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
@@ -80,6 +81,7 @@ return array(
     'Pelago\\Emogrifier\\HtmlProcessor\\HtmlPruner' => $vendorDir . '/pelago/emogrifier/src/HtmlProcessor/HtmlPruner.php',
     'Pelago\\Emogrifier\\Utilities\\ArrayIntersector' => $vendorDir . '/pelago/emogrifier/src/Utilities/ArrayIntersector.php',
     'Pelago\\Emogrifier\\Utilities\\CssConcatenator' => $vendorDir . '/pelago/emogrifier/src/Utilities/CssConcatenator.php',
+    'PhpToken' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
     'Psr\\Container\\ContainerExceptionInterface' => $vendorDir . '/psr/container/src/ContainerExceptionInterface.php',
     'Psr\\Container\\ContainerInterface' => $vendorDir . '/psr/container/src/ContainerInterface.php',
     'Psr\\Container\\NotFoundExceptionInterface' => $vendorDir . '/psr/container/src/NotFoundExceptionInterface.php',
@@ -131,6 +133,7 @@ return array(
     'Sabberworm\\CSS\\Value\\Value' => $vendorDir . '/sabberworm/php-css-parser/src/Value/Value.php',
     'Sabberworm\\CSS\\Value\\ValueList' => $vendorDir . '/sabberworm/php-css-parser/src/Value/ValueList.php',
     'SqlFormatter' => $vendorDir . '/jdorn/sql-formatter/lib/SqlFormatter.php',
+    'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'Symfony\\Component\\CssSelector\\CssSelectorConverter' => $vendorDir . '/symfony/css-selector/CssSelectorConverter.php',
     'Symfony\\Component\\CssSelector\\Exception\\ExceptionInterface' => $vendorDir . '/symfony/css-selector/Exception/ExceptionInterface.php',
     'Symfony\\Component\\CssSelector\\Exception\\ExpressionErrorException' => $vendorDir . '/symfony/css-selector/Exception/ExpressionErrorException.php',
@@ -186,6 +189,8 @@ return array(
     'Symfony\\Component\\Filesystem\\Filesystem' => $vendorDir . '/symfony/filesystem/Filesystem.php',
     'Symfony\\Component\\Filesystem\\LockHandler' => $vendorDir . '/symfony/filesystem/LockHandler.php',
     'TTFontFile' => $vendorDir . '/setasign/tfpdf/font/unifont/ttfonts.php',
+    'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+    'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     'WkHtmlToPdf' => $vendorDir . '/ext/mikehaertl/WkHtmlToPdf.php',
     'chdemko\\BitArray\\BitArray' => $vendorDir . '/chdemko/bitarray/src/BitArray/BitArray.php',
     'chdemko\\BitArray\\Iterator' => $vendorDir . '/chdemko/bitarray/src/BitArray/Iterator.php',
