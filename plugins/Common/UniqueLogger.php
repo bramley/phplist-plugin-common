@@ -21,6 +21,8 @@ use Psr\Log\AbstractLogger;
 
 class UniqueLogger extends AbstractLogger
 {
+    private $logger;
+
     public function __construct($logger)
     {
         $this->logger = $logger;
