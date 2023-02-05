@@ -49,7 +49,7 @@ class Logger extends KLogger\Logger
             $threshold = constant('Psr\Log\LogLevel::' . $log_options['threshold']);
             $dir = isset($log_options['dir']) ? $log_options['dir'] : $tmpdir;
             $logger = new static($dir, $threshold);
-            $logger->setDateFormat('D d M Y H:i:s');
+            $logger->setDateFormat('H:i:s');
         } else {
             $logger = new NullLogger();
         }
@@ -116,13 +116,8 @@ class Logger extends KLogger\Logger
 
                 if ($found) {
                     if ($this->classes[$key]) {
-                        $logMessage = sprintf(
-                            "%s::%s, line %d\n%s",
-                            $previous['class'],
-                            $previous['function'],
-                            $caller['line'],
-                            (string) $message
-                        );
+                        $shortClass = str_replace('phpList\plugin\\', '', $previous['class']);
+                        $logMessage = sprintf('%s %s', $shortClass, (string) $message);
                         $this->write($this->formatMessage($level, $logMessage, $context));
                     }
 

@@ -1,3 +1,7 @@
+version 3.24.1+20230205
+      Avoid php 8 deprecation regarding dynamic property
+      Improve layout of log messages
+
 version 3.24.0+20230108
       Rename to use php-cs-fixer version 3
       Allow DBResultIterator to be keyed by one of the result's columns
