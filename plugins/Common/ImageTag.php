@@ -22,6 +22,10 @@ use CHtml;
  */
 class ImageTag
 {
+    private $alt;
+    private $image;
+    private $title;
+
     /*
      *    Public methods
      */
