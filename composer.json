@@ -24,9 +24,9 @@
         "pelago/emogrifier": "~7.0",
         "psr/container": "1.0.0",
         "psr/log": "1.0.0",
+        "setasign/tfpdf": "1.33",
         "symfony/css-selector": "^4.4.23",
-        "symfony/filesystem": "3.4",
-        "setasign/tfpdf": "1.32"
+        "symfony/filesystem": "3.4"
     },
     "autoload": {
         "classmap": [

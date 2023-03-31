@@ -1,142 +1,142 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'name' => 'bramley/phplist-plugin-common',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'c92686e63e10d6c8d89e76dfa6fd4b0df5ee34a2',
+        'type' => 'phplist-plugin',
+        'install_path' => __DIR__ . '/../../../../',
+        'aliases' => array(),
+        'dev' => true,
     ),
-    'reference' => '3e026e1c03394348cbec39f403034dec5d07f223',
-    'name' => 'bramley/phplist-plugin-common',
-  ),
-  'versions' => 
-  array (
-    'bramley/phplist-plugin-common' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '3e026e1c03394348cbec39f403034dec5d07f223',
+    'versions' => array(
+        'bramley/phplist-plugin-common' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'c92686e63e10d6c8d89e76dfa6fd4b0df5ee34a2',
+            'type' => 'phplist-plugin',
+            'install_path' => __DIR__ . '/../../../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'chdemko/bitarray' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => 'e7627033c8ed5198da16373ac120c759732a6711',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../chdemko/bitarray',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'jasongrimes/paginator' => array(
+            'pretty_version' => '1.0.2',
+            'version' => '1.0.2.0',
+            'reference' => '8b18245b8a9dbdf69918ebd1e1f4a229a06030cd',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jasongrimes/paginator',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'jdorn/sql-formatter' => array(
+            'pretty_version' => 'v1.2.17',
+            'version' => '1.2.17.0',
+            'reference' => '64990d96e0959dff8e059dfcdc1af130728d92bc',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jdorn/sql-formatter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'jmathai/php-multi-curl' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'ee0917264ab4ef15cf5b318a2dc7b4ac5e5847c7',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jmathai/php-multi-curl',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'katzgrau/klogger' => array(
+            'pretty_version' => '1.2.2',
+            'version' => '1.2.2.0',
+            'reference' => '36481c69db9305169a2ceadead25c2acaabd567c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../katzgrau/klogger',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'pelago/emogrifier' => array(
+            'pretty_version' => 'v7.0.0',
+            'version' => '7.0.0.0',
+            'reference' => '547b8c814794aec871e3c98b1c712f416755f4eb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../pelago/emogrifier',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'psr/container' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => 'b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/container',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'psr/log' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => 'fe0936ee26643249e916849d48e3a51d5f5e278b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/log',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabberworm/php-css-parser' => array(
+            'pretty_version' => '8.4.0',
+            'version' => '8.4.0.0',
+            'reference' => 'e41d2140031d533348b2192a83f02d8dd8a71d30',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabberworm/php-css-parser',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'setasign/tfpdf' => array(
+            'pretty_version' => 'v1.33',
+            'version' => '1.33.0.0',
+            'reference' => '050de12ab5359ce475dab49bae5cedbcf455f708',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../setasign/tfpdf',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/css-selector' => array(
+            'pretty_version' => 'v4.4.44',
+            'version' => '4.4.44.0',
+            'reference' => 'bd0a6737e48de45b4b0b7b6fc98c78404ddceaed',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/css-selector',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/filesystem' => array(
+            'pretty_version' => 'v3.4.0',
+            'version' => '3.4.0.0',
+            'reference' => 'de56eee71e0a128d8c54ccc1909cdefd574bad0f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/filesystem',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-php80' => array(
+            'pretty_version' => 'v1.27.0',
+            'version' => '1.27.0.0',
+            'reference' => '7a6ff3f1959bb01aefccb463a0f2cd3d3d2fd936',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-php80',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
     ),
-    'chdemko/bitarray' => 
-    array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'e7627033c8ed5198da16373ac120c759732a6711',
-    ),
-    'jasongrimes/paginator' => 
-    array (
-      'pretty_version' => '1.0.2',
-      'version' => '1.0.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8b18245b8a9dbdf69918ebd1e1f4a229a06030cd',
-    ),
-    'jdorn/sql-formatter' => 
-    array (
-      'pretty_version' => 'v1.2.17',
-      'version' => '1.2.17.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '64990d96e0959dff8e059dfcdc1af130728d92bc',
-    ),
-    'jmathai/php-multi-curl' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-        0 => '9999999-dev',
-      ),
-      'reference' => 'ee0917264ab4ef15cf5b318a2dc7b4ac5e5847c7',
-    ),
-    'katzgrau/klogger' => 
-    array (
-      'pretty_version' => '1.2.2',
-      'version' => '1.2.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '36481c69db9305169a2ceadead25c2acaabd567c',
-    ),
-    'pelago/emogrifier' => 
-    array (
-      'pretty_version' => 'v7.0.0',
-      'version' => '7.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '547b8c814794aec871e3c98b1c712f416755f4eb',
-    ),
-    'psr/container' => 
-    array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
-    ),
-    'psr/log' => 
-    array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'fe0936ee26643249e916849d48e3a51d5f5e278b',
-    ),
-    'sabberworm/php-css-parser' => 
-    array (
-      'pretty_version' => '8.4.0',
-      'version' => '8.4.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'e41d2140031d533348b2192a83f02d8dd8a71d30',
-    ),
-    'setasign/tfpdf' => 
-    array (
-      'pretty_version' => 'v1.32',
-      'version' => '1.32.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'a879b83485c263605cbf98ab2e8fdd4d37ca2707',
-    ),
-    'symfony/css-selector' => 
-    array (
-      'pretty_version' => 'v4.4.44',
-      'version' => '4.4.44.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'bd0a6737e48de45b4b0b7b6fc98c78404ddceaed',
-    ),
-    'symfony/filesystem' => 
-    array (
-      'pretty_version' => 'v3.4.0',
-      'version' => '3.4.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'de56eee71e0a128d8c54ccc1909cdefd574bad0f',
-    ),
-    'symfony/polyfill-php80' => 
-    array (
-      'pretty_version' => 'v1.27.0',
-      'version' => '1.27.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '7a6ff3f1959bb01aefccb463a0f2cd3d3d2fd936',
-    ),
-  ),
 );
