@@ -44,6 +44,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version     Description
+    3.25.0+20230331 Add "order by" dropdown list on subscriber Search form
     3.24.1+20230205 Improve layout of log messages
     3.24.0+20230108 Update the emogrifier package to 7.0
     3.23.4+20221130 Log return code and response when sending email

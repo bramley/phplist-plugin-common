@@ -1,3 +1,8 @@
+version 3.25.0+20230331
+      Avoid deprecation of dynamic properties
+      Update tFPDF to version 1.33
+      Add "order by" dropdown list on subscriber Search form
+
 version 3.24.1+20230205
       Avoid php 8 deprecation regarding dynamic property
       Improve layout of log messages

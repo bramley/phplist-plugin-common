@@ -21,6 +21,7 @@
  * - $model: the model
  *        searchTerm: term to search on
  *        searchBy: attribute to search on
+ *        orderBy: attribute to order results by
  *        attributes: associative array of user attributes
  *        listID: selected list to filter
  *        lists: associative array of lists
@@ -48,7 +49,7 @@ input[type="text"], select {
         <div style='padding-bottom: 10px;'>
             <label class="inline">
         <?php echo s('Search for'); ?>:
-            <input size="24" type="text" value="<?php echo htmlspecialchars($model->searchTerm); ?>" 
+            <input size="24" type="text" value="<?php echo htmlspecialchars($model->searchTerm); ?>"
                 name="SearchForm[searchTerm]" id="SearchForm_searchTerm" />
             </label>
             <div class='inline'>
@@ -58,6 +59,16 @@ input[type="text"], select {
             ); ?>&nbsp;
             </div>
             <label class="inline">
+        <?php echo s('Order by'); ?>:
+            </label>
+            <div class='inline'>
+            <?php echo CHtml::dropDownList(
+            'SearchForm[orderBy]', $model->orderBy,
+            array('email' => 'email', 'id' => 'id', 'uniqid' => 'unique id', 'subspage' => 'subscribe page id') + CHtml::listData($model->attributes, 'id', 'name')
+            ); ?>&nbsp;
+            </div>
+            <div class='inline'>
+            <label class="inline">
             <?php echo s('List'); ?>:
             <?php echo CHtml::dropDownList(
                 'SearchForm[listID]', $model->listID,
@@ -65,7 +76,7 @@ input[type="text"], select {
                 array('prompt' => s('All'))
             ); ?>
             </label>
-
+            </div>
             <div class='inline'>
                 <label>
             <?php echo s('Confirmed'); ?>:
