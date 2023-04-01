@@ -90,4 +90,9 @@ abstract class Model
     {
         $this->properties[$name] = $value;
     }
+
+    public function __isset($name)
+    {
+        return isset($this->properties[$name]);
+    }
 }

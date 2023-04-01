@@ -1,3 +1,6 @@
+version 3.25.1+20230401
+      Ensure the Search form is compatible with older versions of Subscribers plugin
+
 version 3.25.0+20230331
       Avoid deprecation of dynamic properties
       Update tFPDF to version 1.33

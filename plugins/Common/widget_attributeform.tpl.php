@@ -63,7 +63,7 @@ input[type="text"], select {
             </label>
             <div class='inline'>
             <?php echo CHtml::dropDownList(
-            'SearchForm[orderBy]', $model->orderBy,
+            'SearchForm[orderBy]', isset($model->orderBy) ? $model->orderBy : 0,
             array('email' => 'email', 'id' => 'id', 'uniqid' => 'unique id', 'subspage' => 'subscribe page id') + CHtml::listData($model->attributes, 'id', 'name')
             ); ?>&nbsp;
             </div>
