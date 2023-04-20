@@ -20,11 +20,16 @@ However when installing or upgrading another plugin ensure that you upgrade to t
 
 This plugin requires phplist 3.3.2 or later.
 
-Requires php version 5.6 or later.
+Requires php version 7 or 8. php 5 is no longer supported. The last version of the plugin that is compatible with php 5.6
+is 3.23.4.
 
 ### Install through phplist ###
 
-The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
+The recommended way to install is through the Plugins page (menu Config > Manage plugins) using the package URL
+ `https://github.com/bramley/phplist-plugin-common/archive/master.zip`.
+
+An older version of the plugin can be installed by replacing 'master' by the version number in the package URL, such
+as `https://github.com/bramley/phplist-plugin-common/archive/3.23.4.zip`
 
 ### Install manually ###
 
@@ -43,7 +48,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 
 ## Version history ##
 
-    version     Description
+    version         Description
     3.25.1+20230401 Ensure the Search form is compatible with older versions of Subscribers plugin
     3.25.0+20230331 Add "order by" dropdown list on subscriber Search form
     3.24.1+20230205 Improve layout of log messages
