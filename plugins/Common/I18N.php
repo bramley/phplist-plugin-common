@@ -41,9 +41,9 @@ class I18N
      * @param phplistPlugin $pi an optional plugin whose language file should
      *                          be used for translations
      *
-     * @throws Exception if the code is not executing within a plugin
-     *
      * @return string the plugin's directory
+     *
+     * @throws Exception if the code is not executing within a plugin
      */
     public function __construct(\phplistPlugin $pi = null)
     {
@@ -61,9 +61,9 @@ class I18N
     /**
      * Derives the directory for a plugin using the $_GET parameter.
      *
-     * @throws Exception if the code is not executing within a plugin
-     *
      * @return string the plugin's directory
+     *
+     * @throws Exception if the code is not executing within a plugin
      */
     private function pluginDir()
     {

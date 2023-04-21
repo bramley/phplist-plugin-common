@@ -5,6 +5,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('plugins/CommonPlugin/ext')
     ->exclude('plugins/CommonPlugin/vendor')
     ->exclude('plugins/CommonPlugin/images')
+    ->exclude('tests')
     ->notPath(['.tpl.php'])
 ;
 
@@ -28,6 +29,7 @@ return $config->setRules([
         'visibility_required' => false,
         'phpdoc_to_comment' => false,
         'function_typehint_space' => false,
+        'global_namespace_import' => false,
     ])
     ->setFinder($finder)
 ;

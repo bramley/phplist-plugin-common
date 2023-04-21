@@ -2,8 +2,6 @@
 
 namespace phpList\plugin\Common;
 
-use function phpList\plugin\Common\shortenText as shortenText;
-
 /**
  * CommonPlugin for phplist.
  *

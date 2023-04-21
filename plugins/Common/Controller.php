@@ -64,14 +64,14 @@ abstract class Controller extends BaseController
         if (isset($_GET['stage'])) {
             switch ($_GET['stage']) {
                 case 'build':
-                   $exporter->export($exportable);
-                   break;
+                    $exporter->export($exportable);
+                    break;
                 case 'send':
-                   $exporter->send($exportable);
-                   break;
+                    $exporter->send($exportable);
+                    break;
                 case 'progress':
-                   $exporter->progress();
-                   break;
+                    $exporter->progress();
+                    break;
             }
         } else {
             $exporter->start();
