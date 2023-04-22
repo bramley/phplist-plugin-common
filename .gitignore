@@ -1,5 +1,5 @@
-.php-cs-fixer.cache
-.phpunit.result.cache
+*.cache
+*.html
 
 ## Composer ##
 composer.phar
