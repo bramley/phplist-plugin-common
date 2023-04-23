@@ -1,13 +1,29 @@
 PHP BitArray
 ======================
-[![Downloads](https://poser.pugx.org/chdemko/bitarray/d/total.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Latest Stable Version](https://poser.pugx.org/chdemko/bitarray/version.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Code coverage](https://coveralls.io/repos/chdemko/php-bitarray/badge.png?branch=master)](https://coveralls.io/r/chdemko/php-bitarray?branch=master)
-[![Build Status](https://secure.travis-ci.org/chdemko/php-bitarray.png)](http://travis-ci.org/chdemko/php-bitarray)
-[![License](https://poser.pugx.org/chdemko/bitarray/license.png)](http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html)
+[![Travis](https://img.shields.io/travis/chdemko/php-bitarray.svg)](http://travis-ci.org/chdemko/php-bitarray)
+[![Coveralls](https://img.shields.io/coveralls/chdemko/php-bitarray.svg)](https://coveralls.io/r/chdemko/php-bitarray?branch=master)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/chdemko/php-bitarray.svg)](https://scrutinizer-ci.com/g/chdemko/php-bitarray/?branch=master)
+[![PHP versions](https://img.shields.io/php-eye/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![Latest Stable Version](https://img.shields.io/packagist/v/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![Packagist](https://img.shields.io/packagist/dt/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![License](https://poser.pugx.org/chdemko/bitarray/license.svg)](https://raw.githubusercontent.com/chdemko/php-bitarray/master/LICENSE)
 
 BitArray for PHP.
+
+This project manipulates compact array of bit values stored internally as strings.
+
+The bit arrays may have variable length specified when an object is created using either:
+
+* a specific size;
+* a traversable collection;
+* a string representation of bits;
+* a json representation of bits;
+* a slice from another bit array;
+* a concatenation from two others bit arrays.
+
+The project provides methods to get and set bits values using PHP natural syntax as well as the iterator facility offered by the PHP `foreach` language construct.
+It also provides methods for bitwise logical operations between two bit arrays `and`, `or`, `xor` and the `not` operation.
 
 This project uses:
 
@@ -21,7 +37,7 @@ Installation
 Using composer: either
 
 ~~~
-$ composer create-project chdemko/bitarray:1.0.x-dev --dev; cd bitarray
+$ composer create-project chdemko/bitarray:1.1.x-dev --dev; cd bitarray
 ~~~
 
 or create a `composer.json` file containing
@@ -29,7 +45,7 @@ or create a `composer.json` file containing
 ~~~json
 {
     "require": {
-        "chdemko/bitarray": "1.0.x-dev"
+        "chdemko/bitarray": "1.1.x-dev"
     }
 }
 ~~~
@@ -38,14 +54,14 @@ and run
 $ composer install
 ~~~
 
-Create a `test.php` file containg
+Create a `test.php` file containing
 ~~~php
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
 use chdemko\BitArray\BitArray;
 
-$bits = BitArray::fromIterable([true,false,false,true]);
+$bits = BitArray::fromTraversable([true,false,false,true]);
 echo $bits . PHP_EOL;
 ~~~
 This should print
