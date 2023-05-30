@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.27.0+20230530 Add database cache and file cache classes
     3.26.0+20230425 Make php 7 the minimum required version
     3.25.1+20230401 Ensure the Search form is compatible with older versions of Subscribers plugin
     3.25.0+20230331 Add "order by" dropdown list on subscriber Search form

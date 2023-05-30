@@ -1,3 +1,8 @@
+version 3.27.0+20230530
+      Add kodus/file-cache package
+      add kodus/db-cache package
+      Provide cache classes
+
 version 3.26.0+20230425
       Update the BitArray package
       Make php 7 the minimum required version

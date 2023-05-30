@@ -45,8 +45,7 @@ plugins/CommonPlugin/vendor/jdorn/sql-formatter/*
 !plugins/CommonPlugin/vendor/jdorn/sql-formatter/LICENSE.txt
 !plugins/CommonPlugin/vendor/jdorn/sql-formatter/lib/
 
-plugins/CommonPlugin/vendor/kodus/db-cache/*
-plugins/CommonPlugin/vendor/kodus/db-cache/.github/
+/plugins/CommonPlugin/vendor/kodus/db-cache/*
 !plugins/CommonPlugin/vendor/kodus/db-cache/src/
 
 plugins/CommonPlugin/vendor/kodus/file-cache/*
