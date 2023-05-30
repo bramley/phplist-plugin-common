@@ -21,6 +21,7 @@
         "jdorn/sql-formatter": "^1.2",
         "jmathai/php-multi-curl": "dev-master",
         "katzgrau/klogger": "1.2.2",
+        "kodus/file-cache": "^2.0",
         "pelago/emogrifier": "~7.0",
         "psr/container": "1.0.0",
         "psr/log": "1.0.0",

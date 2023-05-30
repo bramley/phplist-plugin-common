@@ -3,7 +3,7 @@
         'name' => 'bramley/phplist-plugin-common',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'bfda85225da75320f3498427a135529972b1d95e',
+        'reference' => '86ee727fe8a6a394d0c7dad69781642d6e739d0d',
         'type' => 'phplist-plugin',
         'install_path' => __DIR__ . '/../../../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'bramley/phplist-plugin-common' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'bfda85225da75320f3498427a135529972b1d95e',
+            'reference' => '86ee727fe8a6a394d0c7dad69781642d6e739d0d',
             'type' => 'phplist-plugin',
             'install_path' => __DIR__ . '/../../../../',
             'aliases' => array(),
@@ -66,6 +66,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'kodus/file-cache' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'reference' => 'dcd68ed8a0296d79815a52cc723a5bb59fee4e69',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kodus/file-cache',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'pelago/emogrifier' => array(
             'pretty_version' => 'v7.0.0',
             'version' => '7.0.0.0',
@@ -92,6 +101,21 @@
             'install_path' => __DIR__ . '/../psr/log',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'psr/simple-cache' => array(
+            'pretty_version' => '3.0.0',
+            'version' => '3.0.0.0',
+            'reference' => '764e0b3939f5ca87cb904f570ef9be2d78a07865',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/simple-cache',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'psr/simple-cache-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
         ),
         'sabberworm/php-css-parser' => array(
             'pretty_version' => '8.4.0',

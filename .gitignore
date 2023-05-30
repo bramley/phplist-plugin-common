@@ -16,6 +16,10 @@ plugins/CommonPlugin/vendor/psr/container/*
 !plugins/CommonPlugin/vendor/psr/container/LICENSE
 !plugins/CommonPlugin/vendor/psr/container/src
 
+plugins/CommonPlugin/vendor/psr/simple-cache/*
+!plugins/CommonPlugin/vendor/psr/simple-cache/LICENSE.md
+!plugins/CommonPlugin/vendor/psr/simple-cache/src
+
 plugins/CommonPlugin/vendor/chdemko/bitarray/*
 !plugins/CommonPlugin/vendor/chdemko/bitarray/src
 !plugins/CommonPlugin/vendor/chdemko/bitarray/cite.bib
@@ -40,6 +44,9 @@ plugins/CommonPlugin/vendor/jasongrimes/paginator/*
 plugins/CommonPlugin/vendor/jdorn/sql-formatter/*
 !plugins/CommonPlugin/vendor/jdorn/sql-formatter/LICENSE.txt
 !plugins/CommonPlugin/vendor/jdorn/sql-formatter/lib/
+
+plugins/CommonPlugin/vendor/kodus/file-cache/*
+!plugins/CommonPlugin/vendor/kodus/file-cache/src
 
 plugins/CommonPlugin/vendor/pelago/emogrifier/*
 !plugins/CommonPlugin/vendor/pelago/emogrifier/LICENSE
