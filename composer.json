@@ -27,7 +27,8 @@
         "psr/log": "1.0.0",
         "setasign/tfpdf": "1.33",
         "symfony/css-selector": "^4.4.23",
-        "symfony/filesystem": "3.4"
+        "symfony/filesystem": "3.4",
+        "kodus/db-cache": "^2.0"
     },
     "autoload": {
         "classmap": [

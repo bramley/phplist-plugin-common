@@ -75,6 +75,7 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Kodus\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/kodus/file-cache/src',
+            1 => __DIR__ . '/..' . '/kodus/db-cache/src',
         ),
         'Katzgrau\\KLogger\\' => 
         array (
