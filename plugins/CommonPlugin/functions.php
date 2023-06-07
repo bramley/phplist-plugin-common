@@ -98,3 +98,28 @@ function shortenTextDisplay($text, $max = 30)
 
     return sprintf('<span title="%s">%s</span>', htmlspecialchars($text), $display);
 }
+
+/*
+ * Log a message when the logging threshold is DEBUG.
+ *
+ * @param message $string
+ *
+ * @return array
+ */
+function debug($message)
+{
+    global $log_options, $tmpdir;
+
+    static $logger;
+
+    if (($log_options['threshold'] ?? '') != 'DEBUG') {
+        return;
+    }
+
+    if ($logger === null) {
+        $dir = $log_options['dir'] ?? $tmpdir;
+        $logger = new \Katzgrau\KLogger\Logger($dir, \Psr\Log\LogLevel::DEBUG);
+        $logger->setDateFormat('H:i:s');
+    }
+    $logger->debug($message);
+}
