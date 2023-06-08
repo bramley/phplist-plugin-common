@@ -17,4 +17,5 @@
 ob_start();
 var_dump($_SESSION);
 $output = ob_get_clean();
-echo extension_loaded('xdebug') ? $output : '<pre>' . htmlspecialchars($output) . '</pre>';
+$xdebugOn = extension_loaded('xdebug') && strpos(ini_get('xdebug.mode'), 'develop') !== false;
+echo $xdebugOn ? $output : '<pre>' . htmlspecialchars($output) . '</pre>';
