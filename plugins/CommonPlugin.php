@@ -51,6 +51,16 @@ class CommonPlugin extends phplistPlugin
     public function __construct()
     {
         $this->coderoot = dirname(__FILE__) . '/' . __CLASS__ . '/';
+
+        parent::__construct();
+
+        $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
+            ? file_get_contents($f)
+            : '';
+    }
+
+    public function activate()
+    {
         $this->settings = [
             'common_inline_css_package' => [
                 'description' => 'The package to use to inline CSS',
@@ -73,24 +83,17 @@ class CommonPlugin extends phplistPlugin
             ],
         ];
 
-        parent::__construct();
-        $this->version = (is_file($f = $this->coderoot . self::VERSION_FILE))
-            ? file_get_contents($f)
-            : '';
-        include_once $this->coderoot . 'functions.php';
-        include_once $this->coderoot . 'polyfill.php';
-    }
-
-    public function activate()
-    {
-        require $this->coderoot . 'Autoloader.php';
-
-        $this->pageTitles = array(
+        $this->pageTitles = [
             'phpinfo' => s('phpinfo'),
             'config_file' => s('config.php'),
             'session' => s('php session'),
-        );
+        ];
+
         parent::activate();
+
+        require $this->coderoot . 'Autoloader.php';
+        require $this->coderoot . 'functions.php';
+        require $this->coderoot . 'polyfill.php';
     }
 
     public function adminmenu()
