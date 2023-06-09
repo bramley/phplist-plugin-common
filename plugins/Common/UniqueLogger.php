@@ -7,7 +7,7 @@
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2018 Duncan Cameron
+ * @copyright 2011-2023 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
@@ -17,10 +17,13 @@
 
 namespace phpList\plugin\Common;
 
-use Psr\Log\AbstractLogger;
+use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerTrait;
 
-class UniqueLogger extends AbstractLogger
+class UniqueLogger implements LoggerInterface
 {
+    use LoggerTrait;
+
     private $logger;
 
     public function __construct($logger)

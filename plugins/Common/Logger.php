@@ -10,31 +10,32 @@ namespace phpList\plugin\Common;
  * @category  phplist
  * @package   CommonPlugin
  * @author    Duncan Cameron
- * @copyright 2011-2018 Duncan Cameron
+ * @copyright 2011-2023 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 
 /*
- * This class extends KLogger to provide configuration through config.php entries.
- * It over-rides the log() method to include the calling class/method/line number
- *
+ * This class wraps KLogger to provide configuration through config.php entries.
+ * It implements the log() method to include the calling class name.
  */
 use Katzgrau\KLogger;
+use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerTrait;
 use Psr\Log\NullLogger;
 
-class Logger extends KLogger\Logger
+class Logger implements LoggerInterface
 {
-    protected static $instance;
-    private $classes;
+    use LoggerTrait;
 
-    /*
-     *    Public methods
-     */
+    private static $instance;
+    private $classes;
+    private $wrappedLogger;
 
     /**
-     * Creates a configured instance using entries from config.php.
+     * Creates an instance of this class wrapping KLogger\Logger.
+     * Returns NullLogger when logging is disabled.
      *
-     * @return Psr\Log\AbstractLogger
+     * @return Psr\Log\LoggerInterface
      */
     public static function instance()
     {
@@ -47,35 +48,32 @@ class Logger extends KLogger\Logger
 
         if (isset($log_options['threshold']) && defined('Psr\Log\LogLevel::' . $log_options['threshold'])) {
             $threshold = constant('Psr\Log\LogLevel::' . $log_options['threshold']);
-            $dir = isset($log_options['dir']) ? $log_options['dir'] : $tmpdir;
-            $logger = new static($dir, $threshold);
-            $logger->setDateFormat('H:i:s');
+            $dir = $log_options['dir'] ?? $tmpdir;
+            $klogger = new \Katzgrau\KLogger\Logger($dir, $threshold);
+            $klogger->setDateFormat('H:i:s');
+            $logger = new static($klogger);
         } else {
             $logger = new NullLogger();
         }
         static::$instance = $logger;
 
-        return $logger;
+        return static::$instance;
     }
 
     /**
-     * Constructor.
-     *
-     * @param string $dir       File path to the logging directory
-     * @param string $threshold One of the pre-defined PSR severity constants
+     * @param Psr\Log\LoggerInterface $logger wrapped logger
      */
-    public function __construct($dir, $threshold)
+    public function __construct($logger)
     {
         global $log_options;
 
-        $this->classes = isset($log_options['classes']) ? $log_options['classes'] : array();
-        parent::__construct($dir, $threshold);
+        $this->wrappedLogger = $logger;
+        $this->classes = $log_options['classes'] ?? array();
     }
 
     /**
-     * Overrides the parent method.
      * Logs messages only from configured classes and class prefixes.
-     * Prepends the calling class/method/line number to the message.
+     * Prepends the calling class to the message.
      *
      * @param string $level
      * @param string $message
@@ -83,19 +81,16 @@ class Logger extends KLogger\Logger
      */
     public function log($level, $message, array $context = array())
     {
-        if ($this->logLevels[$this->logLevelThreshold] < $this->logLevels[$level]) {
-            return;
-        }
         $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 4);
         /*
-         * [0] is AbstractLogger calling this method
-         * [1] is the caller of debug(), info() etc, which gives the line number
+         * [0] is LoggerTrait calling this method from the debug method
+         * [1] is the caller of debug(), info() etc
          * [2] is the previous level, which gives the class/method of the caller of debug(), info() etc
          *
          * The frame index is increased by 1 when log() is implemented by a wrapper or subclass
          * [0] is a wrapper or subclass calling this method
-         * [1] is AbstractLogger calling the log() method of a wrapper or subclass
-         * [2] is the caller of debug(), info() etc, which gives the line number
+         * [1] is LoggerTrait calling the log() method of a wrapper or subclass
+         * [2] is the caller of debug(), info() etc
          * [3] is the previous level, which gives the class/method of the caller of debug(), info() etc
          */
         foreach ([1, 2] as $i) {
@@ -118,7 +113,7 @@ class Logger extends KLogger\Logger
                     if ($this->classes[$key]) {
                         $shortClass = str_replace('phpList\plugin\\', '', $previous['class']);
                         $logMessage = sprintf('%s %s', $shortClass, (string) $message);
-                        $this->write($this->formatMessage($level, $logMessage, $context));
+                        $this->wrappedLogger->log($level, $logMessage, $context);
                     }
 
                     return;
