@@ -31,6 +31,7 @@ function CommonPlugin_Autoloader_main()
 
     $loader->addPsr4('phpList\\plugin\\', $paths);
     $loader->add('', $paths);
+    $loader->add('', [$systemroot . '/PEAR']);
 
     foreach ($plugins as $piName => $pi) {
         if ($piName != 'CommonPlugin' && file_exists($ownAutoloader = $pi->coderoot . 'vendor/autoload.php')) {
