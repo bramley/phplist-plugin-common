@@ -16,7 +16,7 @@
         "vendor-dir": "plugins/CommonPlugin/vendor"
     },
     "require": {
-        "chdemko/bitarray": "1.2.0",
+        "chdemko/bitarray": "1.2.1",
         "jasongrimes/paginator": "1.0.2",
         "jdorn/sql-formatter": "^1.2",
         "jmathai/php-multi-curl": "dev-master",

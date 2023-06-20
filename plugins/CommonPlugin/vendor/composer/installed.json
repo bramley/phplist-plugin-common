@@ -2,33 +2,32 @@
     "packages": [
         {
             "name": "chdemko/bitarray",
-            "version": "1.2.0",
-            "version_normalized": "1.2.0.0",
+            "version": "1.2.1",
+            "version_normalized": "1.2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chdemko/php-bitarray.git",
-                "reference": "16dbf6c55840b2c84e62de82a84077bb65fc1d11"
+                "reference": "6b90c60d216a6dddb4d0d43efbdd2834310cb722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chdemko/php-bitarray/zipball/16dbf6c55840b2c84e62de82a84077bb65fc1d11",
-                "reference": "16dbf6c55840b2c84e62de82a84077bb65fc1d11",
+                "url": "https://api.github.com/repos/chdemko/php-bitarray/zipball/6b90c60d216a6dddb4d0d43efbdd2834310cb722",
+                "reference": "6b90c60d216a6dddb4d0d43efbdd2834310cb722",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "joomla/coding-standards": "~2.0@alpha",
-                "php-coveralls/php-coveralls": "^2.0",
-                "phpdocumentor/phpdocumentor": "2.9.*",
-                "phpunit/phpunit": "^7.0"
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpunit/phpunit": "^10.2",
+                "squizlabs/php_codesniffer": "3.*"
             },
-            "time": "2018-05-28T14:48:09+00:00",
+            "time": "2023-06-15T19:29:16+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-main": "1.2.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -58,7 +57,7 @@
             ],
             "support": {
                 "issues": "https://github.com/chdemko/php-bitarray/issues",
-                "source": "https://github.com/chdemko/php-bitarray/tree/1.2.0"
+                "source": "https://github.com/chdemko/php-bitarray/tree/1.2.1"
             },
             "install-path": "../chdemko/bitarray"
         },
