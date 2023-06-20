@@ -21,16 +21,20 @@
         "jdorn/sql-formatter": "^1.2",
         "jmathai/php-multi-curl": "dev-master",
         "katzgrau/klogger": "1.2.2",
+        "kodus/db-cache": "^2.0",
         "kodus/file-cache": "^2.0",
         "pelago/emogrifier": "~7.0",
         "psr/container": "1.0.0",
         "psr/log": "1.0.0",
         "setasign/tfpdf": "1.33",
         "symfony/css-selector": "^4.4.23",
-        "symfony/filesystem": "3.4",
-        "kodus/db-cache": "^2.0"
+        "symfony/filesystem": "3.4"
     },
     "autoload": {
+        "files": [
+            "plugins/CommonPlugin/functions.php",
+            "plugins/CommonPlugin/polyfill.php"
+        ],
         "classmap": [
             "plugins/CommonPlugin/vendor/chdemko/bitarray/src",
             "plugins/CommonPlugin/vendor/crossjoin/css/src/",

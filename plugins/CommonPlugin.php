@@ -92,8 +92,6 @@ class CommonPlugin extends phplistPlugin
         parent::activate();
 
         require $this->coderoot . 'Autoloader.php';
-        require $this->coderoot . 'functions.php';
-        require $this->coderoot . 'polyfill.php';
     }
 
     public function adminmenu()

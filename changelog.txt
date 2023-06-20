@@ -1,3 +1,12 @@
+version 3.28.0+20230620
+      Rework Logger class to wrap KLogger instead of inheritance
+      Add debug function to log to logger file
+      Correct test of whether xdebug is enabled
+      Move processing from constructor to activate() method
+      Update BitArray package to 1.2.1
+      Use the admin/PEAR directory for PSR-0 autoloading
+      Use composer to include files
+
 version 3.27.0+20230530
       Add kodus/file-cache package
       add kodus/db-cache package
