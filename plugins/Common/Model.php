@@ -61,11 +61,13 @@ abstract class Model
                  * remove and re-index array
                  */
                 if (is_array($v) && isset($v[0])) {
-                    $value = array_values(array_filter($v));
-                } else {
-                    $value = $v;
+                    $v = array_values(array_filter($v));
                 }
-                $dirty = $dirty || isset($this->persist[$key]);
+
+                if ($v !== $value) {
+                    $value = $v;
+                    $dirty = $dirty || isset($this->persist[$key]);
+                }
             }
         }
         unset($value);
