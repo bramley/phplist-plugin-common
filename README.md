@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.28.1+20230725 Allow search term to be regular expression
     3.28.0+20230620 Update the BitArray package, and internal changes
     3.27.0+20230530 Add database cache and file cache classes
     3.26.0+20230425 Make php 7 the minimum required version

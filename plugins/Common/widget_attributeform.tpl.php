@@ -52,11 +52,15 @@ input[type="text"], select {
             <input size="24" type="text" value="<?php echo htmlspecialchars($model->searchTerm); ?>"
                 name="SearchForm[searchTerm]" id="SearchForm_searchTerm" />
             </label>
+            <label class="inline">
+        <?php echo s('Regex'); ?>:
+        <?php echo CHtml::checkBox('SearchForm[searchIsRegex]', $model->searchIsRegex, ['uncheckValue' => 0]);?>
+            </label>
             <div class='inline'>
             <?php echo CHtml::dropDownList(
             'SearchForm[searchBy]', $model->searchTerm == '' ? 'email' : $model->searchBy,
             array('email' => 'email', 'id' => 'id', 'uniqid' => 'unique id', 'subspage' => 'subscribe page id') + CHtml::listData($model->attributes, 'id', 'name')
-            ); ?>&nbsp;
+            ); ?>
             </div>
             <label class="inline">
         <?php echo s('Order by'); ?>:

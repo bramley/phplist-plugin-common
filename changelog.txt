@@ -1,3 +1,7 @@
+version 3.28.1+20230725
+      Save properties only when at least one has a change of value
+      Add checkbox to treat search term as a regexp
+
 version 3.28.0+20230620
       Rework Logger class to wrap KLogger instead of inheritance
       Add debug function to log to logger file
