@@ -1,3 +1,6 @@
+version 3.28.2+20230730
+      Remove cache packages because they require php 8+
+
 version 3.28.1+20230725
       Save properties only when at least one has a change of value
       Add checkbox to treat search term as a regexp

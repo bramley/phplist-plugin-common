@@ -26,13 +26,11 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         ),
         'P' => 
         array (
-            'Psr\\SimpleCache\\' => 16,
             'Psr\\Container\\' => 14,
             'Pelago\\Emogrifier\\' => 18,
         ),
         'K' => 
         array (
-            'Kodus\\Cache\\' => 12,
             'Katzgrau\\KLogger\\' => 17,
         ),
         'J' => 
@@ -62,10 +60,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
-        'Psr\\SimpleCache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
-        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -73,11 +67,6 @@ class ComposerStaticInitb823a7e2f2d90c601377e32a0b92bc17
         'Pelago\\Emogrifier\\' => 
         array (
             0 => __DIR__ . '/..' . '/pelago/emogrifier/src',
-        ),
-        'Kodus\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kodus/db-cache/src',
-            1 => __DIR__ . '/..' . '/kodus/file-cache/src',
         ),
         'Katzgrau\\KLogger\\' => 
         array (
