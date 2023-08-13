@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.29.0+20230813 Add baseUrl functions for public and admin pages
     3.28.2+20230730 Remove cache packages because they require php 8+
     3.28.1+20230725 Allow search term to be regular expression
     3.28.0+20230620 Update the BitArray package, and internal changes

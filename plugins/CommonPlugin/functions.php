@@ -123,3 +123,39 @@ function debug($message)
     }
     $logger->debug($message);
 }
+
+/*
+ * Construct the base URL for a public page, without trailing /.
+ *
+ * @return string
+ */
+function publicBaseUrl()
+{
+    global $public_scheme, $pageroot;
+
+    static $url = null;
+
+    if ($url === null) {
+        $url = sprintf('%s://%s%s', $public_scheme, getConfig('website'), $pageroot);
+    }
+
+    return $url;
+}
+
+/*
+ * Construct the base URL for an admin page, without trailing /.
+ *
+ * @return string
+ */
+function adminBaseUrl()
+{
+    global $admin_scheme, $pageroot;
+
+    static $url = null;
+
+    if ($url === null) {
+        $url = sprintf('%s://%s%s/admin', $admin_scheme, getConfig('website'), $pageroot);
+    }
+
+    return $url;
+}
