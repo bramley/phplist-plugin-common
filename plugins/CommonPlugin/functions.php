@@ -136,7 +136,11 @@ function publicBaseUrl()
     static $url = null;
 
     if ($url === null) {
+        if (defined('USER_WWWROOT')) {
+            $url = USER_WWWROOT;
+        } else {
         $url = sprintf('%s://%s%s', $public_scheme, getConfig('website'), $pageroot);
+        }
     }
 
     return $url;
