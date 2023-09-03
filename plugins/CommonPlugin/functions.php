@@ -139,9 +139,33 @@ function publicBaseUrl()
         if (defined('USER_WWWROOT')) {
             $url = USER_WWWROOT;
         } else {
-        $url = sprintf('%s://%s%s', $public_scheme, getConfig('website'), $pageroot);
+            $url = sprintf('%s://%s%s', $public_scheme, getConfig('website'), $pageroot);
         }
     }
+
+    return $url;
+}
+
+/*
+ * Construct a public URL.
+ *
+ * @param string $page      optional page
+ * @param array  $params    query parameters
+ *
+ * @return string
+ */
+function publicUrl(...$args)
+{
+    $page = '';
+    $params = [];
+
+    if (count($args) == 2) {
+        $page = $args[0];
+        $params = $args[1];
+    } elseif (count($args) == 1) {
+        $params = $args[0];
+    }
+    $url = sprintf('%s/%s?%s', publicBaseUrl(), $page, http_build_query($params));
 
     return $url;
 }
