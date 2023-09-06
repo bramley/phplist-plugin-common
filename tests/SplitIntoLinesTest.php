@@ -3,8 +3,6 @@
 use PHPUnit\Framework\TestCase;
 use function phpList\plugin\Common\splitIntoLines;
 
-require __DIR__ . '/../plugins/CommonPlugin/functions.php';
-
 class SplitIntoLinesTest extends TestCase
 {
     public function lineEndingsDataProvider()

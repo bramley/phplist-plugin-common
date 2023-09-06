@@ -1,3 +1,8 @@
+version 3.29.1+20230906
+      Use USER_WWWROOT for public base URL
+      Add function to create public URL
+      Revise unit tests
+
 version 3.29.0+20230813
       Add baseUrl functions for public and admin pages to reduce use of global variables
 
