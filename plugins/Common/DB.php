@@ -98,7 +98,10 @@ class DB
      */
     public function queryAll($sql, $keyColumn = null)
     {
-        return new DBResultIterator($this->_query($sql), $keyColumn);
+        $resource = $this->_query($sql);
+        $count = Sql_Num_Rows($resource);
+
+        return new DBResultIterator($resource, $count, $keyColumn);
     }
 
     /**

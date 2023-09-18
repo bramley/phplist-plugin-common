@@ -25,13 +25,14 @@ class DBResultIterator extends \IteratorIterator implements \Countable
     /**
      * Wraps the result in an iterator.
      *
-     * @param mysqli_result $result
-     * @param string        $keyColumn
+     * @param IteratorAggregate $result
+     * @param int               $count
+     * @param string            $keyColumn
      */
-    public function __construct(\mysqli_result $result, $keyColumn = null)
+    public function __construct($result, $count, $keyColumn = null)
     {
         parent::__construct($result);
-        $this->count = $result->num_rows;
+        $this->count = $count;
         $this->keyColumn = $keyColumn;
     }
 
