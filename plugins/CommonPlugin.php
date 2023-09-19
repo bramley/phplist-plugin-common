@@ -121,7 +121,9 @@ class CommonPlugin extends phplistPlugin
             if (!file_exists($languageFile)) {
                 continue;
             }
-            $configKey = sprintf('%s_translations_%s', $piName, $I18N->language);
+            // config key is limited to 35 characters
+            $trailing = sprintf('_translations_%s', $I18N->language);
+            $configKey = substr($piName, 0, 35 - strlen($trailing)) . $trailing;
             $lastUpdate = getConfig($configKey);
             $modified = filemtime($languageFile);
 
