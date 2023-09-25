@@ -20,6 +20,9 @@
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 use Pelago\Emogrifier\CssInliner;
+use phpList\plugin\Common\FileCache;
+
+use function phpList\plugin\Common\debug;
 
 /**
  * Registers the plugin with phplist.
@@ -31,6 +34,8 @@ class CommonPlugin extends phplistPlugin
     const CSS_INLINE_PREMAILER = 'PreMailer';
     const CSS_INLINE_EMOGRIFIER = 'Emogrifier';
     const EMOGRIFIER_MINIMUM_PHP_VERSION = '7.3';
+    const EMBEDDED_IMAGES_CACHE = 'embedded_images.cache';
+    const EMBEDDED_IMAGES_TTL = 3600 * 24 * 7;
 
     /*
      *  Inherited variables
@@ -78,6 +83,13 @@ class CommonPlugin extends phplistPlugin
                 'value' => '',
                 'description' => 'File system path or URL to a logo to be used on PDF reports',
                 'type' => 'text',
+                'allowempty' => true,
+                'category' => 'campaign',
+            ],
+            'common_embed_images' => [
+                'value' => false,
+                'description' => htmlspecialchars('Embed <img> elements that have the "embed" class'),
+                'type' => 'boolean',
                 'allowempty' => true,
                 'category' => 'campaign',
             ],
@@ -180,6 +192,11 @@ END;
         if ($mail->ContentType != 'text/html') {
             return [];
         }
+
+        if (getConfig('common_embed_images') && phplistPlugin::isEnabled('Cache')) {
+            $this->embedImages($mail);
+        }
+
         $package = getConfig('common_inline_css_package');
 
         if ($package == self::CSS_INLINE_PREMAILER) {
@@ -194,5 +211,73 @@ END;
         }
 
         return [];
+    }
+
+    /**
+     * Use this hook to remove expired cached images.
+     */
+    public function processQueueStart()
+    {
+        if (getConfig('common_embed_images') && phplistPlugin::isEnabled('Cache')) {
+            $fileCache = new FileCache(self::EMBEDDED_IMAGES_CACHE);
+            $fileCache->cleanExpired();
+        }
+    }
+
+    private function embedImages($phpmailer)
+    {
+        static $fileCache;
+
+        if ($fileCache === null) {
+            $fileCache = new FileCache(self::EMBEDDED_IMAGES_CACHE, self::EMBEDDED_IMAGES_TTL);
+        }
+
+        libxml_use_internal_errors(true);
+        $dom = new DOMDocument();
+        $dom->encoding = 'UTF-8';
+        libxml_clear_errors();
+
+        $dom->loadHTML('<?xml encoding="utf-8" ?>' . $phpmailer->Body);
+        $errors = libxml_get_errors();
+
+        if (count($errors) > 0) {
+            debug('DOM errors', $errors);
+        }
+        $changed = false;
+
+        foreach ($dom->getElementsByTagName('img') as $element) {
+            $class = $element->getAttribute('class');
+
+            if ($class == '' || !preg_match('/\bembed\b/', $class)) {
+                continue;
+            }
+            $src = $element->getAttribute('src');
+            $cacheKey = str_replace(['{', '}', '(', ')', '/', '\\', '@', ':'], '_', $src);
+            $image = $fileCache->get($cacheKey);
+
+            if ($image === null) {
+                $image = fetchUrlDirect($src);
+
+                if (!$image) {
+                    debug('Unable to fetch image ' . $src);
+                    continue;
+                }
+                $fileCache->set($cacheKey, $image);
+            }
+            $cid = substr(hash('sha256', $src), 0, 32) . '@phpmailer.0';
+            $phpmailer->AddStringEmbeddedImage($image, $cid, pathinfo($src, PATHINFO_BASENAME));
+            $element->setAttribute('src', "cid:$cid");
+
+            if ($class == 'embed') {
+                $element->removeAttribute('class');
+            } else {
+                $element->setAttribute('class', trim(str_replace('embed', '', $class)));
+            }
+            $changed = true;
+        }
+
+        if ($changed) {
+            $phpmailer->Body = $dom->saveHTML();
+        }
     }
 }
