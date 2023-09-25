@@ -102,11 +102,12 @@ function shortenTextDisplay($text, $max = 30)
 /*
  * Log a message when the logging threshold is DEBUG.
  *
- * @param message $string
+ * @param string $message
+ * @param array  $context
  *
  * @return array
  */
-function debug($message)
+function debug($message, $context = [])
 {
     global $log_options, $tmpdir;
 
@@ -121,7 +122,7 @@ function debug($message)
         $logger = new \Katzgrau\KLogger\Logger($dir, \Psr\Log\LogLevel::DEBUG);
         $logger->setDateFormat('H:i:s');
     }
-    $logger->debug($message);
+    $logger->debug($message, $context);
 }
 
 /*
