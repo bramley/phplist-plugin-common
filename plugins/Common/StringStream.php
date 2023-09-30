@@ -1,7 +1,4 @@
 <?php
-
-namespace phpList\plugin\Common;
-
 /**
  * String Stream Wrapper.
  *
@@ -11,6 +8,8 @@ namespace phpList\plugin\Common;
  * @copyright 2012-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
+
+namespace phpList\plugin\Common;
 
 /**
  * This class allows a PHP variable to be used as a read/write stream.
@@ -22,6 +21,8 @@ class StringStream
 {
     const MODE_READ = 1;
     const MODE_WRITE = 2;
+
+    public $context;
 
     private $_currentstring;
     private $_mode;
@@ -131,5 +132,4 @@ class StringStream
             return true;
         } */
 }
-
-stream_wrapper_register('string', 'phpList\plugin\Common\StringStream') or exit('Failed to register string stream');
+stream_wrapper_register('string', StringStream::class) or exit('Failed to register string stream');
