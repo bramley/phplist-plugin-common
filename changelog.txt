@@ -1,3 +1,11 @@
+version 3.30.0+20231014
+      Limit the length of the config table key
+      Refactor to avoid direct dependency on mysql
+      Add context parameter to debug() function
+      Avoid warning about creation of dynamic property
+      Add images with embed class as inline attachments
+      Allow default ttl to be specified when creating a file cache
+
 version 3.29.1+20230906
       Use USER_WWWROOT for public base URL
       Add function to create public URL
