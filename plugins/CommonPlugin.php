@@ -252,6 +252,11 @@ END;
                 continue;
             }
             $src = $element->getAttribute('src');
+
+            if (str_starts_with($src, 'cid:') || str_starts_with($src, 'data:')) {
+                debug('Already inlined ' . $src);
+                continue;
+            }
             $cacheKey = str_replace(['{', '}', '(', ')', '/', '\\', '@', ':'], '_', $src);
             $image = $fileCache->get($cacheKey);
 

@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.30.1+20231016 Ignore images that have already been embedded
     3.30.0+20231014 Add images with embed class as inline attachments
     3.29.1+20230906 Add function to create public URL
     3.29.0+20230813 Add baseUrl functions for public and admin pages
