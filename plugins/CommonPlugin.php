@@ -20,7 +20,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 use Pelago\Emogrifier\CssInliner;
-use phpList\plugin\Common\FileCache;
+use phpList\plugin\Cache\FileCache;
 
 use function phpList\plugin\Common\debug;
 
