@@ -28,7 +28,7 @@ trait ConfigTrait
             FROM {$this->tables['config']}
             WHERE item = '$item'";
 
-        return $this->dbCommand->queryOne($sql, 'value');
+        return $this->dbCommand->queryOne($sql);
     }
 
     /*
