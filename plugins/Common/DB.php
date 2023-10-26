@@ -119,26 +119,19 @@ class DB
     }
 
     /**
-     * Runs a query and returns a single value which can be either a named field or the first field.
+     * Runs a query and returns a single value.
      *
      * @param string $sql   the query
-     * @param string $field a named field to return (optional)
+     * @param string $field unused, remains for backward compatibility
      *
      * @return string|false the field value or false if no rows
      */
     public function queryOne($sql, $field = null)
     {
-        $row = $this->queryRow($sql);
+        $resource = $this->_query($sql);
+        $row = Sql_Fetch_Row($resource);
 
-        if (!$row) {
-            return false;
-        }
-
-        if ($field === null) {
-            return reset($row);
-        }
-
-        return $row[$field];
+        return $row !== null ? $row[0] : false;
     }
 
     /**

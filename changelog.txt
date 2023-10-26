@@ -1,3 +1,7 @@
+version 3.30.3+20231026
+      Remove unnecessary parameter to queryOne()
+      Simplify queryOne() by removing the optional $field parameter
+
 version 3.30.2+20231025
       use the FileCache class from the Cache plugin
       Remove redundant files
