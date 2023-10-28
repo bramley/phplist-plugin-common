@@ -131,7 +131,7 @@ class DB
         $resource = $this->_query($sql);
         $row = Sql_Fetch_Row($resource);
 
-        return $row !== null ? $row[0] : false;
+        return is_array($row) ? $row[0] : false;
     }
 
     /**
