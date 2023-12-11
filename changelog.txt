@@ -1,3 +1,9 @@
+version 3.31.0+20231211
+      Minor clarification in queryOne()
+      Add the Kodus packages outside of composer but include in the classmap
+      Re-add Cache classes
+      Revise embed images processing for file cache and php 8
+
 version 3.30.3+20231026
       Remove unnecessary parameter to queryOne()
       Simplify queryOne() by removing the optional $field parameter

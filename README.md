@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.31.0+20231211 Add cache classes
     3.30.3+20231026 Internal simplification
     3.30.2+20231025 Use the FileCache class from the Cache plugin
     3.30.1+20231016 Ignore images that have already been embedded

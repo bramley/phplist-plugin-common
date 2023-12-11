@@ -20,7 +20,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
 use Pelago\Emogrifier\CssInliner;
-use phpList\plugin\Cache\FileCache;
+use phpList\plugin\Common\FileCache;
 
 use function phpList\plugin\Common\debug;
 
@@ -86,14 +86,17 @@ class CommonPlugin extends phplistPlugin
                 'allowempty' => true,
                 'category' => 'campaign',
             ],
-            'common_embed_images' => [
+        ];
+
+        if (version_compare(PHP_VERSION, '8.0') >= 0) {
+            $this->settings['common_embed_images'] = [
                 'value' => false,
                 'description' => htmlspecialchars('Embed <img> elements that have the "embed" class'),
                 'type' => 'boolean',
                 'allowempty' => true,
                 'category' => 'campaign',
-            ],
-        ];
+            ];
+        }
 
         $this->pageTitles = [
             'phpinfo' => s('phpinfo'),
@@ -193,7 +196,7 @@ END;
             return [];
         }
 
-        if (getConfig('common_embed_images') && phplistPlugin::isEnabled('Cache')) {
+        if (getConfig('common_embed_images')) {
             $this->embedImages($mail);
         }
 
@@ -218,7 +221,7 @@ END;
      */
     public function processQueueStart()
     {
-        if (getConfig('common_embed_images') && phplistPlugin::isEnabled('Cache')) {
+        if (getConfig('common_embed_images')) {
             $fileCache = new FileCache(self::EMBEDDED_IMAGES_CACHE);
             $fileCache->cleanExpired();
         }
