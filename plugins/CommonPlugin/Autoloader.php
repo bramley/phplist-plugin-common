@@ -44,6 +44,36 @@ function CommonPlugin_Autoloader_main()
             $loader->addClassMap($piClassMap);
         }
     }
+
+    // autoload function to dynamically create definitions for the legacy CommonPlugin_xxx classes
+    spl_autoload_register(
+        function ($classname) {
+            $parts = explode('_', $classname);
+
+            if (count($parts) == 1 || $parts[0] != 'CommonPlugin') {
+                return;
+            }
+            $parent = 'phpList\\plugin\\Common\\' . $parts[1];
+
+            if ($parts[1] == 'IPopulator' || $parts[1] == 'IExportable') {
+                $definition = <<<END
+interface $classname extends $parent {}
+END;
+            } else {
+                if (count($parts) == 3) {
+                    $parent .= '\\' . $parts[2];
+
+                    if ($parts[2] == 'List') {
+                        $parent .= 's';
+                    }
+                }
+                $definition = <<<END
+class $classname extends $parent {}
+END;
+            }
+            eval($definition);
+        }
+    );
 }
 
 function CommonPlugin_Autoloader_isAbsolutePath($path)

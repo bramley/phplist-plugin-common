@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.32.1+20231226 Use an autoload function to load legacy classes instead of single class file
     3.32.0+20231221 Replace files for legacy classes by a single file
     3.31.1+20231215 Allow the generated font files to be in a separate directory
     3.31.0+20231211 Add cache classes
