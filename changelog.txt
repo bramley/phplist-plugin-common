@@ -1,3 +1,6 @@
+version 3.32.0+20231221
+      Replace files for legacy classes by a single file
+
 version 3.31.1+20231215
       Allow the generated font files to be in a separate directory
 
