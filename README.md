@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.31.1+20231215 Allow the generated font files to be in a separate directory
     3.31.0+20231211 Add cache classes
     3.30.3+20231026 Internal simplification
     3.30.2+20231025 Use the FileCache class from the Cache plugin

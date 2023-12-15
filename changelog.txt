@@ -1,3 +1,6 @@
+version 3.31.1+20231215
+      Allow the generated font files to be in a separate directory
+
 version 3.31.0+20231211
       Minor clarification in queryOne()
       Add the Kodus packages outside of composer but include in the classmap
