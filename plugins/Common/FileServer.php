@@ -64,14 +64,15 @@ class FileServer
         if (!$contentType) {
             $ext = pathinfo($filepath, PATHINFO_EXTENSION);
             $contentTypes = [
-                'css' => 'text/css',
-                'png' => 'image/png',
-                'gif' => 'image/gif',
-                'jpg' => 'image/jpeg',
-                'jpeg' => 'image/jpeg',
                 'bmp' => 'image/bmp',
+                'css' => 'text/css',
+                'gif' => 'image/gif',
+                'jpeg' => 'image/jpeg',
+                'jpg' => 'image/jpeg',
+                'js' => 'text/javascript',
+                'png' => 'image/png',
             ];
-            $contentType = isset($contentTypes[$ext]) ? $contentTypes[$ext] : 'application/octet-stream';
+            $contentType = $contentTypes[$ext] ?? 'application/octet-stream';
         }
         header("Content-type: $contentType");
         header('Content-Length: ' . filesize($filepath));
