@@ -59,11 +59,11 @@ trait MessageTrait
         $sql = "
             INSERT INTO {$this->tables['message']}
             (id, subject, fromfield, tofield, replyto, message, textmessage, footer,
-                entered, modified, embargo, repeatinterval, repeatuntil,
+                entered, embargo, repeatinterval, repeatuntil,
                 status, htmlformatted, sendformat, template, owner, requeueinterval, requeueuntil
             )
             SELECT NULL, CONCAT('Copy - ', subject), fromfield, tofield, replyto, message, textmessage, footer,
-                now(), now(), embargo, repeatinterval, repeatuntil,
+                now(), embargo, repeatinterval, repeatuntil,
                 'draft', htmlformatted, sendformat, template, owner, requeueinterval, requeueuntil
             FROM {$this->tables['message']}
             WHERE id = $id";
