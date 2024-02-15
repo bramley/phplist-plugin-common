@@ -18,6 +18,7 @@ return [
     'phpList\plugin\Common\DAO\AttributeTrait' => $pluginsDir . '/Common/DAO/AttributeTrait.php',
     'phpList\plugin\Common\DAO\Config' => $pluginsDir . '/Common/DAO/Config.php',
     'phpList\plugin\Common\DAO\ConfigTrait' => $pluginsDir . '/Common/DAO/ConfigTrait.php',
+    'phpList\plugin\Common\DAO\ListUserTrait' => $pluginsDir . '/Common/DAO/ListUserTrait.php',
     'phpList\plugin\Common\DAO\Lists' => $pluginsDir . '/Common/DAO/Lists.php',
     'phpList\plugin\Common\DAO\ListsTrait' => $pluginsDir . '/Common/DAO/ListsTrait.php',
     'phpList\plugin\Common\DAO\Message' => $pluginsDir . '/Common/DAO/Message.php',
