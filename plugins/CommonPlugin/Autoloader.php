@@ -45,7 +45,7 @@ function CommonPlugin_Autoloader_main()
         }
     }
 
-    // autoload function to dynamically create definitions for the legacy CommonPlugin_xxx classes
+    // autoload function to make the legacy CommonPlugin_xxx classes aliases of the namespaced classes
     spl_autoload_register(
         function ($classname) {
             $parts = explode('_', $classname);
@@ -53,25 +53,16 @@ function CommonPlugin_Autoloader_main()
             if (count($parts) == 1 || $parts[0] != 'CommonPlugin') {
                 return;
             }
-            $parent = 'phpList\\plugin\\Common\\' . $parts[1];
+            $original = 'phpList\\plugin\\Common\\' . $parts[1];
 
-            if ($parts[1] == 'IPopulator' || $parts[1] == 'IExportable') {
-                $definition = <<<END
-interface $classname extends $parent {}
-END;
-            } else {
-                if (count($parts) == 3) {
-                    $parent .= '\\' . $parts[2];
+            if (count($parts) == 3) {
+                $original .= '\\' . $parts[2];
 
-                    if ($parts[2] == 'List') {
-                        $parent .= 's';
-                    }
+                if ($parts[2] == 'List') {
+                    $original .= 's';
                 }
-                $definition = <<<END
-class $classname extends $parent {}
-END;
             }
-            eval($definition);
+            class_alias($original, $classname);
         }
     );
 }
