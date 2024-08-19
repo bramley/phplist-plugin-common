@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.33.1+20240819 Make the legacy CommonPlugin_xxx classes aliases of the namespaced classes
     3.33.0+20240215 Add trait for listuser table
     3.32.1+20231226 Use an autoload function to load legacy classes instead of single class file
     3.32.0+20231221 Replace files for legacy classes by a single file
