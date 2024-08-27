@@ -19,6 +19,8 @@ namespace phpList\plugin\Common;
  */
 class ExportCSV
 {
+    private $exportable;
+
     /**
      * @param IExportable $exportable
      */
