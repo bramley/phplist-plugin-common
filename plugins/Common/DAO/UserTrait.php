@@ -69,6 +69,28 @@ trait UserTrait
         return $this->dbCommand->queryAffectedRows($sql);
     }
 
+    public function disableUser($email)
+    {
+        $email = sql_escape($email);
+        $sql =
+            "UPDATE {$this->tables['user']} u
+            SET disabled = 1
+            WHERE email = '$email'";
+
+        return $this->dbCommand->queryAffectedRows($sql);
+    }
+
+    public function enableUser($email)
+    {
+        $email = sql_escape($email);
+        $sql =
+            "UPDATE {$this->tables['user']} u
+            SET disabled = 0
+            WHERE email = '$email'";
+
+        return $this->dbCommand->queryAffectedRows($sql);
+    }
+
     public function updateUserAttribute($email, $attributeId, $value)
     {
         $sql = <<<END
