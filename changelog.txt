@@ -1,3 +1,9 @@
+version 3.34.0+20250202
+      Avoid dynamic property
+      Update curl user agent
+      Add methods to disable and enable a subscriber
+      Rework handling of iterator as result of database query
+
 version 3.33.1+20240819
       Make the legacy CommonPlugin_xxx classes aliases of the namespaced classes
       CS Fixer

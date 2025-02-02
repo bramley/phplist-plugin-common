@@ -94,14 +94,16 @@ class DB
      * @param string $sql       the query
      * @param string $keyColumn optional result column to use as the key
      *
-     * @return DBResultIterator iterator
+     * @return CountableIterator iterator
      */
     public function queryAll($sql, $keyColumn = null)
     {
         $resource = $this->_query($sql);
         $count = Sql_Num_Rows($resource);
 
-        return new DBResultIterator($resource, $count, $keyColumn);
+        return $keyColumn === null
+            ? new CountableIterator($resource, $count)
+            : new CountableIterator(new KeyedIterator($resource, $keyColumn), $count);
     }
 
     /**
