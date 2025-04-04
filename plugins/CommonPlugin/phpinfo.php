@@ -24,7 +24,7 @@ function CommonPlugin_phpinfo($html)
     $xml->loadHTML($html);
     $xsl = new DOMDocument();
     $xsl->loadXML(<<<END
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:php="http://php.net/xsl">
     <xsl:output method="html" indent="yes" encoding="UTF-8"/>
 
 <!-- identity transformation -->
@@ -37,8 +37,9 @@ function CommonPlugin_phpinfo($html)
     <xsl:template match="style">
         <!-- remove styling of a link because it overrides the trevelin theme -->
         <xsl:copy>
-            <xsl:value-of select="substring-before(., 'a:link {color: #009; text-decoration: none; background-color: #fff;}')"/>
-            <xsl:value-of select="substring-after(., 'a:link {color: #009; text-decoration: none; background-color: #fff;}&#x0A;')"/>
+            <xsl:value-of select=
+            "php:functionString('str_replace', 'a:link {color: #009; text-decoration: none; background-color: #fff;}','', . )"
+            />
         </xsl:copy>
     </xsl:template>
 
@@ -55,6 +56,7 @@ END
     );
 
     $proc = new XSLTProcessor();
+    $proc->registerPHPFunctions();
     $proc->importStyleSheet($xsl);
 
     return $proc->transformToXML($xml);
