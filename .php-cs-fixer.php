@@ -35,6 +35,7 @@ return $config->setRules([
         'no_null_property_initialization' => false,
         'nullable_type_declaration_for_default_null_value' => false,
         'fully_qualified_strict_types' => false,
+        'blank_line_after_opening_tag' => false,
     ])
     ->setFinder($finder)
 ;
