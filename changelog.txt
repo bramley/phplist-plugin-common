@@ -1,3 +1,6 @@
+version 3.34.2+20250527
+      Update composer packages
+
 version 3.34.1+20250405
       Do not copy the modified column when copying a campaign
       php 8.4 has slightly different CSS
