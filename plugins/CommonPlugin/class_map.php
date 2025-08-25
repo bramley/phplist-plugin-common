@@ -6,6 +6,7 @@ return [
     'phpList\plugin\Common\BaseController' => $pluginsDir . '/Common/BaseController.php',
     'phpList\plugin\Common\BrowserContext' => $pluginsDir . '/Common/Context.php',
     'phpList\plugin\Common\Cache' => $pluginsDir . '/Common/Cache.php',
+    'phpList\plugin\Common\ChunkedResultIterator' => $pluginsDir . '/Common/ChunkedResultIterator.php',
     'phpList\plugin\Common\CommandLineContext' => $pluginsDir . '/Common/Context.php',
     'phpList\plugin\Common\Config' => $pluginsDir . '/Common/Config.php',
     'phpList\plugin\Common\Container' => $pluginsDir . '/Common/Container.php',

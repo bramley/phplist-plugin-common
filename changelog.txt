@@ -1,3 +1,6 @@
+version 3.35.0+20250825
+      Provide class to use a generator to return chunked results from a query
+
 version 3.34.2+20250527
       Update composer packages
 

@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.35.0+20250825 Provide class to use a generator to return chunked results from a query
     3.34.2+20250527 Update composer packages
     3.34.1+20250405 Fix phpinfo for php 8.4
     3.34.0+20250202 Add methods to disable and enable a subscriber
