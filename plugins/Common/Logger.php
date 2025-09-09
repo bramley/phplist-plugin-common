@@ -49,9 +49,13 @@ class Logger implements LoggerInterface
         if (isset($log_options['threshold']) && defined('Psr\Log\LogLevel::' . $log_options['threshold'])) {
             $threshold = constant('Psr\Log\LogLevel::' . $log_options['threshold']);
             $dir = $log_options['dir'] ?? $tmpdir;
-            $klogger = new \Katzgrau\KLogger\Logger($dir, $threshold);
-            $klogger->setDateFormat('H:i:s');
-            $logger = new static($klogger);
+            try {
+                $klogger = new \Katzgrau\KLogger\Logger($dir, $threshold);
+                $klogger->setDateFormat('H:i:s');
+                $logger = new static($klogger);
+            } catch (\Exception $e) {
+                $logger = new NullLogger();
+            }
         } else {
             $logger = new NullLogger();
         }

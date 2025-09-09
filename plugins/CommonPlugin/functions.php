@@ -119,7 +119,11 @@ function debug($message, $context = [])
 
     if ($logger === null) {
         $dir = $log_options['dir'] ?? $tmpdir;
-        $logger = new \Katzgrau\KLogger\Logger($dir, \Psr\Log\LogLevel::DEBUG);
+        try {
+            $logger = new \Katzgrau\KLogger\Logger($dir, \Psr\Log\LogLevel::DEBUG);
+        } catch (\Exception $e) {
+            return;
+        }
         $logger->setDateFormat('H:i:s');
     }
     $logger->debug($message, $context);
