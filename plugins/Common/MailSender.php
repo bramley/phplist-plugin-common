@@ -111,9 +111,12 @@ class MailSender
         curl_setopt($curl, CURLOPT_POST, true);
 
         if ($this->curlVerbose) {
-            curl_setopt($curl, CURLOPT_VERBOSE, true);
             $log = fopen(sprintf('%s/curl_%s.log', $tmpdir, date('Y-m-d')), 'a+');
-            curl_setopt($curl, CURLOPT_STDERR, $log);
+
+            if ($log !== false) {
+                curl_setopt($curl, CURLOPT_VERBOSE, true);
+                curl_setopt($curl, CURLOPT_STDERR, $log);
+            }
         }
 
         return $curl;
