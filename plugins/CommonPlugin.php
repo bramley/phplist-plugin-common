@@ -118,7 +118,6 @@ class CommonPlugin extends phplistPlugin
     {
         return [
             'PHP version 7 or greater' => version_compare(PHP_VERSION, '7') > 0,
-            'phpList version 3.3.2 or later' => version_compare(VERSION, '3.3.2') >= 0,
         ];
     }
 
