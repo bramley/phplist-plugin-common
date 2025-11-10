@@ -159,4 +159,19 @@ class DB
 
         return array_column($array, $field, $index);
     }
+
+    /**
+     * Run a query and return the result.
+     *
+     * @param string             $sql      the query
+     * @param mysqli_result|bool $resource
+     *
+     * @return string|false the field value or false if no rows
+     */
+    public function query($sql)
+    {
+        $resource = $this->_query($sql);
+
+        return $resource;
+    }
 }

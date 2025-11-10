@@ -1,3 +1,7 @@
+version 3.35.2+20251110
+      Remove obsolete dependency
+      Add method to run a query and return the result
+
 version 3.35.1+20250909
       Handle failure to open curl log file
       Handle failure to open log file

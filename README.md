@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.35.2+20251110 Add method to run a query and return the result
     3.35.1+20250909 Handle failure to open a log file
     3.35.0+20250825 Provide class to use a generator to return chunked results from a query
     3.34.2+20250527 Update composer packages
