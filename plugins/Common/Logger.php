@@ -97,31 +97,26 @@ class Logger implements LoggerInterface
          * [2] is the caller of debug(), info() etc
          * [3] is the previous level, which gives the class/method of the caller of debug(), info() etc
          */
-        foreach ([1, 2] as $i) {
-            $caller = $trace[$i];
-            $previous = $trace[$i + 1];
+        $i = $trace[1]['class'] == __CLASS__ ? 1 : 2;
+        $caller = $trace[$i];
+        $previous = $trace[$i + 1];
 
-            if (isset($previous['class'])) {
-                $class = $previous['class'];
+        if (isset($previous['class'])) {
+            $class = $previous['class'];
 
-                if (isset($this->classes[$class])) {
-                    $key = $class;
-                    $found = true;
-                } else {
-                    $parts = explode('\\', $class, 2);
-                    $key = $parts[0];
-                    $found = isset($this->classes[$key]);
-                }
+            if (isset($this->classes[$class])) {
+                $key = $class;
+                $found = true;
+            } else {
+                $parts = explode('\\', $class, 2);
+                $key = $parts[0];
+                $found = isset($this->classes[$key]);
+            }
 
-                if ($found) {
-                    if ($this->classes[$key]) {
-                        $shortClass = str_replace('phpList\plugin\\', '', $previous['class']);
-                        $logMessage = sprintf('%s %s', $shortClass, (string) $message);
-                        $this->wrappedLogger->log($level, $logMessage, $context);
-                    }
-
-                    return;
-                }
+            if ($found && $this->classes[$key]) {
+                $shortClass = str_replace('phpList\plugin\\', '', $previous['class']);
+                $logMessage = sprintf('%s %s', $shortClass, (string) $message);
+                $this->wrappedLogger->log($level, $logMessage, $context);
             }
         }
     }
