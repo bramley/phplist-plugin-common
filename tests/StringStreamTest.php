@@ -38,11 +38,11 @@ ccc,ddd
 e,f
 END;
         $fh = StringStream::fopen($csv);
-        $fields = fgetcsv($fh);
+        $fields = fgetcsv($fh, 0, ',', '"', '');
         $this->assertEquals(['aaaa', 'bbb'], $fields);
-        $fields = fgetcsv($fh);
+        $fields = fgetcsv($fh, 0, ',', '"', '');
         $this->assertEquals(['ccc', 'ddd'], $fields);
-        $fields = fgetcsv($fh);
+        $fields = fgetcsv($fh, 0, ',', '"', '');
         $this->assertEquals(['e', 'f'], $fields);
     }
 

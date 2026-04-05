@@ -1,11 +1,12 @@
 <?php
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use function phpList\plugin\Common\splitIntoLines;
 
 class SplitIntoLinesTest extends TestCase
 {
-    public function lineEndingsDataProvider()
+    public static function lineEndingsDataProvider()
     {
         return [
             'line-ending CRNL' => ["element 1\r\nelement 2\r\nelement 3\r\n"],
@@ -14,18 +15,15 @@ class SplitIntoLinesTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider lineEndingsDataProvider
-     */
-    public function lineEndings($value)
+    #[DataProvider('lineEndingsDataProvider')]
+    public function testLineEndings($value)
     {
         $result = splitIntoLines($value);
         $expected = ['element 1', 'element 2', 'element 3'];
         $this->assertEquals($expected, $result);
     }
 
-    public function trimValueDataProvider()
+    public static function trimValueDataProvider()
     {
         return [
             'trailing line ending' => ["element 1\relement 2\relement 3\r\r"],
@@ -36,31 +34,22 @@ class SplitIntoLinesTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider trimValueDataProvider
-     */
-    public function trimValue($value)
+    #[DataProvider('trimValueDataProvider')]
+    public function testTrimValue($value)
     {
         $result = splitIntoLines($value);
         $expected = ['element 1', 'element 2', 'element 3'];
         $this->assertEquals($expected, $result);
     }
 
-    /**
-     * @test
-     */
-    public function singleLine()
+    public function testSingleLine()
     {
         $result = splitIntoLines('element 1');
         $expected = ['element 1'];
         $this->assertEquals($expected, $result);
     }
 
-    /**
-     * @test
-     */
-    public function emptyValue()
+    public function testEmptyValue()
     {
         $result = splitIntoLines('');
         $expected = [];
