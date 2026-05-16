@@ -1,3 +1,8 @@
+version 3.35.3+20260516
+      Rework the handling of debug backtrace.
+      Update unit tests for phpunit 13.1
+      Order lists by category, listorder to allow grouping
+
 version 3.35.2+20251110
       Remove obsolete dependency
       Add method to run a query and return the result

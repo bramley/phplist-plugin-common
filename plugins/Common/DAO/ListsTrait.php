@@ -32,10 +32,10 @@ trait ListsTrait
     {
         $owner = $loginid ? 'WHERE l.owner = ' . $loginid : '';
         $sql =
-            "SELECT l.id, REPLACE(l.name, '&amp;', '&') as name, l.description, l.active
+            "SELECT l.id, REPLACE(l.name, '&amp;', '&') as name, l.description, l.active, coalesce(nullif(l.category, ''), 'Uncategorised') as category
             FROM {$this->tables['list']} l
             $owner
-            ORDER BY l.listorder";
+            ORDER BY category, l.listorder";
 
         return $this->dbCommand->queryAll($sql, 'id');
     }
