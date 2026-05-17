@@ -86,6 +86,17 @@ class CommonPlugin extends phplistPlugin
                 'allowempty' => true,
                 'category' => 'campaign',
             ],
+            'common_order_categories' => [
+                'description' => s('Order categories alphabetically or by position'),
+                'type' => 'select',
+                'value' => 'alphabetically',
+                'values' => [
+                    'alphabetically' => 'Alphabetically',
+                    'position' => 'By position',
+                ],
+                'allowempty' => false,
+                'category' => 'General',
+            ],
         ];
 
         if (version_compare(PHP_VERSION, '8.0') >= 0) {

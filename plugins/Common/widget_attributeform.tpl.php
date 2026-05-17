@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CommonPlugin for phplist.
  *
@@ -10,6 +11,8 @@
  * @copyright 2011-2018 Duncan Cameron
  * @license   http://www.gnu.org/licenses/gpl.html GNU General Public License, Version 3
  */
+
+use function phpList\plugin\Common\listDataByCategory;
 
 /**
  * Template for the attribute search and select widget form.
@@ -75,8 +78,9 @@ input[type="text"], select {
             <label class="inline">
             <?php echo s('List'); ?>:
             <?php echo CHtml::dropDownList(
-                'SearchForm[listID]', $model->listID,
-                CHtml::listData($model->lists, 'id', 'name'),
+                'SearchForm[listID]',
+                $model->listID,
+                listDataByCategory($model->lists),
                 array('prompt' => s('All'))
             ); ?>
             </label>

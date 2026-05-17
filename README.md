@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.35.4+20260517 Add setting to order list categories alphabetically or by position
     3.35.3+20260516 Allow grouping of lists by category
     3.35.2+20251110 Add method to run a query and return the result
     3.35.1+20250909 Handle failure to open a log file

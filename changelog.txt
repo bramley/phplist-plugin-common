@@ -1,3 +1,8 @@
+version 3.35.4+20260517
+      Add function to order by categories in list data
+      Add setting to order alphabetically or by position
+      Use function on the search form
+
 version 3.35.3+20260516
       Rework the handling of debug backtrace.
       Update unit tests for phpunit 13.1

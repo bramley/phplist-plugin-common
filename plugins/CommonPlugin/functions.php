@@ -2,6 +2,8 @@
 
 namespace phpList\plugin\Common;
 
+use CHtml;
+
 /**
  * Get a config value then split it into lines.
  *
@@ -191,4 +193,40 @@ function adminBaseUrl()
     }
 
     return $url;
+}
+
+/*
+ * When categories are being used, group and order lists by category.
+ * Sort by the order of categories in the config table.
+ *
+ * @param array|iterator $lists rows from the list table
+ *
+ * @return array data that can be used in CHtml::dropDownList
+ */
+function listDataByCategory($lists)
+{
+    if (!is_array($lists)) {
+        $lists = iterator_to_array($lists);
+    }
+    $categories = listCategories(); // [0] => 'CCC', [1] => 'AAA'
+
+    if ($categories) {
+        $listData = CHtml::listData($lists, 'id', 'name', 'category');
+
+        if (getConfig('common_order_categories') == 'position') {
+            $categoryIndex = array_flip($categories);
+            $compare = function ($a, $b) use ($categoryIndex) {
+                return $categoryIndex[$a] <=> $categoryIndex[$b];
+            };
+        } else {
+            $compare = function ($a, $b) {
+                return $a <=> $b;
+            };
+        }
+        uksort($listData, $compare);
+    } else {
+        $listData = CHtml::listData($lists, 'id', 'name');
+    }
+
+    return $listData;
 }
