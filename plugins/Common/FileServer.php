@@ -36,7 +36,7 @@ class FileServer
      * @param string $filepath    path to the file
      * @param string $contentType content type to be used
      */
-    public function serveFile($filepath, $contentType = null)
+    public function serveFile($filepath, $contentType = null, $extraHeaders = [])
     {
         if (!file_exists($filepath)) {
             header('HTTP/1.0 404 Not Found');
@@ -73,6 +73,10 @@ class FileServer
                 'png' => 'image/png',
             ];
             $contentType = $contentTypes[$ext] ?? 'application/octet-stream';
+        }
+
+        foreach ($extraHeaders as $header) {
+            header($header);
         }
         header("Content-type: $contentType");
         header('Content-Length: ' . filesize($filepath));

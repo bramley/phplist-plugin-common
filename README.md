@@ -49,6 +49,7 @@ For guidance on using the plugin see the plugin's page within the phplist docume
 ## Version history ##
 
     version         Description
+    3.35.5+20260726 Allow extra headers to be passed to the serveFile() method of FileServer
     3.35.4+20260517 Add setting to order list categories alphabetically or by position
     3.35.3+20260516 Allow grouping of lists by category
     3.35.2+20251110 Add method to run a query and return the result

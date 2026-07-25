@@ -1,3 +1,6 @@
+version 3.35.5+20260726
+      Allow extra headers to be passed to the serveFile() method of FileServer
+
 version 3.35.4+20260517
       Add function to order by categories in list data
       Add setting to order alphabetically or by position
