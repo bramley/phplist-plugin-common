@@ -18,6 +18,8 @@ namespace phpList\plugin\Common;
  */
 class FrontendTranslator
 {
+    private $language;
+    private $languageCode;
     private $translations;
 
     /**
@@ -33,16 +35,19 @@ class FrontendTranslator
         $languageFile = !empty($pageData['language_file'])
             ? $pageData['language_file']
             : $language_module;
+        $language = 'english';
         $require = "{$codeRoot}lan/frontend_english.php";
 
         if (preg_match('/(.+)\.inc$/', $languageFile, $matches)) {
-            $language = $matches[1];
-            $f = "{$codeRoot}lan/frontend_$language.php";
+            $f = "{$codeRoot}lan/frontend_{$matches[1]}.php";
 
             if (file_exists($f)) {
+                $language = $matches[1];
                 $require = $f;
             }
         }
+        $this->language = $language;
+        $this->languageCode = $this->languageToCode($language);
         $this->translations = require $require;
     }
 
@@ -59,5 +64,95 @@ class FrontendTranslator
         return count($args) > 0
              ? sprintf($translated, ...$args)
              : $translated;
+    }
+
+    /**
+     * Convert a php date format to that used by IntlDateFormatter.
+     *
+     * @param string $phpFormat php date format
+     *
+     * @return string
+     */
+    public function convertFormat($phpFormat)
+    {
+        $intlFormats = [
+            // Day
+            'd' => 'd',     // 08
+            'D' => 'eee',   // Mon
+            'j' => 'd',     // 8
+            'l' => 'EEEE',  // Monday
+            'S' => '',
+            // Month
+            'F' => 'MMMM',  // July
+            'm' => 'MM',    // 07
+            'M' => 'MMM',   // Jul
+            'n' => 'M',     // 7
+            // Year
+            'Y' => 'y',     // 2026
+            'y' => 'yy',    // 26
+        ];
+
+        return strtr($phpFormat, $intlFormats);
+    }
+
+    public function languageCode()
+    {
+        return $this->languageCode;
+    }
+
+    /**
+     * Convert a language name to the code used by IntlDateFormatter.
+     *
+     * @param string $language language name
+     *
+     * @return string
+     */
+    private function languageToCode($language)
+    {
+        $nameToCode = [
+            'afrikaans' => 'af',
+            'arabic' => 'ar',
+            'belgianflemish' => '',
+            'bosnian' => 'bs',
+            'bulgarian' => 'bg',
+            'catalan' => 'ca',
+            'croatian' => 'hr',
+            'czech' => 'cs',
+            'danish' => 'da',
+            'dutch' => 'nl',
+            'english-gaelic' => 'en-GB',
+            'english' => 'en-GB',
+            'english-usa' => 'en',
+            'estonian' => 'et',
+            'finnish' => 'fi',
+            'french' => 'fr',
+            'german' => 'de',
+            'greek' => 'el',
+            'hebrew' => 'iw',
+            'hungarian' => 'hu',
+            'indonesian' => 'id',
+            'italian' => 'it',
+            'japanese' => 'ja',
+            'latinamerican' => 'es',
+            'norwegian' => 'no',
+            'persian' => 'fa',
+            'polish' => 'pl',
+            'portuguese' => 'pt',
+            'portuguese_pt' => 'pt-PT',
+            'romanian' => 'ro',
+            'russian' => 'ru',
+            'serbian' => 'sr',
+            'slovenian' => 'sl',
+            'spanish' => 'es',
+            'swedish' => 'sv',
+            'swissgerman' => 'de-CH',
+            'tchinese' => 'zh-TW',
+            'turkish' => 'tr',
+            'ukrainian' => 'uk',
+            'usa' => 'en',
+            'vietnamese' => 'vi',
+        ];
+
+        return isset($nameToCode[$language]) ? $nameToCode[$language] : '';
     }
 }
